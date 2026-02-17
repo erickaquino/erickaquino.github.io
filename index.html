@@ -42,8 +42,8 @@
 
             --text-primary: #e8ecf0;
             --text-secondary: #8fa3b8;
-            --text-tertiary: #5a7086;
-            --text-faint: #3d5068;
+            --text-tertiary: #7a93a8;
+            --text-faint: #5a7a90;
 
             --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
             --font-sans: 'Outfit', -apple-system, sans-serif;
@@ -2447,6 +2447,14 @@
             .vertical-name { font-size: 11px; }
             .contact-terminal-body .key { min-width: 64px; }
         }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            .scroll-progress-bar { transition: none; }
+            .section-sep-line { transition: none; }
+        }
     </style>
 </head>
 <body>
@@ -2469,8 +2477,6 @@
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">[menu]</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
-                <li><a href="#methodology">Process</a></li>
-                <li><a href="#certifications">Certs</a></li>
                 <li><a href="#ecosystem">Ecosystem</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -2511,7 +2517,7 @@
                         </div>
                         <div class="status-card">
                             <div class="status-label">Scripts Deployed</div>
-                            <div class="status-value"><span class="counter" data-target="3500">0</span><span class="unit">+</span></div>
+                            <div class="status-value"><span class="counter" data-target="4000">0</span><span class="unit">+</span></div>
                             <div class="status-sub">SuiteScript 2.x production</div>
                         </div>
                         <div class="status-card">
@@ -2535,6 +2541,7 @@
                         <a href="#contact" class="btn btn-primary">Get in touch</a>
                         <a href="#experience" class="btn btn-ghost">View experience &darr;</a>
                         <a href="Aquino_Erick_CV_Designed.pdf" class="btn btn-amber" target="_blank">Download CV &darr;</a>
+                        <a href="https://www.linkedin.com/in/ejaquino/" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn &nearr;</a>
                     </div>
                 </div>
             </div>
@@ -2547,28 +2554,28 @@
     <div class="stats-ticker reveal">
         <div class="stats-ticker-inner">
             <div class="ticker-stat">
-                <div class="ticker-value"><span class="counter" data-target="10">0</span><span class="ticker-unit"> yrs</span></div>
-                <div class="ticker-label">Experience</div>
+                <div class="ticker-value"><span class="counter" data-target="87">0</span><span class="ticker-unit">+</span></div>
+                <div class="ticker-label">MapReduce scripts</div>
             </div>
             <div class="ticker-divider"></div>
             <div class="ticker-stat">
-                <div class="ticker-value"><span class="counter" data-target="3500">0</span><span class="ticker-unit">+</span></div>
-                <div class="ticker-label">Scripts deployed</div>
+                <div class="ticker-value"><span class="counter" data-target="50">0</span><span class="ticker-unit">+</span></div>
+                <div class="ticker-label">Celigo integration flows</div>
             </div>
             <div class="ticker-divider"></div>
             <div class="ticker-stat">
-                <div class="ticker-value"><span class="counter" data-target="20">0</span><span class="ticker-unit">+</span></div>
-                <div class="ticker-label">Enterprise clients</div>
+                <div class="ticker-value"><span class="counter" data-target="8">0</span></div>
+                <div class="ticker-label">Industry verticals</div>
             </div>
             <div class="ticker-divider"></div>
             <div class="ticker-stat">
-                <div class="ticker-value"><span class="counter" data-target="7">0</span></div>
-                <div class="ticker-label">Certifications</div>
+                <div class="ticker-value"><span class="counter" data-target="1200">0</span><span class="ticker-unit">+</span></div>
+                <div class="ticker-label">Scripts (single engagement)</div>
             </div>
             <div class="ticker-divider"></div>
             <div class="ticker-stat">
-                <div class="ticker-value"><span class="counter" data-target="29500">0</span><span class="ticker-unit">+</span></div>
-                <div class="ticker-label">Lines of Python</div>
+                <div class="ticker-value"><span class="counter" data-target="3600">0</span><span class="ticker-unit">+</span></div>
+                <div class="ticker-label">RPS (SaaS platform)</div>
             </div>
         </div>
     </div>
@@ -2640,7 +2647,7 @@
                     <div class="method-step-num">01</div>
                     <div class="method-step-card">
                         <div class="method-step-title">Discovery</div>
-                        <div class="method-step-desc">Requirements gathering, constraints mapping, and stakeholder alignment</div>
+                        <div class="method-step-desc">Requirements mapping against NetSuite capabilities, constraints identification, and stakeholder alignment</div>
                     </div>
                     <div class="method-connector"><span></span><span></span><span></span></div>
                 </div>
@@ -2648,7 +2655,7 @@
                     <div class="method-step-num">02</div>
                     <div class="method-step-card">
                         <div class="method-step-title">Architecture</div>
-                        <div class="method-step-desc">System design, integration mapping, and technology selection</div>
+                        <div class="method-step-desc">Integration design with Celigo flows, API contracts, data models, and SuiteCloud architecture</div>
                     </div>
                     <div class="method-connector"><span></span><span></span><span></span></div>
                 </div>
@@ -2656,7 +2663,7 @@
                     <div class="method-step-num">03</div>
                     <div class="method-step-card">
                         <div class="method-step-title">Build</div>
-                        <div class="method-step-desc">SuiteScript development, Celigo flows, iterative testing, and deployment</div>
+                        <div class="method-step-desc">SuiteScript 2.x development, Celigo flow configuration, SDF deployment, and iterative testing</div>
                     </div>
                     <div class="method-connector"><span></span><span></span><span></span></div>
                 </div>
@@ -2664,65 +2671,8 @@
                     <div class="method-step-num">04</div>
                     <div class="method-step-card">
                         <div class="method-step-title">Optimize</div>
-                        <div class="method-step-desc">Performance tuning, monitoring, documentation, and knowledge transfer</div>
+                        <div class="method-step-desc">Production monitoring, governance tuning, error handling, documentation, and knowledge transfer</div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
-
-    <!-- ═══════════════ CERTIFICATIONS SHOWCASE ═══════════════ -->
-    <section id="certifications">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-label">Credentials</div>
-                <h2 class="section-title">Certifications</h2>
-            </div>
-
-            <div class="certs-grid reveal-scale stagger-children">
-                <div class="cert-badge oracle-cert reveal" style="--i:0">
-                    <div class="cert-badge-check">&#10003;</div>
-                    <div class="cert-badge-name">NetSuite Certified AI Foundations Associate</div>
-                    <div class="cert-badge-org">Oracle</div>
-                    <div class="cert-badge-date">Nov 2025</div>
-                </div>
-                <div class="cert-badge oracle-cert reveal" style="--i:1">
-                    <div class="cert-badge-check">&#10003;</div>
-                    <div class="cert-badge-name">NetSuite Certified BI &amp; Reporting Associate</div>
-                    <div class="cert-badge-org">Oracle</div>
-                    <div class="cert-badge-date">Nov 2025</div>
-                </div>
-                <div class="cert-badge oracle-cert reveal" style="--i:2">
-                    <div class="cert-badge-check">&#10003;</div>
-                    <div class="cert-badge-name">NetSuite Certified Financial Associate</div>
-                    <div class="cert-badge-org">Oracle</div>
-                    <div class="cert-badge-date">Nov 2025</div>
-                </div>
-                <div class="cert-badge oracle-cert reveal" style="--i:3">
-                    <div class="cert-badge-check">&#10003;</div>
-                    <div class="cert-badge-name">OCI 2025 AI Foundations Associate</div>
-                    <div class="cert-badge-org">Oracle</div>
-                    <div class="cert-badge-date">Nov 2025</div>
-                </div>
-                <div class="cert-badge oracle-cert reveal" style="--i:4">
-                    <div class="cert-badge-check">&#10003;</div>
-                    <div class="cert-badge-name">NetSuite SuiteFoundation</div>
-                    <div class="cert-badge-org">Oracle NetSuite</div>
-                    <div class="cert-badge-date">Verified</div>
-                </div>
-                <div class="cert-badge celigo-cert reveal" style="--i:5">
-                    <div class="cert-badge-check">&#10003;</div>
-                    <div class="cert-badge-name">Mastery Level 4: Legendary</div>
-                    <div class="cert-badge-org">Celigo</div>
-                    <div class="cert-badge-date">Oct 2023</div>
-                </div>
-                <div class="cert-badge celigo-cert reveal" style="--i:6">
-                    <div class="cert-badge-check">&#10003;</div>
-                    <div class="cert-badge-name">Builder Core Certification</div>
-                    <div class="cert-badge-org">Celigo</div>
-                    <div class="cert-badge-date">Feb 2025</div>
                 </div>
             </div>
         </div>
@@ -2882,7 +2832,7 @@
                     <ul class="timeline-desc">
                         <li>Lead technical architect for multi-system integration initiatives across 20+ enterprise accounts, including globally recognized brands across beauty/DTC, sports equipment, consumer electronics, and industrial manufacturing.</li>
                         <li>Sole architect for a global sports equipment manufacturer: designed and delivered a 1,200+ custom script ecosystem from requirements through production &mdash; the largest technical engagement in the portfolio.</li>
-                        <li>Architected a full-lifecycle platform for a major DTC beauty brand: 800+ custom scripts spanning order management, payment processing, fulfillment automation, and multi-channel integration.</li>
+                        <li>Architected a full-lifecycle platform for a major DTC beauty brand: 896 custom scripts spanning order management, payment processing, fulfillment automation, and multi-channel integration.</li>
                         <li>Deployed 3PL integration frameworks connecting NetSuite to Masonhub, ShipBob, Capacity, ILG, and Radial across 20+ client accounts, eliminating manual shipment processing.</li>
                         <li>Built and optimized 50+ integration flows on Celigo iPaaS with advanced error handling, retry logic, and data transformation for reliable high-volume data orchestration.</li>
                         <li>Built a Signifyd fraud detection-integrated omnichannel e-commerce platform with Amazon marketplace connectivity, multi-language/region support, and direct-to-consumer order processing for a global consumer goods company.</li>
@@ -3260,7 +3210,7 @@
 
                     <!-- Beauty & DTC Clients -->
                     <div class="portfolio-group">
-                        <div class="portfolio-group-label">Beauty &amp; DTC Vertical &mdash; 8 Additional Clients</div>
+                        <div class="portfolio-group-label">Beauty &amp; DTC Vertical &mdash; 9 Additional Clients</div>
                         <div class="compact-grid stagger-children">
                             <div class="compact-card beauty reveal" style="--i:0">
                                 <div class="compact-card-tag">Luxury Cosmetics</div>
@@ -3353,6 +3303,18 @@
                                     <span class="compact-metric">4 scripts</span>
                                     <div class="compact-pills">
                                         <span class="tech-pill">SuiteScript 2.x</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compact-card beauty reveal" style="--i:8">
+                                <div class="compact-card-tag">Clinical Skincare</div>
+                                <div class="compact-card-title">Clinical Skincare Brand</div>
+                                <div class="compact-card-desc">NetSuite customization for clinical skincare brand — order management, inventory sync, and fulfillment automation (123+ scripts)</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">123 scripts</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">SuiteScript 2.x</span>
+                                        <span class="tech-pill">Shopify</span>
                                     </div>
                                 </div>
                             </div>
@@ -3554,39 +3516,6 @@
                 <div class="philosophy-card reveal" style="--i:3">
                     <div class="philosophy-title">Integration-First Architecture</div>
                     <div class="philosophy-desc">Every solution starts with the data flow. Celigo, REST, SOAP, EDI &mdash; connectivity is the foundation, not an afterthought. Build the pipes first.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
-
-    <!-- ═══════════════ INSIGHTS ═══════════════ -->
-    <section id="insights">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-label">Writing</div>
-                <h2 class="section-title">Insights</h2>
-            </div>
-
-            <div class="insights-grid stagger-children">
-                <div class="insight-card reveal" style="--i:0">
-                    <div class="insight-badge">Coming soon</div>
-                    <div class="insight-title">Lessons from 1,200+ scripts as a solo architect</div>
-                    <div class="insight-excerpt">What I learned building the largest NetSuite implementation in my portfolio &mdash; from requirements gathering through production deployment as the sole technical architect.</div>
-                    <div class="insight-date">2026</div>
-                </div>
-                <div class="insight-card reveal" style="--i:1">
-                    <div class="insight-badge">Coming soon</div>
-                    <div class="insight-title">MapReduce patterns for enterprise NetSuite</div>
-                    <div class="insight-excerpt">Design patterns and performance strategies from 87+ MapReduce scripts processing millions of records across reconciliation, migration, and transformation workloads.</div>
-                    <div class="insight-date">2026</div>
-                </div>
-                <div class="insight-card reveal" style="--i:2">
-                    <div class="insight-badge">Coming soon</div>
-                    <div class="insight-title">Building a SaaS platform in Python from scratch</div>
-                    <div class="insight-excerpt">How I built EKW-SPHERE &mdash; a 29,500+ line operations platform with Flask, PostgreSQL, Redis, and Celery &mdash; from idea to 3,600+ requests per second.</div>
-                    <div class="insight-date">2026</div>
                 </div>
             </div>
         </div>
@@ -3924,6 +3853,8 @@
                     {text: ', ', cls: 'egg-response'},
                     {text: 'hire', cls: 'egg-highlight'},
                     {text: ', ', cls: 'egg-response'},
+                    {text: 'cv', cls: 'egg-highlight'},
+                    {text: ', ', cls: 'egg-response'},
                     {text: 'clear', cls: 'egg-highlight'},
                     {text: ', ', cls: 'egg-response'},
                     {text: 'exit', cls: 'egg-highlight'}
@@ -3942,7 +3873,7 @@
                     {text: '22+', cls: 'egg-highlight'},
                     {text: ' projects delivered', cls: 'egg-response'},
                     {text: '\n', cls: ''},
-                    {text: '3,500+', cls: 'egg-highlight'},
+                    {text: '4,000+', cls: 'egg-highlight'},
                     {text: ' scripts deployed', cls: 'egg-response'},
                     {text: '\n', cls: ''},
                     {text: '20+', cls: 'egg-highlight'},
@@ -3964,6 +3895,9 @@
                     {text: 'ejaquino26@gmail.com', cls: 'egg-link'},
                     {text: '\nOpen to: NetSuite Architecture, Integration Strategy,', cls: 'egg-response'},
                     {text: '\nERP Modernization, Technical Advisory', cls: 'egg-response'}
+                ],
+                cv: [
+                    {text: 'Downloading CV...', cls: 'egg-highlight'}
                 ]
             };
 
@@ -4030,6 +3964,9 @@
                     while (eggBody.firstChild) eggBody.removeChild(eggBody.firstChild);
                 } else if (cmd === 'exit') {
                     overlay.classList.remove('open');
+                } else if (cmd === 'cv') {
+                    renderResponse(commands[cmd]);
+                    window.open('Aquino_Erick_CV_Designed.pdf', '_blank');
                 } else {
                     var response = commands[cmd];
                     if (!response) {
