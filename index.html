@@ -1099,6 +1099,7 @@
 
         .project-narrative .label.challenge { color: var(--amber-dim); }
         .project-narrative .label.solution { color: var(--cyan-dim); }
+        .project-narrative .label.impact { color: var(--green-status); }
 
         .project-metrics {
             display: flex;
@@ -1145,6 +1146,173 @@
             border-radius: 4px;
             padding: 3px 8px;
             letter-spacing: 0.3px;
+        }
+
+        /* ══════════════════════════════════════════
+           EXTENDED PORTFOLIO
+           ══════════════════════════════════════════ */
+        .portfolio-toggle-wrap {
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .portfolio-toggle-btn {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--cyan);
+            background: var(--bg-card);
+            border: 1px solid var(--border-medium);
+            border-radius: 6px;
+            padding: 14px 32px;
+            cursor: pointer;
+            transition: all 0.25s var(--ease-out-quart);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .portfolio-toggle-btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--cyan-dim);
+            transform: translateY(-1px);
+        }
+
+        .portfolio-toggle-btn .arrow {
+            transition: transform 0.3s var(--ease-out-quart);
+            display: inline-block;
+        }
+
+        .portfolio-toggle-btn.expanded .arrow {
+            transform: rotate(180deg);
+        }
+
+        .extended-portfolio {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s var(--ease-out-expo), opacity 0.4s ease;
+            opacity: 0;
+        }
+
+        .extended-portfolio.open {
+            max-height: 4000px;
+            opacity: 1;
+        }
+
+        .extended-portfolio-inner {
+            padding-top: 48px;
+        }
+
+        .portfolio-group { margin-bottom: 40px; }
+        .portfolio-group:last-child { margin-bottom: 0; }
+
+        .portfolio-group-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-tertiary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .portfolio-group-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-subtle);
+        }
+
+        .compact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .compact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-left: 3px solid var(--border-medium);
+            border-radius: 6px;
+            padding: 18px 16px;
+            transition: all 0.25s var(--ease-out-quart);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .compact-card:hover {
+            border-color: var(--border-medium);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+
+        .compact-card.beauty { border-left-color: var(--pink); }
+        .compact-card.enterprise { border-left-color: var(--amber); }
+        .compact-card.sideproject { border-left-color: var(--purple); }
+
+        .compact-card-tag {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-faint);
+            margin-bottom: 6px;
+        }
+
+        .compact-card-title {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .compact-card-desc {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .compact-card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .compact-metric {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--amber);
+        }
+
+        .compact-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .compact-pills .tech-pill {
+            font-size: 9px;
+            padding: 2px 6px;
+        }
+
+        @media (max-width: 900px) {
+            .compact-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .compact-grid { grid-template-columns: 1fr; }
+            .compact-card { padding: 14px 12px; }
+            .portfolio-toggle-btn { font-size: 12px; padding: 12px 24px; }
         }
 
         /* ══════════════════════════════════════════
@@ -2037,7 +2205,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <div class="section-label">Projects</div>
-                <h2 class="section-title">Case studies</h2>
+                <h2 class="section-title">Featured case studies</h2>
             </div>
 
             <div class="projects-grid stagger-children">
@@ -2047,12 +2215,14 @@
                         <div class="project-tag">Enterprise ERP &mdash; Sports Equipment</div>
                         <div class="project-title">Global Sports Equipment Manufacturer</div>
                         <div class="project-narrative">
-                            <p><span class="label challenge">Challenge</span>A global manufacturer needed a unified ERP platform to orchestrate multi-vendor integrations, complex pricing engines, and multi-channel fulfillment &mdash; with no existing architecture in place.</p>
-                            <p><span class="label solution">Solution</span>Served as sole architect from requirements through production, designing and delivering the complete platform: multi-vendor integrations, dynamic pricing engines, automated fulfillment workflows, and payment processing.</p>
+                            <p><span class="label challenge">Challenge</span>A global snowboard and sports equipment manufacturer operating across North America, Europe, and Asia-Pacific needed a unified ERP platform to orchestrate multi-vendor integrations, complex pricing engines, and multi-channel fulfillment &mdash; with no existing architecture in place.</p>
+                            <p><span class="label solution">Solution</span>Served as sole technical architect from requirements through production. Designed and delivered the complete platform: multi-vendor integrations, dynamic pricing engines, automated fulfillment workflows, payment processing, and multi-subsidiary financial consolidation. Built the entire 1,248-file codebase end-to-end.</p>
+                            <p><span class="label impact">Impact</span>Replaced manual multi-system operations with a fully automated ERP ecosystem. Enabled the company to scale global e-commerce and B2B operations without adding headcount to back-office teams.</p>
                         </div>
                         <div class="project-metrics">
                             <div class="metric"><span class="metric-value">1,200+</span><span class="metric-label">scripts</span></div>
                             <div class="metric"><span class="metric-value">Sole</span><span class="metric-label">architect</span></div>
+                            <div class="metric"><span class="metric-value">Multi-sub</span><span class="metric-label">global</span></div>
                             <div class="metric"><span class="metric-value">Full</span><span class="metric-label">lifecycle</span></div>
                         </div>
                         <div class="tech-pills">
@@ -2061,6 +2231,7 @@
                             <span class="tech-pill">Celigo iPaaS</span>
                             <span class="tech-pill">REST APIs</span>
                             <span class="tech-pill">Shopify</span>
+                            <span class="tech-pill">Multi-subsidiary</span>
                         </div>
                     </div>
                 </div>
@@ -2071,30 +2242,58 @@
                         <div class="project-tag">DTC Beauty</div>
                         <div class="project-title">Major DTC Beauty Brand Platform</div>
                         <div class="project-narrative">
-                            <p><span class="label challenge">Challenge</span>A high-growth beauty brand needed to scale e-commerce operations while automating order management and multi-channel fulfillment.</p>
-                            <p><span class="label solution">Solution</span>Architected a full-lifecycle NetSuite platform spanning order management, payment processing, fulfillment automation, and multi-channel integration.</p>
+                            <p><span class="label challenge">Challenge</span>A high-profile, high-growth beauty brand needed to scale from startup-stage operations to enterprise e-commerce while automating order management, payment processing, and multi-channel fulfillment across multiple 3PL providers.</p>
+                            <p><span class="label solution">Solution</span>Architected a full-lifecycle NetSuite platform: 896 custom scripts spanning order management, payment processing, fulfillment automation, Shopify integration, and 3PL connectivity with advanced inventory allocation logic.</p>
+                            <p><span class="label impact">Impact</span>Enabled the brand to scale from early-stage DTC to a globally recognized beauty brand with automated operations handling high-volume order surges during product launches.</p>
                         </div>
                         <div class="project-metrics">
-                            <div class="metric"><span class="metric-value">800+</span><span class="metric-label">scripts</span></div>
-                            <div class="metric"><span class="metric-value">Multi-ch</span><span class="metric-label">integration</span></div>
+                            <div class="metric"><span class="metric-value">896</span><span class="metric-label">scripts</span></div>
+                            <div class="metric"><span class="metric-value">Multi-3PL</span><span class="metric-label">integration</span></div>
                         </div>
                         <div class="tech-pills">
                             <span class="tech-pill">SuiteScript 2.x</span>
                             <span class="tech-pill">Shopify</span>
                             <span class="tech-pill">3PL</span>
                             <span class="tech-pill">Celigo</span>
+                            <span class="tech-pill">MapReduce</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3. Signifyd Omnichannel -->
+                <!-- 3. Consumer Electronics -->
                 <div class="project-card reveal" style="--i:2">
+                    <div class="project-card-content">
+                        <div class="project-tag">Consumer Electronics</div>
+                        <div class="project-title">Consumer Electronics Brand Platform</div>
+                        <div class="project-narrative">
+                            <p><span class="label challenge">Challenge</span>A major consumer electronics brand with globally recognized kitchen appliance products needed deep NetSuite customization: 95+ custom UIs, heavy batch data processing, and complex inventory workflows across retail and DTC channels.</p>
+                            <p><span class="label solution">Solution</span>Built a long-term, high-touch platform with 697+ active scripts, 95+ Suitelets for custom operational UIs, 35+ MapReduce scripts for batch processing, and 27+ UserEvent scripts for business logic automation.</p>
+                            <p><span class="label impact">Impact</span>Delivered a deeply customized ERP that became the operational backbone for global product distribution, eliminating manual data entry across retail and DTC fulfillment channels.</p>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-value">697+</span><span class="metric-label">scripts</span></div>
+                            <div class="metric"><span class="metric-value">95+</span><span class="metric-label">Suitelets</span></div>
+                            <div class="metric"><span class="metric-value">35+</span><span class="metric-label">MapReduce</span></div>
+                        </div>
+                        <div class="tech-pills">
+                            <span class="tech-pill">SuiteScript 2.x</span>
+                            <span class="tech-pill">Suitelets</span>
+                            <span class="tech-pill">MapReduce</span>
+                            <span class="tech-pill">UserEvent</span>
+                            <span class="tech-pill">SuiteFlow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Signifyd Omnichannel -->
+                <div class="project-card reveal" style="--i:3">
                     <div class="project-card-content">
                         <div class="project-tag">Omnichannel E-Commerce</div>
                         <div class="project-title">Signifyd Fraud-Integrated Platform</div>
                         <div class="project-narrative">
-                            <p><span class="label challenge">Challenge</span>A global consumer goods company needed an omnichannel platform with fraud detection, Amazon marketplace connectivity, and multi-region support.</p>
-                            <p><span class="label solution">Solution</span>Delivered a service-oriented architecture with Signifyd fraud detection, Amazon integration, multi-language/region support, and D2C order processing.</p>
+                            <p><span class="label challenge">Challenge</span>A global consumer goods company needed an omnichannel platform with real-time fraud detection, Amazon marketplace connectivity, multi-language/region support, and unified D2C order processing.</p>
+                            <p><span class="label solution">Solution</span>Delivered a service-oriented architecture integrating Signifyd for real-time fraud scoring, Amazon marketplace for expanded reach, multi-language/region localization, and a unified order processing pipeline.</p>
+                            <p><span class="label impact">Impact</span>Reduced fraud-related chargebacks while expanding the brand's marketplace presence. Unified DTC and marketplace order flows into a single operational pipeline.</p>
                         </div>
                         <div class="project-metrics">
                             <div class="metric"><span class="metric-value">538+</span><span class="metric-label">scripts</span></div>
@@ -2105,18 +2304,20 @@
                             <span class="tech-pill">Signifyd</span>
                             <span class="tech-pill">Amazon</span>
                             <span class="tech-pill">REST APIs</span>
+                            <span class="tech-pill">Multi-region</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 4. Retail EDI -->
-                <div class="project-card reveal" style="--i:3">
+                <!-- 5. Retail EDI -->
+                <div class="project-card reveal" style="--i:4">
                     <div class="project-card-content">
                         <div class="project-tag">Retail EDI &amp; Integration</div>
-                        <div class="project-title">Retail EDI Connectivity</div>
+                        <div class="project-title">Retail EDI Connectivity Platform</div>
                         <div class="project-narrative">
-                            <p><span class="label challenge">Challenge</span>Needed warehouse and EDI connectivity for major retail chains with complex B2B/B2C routing requirements and manual RMA processes.</p>
-                            <p><span class="label solution">Solution</span>Built a configuration-record architecture managing all integration behavior without code changes &mdash; dual B2B/B2C routing, Shopify sync, and automated RMA processing.</p>
+                            <p><span class="label challenge">Challenge</span>Needed warehouse and EDI connectivity for 3 major retail chains with complex B2B/B2C routing requirements, manual RMA processes, and Shopify synchronization gaps causing inventory discrepancies.</p>
+                            <p><span class="label solution">Solution</span>Built a configuration-record architecture managing all integration behavior without code changes &mdash; dual B2B/B2C routing, bidirectional Shopify sync, automated RMA processing, and EDI document exchange.</p>
+                            <p><span class="label impact">Impact</span>Eliminated manual EDI processing. New retail channel onboarding reduced from weeks to days using the configuration-driven architecture.</p>
                         </div>
                         <div class="project-metrics">
                             <div class="metric"><span class="metric-value">3</span><span class="metric-label">major retailers</span></div>
@@ -2132,14 +2333,15 @@
                     </div>
                 </div>
 
-                <!-- 5. COMEX Metals -->
-                <div class="project-card reveal" style="--i:4">
+                <!-- 6. COMEX Metals -->
+                <div class="project-card reveal" style="--i:5">
                     <div class="project-card-content">
                         <div class="project-tag">Metals &amp; Commodities</div>
                         <div class="project-title">COMEX Commodity Trading Platform</div>
                         <div class="project-narrative">
-                            <p><span class="label challenge">Challenge</span>A copper trading company needed real-time COMEX pricing, Certificate of Assay workflows, and multi-subsidiary financial consolidation.</p>
-                            <p><span class="label solution">Solution</span>Engineered a metals trading platform with COMEX pricing integration, lot tracking, and multi-subsidiary consolidation across 3 subsidiaries.</p>
+                            <p><span class="label challenge">Challenge</span>A copper trading company needed real-time COMEX commodity pricing, Certificate of Assay workflows, lot tracking across physical metal inventory, and multi-subsidiary financial consolidation across 3 entities.</p>
+                            <p><span class="label solution">Solution</span>Engineered a metals trading platform with live COMEX pricing integration, Certificate of Assay document workflows, physical lot tracking from assay through sale, and intercompany elimination across 3 subsidiaries.</p>
+                            <p><span class="label impact">Impact</span>Automated commodity pricing updates and assay-to-sale tracking. Financial consolidation across 3 subsidiaries runs automatically with proper intercompany eliminations.</p>
                         </div>
                         <div class="project-metrics">
                             <div class="metric"><span class="metric-value">118+</span><span class="metric-label">scripts</span></div>
@@ -2149,22 +2351,26 @@
                             <span class="tech-pill">SuiteScript 2.x</span>
                             <span class="tech-pill">COMEX API</span>
                             <span class="tech-pill">Multi-subsidiary</span>
+                            <span class="tech-pill">Lot Tracking</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 6. EKW-SPHERE -->
-                <div class="project-card reveal" style="--i:5">
+                <!-- 7. EKW-SPHERE -->
+                <div class="project-card reveal" style="--i:6">
                     <div class="project-card-content">
                         <div class="project-tag">Full-Stack SaaS</div>
                         <div class="project-title">EKW-SPHERE Operations Platform</div>
                         <div class="project-narrative">
-                            <p><span class="label challenge">Challenge</span>Needed a centralized operations platform for demand planning, inventory reconciliation, and financial reporting across the client portfolio.</p>
-                            <p><span class="label solution">Solution</span>Built a production SaaS platform with 10 internal tools, enterprise security (RBAC, 2FA, field-level encryption), performance-tuned for high throughput.</p>
+                            <p><span class="label challenge">Challenge</span>Needed a centralized operations platform for demand planning, inventory reconciliation, and financial reporting across a 20+ client portfolio &mdash; existing tools were fragmented and lacked security controls.</p>
+                            <p><span class="label solution">Solution</span>Built a production SaaS platform from scratch: 10 internal tools spanning demand forecasting, inventory reconciliation, client health dashboards, and automated reporting. Enterprise security with RBAC, 2FA, field-level encryption, and audit logging. Performance-tuned to sustain 3,600+ requests/second.</p>
+                            <p><span class="label impact">Impact</span>Consolidated 10 separate operational workflows into a single platform. Reduced manual reporting from hours to real-time dashboards. Serves as the operational backbone for the entire consulting practice.</p>
                         </div>
                         <div class="project-metrics">
                             <div class="metric"><span class="metric-value">29,500+</span><span class="metric-label">lines Python</span></div>
                             <div class="metric"><span class="metric-value">3,600+</span><span class="metric-label">RPS</span></div>
+                            <div class="metric"><span class="metric-value">10</span><span class="metric-label">tools</span></div>
+                            <div class="metric"><span class="metric-value">220+</span><span class="metric-label">source files</span></div>
                         </div>
                         <div class="tech-pills">
                             <span class="tech-pill">Python</span>
@@ -2172,42 +2378,49 @@
                             <span class="tech-pill">PostgreSQL</span>
                             <span class="tech-pill">Redis</span>
                             <span class="tech-pill">Celery</span>
+                            <span class="tech-pill">React</span>
+                            <span class="tech-pill">TypeScript</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 7. B2B Fulfillment -->
-                <div class="project-card reveal" style="--i:6">
+                <!-- 8. B2B Fulfillment -->
+                <div class="project-card reveal" style="--i:7">
                     <div class="project-card-content">
                         <div class="project-tag">Multi-Client B2B</div>
                         <div class="project-title">Multi-Client B2B Fulfillment Platform</div>
                         <div class="project-narrative">
-                            <p><span class="label challenge">Challenge</span>11+ clients across furniture, sporting goods, and industrial supply needed unified fulfillment with backorder allocation and payment processing.</p>
-                            <p><span class="label solution">Solution</span>Delivered a multi-client platform spanning backorder allocation, warehouse automation, and payment processing with reusable architecture.</p>
+                            <p><span class="label challenge">Challenge</span>11+ clients across furniture, sporting goods, and industrial supply needed unified fulfillment with backorder allocation, warehouse automation, and payment processing &mdash; each with distinct business rules.</p>
+                            <p><span class="label solution">Solution</span>Delivered a multi-tenant platform with client-specific configuration records, MapReduce-driven batch processing for backorder allocation, automated warehouse workflows, and payment gateway integration.</p>
+                            <p><span class="label impact">Impact</span>Consolidated 11+ separate client workflows into a single reusable platform. New client onboarding reduced to configuration rather than custom development.</p>
                         </div>
                         <div class="project-metrics">
                             <div class="metric"><span class="metric-value">74+</span><span class="metric-label">scripts</span></div>
                             <div class="metric"><span class="metric-value">11+</span><span class="metric-label">clients</span></div>
+                            <div class="metric"><span class="metric-value">26+</span><span class="metric-label">MapReduce</span></div>
                         </div>
                         <div class="tech-pills">
                             <span class="tech-pill">SuiteScript 2.x</span>
                             <span class="tech-pill">MapReduce</span>
                             <span class="tech-pill">SuiteFlow</span>
+                            <span class="tech-pill">Config Records</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 8. Hybrid Reconciliation -->
-                <div class="project-card reveal" style="--i:7">
+                <!-- 9. Hybrid Reconciliation -->
+                <div class="project-card reveal" style="--i:8">
                     <div class="project-card-content">
                         <div class="project-tag">Hybrid Platform</div>
                         <div class="project-title">Hybrid Reconciliation Platform</div>
                         <div class="project-narrative">
-                            <p><span class="label challenge">Challenge</span>Order reconciliation across Shopify, NetSuite, and 3PL systems took hours of manual work with frequent discrepancies.</p>
-                            <p><span class="label solution">Solution</span>Designed a Python FastAPI + SuiteScript platform with intelligent caching and SuiteQL optimization for real-time order reconciliation.</p>
+                            <p><span class="label challenge">Challenge</span>Order reconciliation across Shopify, NetSuite, and 3PL systems took hours of manual work daily with frequent discrepancies leading to fulfillment errors and customer complaints.</p>
+                            <p><span class="label solution">Solution</span>Designed a Python FastAPI + SuiteScript hybrid platform with intelligent caching, SuiteQL optimization, and automated three-way matching between Shopify orders, NetSuite records, and 3PL shipment data.</p>
+                            <p><span class="label impact">Impact</span>Reduced reconciliation time from hours to minutes. Automated discrepancy detection catches fulfillment mismatches before they reach customers.</p>
                         </div>
                         <div class="project-metrics">
                             <div class="metric"><span class="metric-value">Hours &rarr; Min</span><span class="metric-label">reconciliation</span></div>
+                            <div class="metric"><span class="metric-value">3-way</span><span class="metric-label">matching</span></div>
                         </div>
                         <div class="tech-pills">
                             <span class="tech-pill">Python</span>
@@ -2215,6 +2428,197 @@
                             <span class="tech-pill">SuiteScript</span>
                             <span class="tech-pill">SuiteQL</span>
                             <span class="tech-pill">Shopify</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Extended Portfolio Toggle ── -->
+            <div class="portfolio-toggle-wrap reveal">
+                <button class="portfolio-toggle-btn" id="portfolioToggle">
+                    View all 20+ projects <span class="arrow">&#9660;</span>
+                </button>
+            </div>
+
+            <!-- ── Extended Portfolio ── -->
+            <div class="extended-portfolio" id="extendedPortfolio">
+                <div class="extended-portfolio-inner">
+
+                    <!-- Beauty & DTC Clients -->
+                    <div class="portfolio-group">
+                        <div class="portfolio-group-label">Beauty &amp; DTC Vertical &mdash; 8 Additional Clients</div>
+                        <div class="compact-grid stagger-children">
+                            <div class="compact-card beauty reveal" style="--i:0">
+                                <div class="compact-card-tag">Luxury Cosmetics</div>
+                                <div class="compact-card-title">Luxury Cosmetics Brand</div>
+                                <div class="compact-card-desc">Full ERP customization for a prestige cosmetics brand &mdash; order management, inventory allocation, and multi-channel fulfillment.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">302 scripts</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">SuiteScript 2.x</span>
+                                        <span class="tech-pill">Shopify</span>
+                                        <span class="tech-pill">3PL</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compact-card beauty reveal" style="--i:1">
+                                <div class="compact-card-tag">Clean Beauty</div>
+                                <div class="compact-card-title">Clean Beauty Brand</div>
+                                <div class="compact-card-desc">Sustainable beauty brand platform with inventory management, Shopify integration, and automated fulfillment workflows.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">108 scripts</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">SuiteScript 2.x</span>
+                                        <span class="tech-pill">Celigo</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compact-card beauty reveal" style="--i:2">
+                                <div class="compact-card-tag">Hair Wellness</div>
+                                <div class="compact-card-title">Hair Wellness DTC Brand</div>
+                                <div class="compact-card-desc">High-growth hair wellness brand with subscription management, 3PL integration, and DTC fulfillment automation.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">88 scripts</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">SuiteScript 2.x</span>
+                                        <span class="tech-pill">Shopify</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compact-card beauty reveal" style="--i:3">
+                                <div class="compact-card-tag">Clean Color Cosmetics</div>
+                                <div class="compact-card-title">Clean Color Cosmetics Brand</div>
+                                <div class="compact-card-desc">Clean cosmetics brand with multi-channel order routing, inventory sync, and Shopify-NetSuite connectivity.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">41 scripts</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">SuiteScript 2.x</span>
+                                        <span class="tech-pill">Celigo</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compact-card beauty reveal" style="--i:4">
+                                <div class="compact-card-tag">Japanese Skincare</div>
+                                <div class="compact-card-title">Japanese-Inspired Skincare Brand</div>
+                                <div class="compact-card-desc">Luxury skincare brand platform with international fulfillment, inventory management, and e-commerce integration.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">29 scripts</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">SuiteScript 2.x</span>
+                                        <span class="tech-pill">Shopify</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compact-card beauty reveal" style="--i:5">
+                                <div class="compact-card-tag">Minimalist Beauty</div>
+                                <div class="compact-card-title">Minimalist Beauty Brand</div>
+                                <div class="compact-card-desc">Streamlined ERP automation for a fast-growing minimalist beauty brand with Shopify and 3PL connectivity.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">23 scripts</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">SuiteScript 2.x</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compact-card beauty reveal" style="--i:6">
+                                <div class="compact-card-tag">Clean Beauty Network</div>
+                                <div class="compact-card-title">Clean Beauty Network Platform</div>
+                                <div class="compact-card-desc">Multi-channel clean beauty company with complex commission structures and inventory allocation logic.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">12 scripts</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">SuiteScript 2.x</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compact-card beauty reveal" style="--i:7">
+                                <div class="compact-card-tag">Celebrity Beauty</div>
+                                <div class="compact-card-title">Celebrity-Founded Beauty Brand</div>
+                                <div class="compact-card-desc">Emerging celebrity beauty brand with e-commerce integration and initial ERP automation setup.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">4 scripts</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">SuiteScript 2.x</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise -->
+                    <div class="portfolio-group">
+                        <div class="portfolio-group-label">Additional Enterprise Implementations</div>
+                        <div class="compact-grid stagger-children">
+                            <div class="compact-card enterprise reveal" style="--i:0">
+                                <div class="compact-card-tag">Sports / Retail</div>
+                                <div class="compact-card-title">Global Golf Equipment Brand</div>
+                                <div class="compact-card-desc">Large-scale NetSuite implementation for a golf equipment manufacturer with complex inventory management, B2B/B2C portals, and order processing workflows.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">1,165 scripts</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">SuiteScript 2.x</span>
+                                        <span class="tech-pill">SuiteFlow</span>
+                                        <span class="tech-pill">Celigo</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compact-card enterprise reveal" style="--i:1">
+                                <div class="compact-card-tag">Industrial / Manufacturing</div>
+                                <div class="compact-card-title">Industrial Supply Company</div>
+                                <div class="compact-card-desc">Manufacturing and distribution ERP with custom procurement workflows, vendor management, and production tracking.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">12 scripts</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">SuiteScript 2.x</span>
+                                        <span class="tech-pill">SuiteFlow</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Side Projects -->
+                    <div class="portfolio-group">
+                        <div class="portfolio-group-label">Engineering Side Projects</div>
+                        <div class="compact-grid stagger-children">
+                            <div class="compact-card sideproject reveal" style="--i:0">
+                                <div class="compact-card-tag">Algorithmic Trading</div>
+                                <div class="compact-card-title">Algorithmic Trading System</div>
+                                <div class="compact-card-desc">Financial analysis and automated trading execution platform with Ichimoku cloud analysis, real-time market data processing, and position management.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">3,300+ lines</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">Python</span>
+                                        <span class="tech-pill">FastAPI</span>
+                                        <span class="tech-pill">JavaScript</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compact-card sideproject reveal" style="--i:1">
+                                <div class="compact-card-tag">Developer Utility</div>
+                                <div class="compact-card-title">Phone Terminal PWA</div>
+                                <div class="compact-card-desc">Access your MacBook terminal from your iPhone. Persistent sessions via tmux, WebSocket-based real-time communication, and mobile-optimized xterm.js interface.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">2,300+ lines</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">Node.js</span>
+                                        <span class="tech-pill">xterm.js</span>
+                                        <span class="tech-pill">WebSocket</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compact-card sideproject reveal" style="--i:2">
+                                <div class="compact-card-tag">Automation</div>
+                                <div class="compact-card-title">EKW Auto Login</div>
+                                <div class="compact-card-desc">Automated authentication system for multi-portal access management, streamlining daily operational workflows across client environments.</div>
+                                <div class="compact-card-meta">
+                                    <span class="compact-metric">1,800+ lines</span>
+                                    <div class="compact-pills">
+                                        <span class="tech-pill">Node.js</span>
+                                        <span class="tech-pill">Automation</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2505,6 +2909,37 @@
                     document.body.classList.remove('nav-open');
                 });
             });
+        })();
+
+        // ── Extended portfolio toggle ──
+        (function() {
+            var btn = document.getElementById('portfolioToggle');
+            var panel = document.getElementById('extendedPortfolio');
+            if (!btn || !panel) return;
+            var labelOpen = 'Show fewer projects';
+            var labelClosed = 'View all 20+ projects';
+            btn.addEventListener('click', function() {
+                var isOpen = panel.classList.toggle('open');
+                btn.classList.toggle('expanded', isOpen);
+                var textNode = btn.firstChild;
+                textNode.textContent = isOpen ? labelOpen + ' ' : labelClosed + ' ';
+                var arrow = btn.querySelector('.arrow');
+                if (arrow) arrow.textContent = isOpen ? '\u25B2' : '\u25BC';
+                // Trigger reveal animations for newly visible cards
+                if (isOpen) {
+                    panel.querySelectorAll('.reveal:not(.visible)').forEach(function(el) {
+                        observer_ext.observe(el);
+                    });
+                }
+            });
+            var observer_ext = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer_ext.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
         })();
 
         // ── Cursor-tracking gradient glow ──
