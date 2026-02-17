@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Erick Joshua A. Aquino — Senior NetSuite Solutions Architect with 10 years of enterprise ERP, integration architecture, and SuiteCloud development experience.">
+    <title>Erick Aquino — Senior NetSuite Solutions Architect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ══════════════════════════════════════════
+           CSS CUSTOM PROPERTIES
+           ══════════════════════════════════════════ */
+        :root {
+            --bg-deep: #080a0c;
+            --bg-primary: #0c1014;
+            --bg-elevated: #111820;
+            --bg-card: #141c26;
+            --bg-card-hover: #1a2433;
+            --border-subtle: rgba(0, 212, 170, 0.08);
+            --border-medium: rgba(0, 212, 170, 0.15);
+            --border-strong: rgba(0, 212, 170, 0.3);
+
+            --cyan: #00d4aa;
+            --cyan-dim: #00a88a;
+            --cyan-glow: rgba(0, 212, 170, 0.15);
+            --cyan-bright: #33ffd4;
+            --amber: #e8a838;
+            --amber-dim: #c48a20;
+            --amber-glow: rgba(232, 168, 56, 0.12);
+            --red: #ff4757;
+            --green-status: #2ed573;
+
+            --text-primary: #e8ecf0;
+            --text-secondary: #8fa3b8;
+            --text-tertiary: #5a7086;
+            --text-faint: #3d5068;
+
+            --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+            --font-sans: 'Outfit', -apple-system, sans-serif;
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* ══════════════════════════════════════════
+           RESET & BASE
+           ══════════════════════════════════════════ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--bg-card) var(--bg-deep);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--cyan);
+            color: var(--bg-deep);
+        }
+
+        a {
+            color: var(--cyan);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover { color: var(--cyan-bright); }
+
+        /* ══════════════════════════════════════════
+           BACKGROUND GRID TEXTURE
+           ══════════════════════════════════════════ */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 212, 170, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 170, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Scanline overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.03) 2px,
+                rgba(0, 0, 0, 0.03) 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ══════════════════════════════════════════
+           LAYOUT
+           ══════════════════════════════════════════ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* ══════════════════════════════════════════
+           NAVIGATION
+           ══════════════════════════════════════════ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0 24px;
+            transition: background 0.3s, backdrop-filter 0.3s;
+        }
+
+        .nav.scrolled {
+            background: rgba(8, 10, 12, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--cyan);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo .prompt {
+            color: var(--text-tertiary);
+            margin-right: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '>';
+            color: var(--cyan);
+            opacity: 0;
+            margin-right: 4px;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover::before { opacity: 1; }
+
+        /* Mobile nav toggle */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border-medium);
+            color: var(--cyan);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* ══════════════════════════════════════════
+           HERO — SYSTEM STATUS
+           ══════════════════════════════════════════ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 64px;
+            position: relative;
+        }
+
+        /* Radial glow behind hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse, var(--cyan-glow) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        /* Terminal window frame */
+        .terminal-frame {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-medium);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow:
+                0 0 0 1px rgba(0,0,0,0.3),
+                0 20px 60px rgba(0,0,0,0.4),
+                0 0 80px var(--cyan-glow);
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .terminal-dot.red { background: #ff5f57; }
+        .terminal-dot.yellow { background: #febc2e; }
+        .terminal-dot.green { background: #28c840; }
+
+        .terminal-title {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-tertiary);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .terminal-body {
+            padding: 32px;
+        }
+
+        .hero-greeting {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-bottom: 16px;
+        }
+
+        .hero-greeting .prompt-symbol {
+            color: var(--cyan);
+        }
+
+        .hero-name {
+            font-family: var(--font-sans);
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            margin-bottom: 8px;
+        }
+
+        .hero-name .first-name {
+            color: var(--text-primary);
+        }
+
+        .hero-name .last-name {
+            color: var(--cyan);
+        }
+
+        .hero-title {
+            font-family: var(--font-mono);
+            font-size: clamp(14px, 2vw, 18px);
+            font-weight: 400;
+            color: var(--amber);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .hero-title .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.1em;
+            background: var(--amber);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Status dashboard in hero */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .status-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--cyan);
+            opacity: 0.6;
+        }
+
+        .status-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-tertiary);
+            margin-bottom: 8px;
+        }
+
+        .status-value {
+            font-family: var(--font-sans);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .status-value .unit {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-tertiary);
+            margin-left: 2px;
+        }
+
+        .status-sub {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+        }
+
+        .status-sub .live {
+            color: var(--green-status);
+        }
+
+        /* Hero actions */
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.25s var(--ease-out-quart);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--cyan);
+            color: var(--bg-deep);
+            border: 1px solid var(--cyan);
+        }
+
+        .btn-primary:hover {
+            background: var(--cyan-bright);
+            color: var(--bg-deep);
+            box-shadow: 0 0 24px var(--cyan-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-medium);
+        }
+
+        .btn-ghost:hover {
+            color: var(--text-primary);
+            border-color: var(--text-secondary);
+            transform: translateY(-1px);
+        }
+
+        /* ══════════════════════════════════════════
+           SECTION HEADERS
+           ══════════════════════════════════════════ */
+        .section-header {
+            margin-bottom: 56px;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--cyan);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-label::before {
+            content: '//';
+            color: var(--text-faint);
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-subtle);
+        }
+
+        .section-title {
+            font-family: var(--font-sans);
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--text-primary);
+        }
+
+        /* ══════════════════════════════════════════
+           ABOUT SECTION
+           ══════════════════════════════════════════ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .about-text p:last-child { margin-bottom: 0; }
+
+        .about-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .about-text .highlight {
+            color: var(--cyan);
+            font-weight: 500;
+        }
+
+        /* Certifications sidebar */
+        .certs-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .certs-panel-title {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-tertiary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .cert-group-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .cert-group-label:first-of-type { margin-top: 0; }
+
+        .cert-group-label.oracle { color: #ff6b4a; }
+        .cert-group-label.celigo { color: #4da6ff; }
+
+        .cert-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+        }
+
+        .cert-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-top: 7px;
+            flex-shrink: 0;
+        }
+
+        .cert-dot.oracle { background: #ff6b4a; }
+        .cert-dot.celigo { background: #4da6ff; }
+
+        .cert-name {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .cert-date {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-faint);
+        }
+
+        /* ══════════════════════════════════════════
+           EXPERIENCE SECTION
+           ══════════════════════════════════════════ */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--cyan), var(--border-subtle) 40%, var(--border-subtle));
+        }
+
+        .timeline-entry {
+            position: relative;
+            margin-bottom: 48px;
+        }
+
+        .timeline-entry:last-child { margin-bottom: 0; }
+
+        .timeline-entry::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 8px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 2px solid var(--cyan-dim);
+            background: var(--bg-deep);
+            z-index: 1;
+        }
+
+        .timeline-entry:first-child::before {
+            border-color: var(--cyan);
+            box-shadow: 0 0 12px var(--cyan-glow);
+        }
+
+        .timeline-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .timeline-company {
+            font-family: var(--font-sans);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .timeline-dates {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-tertiary);
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-role {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--amber);
+            margin-bottom: 16px;
+        }
+
+        .timeline-desc {
+            list-style: none;
+        }
+
+        .timeline-desc li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 4px 0 4px 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .timeline-desc li::before {
+            content: '\25B8';
+            position: absolute;
+            left: 0;
+            color: var(--text-faint);
+            font-size: 10px;
+            top: 7px;
+        }
+
+        /* Oracle sub-roles */
+        .oracle-sub-roles {
+            margin-top: 16px;
+            border-left: 1px solid var(--border-subtle);
+            padding-left: 20px;
+        }
+
+        .sub-role {
+            margin-bottom: 20px;
+        }
+
+        .sub-role:last-child { margin-bottom: 0; }
+
+        .sub-role-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .sub-role-title {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .sub-role-dates {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-faint);
+        }
+
+        .oracle-note {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--text-tertiary);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        /* ══════════════════════════════════════════
+           PROJECTS SECTION
+           ══════════════════════════════════════════ */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 28px;
+            transition: all 0.3s var(--ease-out-quart);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--cyan-glow) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .project-card:hover::before { opacity: 1; }
+
+        .project-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--cyan-dim);
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-family: var(--font-sans);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .project-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .project-metrics {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .metric-value {
+            font-family: var(--font-mono);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--amber);
+        }
+
+        .metric-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Wide card */
+        .project-card.wide {
+            grid-column: 1 / -1;
+        }
+
+        .project-card.wide .project-metrics {
+            gap: 24px;
+        }
+
+        /* ══════════════════════════════════════════
+           SKILLS SECTION
+           ══════════════════════════════════════════ */
+        .skills-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .skill-cat-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--cyan);
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-list li:last-child { border-bottom: none; }
+
+        .skill-list li::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            border-radius: 1px;
+            background: var(--text-faint);
+            flex-shrink: 0;
+        }
+
+        .skill-list li.primary::before {
+            background: var(--cyan);
+        }
+
+        /* ══════════════════════════════════════════
+           EDUCATION
+           ══════════════════════════════════════════ */
+        .edu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .edu-main h3 {
+            font-family: var(--font-sans);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .edu-school {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .edu-spec {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-tertiary);
+            font-style: italic;
+        }
+
+        .edu-honors {
+            list-style: none;
+        }
+
+        .edu-honors li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 3px 0 3px 16px;
+            position: relative;
+        }
+
+        .edu-honors li::before {
+            content: '\2726';
+            position: absolute;
+            left: 0;
+            color: var(--amber);
+            font-size: 10px;
+        }
+
+        .edu-year {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-tertiary);
+            white-space: nowrap;
+        }
+
+        /* ══════════════════════════════════════════
+           CONTACT / FOOTER
+           ══════════════════════════════════════════ */
+        .contact-section {
+            padding-bottom: 48px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .contact-text p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .contact-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-links li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-links .contact-icon {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-faint);
+            min-width: 80px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-links a,
+        .contact-links span {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .contact-links a:hover { color: var(--cyan); }
+
+        /* Terminal-style contact block */
+        .contact-terminal {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .contact-terminal .terminal-bar {
+            padding: 10px 16px;
+        }
+
+        .contact-terminal-body {
+            padding: 20px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .contact-terminal-body .line {
+            display: flex;
+            gap: 8px;
+        }
+
+        .contact-terminal-body .key {
+            color: var(--cyan);
+            min-width: 100px;
+        }
+
+        .contact-terminal-body .val {
+            color: var(--text-secondary);
+        }
+
+        .contact-terminal-body .val a {
+            color: var(--text-secondary);
+        }
+
+        .contact-terminal-body .val a:hover {
+            color: var(--cyan);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 24px 0;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+
+        .footer p {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-faint);
+        }
+
+        /* ══════════════════════════════════════════
+           SCROLL REVEAL ANIMATIONS
+           ══════════════════════════════════════════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* Stagger children */
+        .stagger-children .reveal { transition-delay: calc(var(--i, 0) * 0.08s); }
+
+        /* ══════════════════════════════════════════
+           HERO LOAD ANIMATION
+           ══════════════════════════════════════════ */
+        .hero-load {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: heroFadeIn 0.8s var(--ease-out-expo) forwards;
+        }
+
+        .hero-load-1 { animation-delay: 0.2s; }
+        .hero-load-2 { animation-delay: 0.35s; }
+        .hero-load-3 { animation-delay: 0.5s; }
+        .hero-load-4 { animation-delay: 0.65s; }
+        .hero-load-5 { animation-delay: 0.8s; }
+
+        @keyframes heroFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Counter animation */
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ══════════════════════════════════════════
+           RESPONSIVE
+           ══════════════════════════════════════════ */
+        @media (max-width: 900px) {
+            .status-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .project-card.wide { grid-column: auto; }
+            .skills-columns { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            section { padding: 64px 0; }
+            .container { padding: 0 16px; }
+            .status-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .status-value { font-size: 24px; }
+            .terminal-body { padding: 20px; }
+
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(8, 10, 12, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 20px 24px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+            .nav-toggle { display: block; }
+
+            .hero-actions { flex-direction: column; }
+            .btn { justify-content: center; }
+            .edu-card { flex-direction: column; gap: 16px; }
+
+            .timeline { padding-left: 28px; }
+            .timeline::before { left: 4px; }
+            .timeline-entry::before { left: -28px; width: 11px; height: 11px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <div class="nav-logo"><span class="prompt">$</span> erick.aquino</div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">[menu]</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <div class="terminal-frame hero-load hero-load-1">
+                <div class="terminal-bar">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                    <span class="terminal-title">architect@portfolio ~ %</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="hero-greeting hero-load hero-load-2">
+                        <span class="prompt-symbol">$</span> whoami
+                    </div>
+                    <h1 class="hero-name hero-load hero-load-3">
+                        <span class="first-name">Erick </span><span class="last-name">Aquino</span>
+                    </h1>
+                    <div class="hero-title hero-load hero-load-3">
+                        <span id="typedText"></span><span class="cursor"></span>
+                    </div>
+
+                    <div class="status-grid hero-load hero-load-4">
+                        <div class="status-card">
+                            <div class="status-label">Uptime</div>
+                            <div class="status-value"><span class="counter" data-target="10">0</span><span class="unit"> yrs</span></div>
+                            <div class="status-sub">Since Jun 2016 <span class="live">&#9679; active</span></div>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-label">Scripts Deployed</div>
+                            <div class="status-value"><span class="counter" data-target="3500">0</span><span class="unit">+</span></div>
+                            <div class="status-sub">SuiteScript 2.x production</div>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-label">Client Accounts</div>
+                            <div class="status-value"><span class="counter" data-target="20">0</span><span class="unit">+</span></div>
+                            <div class="status-sub">Enterprise & DTC brands</div>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-label">Certifications</div>
+                            <div class="status-value"><span class="counter" data-target="7">0</span></div>
+                            <div class="status-sub">Oracle + Celigo verified</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions hero-load hero-load-5">
+                        <a href="#contact" class="btn btn-primary">Get in touch</a>
+                        <a href="#experience" class="btn btn-ghost">View experience &darr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ ABOUT ═══════════════ -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">About</div>
+                <h2 class="section-title">Inside the architect's mind</h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>I've seen NetSuite from the inside out &mdash; across <strong>10 years</strong>, from Oracle's internal <span class="highlight">SWAT team</span> to leading enterprise architecture today.</p>
+                    <p>I started my career inside <strong>Oracle NetSuite</strong>, where I was selected for the elite SWAT team &mdash; a specialized unit supporting the platform's <strong>Top 200 enterprise customers</strong> and strategic partners. That foundation taught me how the platform really works, from core architecture to its breaking points.</p>
+                    <p>Today I lead technical delivery as a <strong>Senior NetSuite Developer &amp; Integration Architect</strong> at Ekwani Consulting, designing production-grade connectivity between NetSuite and 3PL providers, carrier systems, and e-commerce platforms across <strong>20+ client accounts</strong>. My work spans order-to-cash automation, procure-to-pay workflows, fulfillment orchestration, and revenue recognition.</p>
+                </div>
+
+                <div class="certs-panel reveal reveal-delay-2">
+                    <div class="certs-panel-title">Verified Credentials</div>
+
+                    <div class="cert-group-label oracle">Oracle &amp; NetSuite</div>
+                    <div class="cert-item">
+                        <div class="cert-dot oracle"></div>
+                        <div><div class="cert-name">NetSuite Certified AI Foundations Associate</div><div class="cert-date">Nov 2025</div></div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-dot oracle"></div>
+                        <div><div class="cert-name">NetSuite Certified BI &amp; Reporting Associate</div><div class="cert-date">Nov 2025</div></div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-dot oracle"></div>
+                        <div><div class="cert-name">NetSuite Certified Financial Associate</div><div class="cert-date">Nov 2025</div></div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-dot oracle"></div>
+                        <div><div class="cert-name">OCI 2025 AI Foundations Associate</div><div class="cert-date">Nov 2025</div></div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-dot oracle"></div>
+                        <div><div class="cert-name">NetSuite SuiteFoundation</div><div class="cert-date">Oracle NetSuite</div></div>
+                    </div>
+
+                    <div class="cert-group-label celigo">Celigo</div>
+                    <div class="cert-item">
+                        <div class="cert-dot celigo"></div>
+                        <div><div class="cert-name">Mastery Level 4: Legendary</div><div class="cert-date">Oct 2023</div></div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-dot celigo"></div>
+                        <div><div class="cert-name">Builder Core Certification</div><div class="cert-date">Feb 2025</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ EXPERIENCE ═══════════════ -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Experience</div>
+                <h2 class="section-title">Career progression</h2>
+            </div>
+
+            <div class="timeline">
+                <!-- Ekwani -->
+                <div class="timeline-entry reveal">
+                    <div class="timeline-meta">
+                        <span class="timeline-company">Ekwani Consulting LLC</span>
+                        <span class="timeline-dates">May 2021 &mdash; Present</span>
+                    </div>
+                    <div class="timeline-role">Senior NetSuite Developer &amp; Integration Architect</div>
+                    <ul class="timeline-desc">
+                        <li>Lead technical architect for multi-system integration initiatives across 20+ enterprise accounts, including globally recognized brands across beauty/DTC, sports equipment, consumer electronics, and industrial manufacturing.</li>
+                        <li>Sole architect for a global sports equipment manufacturer: designed and delivered a 1,200+ custom script ecosystem from requirements through production &mdash; the largest technical engagement in the portfolio.</li>
+                        <li>Architected a full-lifecycle platform for a major DTC beauty brand: 800+ custom scripts spanning order management, payment processing, fulfillment automation, and multi-channel integration.</li>
+                        <li>Deployed 3PL integration frameworks connecting NetSuite to Masonhub, ShipBob, Capacity, ILG, and Radial across 20+ client accounts, eliminating manual shipment processing.</li>
+                        <li>Built and optimized 50+ integration flows on Celigo iPaaS with advanced error handling, retry logic, and data transformation for reliable high-volume data orchestration.</li>
+                    </ul>
+                </div>
+
+                <!-- Kodella -->
+                <div class="timeline-entry reveal">
+                    <div class="timeline-meta">
+                        <span class="timeline-company">Kodella LLC</span>
+                        <span class="timeline-dates">Mar 2019 &mdash; Apr 2021</span>
+                    </div>
+                    <div class="timeline-role">NetSuite Developer</div>
+                    <ul class="timeline-desc">
+                        <li>Full-cycle NetSuite development and platform management across finance, supply chain, and operations for multiple client accounts. Delivered 74+ custom scripts with a heavy focus on batch data processing.</li>
+                        <li>Built 26+ MapReduce scripts for large-scale batch data processing, comprising the core of the client automation library.</li>
+                        <li>Designed executive-level KPI dashboards, operational reports, and saved searches for real-time business visibility.</li>
+                        <li>Managed full NetSuite upgrade lifecycle from Release Preview analysis through regression validation with zero-disruption transitions.</li>
+                    </ul>
+                </div>
+
+                <!-- Oracle -->
+                <div class="timeline-entry reveal">
+                    <div class="timeline-meta">
+                        <span class="timeline-company">Oracle NetSuite Corporation</span>
+                        <span class="timeline-dates">Jun 2016 &mdash; Mar 2019 &middot; 2 yrs 10 mos</span>
+                    </div>
+                    <div class="oracle-note">Progressed through four increasingly senior roles within Oracle NetSuite's Global Support and Engineering Services organization, earning successive promotions based on technical depth, client impact, and ability to resolve the platform's most complex issues.</div>
+
+                    <div class="oracle-sub-roles">
+                        <div class="sub-role">
+                            <div class="sub-role-header">
+                                <span class="sub-role-title">Senior Consultant &mdash; Engineering Solutions Management</span>
+                                <span class="sub-role-dates">Oct 2018 &mdash; Mar 2019</span>
+                            </div>
+                            <ul class="timeline-desc">
+                                <li>Delivered enterprise-grade technical advisory for heavily customized NetSuite implementations using Oracle's ESM methodology.</li>
+                                <li>Identified latent defects, anti-patterns, and scalability risks &mdash; delivering actionable remediation roadmaps that reduced production incidents.</li>
+                            </ul>
+                        </div>
+
+                        <div class="sub-role">
+                            <div class="sub-role-header">
+                                <span class="sub-role-title">Advanced Solutions &amp; Defect Deflection Specialist</span>
+                                <span class="sub-role-dates">Jul 2018 &mdash; Oct 2018</span>
+                            </div>
+                            <ul class="timeline-desc">
+                                <li>Triaged and resolved high-severity platform defects across SuiteScript, SuiteFlow, SuiteTalk, SuiteBundler, and SDF.</li>
+                                <li>Engineered workarounds for every confirmed platform defect, minimizing customer-facing disruption.</li>
+                            </ul>
+                        </div>
+
+                        <div class="sub-role">
+                            <div class="sub-role-header">
+                                <span class="sub-role-title">Technical Support &mdash; SWAT / Escalations Desk</span>
+                                <span class="sub-role-dates">Dec 2017 &mdash; Jun 2018</span>
+                            </div>
+                            <ul class="timeline-desc">
+                                <li>Selected for NetSuite's elite SWAT team &mdash; a specialized unit supporting the platform's Top 200 enterprise customers and strategic partners.</li>
+                                <li>Handled the most technically complex escalations spanning custom scripting, platform core, third-party integrations, and performance degradation.</li>
+                            </ul>
+                        </div>
+
+                        <div class="sub-role">
+                            <div class="sub-role-header">
+                                <span class="sub-role-title">SuiteCloud Support Specialist</span>
+                                <span class="sub-role-dates">Jun 2016 &mdash; Dec 2017</span>
+                            </div>
+                            <ul class="timeline-desc">
+                                <li>Resolved high-volume customer issues across the SuiteCloud technology stack, building foundational platform expertise.</li>
+                                <li>Promoted to Core Escalations within 9 months based on technical proficiency.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accenture -->
+                <div class="timeline-entry reveal">
+                    <div class="timeline-meta">
+                        <span class="timeline-company">Accenture</span>
+                        <span class="timeline-dates">Feb 2016 &mdash; Mar 2016</span>
+                    </div>
+                    <div class="timeline-role">Intern &mdash; Development &amp; Operations</div>
+                    <ul class="timeline-desc">
+                        <li>DevOps internship focused on CI/CD pipeline automation and quality assurance tooling. Hands-on exposure to Selenium, Jenkins, SonarQube, and Java-based test automation.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ PROJECTS ═══════════════ -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Projects</div>
+                <h2 class="section-title">Notable deployments</h2>
+            </div>
+
+            <div class="projects-grid stagger-children">
+                <div class="project-card wide reveal" style="--i:0">
+                    <div class="project-card-content">
+                        <div class="project-tag">Enterprise ERP &mdash; Sports Equipment</div>
+                        <div class="project-title">Global Sports Equipment Manufacturer</div>
+                        <div class="project-desc">Sole architect from requirements through production. Multi-vendor integrations, pricing engines, fulfillment workflows, and payment processing &mdash; the largest technical engagement in the portfolio.</div>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-value">1,200+</span><span class="metric-label">scripts</span></div>
+                            <div class="metric"><span class="metric-value">Sole</span><span class="metric-label">architect</span></div>
+                            <div class="metric"><span class="metric-value">Full</span><span class="metric-label">lifecycle</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" style="--i:1">
+                    <div class="project-card-content">
+                        <div class="project-tag">DTC Beauty</div>
+                        <div class="project-title">Major DTC Beauty Brand Platform</div>
+                        <div class="project-desc">Full-lifecycle NetSuite platform: order management, payment processing, fulfillment automation, and multi-channel integration.</div>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-value">800+</span><span class="metric-label">scripts</span></div>
+                            <div class="metric"><span class="metric-value">Multi-ch</span><span class="metric-label">integration</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" style="--i:2">
+                    <div class="project-card-content">
+                        <div class="project-tag">Omnichannel E-Commerce</div>
+                        <div class="project-title">Signifyd Fraud-Integrated Platform</div>
+                        <div class="project-desc">Omnichannel e-commerce with SOA, Amazon marketplace connectivity, multi-language/region support for a global consumer goods company.</div>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-value">538+</span><span class="metric-label">scripts</span></div>
+                            <div class="metric"><span class="metric-value">SOA</span><span class="metric-label">architecture</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" style="--i:3">
+                    <div class="project-card-content">
+                        <div class="project-tag">Retail EDI &amp; Integration</div>
+                        <div class="project-title">Retail EDI Connectivity</div>
+                        <div class="project-desc">Warehouse and EDI connectivity for Walmart, Lowe's, Home Depot with dual B2B/B2C routing, Shopify sync, and RMA automation via config-record architecture.</div>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-value">3</span><span class="metric-label">major retailers</span></div>
+                            <div class="metric"><span class="metric-value">Zero-code</span><span class="metric-label">config</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" style="--i:4">
+                    <div class="project-card-content">
+                        <div class="project-tag">Metals Trading</div>
+                        <div class="project-title">COMEX Commodity Trading Platform</div>
+                        <div class="project-desc">COMEX pricing integration, Certificate of Assay workflows, lot tracking, and multi-subsidiary consolidation for the copper industry.</div>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-value">118+</span><span class="metric-label">scripts</span></div>
+                            <div class="metric"><span class="metric-value">3</span><span class="metric-label">subsidiaries</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" style="--i:5">
+                    <div class="project-card-content">
+                        <div class="project-tag">Full-Stack SaaS</div>
+                        <div class="project-title">EKW-SPHERE Operations Platform</div>
+                        <div class="project-desc">Production SaaS platform on Flask + PostgreSQL + Redis + Celery. 10 internal tools with enterprise security (RBAC, 2FA, field-level encryption).</div>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-value">29,500+</span><span class="metric-label">lines Python</span></div>
+                            <div class="metric"><span class="metric-value">3,600+</span><span class="metric-label">RPS</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ SKILLS ═══════════════ -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Skills</div>
+                <h2 class="section-title">Technical stack</h2>
+            </div>
+
+            <div class="skills-columns stagger-children">
+                <div class="skill-category reveal" style="--i:0">
+                    <div class="skill-cat-label">Platform &amp; ERP</div>
+                    <ul class="skill-list">
+                        <li class="primary">NetSuite (Admin, Config, Implementation)</li>
+                        <li class="primary">SuiteScript 2.x (all script types)</li>
+                        <li class="primary">SuiteFlow / SuiteTalk / SDF</li>
+                        <li class="primary">Celigo iPaaS (Legendary)</li>
+                        <li>SuiteBuilder / SuiteBundler</li>
+                        <li>SuiteCommerce</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category reveal" style="--i:1">
+                    <div class="skill-cat-label">Integration &amp; Data</div>
+                    <ul class="skill-list">
+                        <li class="primary">REST / SOAP APIs</li>
+                        <li class="primary">EDI (Walmart, Lowe's, Home Depot)</li>
+                        <li class="primary">Shopify Connectors</li>
+                        <li>3PL: Masonhub, ShipBob, Capacity, ILG, Radial</li>
+                        <li>Carriers: DHL, FedEx</li>
+                        <li>JSON / XML Transformation</li>
+                        <li>ODBC</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category reveal" style="--i:2">
+                    <div class="skill-cat-label">Languages &amp; Frameworks</div>
+                    <ul class="skill-list">
+                        <li class="primary">JavaScript / TypeScript</li>
+                        <li class="primary">Python</li>
+                        <li class="primary">Node.js</li>
+                        <li>React</li>
+                        <li>Flask / FastAPI</li>
+                        <li>PostgreSQL / Redis</li>
+                        <li>SQL / SuiteQL</li>
+                        <li>HTML / CSS</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category reveal" style="--i:3">
+                    <div class="skill-cat-label">Business Domains</div>
+                    <ul class="skill-list">
+                        <li class="primary">Order-to-Cash</li>
+                        <li class="primary">Procure-to-Pay</li>
+                        <li class="primary">Fulfillment & 3PL Operations</li>
+                        <li>Revenue Recognition</li>
+                        <li>Inventory & Warehouse Mgmt</li>
+                        <li>Financial Close</li>
+                        <li>Supply Chain</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category reveal" style="--i:4">
+                    <div class="skill-cat-label">DevOps &amp; Tools</div>
+                    <ul class="skill-list">
+                        <li class="primary">Git</li>
+                        <li>Jenkins / CI-CD</li>
+                        <li>SonarQube</li>
+                        <li>Selenium</li>
+                        <li>AI-Augmented Dev</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category reveal" style="--i:5">
+                    <div class="skill-cat-label">Architecture</div>
+                    <ul class="skill-list">
+                        <li class="primary">Integration Architecture</li>
+                        <li class="primary">Solution Design</li>
+                        <li>Technical Requirements Analysis</li>
+                        <li>Performance Optimization</li>
+                        <li>Platform Governance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ EDUCATION ═══════════════ -->
+    <section id="education">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Education</div>
+                <h2 class="section-title">Foundation</h2>
+            </div>
+
+            <div class="edu-card reveal">
+                <div class="edu-main">
+                    <h3>Bachelor of Science in Computer Engineering</h3>
+                    <div class="edu-school">Mapua Institute of Technology (now Mapua University)</div>
+                    <div class="edu-spec">Specialization: Microsoft .NET Technology</div>
+                    <ul class="edu-honors">
+                        <li>Top 5 in Class, Batch 2011 (Excellence Awardee)</li>
+                        <li>Best Thesis in Computer Engineering</li>
+                        <li>1st Runner-Up, Best Thesis &mdash; EECE Department</li>
+                        <li>1st Runner-Up, Best Presenter &mdash; EECE Department</li>
+                        <li>1st Place, Mapua Debate Competition</li>
+                    </ul>
+                </div>
+                <div class="edu-year">2011 &mdash; 2016</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Contact</div>
+                <h2 class="section-title">Let's connect</h2>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-text reveal">
+                    <p>Open to conversations about NetSuite architecture, integration strategy, and ERP modernization. Whether you're a recruiter, a potential client, or a fellow architect &mdash; I'd love to hear from you.</p>
+                    <div class="hero-actions">
+                        <a href="mailto:ejaquino26@gmail.com" class="btn btn-primary">Send an email</a>
+                        <a href="https://www.linkedin.com/in/ejaquino/" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn profile</a>
+                    </div>
+                </div>
+
+                <div class="contact-terminal reveal reveal-delay-2">
+                    <div class="terminal-bar">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                        <span class="terminal-title">contact.json</span>
+                    </div>
+                    <div class="contact-terminal-body">
+                        <div class="line"><span class="key">email</span><span class="val"><a href="mailto:ejaquino26@gmail.com">ejaquino26@gmail.com</a></span></div>
+                        <div class="line"><span class="key">phone</span><span class="val"><a href="https://wa.me/639055147337">+63 905 514 7337</a></span></div>
+                        <div class="line"><span class="key">location</span><span class="val">Metro Manila, Philippines</span></div>
+                        <div class="line"><span class="key">linkedin</span><span class="val"><a href="https://www.linkedin.com/in/ejaquino/" target="_blank" rel="noopener">linkedin.com/in/ejaquino</a></span></div>
+                        <div class="line"><span class="key">status</span><span class="val" style="color:var(--green-status);">Open to opportunities</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Erick Joshua A. Aquino. Built with purpose.</p>
+        </div>
+    </footer>
+
+    <!-- ═══════════════ JAVASCRIPT ═══════════════ -->
+    <script>
+        // ── Typing animation ──
+        (function() {
+            const phrases = [
+                'Senior NetSuite Solutions Architect',
+                'Ex-Oracle SWAT',
+                'Celigo Legendary',
+                'Integration Architect',
+                'ERP Modernization'
+            ];
+            const el = document.getElementById('typedText');
+            let phraseIdx = 0;
+            let charIdx = 0;
+            let deleting = false;
+            let pauseTimer = 0;
+
+            function tick() {
+                const phrase = phrases[phraseIdx];
+
+                if (!deleting) {
+                    charIdx++;
+                    el.textContent = phrase.substring(0, charIdx);
+                    if (charIdx === phrase.length) {
+                        pauseTimer = 2000;
+                        deleting = true;
+                    }
+                } else {
+                    if (pauseTimer > 0) {
+                        pauseTimer -= 60;
+                        setTimeout(tick, 60);
+                        return;
+                    }
+                    charIdx--;
+                    el.textContent = phrase.substring(0, charIdx);
+                    if (charIdx === 0) {
+                        deleting = false;
+                        phraseIdx = (phraseIdx + 1) % phrases.length;
+                    }
+                }
+
+                const speed = deleting ? 30 : 55;
+                setTimeout(tick, speed);
+            }
+
+            setTimeout(tick, 1200);
+        })();
+
+        // ── Counter animation ──
+        (function() {
+            const counters = document.querySelectorAll('.counter');
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.dataset.target);
+                        const duration = 1500;
+                        const start = performance.now();
+
+                        function update(now) {
+                            const elapsed = now - start;
+                            const progress = Math.min(elapsed / duration, 1);
+                            // Ease out quart
+                            const eased = 1 - Math.pow(1 - progress, 4);
+                            const current = Math.round(eased * target);
+                            el.textContent = current.toLocaleString();
+                            if (progress < 1) requestAnimationFrame(update);
+                        }
+
+                        requestAnimationFrame(update);
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(function(c) { observer.observe(c); });
+        })();
+
+        // ── Scroll reveal ──
+        (function() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            reveals.forEach(function(el) { observer.observe(el); });
+        })();
+
+        // ── Nav scroll effect ──
+        (function() {
+            const nav = document.getElementById('nav');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 40) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            }, { passive: true });
+        })();
+
+        // ── Mobile nav toggle ──
+        (function() {
+            const toggle = document.getElementById('navToggle');
+            const links = document.getElementById('navLinks');
+            toggle.addEventListener('click', function() {
+                links.classList.toggle('open');
+                toggle.textContent = links.classList.contains('open') ? '[close]' : '[menu]';
+            });
+
+            // Close on link click
+            links.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
+                    links.classList.remove('open');
+                    toggle.textContent = '[menu]';
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html>
