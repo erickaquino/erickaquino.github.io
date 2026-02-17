@@ -1616,7 +1616,7 @@
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
 
-        .stagger-children .reveal { transition-delay: calc(var(--i, 0) * 0.08s); }
+        .stagger-children .reveal { transition-delay: calc(var(--i, 0) * 0.1s); }
 
         /* Hero load */
         .hero-load {
@@ -1633,6 +1633,590 @@
 
         @keyframes heroFadeIn {
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ══════════════════════════════════════════
+           SCROLL PROGRESS INDICATOR
+           ══════════════════════════════════════════ */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            z-index: 200;
+            pointer-events: none;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--cyan), var(--cyan-bright));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.05s linear;
+            box-shadow: 0 0 8px var(--cyan-glow);
+        }
+
+        /* ══════════════════════════════════════════
+           STATS TICKER BAR
+           ══════════════════════════════════════════ */
+        .stats-ticker {
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 32px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stats-ticker::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--cyan-glow), transparent);
+        }
+
+        .stats-ticker-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .ticker-stat {
+            text-align: center;
+            flex: 1;
+        }
+
+        .ticker-value {
+            font-family: var(--font-sans);
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .ticker-value .ticker-unit {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-tertiary);
+        }
+
+        .ticker-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-tertiary);
+        }
+
+        .ticker-divider {
+            width: 1px;
+            height: 40px;
+            background: var(--border-subtle);
+            flex-shrink: 0;
+        }
+
+        /* ══════════════════════════════════════════
+           METHODOLOGY
+           ══════════════════════════════════════════ */
+        .method-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            position: relative;
+        }
+
+        .method-step {
+            text-align: center;
+            padding: 0 16px;
+            position: relative;
+        }
+
+        .method-step-num {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--amber);
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .method-step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 24px 16px;
+            transition: border-color 0.3s;
+        }
+
+        .method-step-card:hover { border-color: var(--border-medium); }
+
+        .method-step-title {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .method-step-desc {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            line-height: 1.5;
+        }
+
+        .method-connector {
+            position: absolute;
+            top: 50%;
+            right: -2px;
+            width: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .method-connector span {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--cyan-dim);
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        .method-connector span:nth-child(2) { animation-delay: 0.3s; }
+        .method-connector span:nth-child(3) { animation-delay: 0.6s; }
+
+        .method-step:last-child .method-connector { display: none; }
+
+        /* ══════════════════════════════════════════
+           CERTIFICATIONS SHOWCASE
+           ══════════════════════════════════════════ */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .cert-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .cert-badge:hover {
+            border-color: var(--border-medium);
+            transform: translateY(-2px);
+        }
+
+        .cert-badge::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+        }
+
+        .cert-badge.oracle-cert::before { background: #ff6b4a; }
+        .cert-badge.celigo-cert::before { background: var(--blue); }
+
+        .cert-badge-check {
+            font-size: 14px;
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+
+        .cert-badge.oracle-cert .cert-badge-check { color: #ff6b4a; }
+        .cert-badge.celigo-cert .cert-badge-check { color: var(--blue); }
+
+        .cert-badge-name {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .cert-badge-org {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            margin-bottom: 4px;
+        }
+
+        .cert-badge-date {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-faint);
+        }
+
+        /* ══════════════════════════════════════════
+           ARCHITECTURE DIAGRAM
+           ══════════════════════════════════════════ */
+        .arch-diagram {
+            max-width: 960px;
+            margin: 0 auto 56px;
+            padding: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .arch-diagram-title {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-tertiary);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .arch-diagram-sub {
+            font-size: 13px;
+            color: var(--text-faint);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .arch-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: nowrap;
+        }
+
+        .arch-node {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-medium);
+            border-radius: 8px;
+            padding: 14px 18px;
+            text-align: center;
+            min-width: 120px;
+            transition: border-color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .arch-node:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-2px);
+        }
+
+        .arch-node-name {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .arch-node-role {
+            font-size: 10px;
+            color: var(--text-faint);
+        }
+
+        .arch-node.shopify { border-top: 2px solid var(--purple); }
+        .arch-node.shopify .arch-node-name { color: var(--purple); }
+        .arch-node.celigo { border-top: 2px solid var(--blue); }
+        .arch-node.celigo .arch-node-name { color: var(--blue); }
+        .arch-node.netsuite { border-top: 2px solid var(--cyan); }
+        .arch-node.netsuite .arch-node-name { color: var(--cyan); }
+        .arch-node.tpl-node { border-top: 2px solid var(--amber); }
+        .arch-node.tpl-node .arch-node-name { color: var(--amber); }
+        .arch-node.payments { border-top: 2px solid var(--pink); }
+        .arch-node.payments .arch-node-name { color: var(--pink); }
+
+        .arch-arrow {
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            color: var(--text-faint);
+            font-family: var(--font-mono);
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .arch-arrow span {
+            display: inline-block;
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        .arch-bottom-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 16px;
+            gap: 12px;
+        }
+
+        .arch-vert-arrow {
+            text-align: center;
+            color: var(--text-faint);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            margin-top: 12px;
+        }
+
+        .arch-vert-arrow span {
+            display: inline-block;
+            animation: pulseDown 2s ease-in-out infinite;
+        }
+
+        /* ══════════════════════════════════════════
+           CODE PHILOSOPHY
+           ══════════════════════════════════════════ */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .philosophy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-left: 3px solid var(--cyan-dim);
+            border-radius: 6px;
+            padding: 24px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .philosophy-card:hover {
+            border-color: var(--border-medium);
+            transform: translateY(-2px);
+        }
+
+        .philosophy-card:nth-child(2) { border-left-color: var(--amber-dim); }
+        .philosophy-card:nth-child(3) { border-left-color: var(--purple); }
+        .philosophy-card:nth-child(4) { border-left-color: var(--blue); }
+
+        .philosophy-title {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .philosophy-desc {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            line-height: 1.6;
+        }
+
+        /* ══════════════════════════════════════════
+           INSIGHTS / WRITING
+           ══════════════════════════════════════════ */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .insight-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 24px;
+            transition: border-color 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insight-card:hover {
+            border-color: var(--border-medium);
+            transform: translateY(-2px);
+        }
+
+        .insight-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--amber);
+            background: rgba(232, 168, 56, 0.1);
+            border: 1px solid rgba(232, 168, 56, 0.2);
+            border-radius: 4px;
+            padding: 3px 8px;
+            margin-bottom: 14px;
+        }
+
+        .insight-title {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+
+        .insight-excerpt {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .insight-date {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-faint);
+        }
+
+        /* ══════════════════════════════════════════
+           EASTER EGG TERMINAL
+           ══════════════════════════════════════════ */
+        .egg-toggle {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 150;
+            background: var(--bg-card);
+            border: 1px solid var(--border-medium);
+            color: var(--cyan);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s var(--ease-out-quart);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+
+        .egg-toggle:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--cyan-dim);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 12px var(--cyan-glow);
+        }
+
+        .egg-overlay {
+            position: fixed;
+            bottom: 84px;
+            right: 24px;
+            width: 420px;
+            max-height: 340px;
+            z-index: 150;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-medium);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px var(--cyan-glow);
+            display: none;
+            flex-direction: column;
+        }
+
+        .egg-overlay.open { display: flex; }
+
+        .egg-overlay .terminal-bar {
+            flex-shrink: 0;
+        }
+
+        .egg-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .egg-body .egg-line { margin-bottom: 2px; }
+        .egg-body .egg-prompt { color: var(--cyan); }
+        .egg-body .egg-cmd { color: var(--text-primary); }
+        .egg-body .egg-response { color: var(--text-tertiary); }
+        .egg-body .egg-highlight { color: var(--amber); }
+        .egg-body .egg-link { color: var(--cyan); }
+
+        .egg-input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-top: 1px solid var(--border-subtle);
+            flex-shrink: 0;
+        }
+
+        .egg-input-row .egg-prompt-symbol {
+            color: var(--cyan);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .egg-input {
+            flex: 1;
+            background: none;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            caret-color: var(--cyan);
+        }
+
+        /* ══════════════════════════════════════════
+           SECTION SEPARATORS
+           ══════════════════════════════════════════ */
+        .section-sep {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .section-sep-line {
+            width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--cyan-dim), transparent);
+            transform: scaleX(0);
+            transition: transform 1s var(--ease-out-expo);
+        }
+
+        .section-sep.visible .section-sep-line {
+            transform: scaleX(1);
+        }
+
+        /* Additional reveal variations */
+        .reveal-scale {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+        }
+
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .reveal-up-far {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+        }
+
+        .reveal-up-far.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* ══════════════════════════════════════════
@@ -1686,6 +2270,14 @@
             }
             .nav-links.open li:last-child a { border-bottom: none; }
             .nav-toggle { display: block; }
+
+            .method-steps { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .method-connector { display: none; }
+            .certs-grid { grid-template-columns: repeat(2, 1fr); }
+            .insights-grid { grid-template-columns: 1fr; }
+            .arch-flow { flex-wrap: wrap; justify-content: center; gap: 8px; }
+            .arch-arrow { transform: rotate(90deg); padding: 4px 0; }
+            .arch-diagram { padding: 24px 16px; }
         }
 
         @media (max-width: 640px) {
@@ -1800,6 +2392,38 @@
             /* Reduce heavy shadows/glows for mobile perf */
             .terminal-frame { box-shadow: 0 0 0 1px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.4); }
             .eco-hub-label { box-shadow: 0 0 20px var(--cyan-glow); }
+
+            /* Stats Ticker */
+            .stats-ticker-inner { flex-wrap: wrap; justify-content: center; gap: 16px; }
+            .ticker-stat { flex: 0 0 calc(50% - 12px); }
+            .ticker-stat:last-child { flex: 0 0 100%; }
+            .ticker-divider { display: none; }
+            .ticker-value { font-size: 22px; }
+
+            /* Methodology */
+            .method-steps { grid-template-columns: 1fr; gap: 12px; }
+            .method-connector { display: none; }
+
+            /* Certifications */
+            .certs-grid { grid-template-columns: 1fr; }
+
+            /* Architecture Diagram */
+            .arch-flow { flex-direction: column; }
+            .arch-node { min-width: 0; width: 100%; }
+            .arch-arrow { transform: rotate(90deg); }
+            .arch-bottom-row { flex-direction: column; align-items: center; }
+
+            /* Philosophy */
+            .philosophy-grid { grid-template-columns: 1fr; }
+
+            /* Easter Egg */
+            .egg-overlay {
+                bottom: 0; right: 0; left: 0;
+                width: 100%;
+                max-height: 50vh;
+                border-radius: 12px 12px 0 0;
+            }
+            .egg-toggle { bottom: 16px; right: 16px; }
         }
 
         /* Extra small phones (iPhone SE, etc.) */
@@ -1827,6 +2451,11 @@
 </head>
 <body>
 
+    <!-- ═══════════════ SCROLL PROGRESS ═══════════════ -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scrollProgress"></div>
+    </div>
+
     <!-- ═══════════════ INTERACTIVE BACKGROUND ═══════════════ -->
     <div id="cursorGlow"></div>
     <div class="ambient-orb"></div>
@@ -1840,6 +2469,8 @@
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">[menu]</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
+                <li><a href="#methodology">Process</a></li>
+                <li><a href="#certifications">Certs</a></li>
                 <li><a href="#ecosystem">Ecosystem</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -1910,6 +2541,40 @@
         </div>
     </section>
 
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
+
+    <!-- ═══════════════ STATS TICKER BAR ═══════════════ -->
+    <div class="stats-ticker reveal">
+        <div class="stats-ticker-inner">
+            <div class="ticker-stat">
+                <div class="ticker-value"><span class="counter" data-target="10">0</span><span class="ticker-unit"> yrs</span></div>
+                <div class="ticker-label">Experience</div>
+            </div>
+            <div class="ticker-divider"></div>
+            <div class="ticker-stat">
+                <div class="ticker-value"><span class="counter" data-target="3500">0</span><span class="ticker-unit">+</span></div>
+                <div class="ticker-label">Scripts deployed</div>
+            </div>
+            <div class="ticker-divider"></div>
+            <div class="ticker-stat">
+                <div class="ticker-value"><span class="counter" data-target="20">0</span><span class="ticker-unit">+</span></div>
+                <div class="ticker-label">Enterprise clients</div>
+            </div>
+            <div class="ticker-divider"></div>
+            <div class="ticker-stat">
+                <div class="ticker-value"><span class="counter" data-target="7">0</span></div>
+                <div class="ticker-label">Certifications</div>
+            </div>
+            <div class="ticker-divider"></div>
+            <div class="ticker-stat">
+                <div class="ticker-value"><span class="counter" data-target="29500">0</span><span class="ticker-unit">+</span></div>
+                <div class="ticker-label">Lines of Python</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
+
     <!-- ═══════════════ ABOUT ═══════════════ -->
     <section id="about">
         <div class="container">
@@ -1959,6 +2624,111 @@
             </div>
         </div>
     </section>
+
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
+
+    <!-- ═══════════════ METHODOLOGY ═══════════════ -->
+    <section id="methodology">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Process</div>
+                <h2 class="section-title">How I work</h2>
+            </div>
+
+            <div class="method-steps reveal-up-far stagger-children">
+                <div class="method-step reveal" style="--i:0">
+                    <div class="method-step-num">01</div>
+                    <div class="method-step-card">
+                        <div class="method-step-title">Discovery</div>
+                        <div class="method-step-desc">Requirements gathering, constraints mapping, and stakeholder alignment</div>
+                    </div>
+                    <div class="method-connector"><span></span><span></span><span></span></div>
+                </div>
+                <div class="method-step reveal" style="--i:1">
+                    <div class="method-step-num">02</div>
+                    <div class="method-step-card">
+                        <div class="method-step-title">Architecture</div>
+                        <div class="method-step-desc">System design, integration mapping, and technology selection</div>
+                    </div>
+                    <div class="method-connector"><span></span><span></span><span></span></div>
+                </div>
+                <div class="method-step reveal" style="--i:2">
+                    <div class="method-step-num">03</div>
+                    <div class="method-step-card">
+                        <div class="method-step-title">Build</div>
+                        <div class="method-step-desc">SuiteScript development, Celigo flows, iterative testing, and deployment</div>
+                    </div>
+                    <div class="method-connector"><span></span><span></span><span></span></div>
+                </div>
+                <div class="method-step reveal" style="--i:3">
+                    <div class="method-step-num">04</div>
+                    <div class="method-step-card">
+                        <div class="method-step-title">Optimize</div>
+                        <div class="method-step-desc">Performance tuning, monitoring, documentation, and knowledge transfer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
+
+    <!-- ═══════════════ CERTIFICATIONS SHOWCASE ═══════════════ -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Credentials</div>
+                <h2 class="section-title">Certifications</h2>
+            </div>
+
+            <div class="certs-grid reveal-scale stagger-children">
+                <div class="cert-badge oracle-cert reveal" style="--i:0">
+                    <div class="cert-badge-check">&#10003;</div>
+                    <div class="cert-badge-name">NetSuite Certified AI Foundations Associate</div>
+                    <div class="cert-badge-org">Oracle</div>
+                    <div class="cert-badge-date">Nov 2025</div>
+                </div>
+                <div class="cert-badge oracle-cert reveal" style="--i:1">
+                    <div class="cert-badge-check">&#10003;</div>
+                    <div class="cert-badge-name">NetSuite Certified BI &amp; Reporting Associate</div>
+                    <div class="cert-badge-org">Oracle</div>
+                    <div class="cert-badge-date">Nov 2025</div>
+                </div>
+                <div class="cert-badge oracle-cert reveal" style="--i:2">
+                    <div class="cert-badge-check">&#10003;</div>
+                    <div class="cert-badge-name">NetSuite Certified Financial Associate</div>
+                    <div class="cert-badge-org">Oracle</div>
+                    <div class="cert-badge-date">Nov 2025</div>
+                </div>
+                <div class="cert-badge oracle-cert reveal" style="--i:3">
+                    <div class="cert-badge-check">&#10003;</div>
+                    <div class="cert-badge-name">OCI 2025 AI Foundations Associate</div>
+                    <div class="cert-badge-org">Oracle</div>
+                    <div class="cert-badge-date">Nov 2025</div>
+                </div>
+                <div class="cert-badge oracle-cert reveal" style="--i:4">
+                    <div class="cert-badge-check">&#10003;</div>
+                    <div class="cert-badge-name">NetSuite SuiteFoundation</div>
+                    <div class="cert-badge-org">Oracle NetSuite</div>
+                    <div class="cert-badge-date">Verified</div>
+                </div>
+                <div class="cert-badge celigo-cert reveal" style="--i:5">
+                    <div class="cert-badge-check">&#10003;</div>
+                    <div class="cert-badge-name">Mastery Level 4: Legendary</div>
+                    <div class="cert-badge-org">Celigo</div>
+                    <div class="cert-badge-date">Oct 2023</div>
+                </div>
+                <div class="cert-badge celigo-cert reveal" style="--i:6">
+                    <div class="cert-badge-check">&#10003;</div>
+                    <div class="cert-badge-name">Builder Core Certification</div>
+                    <div class="cert-badge-org">Celigo</div>
+                    <div class="cert-badge-date">Feb 2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
 
     <!-- ═══════════════ INTEGRATION ECOSYSTEM ═══════════════ -->
     <section id="ecosystem">
@@ -2036,6 +2806,8 @@
         </div>
     </section>
 
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
+
     <!-- ═══════════════ CLIENT VERTICALS ═══════════════ -->
     <section id="verticals">
         <div class="container">
@@ -2088,6 +2860,8 @@
             </div>
         </div>
     </section>
+
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
 
     <!-- ═══════════════ EXPERIENCE ═══════════════ -->
     <section id="experience">
@@ -2200,12 +2974,52 @@
         </div>
     </section>
 
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
+
     <!-- ═══════════════ PROJECTS — CASE STUDIES ═══════════════ -->
     <section id="projects">
         <div class="container">
             <div class="section-header reveal">
                 <div class="section-label">Projects</div>
                 <h2 class="section-title">Featured case studies</h2>
+            </div>
+
+            <!-- Architecture Diagram -->
+            <div class="arch-diagram reveal-scale">
+                <div class="arch-diagram-title">Flagship Architecture &mdash; 1,200+ Scripts</div>
+                <div class="arch-diagram-sub">Global Sports Equipment Manufacturer &middot; Data flow overview</div>
+                <div class="arch-flow">
+                    <div class="arch-node shopify">
+                        <div class="arch-node-name">Shopify</div>
+                        <div class="arch-node-role">E-Commerce</div>
+                    </div>
+                    <div class="arch-arrow"><span>&rarr;</span></div>
+                    <div class="arch-node celigo">
+                        <div class="arch-node-name">Celigo iPaaS</div>
+                        <div class="arch-node-role">Middleware</div>
+                    </div>
+                    <div class="arch-arrow"><span>&rarr;</span></div>
+                    <div class="arch-node netsuite">
+                        <div class="arch-node-name">NetSuite ERP</div>
+                        <div class="arch-node-role">Central Hub</div>
+                    </div>
+                    <div class="arch-arrow"><span>&rarr;</span></div>
+                    <div class="arch-node tpl-node">
+                        <div class="arch-node-name">3PL / Carriers</div>
+                        <div class="arch-node-role">Fulfillment</div>
+                    </div>
+                </div>
+                <div class="arch-vert-arrow"><span>&#8597;</span></div>
+                <div class="arch-bottom-row">
+                    <div class="arch-node payments">
+                        <div class="arch-node-name">Payment Gateway</div>
+                        <div class="arch-node-role">Processing</div>
+                    </div>
+                    <div class="arch-node tpl-node">
+                        <div class="arch-node-name">EDI / Retail</div>
+                        <div class="arch-node-role">B2B Channel</div>
+                    </div>
+                </div>
             </div>
 
             <div class="projects-grid stagger-children">
@@ -2714,6 +3528,72 @@
         </div>
     </section>
 
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
+
+    <!-- ═══════════════ CODE PHILOSOPHY ═══════════════ -->
+    <section id="philosophy">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Approach</div>
+                <h2 class="section-title">Engineering principles</h2>
+            </div>
+
+            <div class="philosophy-grid reveal-up-far stagger-children">
+                <div class="philosophy-card reveal" style="--i:0">
+                    <div class="philosophy-title">Config over Code</div>
+                    <div class="philosophy-desc">Build once, configure per-client. Configuration records drive integration behavior without redeployments &mdash; new clients onboard through setup, not development.</div>
+                </div>
+                <div class="philosophy-card reveal" style="--i:1">
+                    <div class="philosophy-title">MapReduce at Scale</div>
+                    <div class="philosophy-desc">87+ MapReduce scripts across the portfolio. Batch processing is the backbone of enterprise data &mdash; reconciliations, migrations, and transformations at volume.</div>
+                </div>
+                <div class="philosophy-card reveal" style="--i:2">
+                    <div class="philosophy-title">Zero-Disruption Upgrades</div>
+                    <div class="philosophy-desc">Full upgrade lifecycle management from Release Preview analysis through regression validation and production cutover &mdash; without downtime or data loss.</div>
+                </div>
+                <div class="philosophy-card reveal" style="--i:3">
+                    <div class="philosophy-title">Integration-First Architecture</div>
+                    <div class="philosophy-desc">Every solution starts with the data flow. Celigo, REST, SOAP, EDI &mdash; connectivity is the foundation, not an afterthought. Build the pipes first.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
+
+    <!-- ═══════════════ INSIGHTS ═══════════════ -->
+    <section id="insights">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Writing</div>
+                <h2 class="section-title">Insights</h2>
+            </div>
+
+            <div class="insights-grid stagger-children">
+                <div class="insight-card reveal" style="--i:0">
+                    <div class="insight-badge">Coming soon</div>
+                    <div class="insight-title">Lessons from 1,200+ scripts as a solo architect</div>
+                    <div class="insight-excerpt">What I learned building the largest NetSuite implementation in my portfolio &mdash; from requirements gathering through production deployment as the sole technical architect.</div>
+                    <div class="insight-date">2026</div>
+                </div>
+                <div class="insight-card reveal" style="--i:1">
+                    <div class="insight-badge">Coming soon</div>
+                    <div class="insight-title">MapReduce patterns for enterprise NetSuite</div>
+                    <div class="insight-excerpt">Design patterns and performance strategies from 87+ MapReduce scripts processing millions of records across reconciliation, migration, and transformation workloads.</div>
+                    <div class="insight-date">2026</div>
+                </div>
+                <div class="insight-card reveal" style="--i:2">
+                    <div class="insight-badge">Coming soon</div>
+                    <div class="insight-title">Building a SaaS platform in Python from scratch</div>
+                    <div class="insight-excerpt">How I built EKW-SPHERE &mdash; a 29,500+ line operations platform with Flask, PostgreSQL, Redis, and Celery &mdash; from idea to 3,600+ requests per second.</div>
+                    <div class="insight-date">2026</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
+
     <!-- ═══════════════ EDUCATION ═══════════════ -->
     <section id="education">
         <div class="container">
@@ -2739,6 +3619,8 @@
             </div>
         </div>
     </section>
+
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
 
     <!-- ═══════════════ FEATURED DOWNLOADS ═══════════════ -->
     <section id="downloads">
@@ -2768,6 +3650,8 @@
             </div>
         </div>
     </section>
+
+    <div class="section-sep reveal"><div class="section-sep-line"></div></div>
 
     <!-- ═══════════════ CONTACT ═══════════════ -->
     <section id="contact" class="contact-section">
@@ -2814,8 +3698,37 @@
         </div>
     </footer>
 
+    <!-- ═══════════════ EASTER EGG TERMINAL ═══════════════ -->
+    <button class="egg-toggle" id="eggToggle" aria-label="Open terminal">[&gt;_]</button>
+    <div class="egg-overlay" id="eggOverlay">
+        <div class="terminal-bar">
+            <div class="terminal-dot red"></div>
+            <div class="terminal-dot yellow"></div>
+            <div class="terminal-dot green"></div>
+            <span class="terminal-title">visitor@portfolio ~ %</span>
+        </div>
+        <div class="egg-body" id="eggBody">
+            <div class="egg-line"><span class="egg-response">Welcome! Type </span><span class="egg-highlight">help</span><span class="egg-response"> to see available commands.</span></div>
+        </div>
+        <div class="egg-input-row">
+            <span class="egg-prompt-symbol">$</span>
+            <input class="egg-input" id="eggInput" type="text" autocomplete="off" spellcheck="false" placeholder="Type a command...">
+        </div>
+    </div>
+
     <!-- ═══════════════ JAVASCRIPT ═══════════════ -->
     <script>
+        // ── Scroll progress indicator ──
+        (function() {
+            var bar = document.getElementById('scrollProgress');
+            window.addEventListener('scroll', function() {
+                var scrollTop = window.scrollY;
+                var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                var progress = docHeight > 0 ? scrollTop / docHeight : 0;
+                bar.style.transform = 'scaleX(' + Math.min(progress, 1) + ')';
+            }, { passive: true });
+        })();
+
         // ── Typing animation ──
         (function() {
             var phrases = [
@@ -2872,7 +3785,7 @@
 
         // ── Scroll reveal ──
         (function() {
-            var reveals = document.querySelectorAll('.reveal');
+            var reveals = document.querySelectorAll('.reveal, .reveal-scale, .reveal-up-far');
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
@@ -2987,6 +3900,150 @@
                     card.style.setProperty('--card-x', x + 'px');
                     card.style.setProperty('--card-y', y + 'px');
                 });
+            });
+        })();
+
+        // ── Easter egg terminal ──
+        (function() {
+            var toggle = document.getElementById('eggToggle');
+            var overlay = document.getElementById('eggOverlay');
+            var eggBody = document.getElementById('eggBody');
+            var input = document.getElementById('eggInput');
+            if (!toggle || !overlay) return;
+
+            var commands = {
+                help: [
+                    {text: 'Available commands: ', cls: 'egg-response'},
+                    {text: 'whoami', cls: 'egg-highlight'},
+                    {text: ', ', cls: 'egg-response'},
+                    {text: 'skills', cls: 'egg-highlight'},
+                    {text: ', ', cls: 'egg-response'},
+                    {text: 'projects', cls: 'egg-highlight'},
+                    {text: ', ', cls: 'egg-response'},
+                    {text: 'contact', cls: 'egg-highlight'},
+                    {text: ', ', cls: 'egg-response'},
+                    {text: 'hire', cls: 'egg-highlight'},
+                    {text: ', ', cls: 'egg-response'},
+                    {text: 'clear', cls: 'egg-highlight'},
+                    {text: ', ', cls: 'egg-response'},
+                    {text: 'exit', cls: 'egg-highlight'}
+                ],
+                whoami: [
+                    {text: 'Erick Joshua A. Aquino', cls: 'egg-highlight'},
+                    {text: '\nSenior NetSuite Solutions Architect', cls: 'egg-response'},
+                    {text: '\n10 years | Ex-Oracle SWAT | Celigo Legendary', cls: 'egg-response'}
+                ],
+                skills: [
+                    {text: 'SuiteScript 2.x, Celigo iPaaS, REST/SOAP APIs, EDI,', cls: 'egg-response'},
+                    {text: '\nPython, Node.js, TypeScript, React, Flask, FastAPI,', cls: 'egg-response'},
+                    {text: '\nPostgreSQL, Redis, Shopify, MapReduce', cls: 'egg-response'}
+                ],
+                projects: [
+                    {text: '22+', cls: 'egg-highlight'},
+                    {text: ' projects delivered', cls: 'egg-response'},
+                    {text: '\n', cls: ''},
+                    {text: '3,500+', cls: 'egg-highlight'},
+                    {text: ' scripts deployed', cls: 'egg-response'},
+                    {text: '\n', cls: ''},
+                    {text: '20+', cls: 'egg-highlight'},
+                    {text: ' enterprise clients', cls: 'egg-response'},
+                    {text: '\n', cls: ''},
+                    {text: '29,500+', cls: 'egg-highlight'},
+                    {text: ' lines of Python', cls: 'egg-response'}
+                ],
+                contact: [
+                    {text: 'Email: ', cls: 'egg-response'},
+                    {text: 'ejaquino26@gmail.com', cls: 'egg-link'},
+                    {text: '\nPhone: +63 905 514 7337', cls: 'egg-response'},
+                    {text: '\nLinkedIn: ', cls: 'egg-response'},
+                    {text: 'linkedin.com/in/ejaquino', cls: 'egg-link'}
+                ],
+                hire: [
+                    {text: "Let's talk!", cls: 'egg-highlight'},
+                    {text: ' Reach out at ', cls: 'egg-response'},
+                    {text: 'ejaquino26@gmail.com', cls: 'egg-link'},
+                    {text: '\nOpen to: NetSuite Architecture, Integration Strategy,', cls: 'egg-response'},
+                    {text: '\nERP Modernization, Technical Advisory', cls: 'egg-response'}
+                ]
+            };
+
+            function renderResponse(parts) {
+                // Build response lines using safe DOM construction
+                var lines = [''];
+                var lineIdx = 0;
+                parts.forEach(function(part) {
+                    var segments = part.text.split('\n');
+                    for (var i = 0; i < segments.length; i++) {
+                        if (i > 0) {
+                            lineIdx++;
+                            lines[lineIdx] = '';
+                        }
+                        if (!lines[lineIdx]) lines[lineIdx] = [];
+                        if (typeof lines[lineIdx] === 'string') lines[lineIdx] = [];
+                        lines[lineIdx].push({text: segments[i], cls: part.cls});
+                    }
+                });
+
+                lines.forEach(function(lineParts) {
+                    var el = document.createElement('div');
+                    el.className = 'egg-line egg-response';
+                    if (Array.isArray(lineParts)) {
+                        lineParts.forEach(function(p) {
+                            if (p.cls) {
+                                var span = document.createElement('span');
+                                span.className = p.cls;
+                                span.textContent = p.text;
+                                el.appendChild(span);
+                            } else {
+                                el.appendChild(document.createTextNode(p.text));
+                            }
+                        });
+                    }
+                    eggBody.appendChild(el);
+                });
+            }
+
+            toggle.addEventListener('click', function() {
+                var isOpen = overlay.classList.toggle('open');
+                if (isOpen) input.focus();
+            });
+
+            document.addEventListener('click', function(e) {
+                if (overlay.classList.contains('open') && !overlay.contains(e.target) && e.target !== toggle) {
+                    overlay.classList.remove('open');
+                }
+            });
+
+            input.addEventListener('keydown', function(e) {
+                if (e.key !== 'Enter') return;
+                var cmd = input.value.trim().toLowerCase();
+                input.value = '';
+                if (!cmd) return;
+
+                var cmdLine = document.createElement('div');
+                cmdLine.className = 'egg-line';
+                cmdLine.style.color = 'var(--text-primary)';
+                cmdLine.textContent = '$ ' + cmd;
+                eggBody.appendChild(cmdLine);
+
+                if (cmd === 'clear') {
+                    while (eggBody.firstChild) eggBody.removeChild(eggBody.firstChild);
+                } else if (cmd === 'exit') {
+                    overlay.classList.remove('open');
+                } else {
+                    var response = commands[cmd];
+                    if (!response) {
+                        response = [
+                            {text: 'Command not found: ', cls: 'egg-response'},
+                            {text: cmd, cls: 'egg-highlight'},
+                            {text: '. Type ', cls: 'egg-response'},
+                            {text: 'help', cls: 'egg-highlight'},
+                            {text: ' for available commands.', cls: 'egg-response'}
+                        ];
+                    }
+                    renderResponse(response);
+                }
+                eggBody.scrollTop = eggBody.scrollHeight;
             });
         })();
     </script>
