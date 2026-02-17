@@ -86,8 +86,10 @@
         a:hover { color: var(--cyan-bright); }
 
         /* ══════════════════════════════════════════
-           BACKGROUND GRID TEXTURE
+           BACKGROUND — INTERACTIVE LAYERS
            ══════════════════════════════════════════ */
+
+        /* Grid texture */
         body::before {
             content: '';
             position: fixed;
@@ -100,6 +102,7 @@
             z-index: 0;
         }
 
+        /* Scanline overlay */
         body::after {
             content: '';
             position: fixed;
@@ -110,6 +113,76 @@
             );
             pointer-events: none;
             z-index: 1;
+        }
+
+        /* Cursor-tracking gradient glow */
+        #cursorGlow {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            background: radial-gradient(
+                600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(0, 212, 170, 0.06) 0%,
+                rgba(0, 212, 170, 0.02) 25%,
+                transparent 60%
+            );
+        }
+
+        #cursorGlow.active { opacity: 1; }
+
+        /* Ambient floating orbs */
+        .ambient-orb {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(80px);
+            opacity: 0;
+            animation: orbFloat 20s ease-in-out infinite, orbFadeIn 2s ease-out forwards;
+        }
+
+        .ambient-orb:nth-child(1) {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(0, 212, 170, 0.07) 0%, transparent 70%);
+            top: 10%; left: -5%;
+            animation-delay: 0s;
+        }
+
+        .ambient-orb:nth-child(2) {
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(232, 168, 56, 0.05) 0%, transparent 70%);
+            top: 40%; right: -8%;
+            animation-delay: -7s;
+            animation-duration: 25s;
+        }
+
+        .ambient-orb:nth-child(3) {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(167, 139, 250, 0.04) 0%, transparent 70%);
+            bottom: 15%; left: 20%;
+            animation-delay: -14s;
+            animation-duration: 22s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -20px) scale(1.05); }
+            50% { transform: translate(-20px, 30px) scale(0.95); }
+            75% { transform: translate(15px, 15px) scale(1.02); }
+        }
+
+        @keyframes orbFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Hide ambient orbs + cursor glow on mobile for perf */
+        @media (max-width: 768px) {
+            .ambient-orb { display: none; }
+            #cursorGlow { display: none; }
         }
 
         /* ══════════════════════════════════════════
@@ -208,6 +281,7 @@
            ══════════════════════════════════════════ */
         .hero {
             min-height: 100vh;
+            min-height: 100svh;
             display: flex;
             align-items: center;
             padding-top: 64px;
@@ -583,6 +657,22 @@
             opacity: 0.5;
         }
 
+        .highlight-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            background: radial-gradient(
+                300px circle at var(--card-x, 50%) var(--card-y, 50%),
+                rgba(0, 212, 170, 0.06) 0%,
+                transparent 60%
+            );
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        .highlight-card:hover::after { opacity: 1; }
+
         .highlight-icon {
             font-size: 32px;
             margin-bottom: 16px;
@@ -947,7 +1037,11 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, var(--cyan-glow) 0%, transparent 50%);
+            background: radial-gradient(
+                400px circle at var(--card-x, 50%) var(--card-y, 50%),
+                rgba(0, 212, 170, 0.08) 0%,
+                transparent 60%
+            );
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -1376,31 +1470,29 @@
         /* ══════════════════════════════════════════
            RESPONSIVE
            ══════════════════════════════════════════ */
+
+        /* Prevent scroll when mobile nav is open */
+        body.nav-open { overflow: hidden; }
+
         @media (max-width: 1024px) {
             .status-grid { grid-template-columns: repeat(3, 1fr); }
+            .skills-columns { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 900px) {
+            section { padding: 80px 0; }
+            .section-header { margin-bottom: 40px; }
+
             .status-grid { grid-template-columns: repeat(3, 1fr); }
-            .about-grid { grid-template-columns: 1fr; }
-            .highlights-strip { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 32px; }
+            .highlights-strip { grid-template-columns: 1fr; gap: 12px; margin-top: 40px; }
             .eco-spokes { grid-template-columns: repeat(2, 1fr); }
             .verticals-band { grid-template-columns: repeat(2, 1fr); }
             .projects-grid { grid-template-columns: 1fr; }
             .project-card.wide { grid-column: auto; }
             .skills-columns { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 32px; }
             .downloads-grid { grid-template-columns: 1fr; max-width: 100%; }
-        }
-
-        @media (max-width: 640px) {
-            section { padding: 64px 0; }
-            .container { padding: 0 16px; }
-            .status-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .status-value { font-size: 24px; }
-            .terminal-body { padding: 20px; }
-            .eco-spokes { grid-template-columns: 1fr; }
-            .verticals-band { grid-template-columns: repeat(2, 1fr); }
 
             .nav-links { display: none; }
             .nav-links.open {
@@ -1410,25 +1502,168 @@
                 top: 64px;
                 left: 0;
                 right: 0;
-                background: rgba(8, 10, 12, 0.95);
+                background: rgba(8, 10, 12, 0.97);
                 backdrop-filter: blur(20px);
-                padding: 20px 24px;
-                gap: 16px;
+                -webkit-backdrop-filter: blur(20px);
+                padding: 24px;
+                gap: 8px;
+                border-bottom: 1px solid var(--border-subtle);
+                z-index: 100;
+            }
+            .nav-links.open a {
+                font-size: 13px;
+                padding: 12px 0;
+                display: block;
                 border-bottom: 1px solid var(--border-subtle);
             }
+            .nav-links.open li:last-child a { border-bottom: none; }
             .nav-toggle { display: block; }
+        }
 
-            .hero-actions { flex-direction: column; }
-            .btn { justify-content: center; }
-            .edu-card { flex-direction: column; gap: 16px; }
+        @media (max-width: 640px) {
+            section { padding: 56px 0; }
+            .container { padding: 0 16px; }
 
-            .timeline { padding-left: 28px; }
-            .timeline::before { left: 4px; }
-            .timeline-entry::before { left: -28px; width: 11px; height: 11px; }
+            /* Hero */
+            .hero { min-height: 100svh; padding-top: 56px; }
+            .hero::before { width: 400px; height: 400px; }
+            .terminal-body { padding: 16px; }
+            .terminal-bar { padding: 10px 12px; gap: 6px; }
+            .terminal-dot { width: 8px; height: 8px; }
+            .terminal-title { font-size: 10px; }
+            .hero-name { letter-spacing: -1px; }
+            .hero-tagline { font-size: 12px; margin-bottom: 16px; }
+
+            /* Status grid: 2-col with last card spanning full width */
+            .status-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .status-card { padding: 12px; }
+            .status-card:last-child { grid-column: 1 / -1; }
+            .status-label { font-size: 9px; letter-spacing: 1px; margin-bottom: 6px; }
+            .status-value { font-size: 22px; }
+            .status-sub { font-size: 10px; }
+
+            /* Hero actions */
+            .hero-actions { flex-direction: column; gap: 10px; margin-top: 20px; }
+            .btn { justify-content: center; padding: 14px 24px; font-size: 13px; min-height: 48px; }
+
+            /* Section headers */
+            .section-header { margin-bottom: 32px; }
+            .section-label { font-size: 10px; letter-spacing: 2px; gap: 8px; }
+
+            /* About */
+            .about-text p { font-size: 15px; margin-bottom: 16px; }
+            .certs-panel { padding: 20px; }
+            .highlights-strip { gap: 12px; margin-top: 32px; }
+            .highlight-card { padding: 20px 16px; }
+            .highlight-icon { font-size: 28px; margin-bottom: 12px; }
+            .highlight-title { font-size: 15px; }
+            .highlight-desc { font-size: 12px; }
+
+            /* Ecosystem */
+            .eco-hub-label { font-size: 13px; padding: 14px 28px; }
+            .eco-hub::before { width: 140px; height: 140px; }
+            .eco-hub-sub { font-size: 10px; }
+            .eco-connections { margin-bottom: 16px; }
+            .eco-line { height: 24px; }
+            .eco-spokes { grid-template-columns: 1fr; gap: 10px; }
+            .eco-spoke { padding: 16px; }
+            .eco-spoke-items li { font-size: 13px; }
+
+            /* Verticals */
+            .verticals-band { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .vertical-tile { padding: 16px 12px; }
+            .vertical-glyph { font-size: 22px; margin-bottom: 8px; }
+            .vertical-name { font-size: 12px; }
+            .vertical-metric { font-size: 10px; }
+
+            /* Experience */
+            .timeline { padding-left: 24px; }
+            .timeline::before { left: 3px; }
+            .timeline-entry { margin-bottom: 36px; }
+            .timeline-entry::before { left: -24px; width: 10px; height: 10px; top: 6px; }
+            .timeline-company { font-size: 18px; }
+            .timeline-dates { font-size: 11px; }
+            .timeline-role { font-size: 14px; margin-bottom: 12px; }
+            .timeline-desc li { font-size: 13px; padding: 3px 0 3px 16px; line-height: 1.55; }
+            .timeline-desc li::before { font-size: 9px; top: 6px; }
+            .oracle-sub-roles { padding-left: 14px; }
+            .sub-role-title { font-size: 13px; }
+            .sub-role-dates { font-size: 10px; }
+            .oracle-note { font-size: 12px; }
+
+            /* Projects */
+            .project-card { padding: 20px; }
+            .project-title { font-size: 16px; }
+            .project-narrative p { font-size: 12px; line-height: 1.55; }
+            .project-metrics { gap: 12px; }
+            .metric-value { font-size: 14px; }
+            .tech-pills { gap: 5px; }
+            .tech-pill { font-size: 9px; padding: 3px 6px; }
+
+            /* Skills */
+            .skill-category { padding: 20px; }
+            .skill-cat-label { font-size: 9px; letter-spacing: 1.5px; margin-bottom: 12px; }
+            .skill-list li { font-size: 12px; padding: 5px 0; gap: 6px; }
+            .proficiency .dot { width: 5px; height: 5px; }
+            .proficiency { gap: 2px; }
+
+            /* Education */
+            .edu-card { flex-direction: column; gap: 12px; padding: 24px 20px; }
+            .edu-main h3 { font-size: 17px; }
+            .edu-school { font-size: 14px; }
+            .edu-honors li { font-size: 12px; }
+
+            /* Downloads */
+            .download-card { padding: 18px 16px; gap: 14px; }
+            .download-icon { width: 40px; height: 40px; font-size: 10px; }
+            .download-title { font-size: 14px; }
+            .download-desc { font-size: 11px; }
+
+            /* Contact */
+            .contact-text p { font-size: 15px; }
+            .contact-terminal-body { padding: 16px; font-size: 11px; line-height: 1.9; }
+            .contact-terminal-body .key { min-width: 76px; font-size: 11px; }
+            .contact-terminal-body .val { font-size: 11px; word-break: break-word; }
+            .contact-terminal-body .line { flex-wrap: wrap; }
+
+            /* Footer */
+            .footer p { font-size: 10px; }
+
+            /* Reduce heavy shadows/glows for mobile perf */
+            .terminal-frame { box-shadow: 0 0 0 1px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.4); }
+            .eco-hub-label { box-shadow: 0 0 20px var(--cyan-glow); }
+        }
+
+        /* Extra small phones (iPhone SE, etc.) */
+        @media (max-width: 380px) {
+            .container { padding: 0 12px; }
+            section { padding: 48px 0; }
+            .hero-name { font-size: 28px; }
+            .hero-title { font-size: 13px; }
+            .hero-tagline { font-size: 11px; }
+            .status-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .status-card { padding: 10px; }
+            .status-value { font-size: 20px; }
+            .status-label { font-size: 8px; }
+            .btn { font-size: 12px; padding: 12px 20px; }
+            .terminal-body { padding: 12px; }
+            .timeline-company { font-size: 16px; }
+            .project-card { padding: 16px; }
+            .project-title { font-size: 15px; }
+            .eco-hub-label { font-size: 12px; padding: 12px 24px; }
+            .vertical-tile { padding: 12px 8px; }
+            .vertical-name { font-size: 11px; }
+            .contact-terminal-body .key { min-width: 64px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- ═══════════════ INTERACTIVE BACKGROUND ═══════════════ -->
+    <div id="cursorGlow"></div>
+    <div class="ambient-orb"></div>
+    <div class="ambient-orb"></div>
+    <div class="ambient-orb"></div>
 
     <!-- ═══════════════ NAVIGATION ═══════════════ -->
     <nav class="nav" id="nav">
@@ -2259,12 +2494,63 @@
             var links = document.getElementById('navLinks');
             toggle.addEventListener('click', function() {
                 links.classList.toggle('open');
-                toggle.textContent = links.classList.contains('open') ? '[close]' : '[menu]';
+                var isOpen = links.classList.contains('open');
+                toggle.textContent = isOpen ? '[close]' : '[menu]';
+                document.body.classList.toggle('nav-open', isOpen);
             });
             links.querySelectorAll('a').forEach(function(a) {
                 a.addEventListener('click', function() {
                     links.classList.remove('open');
                     toggle.textContent = '[menu]';
+                    document.body.classList.remove('nav-open');
+                });
+            });
+        })();
+
+        // ── Cursor-tracking gradient glow ──
+        (function() {
+            var glow = document.getElementById('cursorGlow');
+            if (!glow || window.matchMedia('(max-width: 768px)').matches) return;
+
+            var raf = null;
+            var mouseX = 0.5, mouseY = 0.5;
+
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX / window.innerWidth;
+                mouseY = e.clientY / window.innerHeight;
+                if (!raf) {
+                    raf = requestAnimationFrame(function() {
+                        glow.style.setProperty('--mouse-x', (mouseX * 100) + '%');
+                        glow.style.setProperty('--mouse-y', (mouseY * 100) + '%');
+                        raf = null;
+                    });
+                }
+            });
+
+            // Activate after a slight delay for smooth entry
+            setTimeout(function() { glow.classList.add('active'); }, 500);
+
+            // Dim when cursor leaves window
+            document.addEventListener('mouseleave', function() {
+                glow.style.opacity = '0';
+            });
+            document.addEventListener('mouseenter', function() {
+                glow.style.opacity = '';
+                glow.classList.add('active');
+            });
+        })();
+
+        // ── Card cursor-tracking glow ──
+        (function() {
+            if (window.matchMedia('(max-width: 768px)').matches) return;
+            var cards = document.querySelectorAll('.project-card, .highlight-card, .eco-spoke, .skill-category, .download-card, .vertical-tile');
+            cards.forEach(function(card) {
+                card.addEventListener('mousemove', function(e) {
+                    var rect = card.getBoundingClientRect();
+                    var x = e.clientX - rect.left;
+                    var y = e.clientY - rect.top;
+                    card.style.setProperty('--card-x', x + 'px');
+                    card.style.setProperty('--card-y', y + 'px');
                 });
             });
         })();
