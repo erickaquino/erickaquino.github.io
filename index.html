@@ -3,260 +3,261 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f7f1">
-  <meta name="description" content="Erick Aquino is an enterprise systems and AI orchestration architect specializing in NetSuite, Celigo, automation, and evidence-led delivery.">
-  <meta property="og:title" content="Erick Aquino | Enterprise Systems and AI Orchestration Architect">
-  <meta property="og:description" content="Enterprise architecture, SuiteCloud delivery, multi-LLM orchestration, and guarded automation backed by verifiable engineering evidence.">
+  <meta name="theme-color" content="#f3f5f8">
+  <meta name="description" content="Erick Aquino designs NetSuite architecture, Celigo integrations, and AI-accelerated delivery systems that stay reliable under operational pressure.">
+  <meta property="og:title" content="Erick Aquino | NetSuite Architecture and Enterprise Integration">
+  <meta property="og:description" content="NetSuite platform architecture, enterprise integration, and evidence-led delivery for systems that cannot afford blind spots.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://erickaquino.github.io">
-  <title>Erick Aquino | Enterprise Systems and AI Orchestration Architect</title>
+  <title>Erick Aquino | NetSuite Architecture and Enterprise Integration</title>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=JetBrains+Mono:wght@400..600&amp;display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=JetBrains+Mono:wght@400..600&amp;display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=JetBrains+Mono:wght@400..600&amp;display=optional" rel="stylesheet"></noscript>
   <script>document.documentElement.classList.add('js');</script>
   <style>
     :root {
-      --paper: oklch(0.975 0.006 160);
-      --paper-raised: oklch(0.995 0.003 160);
-      --paper-sunk: oklch(0.945 0.012 165);
-      --ink: oklch(0.25 0.025 215);
-      --ink-soft: oklch(0.43 0.022 215);
-      --ink-faint: oklch(0.52 0.018 215);
-      --line: oklch(0.86 0.014 175);
-      --accent: oklch(0.47 0.085 188);
-      --accent-strong: oklch(0.38 0.075 188);
-      --accent-tint: oklch(0.92 0.035 184);
-      --focus: oklch(0.58 0.17 65);
+      --porcelain: oklch(0.97 0.005 250);
+      --porcelain-raised: oklch(0.99 0.002 250);
+      --silver: oklch(0.925 0.008 250);
+      --silver-line: oklch(0.84 0.01 250);
+      --carbon: oklch(0.22 0.015 260);
+      --graphite: oklch(0.42 0.015 260);
+      --meta-ink: oklch(0.47 0.015 260);
+      --vermilion: oklch(0.5 0.19 32);
+      --vermilion-wash: oklch(0.94 0.03 32);
+      --focus: oklch(0.45 0.17 260);
       --font-sans: "Geologica", system-ui, sans-serif;
       --font-mono: "JetBrains Mono", ui-monospace, monospace;
-      --content: 76rem;
+      --content: 78rem;
       --measure: 70ch;
-      --radius-sm: 0.25rem;
-      --radius-md: 0.6rem;
+      --radius-ctl: 2px;
+      --radius-frame: 8px;
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: var(--paper); }
+    html { scroll-behavior: smooth; background: var(--porcelain); }
     section[id] { scroll-margin-top: 5.5rem; }
-    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--font-sans); font-size: 1rem; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body { margin: 0; color: var(--carbon); background: var(--porcelain); font-family: var(--font-sans); font-size: 1rem; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     img, svg { display: block; max-width: 100%; }
     a { color: inherit; text-underline-offset: .22em; text-decoration-thickness: .08em; }
-    a:hover { color: var(--accent-strong); }
     button, a { -webkit-tap-highlight-color: transparent; }
-    button { font: inherit; }
+    button { color: inherit; font: inherit; }
     :focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
-    ::selection { color: var(--paper-raised); background: var(--accent-strong); }
+    ::selection { color: var(--porcelain-raised); background: var(--vermilion); }
     [hidden] { display: none !important; }
 
-    .skip-link { position: fixed; z-index: 1000; top: .75rem; left: .75rem; padding: .75rem 1rem; color: var(--paper-raised); background: var(--ink); transform: translateY(-160%); transition: transform .18s var(--ease-out); }
-    .skip-link:focus { transform: translateY(0); }
     .wrap { width: min(calc(100% - 2rem), var(--content)); margin-inline: auto; }
-    .section { padding-block: clamp(4.5rem, 9vw, 8rem); border-top: 1px solid var(--line); }
-    .section--sunk { background: var(--paper-sunk); }
-    .section--ink { color: var(--paper); background: var(--ink); border-top-color: color-mix(in oklch, var(--paper) 18%, transparent); }
-    .section-head { display: grid; grid-template-columns: minmax(8rem, .35fr) 1fr; gap: clamp(1.5rem, 5vw, 5rem); margin-bottom: clamp(2.5rem, 5vw, 4.5rem); align-items: start; }
-    .section-index { margin: .35rem 0 0; color: var(--ink-faint); font: 500 .72rem/1.4 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
-    .section--ink .section-index { color: color-mix(in oklch, var(--paper) 60%, transparent); }
-    .section-title { max-width: 19ch; margin: 0; font-size: clamp(2.2rem, 5.5vw, 5rem); font-weight: 500; letter-spacing: -.055em; line-height: .98; text-wrap: balance; }
-    .section-intro { max-width: var(--measure); margin: 1.25rem 0 0; color: var(--ink-soft); font-size: clamp(1.05rem, 1.6vw, 1.28rem); }
-    .section--ink .section-intro { color: color-mix(in oklch, var(--paper) 72%, transparent); }
-    .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
-    .eyebrow { margin: 0 0 1.2rem; color: var(--accent-strong); font: 500 .76rem/1.4 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+    .grid-12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 2rem); }
+    .skip-link { position: fixed; z-index: 1000; top: .75rem; left: .75rem; padding: .75rem 1rem; color: var(--porcelain-raised); background: var(--carbon); border-radius: var(--radius-ctl); transform: translateY(-160%); transition: transform .18s var(--ease-out); }
+    .skip-link:focus { transform: translateY(0); }
 
-    .site-header { position: sticky; z-index: 100; top: 0; border-bottom: 1px solid var(--line); background: color-mix(in oklch, var(--paper) 94%, transparent); backdrop-filter: blur(14px); }
-    .nav { position: relative; min-height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .brand { font-weight: 600; letter-spacing: -.025em; text-decoration: none; }
-    .brand span { color: var(--accent-strong); }
-    .nav-toggle { display: none; min-width: 44px; min-height: 44px; padding: .5rem .75rem; color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--paper-raised); cursor: pointer; }
-    .nav-links { display: flex; align-items: center; gap: clamp(.75rem, 1.8vw, 1.5rem); margin: 0; padding: 0; list-style: none; }
-    .nav-links a { font: 500 .68rem/1.4 var(--font-mono); letter-spacing: .05em; text-decoration: none; text-transform: uppercase; }
-    .nav-links a:hover { text-decoration: underline; }
+    .site-header { position: sticky; z-index: 100; top: 0; color: var(--carbon); background: var(--porcelain); border-bottom: 1px solid var(--silver-line); }
+    .nav { position: relative; min-height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { flex: 0 0 auto; font-weight: 620; letter-spacing: -.035em; text-decoration: none; }
+    .brand span { position: relative; }
+    .brand span::after { position: absolute; right: 0; bottom: -.42rem; left: 0; height: 2px; background: var(--vermilion); content: ""; }
+    .nav-toggle { display: none; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; padding: .5rem .75rem; color: var(--carbon); background: var(--porcelain-raised); border: 1px solid var(--silver-line); border-radius: var(--radius-ctl); cursor: pointer; }
+    .nav-links { display: flex; align-items: center; gap: clamp(.55rem, 1.35vw, 1.2rem); margin: 0; padding: 0; list-style: none; }
+    .nav-links a { font: 500 .64rem/1.4 var(--font-mono); letter-spacing: .045em; text-decoration: none; text-transform: uppercase; }
 
-    .hero { min-height: calc(100vh - 4.5rem); min-height: calc(100dvh - 4.5rem); display: grid; align-items: center; padding-block: clamp(3rem, 7vw, 6rem); }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(16rem, .65fr); gap: clamp(3rem, 8vw, 8rem); align-items: end; }
-    .hero h1 { max-width: 16ch; margin: 0; font-size: clamp(3rem, 7vw, 6rem); font-weight: 500; letter-spacing: -.075em; line-height: .9; text-wrap: balance; }
-    .hero-lede { max-width: 54ch; margin: 2rem 0 0; color: var(--ink-soft); font-size: clamp(1.05rem, 1.7vw, 1.3rem); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
-    .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: .75rem 1.1rem; border: 1px solid var(--ink); border-radius: var(--radius-sm); font: 500 .78rem/1 var(--font-mono); text-decoration: none; transition: color .18s var(--ease-out), background-color .18s var(--ease-out), border-color .18s var(--ease-out), transform .18s var(--ease-out); }
-    .button--primary { color: var(--paper-raised); background: var(--ink); }
-    .button--quiet { background: transparent; }
-    .hero-note { padding-top: 1rem; border-top: 1px solid var(--line); }
-    .hero-note p { margin: 0 0 .65rem; }
-    .hero-note strong { display: block; font-size: 1.25rem; font-weight: 500; }
-    .hero-note span { color: var(--ink-soft); font-size: .9rem; }
+    .hero { min-height: calc(100vh - 4.5rem); min-height: calc(100dvh - 4.5rem); display: grid; align-items: center; padding-block: clamp(3.5rem, 7vw, 7rem); border-bottom: 1px solid var(--silver-line); }
+    .hero-grid { align-items: end; }
+    .hero-copy { grid-column: 1 / span 8; }
+    .hero-kicker, .profile-title, .section-index, .practice-panel > p:first-child, .assurance-band > p:first-child, .flow-panel > p:first-child, .case-kicker, .case-narrative b, .method-strip span, .timeline-date, .credential-ledger span, .proof span, .case-tech b, .atlas figcaption { font-family: var(--font-mono); font-size: .68rem; font-weight: 500; letter-spacing: .085em; text-transform: uppercase; }
+    .hero-kicker { display: inline-flex; margin: 0 0 1.35rem; padding-block: .3rem; color: var(--vermilion); border-block: 1px solid var(--vermilion); }
+    .hero h1 { max-width: 12ch; margin: 0; font-size: clamp(3.1rem, 7.5vw, 6.4rem); font-weight: 500; letter-spacing: -.072em; line-height: .88; text-wrap: balance; }
+    .hero h1 span { display: block; }
+    .hero-lede { max-width: 55ch; margin: 2rem 0 0; color: var(--graphite); font-size: clamp(1.05rem, 1.7vw, 1.3rem); }
+    .hero-actions, .contact-links { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2rem; }
+    .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: .75rem 1.05rem; border: 1px solid var(--carbon); border-radius: var(--radius-ctl); font: 500 .72rem/1 var(--font-mono); letter-spacing: .035em; text-decoration: none; transition: color .18s var(--ease-out), background-color .18s var(--ease-out), border-color .18s var(--ease-out), transform .18s var(--ease-out); }
+    .button--primary { color: var(--porcelain-raised); background: var(--carbon); }
+    .button--quiet { color: var(--carbon); background: transparent; }
 
-    .proof-band { border-block: 1px solid var(--line); background: var(--paper-raised); }
-    .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-    .proof { min-height: 9rem; padding: 1.5rem; border-right: 1px solid var(--line); }
+    .engagement-profile { grid-column: 9 / -1; padding: clamp(1.25rem, 2vw, 1.75rem); background: var(--silver); border: 1px solid var(--silver-line); border-radius: var(--radius-ctl); }
+    .profile-title { margin: 0 0 1rem; color: var(--meta-ink); }
+    .engagement-profile dl { margin: 0; }
+    .engagement-profile dl div { padding: 1rem 0; border-top: 1px solid var(--silver-line); }
+    .engagement-profile dt { color: var(--meta-ink); font: 500 .66rem/1.4 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; }
+    .engagement-profile dd { margin: .45rem 0 0; color: var(--graphite); font-size: .92rem; }
+    .profile-link { display: inline-block; margin-top: 1rem; font: 500 .7rem/1.4 var(--font-mono); }
+
+    .section { padding-block: clamp(4.5rem, 9vw, 8rem); border-bottom: 1px solid var(--silver-line); }
+    .authority, .system-lens, .operating-system, .downloads { background: var(--silver); }
+    .section-head { display: grid; grid-template-columns: minmax(8rem, .32fr) 1fr; gap: clamp(1.5rem, 5vw, 5rem); margin-bottom: clamp(2.75rem, 6vw, 5.5rem); align-items: start; }
+    .section-index { margin: .35rem 0 0; color: var(--meta-ink); }
+    .section-title { max-width: 18ch; margin: 0; font-size: clamp(2.3rem, 5.2vw, 4.8rem); font-weight: 500; letter-spacing: -.055em; line-height: .96; text-wrap: balance; }
+    .section-intro { max-width: var(--measure); margin: 1.15rem 0 0; color: var(--graphite); font-size: clamp(1rem, 1.45vw, 1.2rem); }
+
+    .authority-stats { border-block: 1px solid var(--silver-line); }
+    .proof { grid-column: span 3; min-height: 10rem; padding: 1.5rem 1rem 1.5rem 0; border-right: 1px solid var(--silver-line); }
     .proof:last-child { border-right: 0; }
-    .proof strong { display: block; font: 500 clamp(1.8rem, 4vw, 3.2rem)/1 var(--font-mono); letter-spacing: -.055em; }
-    .proof span { display: block; max-width: 18ch; margin-top: .75rem; color: var(--ink-soft); font-size: .82rem; }
+    .proof strong { display: block; font: 500 clamp(2rem, 4.5vw, 3.8rem)/1 var(--font-mono); letter-spacing: -.06em; }
+    .proof span { display: block; max-width: 20ch; margin-top: .9rem; color: var(--meta-ink); line-height: 1.55; }
+    .credential-ledger { margin-top: 2rem; border-top: 1px solid var(--silver-line); }
+    .credential-ledger > div { display: grid; grid-template-columns: minmax(10rem, .38fr) 1fr; gap: clamp(1rem, 4vw, 4rem); padding: 1.15rem 0; border-bottom: 1px solid var(--silver-line); }
+    .credential-ledger span { color: var(--meta-ink); }
+    .credential-ledger strong { font-weight: 500; }
 
-    .about-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(18rem, .85fr); gap: clamp(2.5rem, 7vw, 7rem); }
-    .prose { max-width: var(--measure); font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
-    .prose p { margin: 0 0 1.3rem; }
-    .credential-list, .method-list, .ledger, .skill-index, .principles { margin: 0; padding: 0; list-style: none; }
-    .credential-list li, .method-list li { display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--line); }
-    .credential-list small, .method-list small { color: var(--ink-faint); font: 500 .72rem/1.5 var(--font-mono); }
-    .credential-list strong, .method-list strong { font-weight: 500; }
+    .practice-cutaway { position: relative; border-block: 1px solid var(--silver-line); }
+    .practice-cutaway::before { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: var(--silver-line); content: ""; }
+    .practice-panel { grid-column: span 6; min-width: 0; padding: clamp(1.5rem, 4vw, 3.2rem); }
+    .practice-panel > p:first-child, .assurance-band > p:first-child { margin: 0 0 1rem; color: var(--meta-ink); }
+    .practice-panel h3, .assurance-band h3 { margin: 0; font-size: clamp(1.7rem, 3vw, 2.7rem); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+    .practice-panel > p:last-child, .assurance-band > p:last-child { max-width: 55ch; margin: 1.2rem 0 0; color: var(--graphite); }
+    .assurance-band { grid-column: 1 / -1; display: grid; grid-template-columns: .4fr .65fr 1fr; gap: clamp(1rem, 3vw, 3rem); padding: clamp(1.5rem, 4vw, 3.2rem); background: var(--silver); border-top: 1px solid var(--silver-line); align-items: start; }
+    .assurance-band > p:first-child, .assurance-band h3, .assurance-band > p:last-child { margin-top: 0; }
+    .practice-breadth { display: grid; grid-template-columns: minmax(10rem, .32fr) 1fr; gap: 2rem; margin: 1.5rem 0 0; color: var(--graphite); }
+    .practice-breadth span { color: var(--meta-ink); font: 500 .68rem/1.65 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
 
-    .method-list { counter-reset: method; }
-    .method-list li { grid-template-columns: 4.5rem minmax(10rem, .5fr) 1fr; counter-increment: method; }
-    .method-list li::before { content: "0" counter(method); color: var(--accent-strong); font: 500 .8rem/1.5 var(--font-mono); }
-    .method-list p { margin: 0; color: var(--ink-soft); }
-
-    .architecture-shell { padding: clamp(1rem, 3vw, 2rem); border: 1px solid color-mix(in oklch, var(--paper) 20%, transparent); border-radius: var(--radius-md); background: color-mix(in oklch, var(--paper) 4%, transparent); }
-    .architecture-graph { width: 100%; height: auto; }
-    .architecture-graph .node { fill: color-mix(in oklch, var(--paper) 7%, transparent); stroke: color-mix(in oklch, var(--paper) 32%, transparent); stroke-width: 1; }
-    .architecture-graph .edge { fill: none; stroke: color-mix(in oklch, var(--paper) 42%, transparent); stroke-width: 2; }
-    .architecture-graph .loop { stroke: var(--accent-tint); }
-    .architecture-graph text { fill: var(--paper); font-family: var(--font-sans); font-size: 16px; }
-    .architecture-graph .node-index { fill: var(--accent-tint); font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; }
-    .graph-fallback { display: none; }
-    .plane-notes { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 2rem; border-top: 1px solid color-mix(in oklch, var(--paper) 20%, transparent); border-left: 1px solid color-mix(in oklch, var(--paper) 20%, transparent); }
-    .plane-note { padding: 1.25rem; border-right: 1px solid color-mix(in oklch, var(--paper) 20%, transparent); border-bottom: 1px solid color-mix(in oklch, var(--paper) 20%, transparent); }
-    .plane-note strong { display: block; font-weight: 500; }
-    .plane-note p { margin: .55rem 0 0; color: color-mix(in oklch, var(--paper) 70%, transparent); font-size: .86rem; }
-    .role-routing { display: grid; grid-template-columns: .7fr 1.3fr; gap: 2rem; margin-top: 3.5rem; }
-    .role-routing h3 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.8rem); font-weight: 500; letter-spacing: -.045em; line-height: 1.05; }
-    .role-list { border-top: 1px solid color-mix(in oklch, var(--paper) 22%, transparent); }
-    .role-row { display: grid; grid-template-columns: 10rem 1fr; gap: 1.5rem; padding: 1rem 0; border-bottom: 1px solid color-mix(in oklch, var(--paper) 22%, transparent); }
-    .role-row strong { color: var(--accent-tint); font: 500 .72rem/1.5 var(--font-mono); text-transform: uppercase; }
-    .role-row span { color: color-mix(in oklch, var(--paper) 78%, transparent); }
-
-    .activity-ledger { margin-top: 4rem; }
-    .activity-ledger h3 { margin: 0 0 1rem; font-size: 1rem; font-weight: 500; }
-    .ledger { border-top: 1px solid color-mix(in oklch, var(--paper) 24%, transparent); }
-    .ledger li { display: grid; grid-template-columns: minmax(10rem, .7fr) 1.3fr minmax(9rem, .55fr); gap: 1.5rem; padding: 1.15rem 0; border-bottom: 1px solid color-mix(in oklch, var(--paper) 24%, transparent); }
-    .ledger strong { font-weight: 500; }
-    .ledger span { color: color-mix(in oklch, var(--paper) 72%, transparent); }
-    .ledger small { color: var(--accent-tint); font: 500 .7rem/1.55 var(--font-mono); }
-
-    .ecosystem-grid { display: grid; grid-template-columns: 1.1fr 1.9fr; border: 1px solid var(--line); }
-    .ecosystem-core { display: grid; place-items: center; min-height: 18rem; padding: 2rem; color: var(--paper-raised); background: var(--accent-strong); text-align: center; }
-    .ecosystem-core strong { display: block; font-size: clamp(2rem, 4vw, 4rem); font-weight: 500; letter-spacing: -.06em; line-height: .95; }
-    .ecosystem-core span { margin-top: .8rem; font: 500 .72rem/1.5 var(--font-mono); }
-    .ecosystem-spokes { display: grid; grid-template-columns: repeat(2, 1fr); }
-    .ecosystem-spoke { padding: 1.35rem; border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .ecosystem-spoke:nth-last-child(-n+2) { border-bottom: 0; }
-    .ecosystem-spoke strong { font: 500 .75rem/1.4 var(--font-mono); text-transform: uppercase; }
-    .ecosystem-spoke p { margin: .5rem 0 0; color: var(--ink-soft); font-size: .9rem; }
-
-    .matrix { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-    .matrix-item { min-height: 9rem; padding: 1.2rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .matrix-item strong { display: block; font-weight: 500; }
-    .matrix-item span { display: block; margin-top: 2rem; color: var(--ink-faint); font: 500 .72rem/1.5 var(--font-mono); }
-
-    .timeline { border-top: 1px solid var(--line); }
-    .timeline-entry { display: grid; grid-template-columns: minmax(10rem, .42fr) 1fr; gap: clamp(1.5rem, 5vw, 5rem); padding: 2rem 0; border-bottom: 1px solid var(--line); }
-    .timeline-meta span { display: block; }
-    .timeline-company { font-weight: 600; }
-    .timeline-date { margin-top: .35rem; color: var(--ink-faint); font: 500 .7rem/1.5 var(--font-mono); }
-    .timeline-copy h3 { margin: 0; font-size: 1.3rem; font-weight: 500; }
-    .timeline-copy p { max-width: var(--measure); margin: .75rem 0 0; color: var(--ink-soft); }
+    .lens-controls { display: none; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+    .js .lens-controls { display: flex; }
+    .lens-btn { min-height: 46px; padding: .75rem 1rem; color: var(--carbon); background: var(--porcelain-raised); border: 1px solid var(--silver-line); border-radius: var(--radius-ctl); cursor: pointer; transition: color .18s var(--ease-out), background-color .18s var(--ease-out), border-color .18s var(--ease-out), transform .18s var(--ease-out); }
+    .lens-btn[aria-pressed="true"] { color: var(--vermilion); background: var(--vermilion-wash); border-color: var(--vermilion); }
+    .atlas-frame { margin: 0; padding: clamp(.65rem, 2vw, 1.5rem); background: var(--porcelain-raised); border: 3px double var(--carbon); border-radius: var(--radius-frame); }
+    .atlas-graphic { width: 100%; height: auto; }
+    .atlas-edge path { fill: none; stroke: var(--silver-line); stroke-width: 2.25; }
+    .atlas-edge text { fill: var(--meta-ink); font: 500 12px var(--font-mono); letter-spacing: .025em; }
+    .atlas-node rect { fill: var(--silver); stroke: var(--silver-line); stroke-width: 1.5; }
+    .atlas-node text, .atlas-hub text { fill: var(--carbon); font: 500 18px var(--font-sans); }
+    .atlas-node .atlas-contract, .atlas-hub .atlas-contract { fill: var(--meta-ink); font: 500 11px var(--font-mono); letter-spacing: .055em; }
+    .atlas-hub rect { fill: var(--carbon); stroke: var(--carbon); stroke-width: 2; }
+    .atlas-hub text { fill: var(--porcelain-raised); font-size: 29px; }
+    .atlas-hub .atlas-contract { fill: var(--porcelain-raised); }
+    .atlas [data-flows] path, .atlas [data-flows] rect { transition: opacity .18s var(--ease-out), stroke .18s var(--ease-out); }
+    .atlas[data-active-flow] [data-flows] path, .atlas[data-active-flow] [data-flows] rect { opacity: .25; }
+    .atlas[data-active-flow="o2c"] [data-flows~="o2c"] path, .atlas[data-active-flow="p2p"] [data-flows~="p2p"] path, .atlas[data-active-flow="fulfillment"] [data-flows~="fulfillment"] path, .atlas[data-active-flow="close"] [data-flows~="close"] path { opacity: 1; stroke: var(--vermilion); }
+    .atlas[data-active-flow="o2c"] [data-flows~="o2c"] rect, .atlas[data-active-flow="p2p"] [data-flows~="p2p"] rect, .atlas[data-active-flow="fulfillment"] [data-flows~="fulfillment"] rect, .atlas[data-active-flow="close"] [data-flows~="close"] rect { opacity: 1; stroke: var(--vermilion); }
+    .atlas figcaption { padding: .65rem .35rem 0; color: var(--meta-ink); }
+    .atlas-fallback { display: none; margin: 0; padding: 0; list-style: none; }
+    .atlas-fallback li { display: grid; gap: .35rem; padding: 1rem; border-bottom: 1px solid var(--silver-line); }
+    .atlas-fallback span { color: var(--graphite); }
+    .flow-panels { margin-top: 1rem; }
+    .flow-panel { grid-column: span 3; min-width: 0; padding: 1.25rem; background: var(--porcelain-raised); border: 1px solid var(--silver-line); border-radius: var(--radius-ctl); }
+    .flow-panel > p:first-child { margin: 0 0 .8rem; color: var(--meta-ink); }
+    .flow-panel h3 { margin: 0; font-size: 1.4rem; font-weight: 500; letter-spacing: -.03em; }
+    .flow-panel ol { display: grid; gap: .8rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+    .flow-panel li { display: grid; gap: .12rem; padding-top: .8rem; border-top: 1px solid var(--silver-line); }
+    .flow-panel li strong { font-size: .9rem; font-weight: 500; }
+    .flow-panel li span { color: var(--meta-ink); font-size: .76rem; line-height: 1.5; }
 
     .case-list { display: grid; gap: 1rem; }
-    .case-record { display: grid; grid-template-columns: minmax(12rem, .65fr) 1.35fr; gap: clamp(1.5rem, 5vw, 5rem); padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--line); background: var(--paper-raised); }
-    .case-kicker { color: var(--accent-strong); font: 500 .7rem/1.5 var(--font-mono); text-transform: uppercase; }
-    .case-record h3 { margin: .75rem 0 0; font-size: clamp(1.6rem, 3.2vw, 3rem); font-weight: 500; letter-spacing: -.045em; line-height: 1.02; }
-    .case-narrative { display: grid; gap: 1rem; }
-    .case-narrative p { margin: 0; color: var(--ink-soft); }
-    .case-narrative b { display: block; margin-bottom: .25rem; color: var(--ink); font: 500 .68rem/1.5 var(--font-mono); text-transform: uppercase; }
-    .case-metrics { display: flex; flex-wrap: wrap; gap: 1.5rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
-    .case-metric strong { display: block; font: 500 1.15rem/1.2 var(--font-mono); }
-    .case-metric span { color: var(--ink-faint); font-size: .72rem; }
-    .case-tech { margin: 0; color: var(--ink-faint); font: 400 .7rem/1.7 var(--font-mono); }
-
+    .case-record { display: grid; grid-template-columns: minmax(15rem, .65fr) minmax(0, 1.35fr); gap: clamp(2rem, 6vw, 6rem); padding: clamp(1.5rem, 4vw, 3.5rem); background: var(--porcelain-raised); border: 3px double var(--carbon); border-radius: var(--radius-frame); }
+    .case-kicker { margin: 0 0 .9rem; color: var(--vermilion); }
+    .case-header h3 { margin: 0; font-size: clamp(2rem, 4vw, 3.8rem); font-weight: 500; letter-spacing: -.055em; line-height: .95; overflow-wrap: anywhere; }
+    .case-narrative > p { display: grid; grid-template-columns: minmax(8rem, .38fr) 1fr; gap: 1rem; margin: 0; padding: .9rem 0; border-top: 1px solid var(--silver-line); }
+    .case-narrative b { color: var(--meta-ink); }
+    .case-narrative span, .case-description { color: var(--graphite); }
+    .case-description { display: block !important; }
+    .case-metrics { display: flex; flex-wrap: wrap; gap: 1rem; padding: 1.25rem 0; border-top: 1px solid var(--silver-line); }
+    .case-metric { min-width: 6rem; }
+    .case-metric strong { display: block; font: 500 1.8rem/1 var(--font-mono); }
+    .case-metric span { display: block; margin-top: .35rem; color: var(--meta-ink); font-size: .72rem; }
+    .case-tech { font-size: .8rem; }
+    .case-tech b { margin-right: 1rem; }
     .archive-control { margin-top: 2rem; }
-    .archive-toggle { display: none; min-height: 46px; padding: .75rem 1rem; color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--paper-raised); cursor: pointer; }
-    .js .archive-toggle { display: inline-block; }
-    .archive { margin-top: 1rem; border-top: 1px solid var(--line); }
-    .archive-row { display: grid; grid-template-columns: 1.1fr .55fr 1.35fr; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+    .archive-toggle { display: none; min-height: 46px; padding: .75rem 1rem; color: var(--carbon); background: var(--porcelain-raised); border: 1px solid var(--silver-line); border-radius: var(--radius-ctl); cursor: pointer; }
+    .js .archive-toggle { display: inline-flex; align-items: center; }
+    .archive { margin-top: 1rem; border-top: 1px solid var(--silver-line); }
+    .archive-row { display: grid; grid-template-columns: 1.05fr .5fr 1.45fr; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--silver-line); }
     .archive-row strong { font-weight: 500; overflow-wrap: anywhere; }
-    .archive-row span { color: var(--ink-soft); font-size: .82rem; }
+    .archive-row span { color: var(--meta-ink); font-size: .8rem; }
 
-    .skill-index { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-    .skill-group { padding: 1.4rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .skill-group h3 { margin: 0 0 1rem; font: 500 .75rem/1.5 var(--font-mono); text-transform: uppercase; }
-    .skill-group p { margin: 0; color: var(--ink-soft); font-size: .92rem; }
+    .delivery-loop { margin: 0; padding: 0; border-top: 1px solid var(--silver-line); list-style: none; }
+    .delivery-loop li { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 1rem; padding: 1.4rem 0; border-bottom: 1px solid var(--silver-line); }
+    .delivery-loop > li > span { color: var(--vermilion); font: 500 .72rem/1.5 var(--font-mono); }
+    .delivery-loop h3 { margin: 0; font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 500; letter-spacing: -.035em; }
+    .delivery-loop p { max-width: 70ch; margin: .35rem 0 0; color: var(--graphite); }
+    .method-strip { display: flex; flex-wrap: wrap; gap: 0; margin-top: 2rem; border-top: 1px solid var(--silver-line); border-left: 1px solid var(--silver-line); }
+    .method-strip span { flex: 1 1 13rem; padding: .85rem; color: var(--meta-ink); border-right: 1px solid var(--silver-line); border-bottom: 1px solid var(--silver-line); }
 
-    .principles { counter-reset: principles; border-top: 1px solid var(--line); }
-    .principles li { display: grid; grid-template-columns: 4rem .55fr 1fr; gap: 1.5rem; padding: 1.35rem 0; border-bottom: 1px solid var(--line); counter-increment: principles; }
-    .principles li::before { content: "0" counter(principles); color: var(--accent-strong); font: 500 .75rem/1.5 var(--font-mono); }
-    .principles strong { font-weight: 500; }
-    .principles span { color: var(--ink-soft); }
+    .capability-matrix { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--silver-line); border-left: 1px solid var(--silver-line); }
+    .capability-matrix article { min-width: 0; padding: 1.5rem; border-right: 1px solid var(--silver-line); border-bottom: 1px solid var(--silver-line); }
+    .capability-matrix h3 { margin: 0; font-size: 1.35rem; font-weight: 500; letter-spacing: -.025em; }
+    .capability-matrix p { margin: .75rem 0 0; color: var(--graphite); }
 
-    .education-record, .download-row, .contact-record { display: grid; grid-template-columns: minmax(11rem, .45fr) 1fr; gap: 2rem; padding: 1.5rem 0; border-top: 1px solid var(--line); }
-    .education-record h3, .contact-record h3 { margin: 0; font-size: 1.35rem; font-weight: 500; }
-    .education-record p, .contact-record p { margin: 0; color: var(--ink-soft); }
-    .download-row { color: inherit; text-decoration: none; align-items: center; transition: color .18s var(--ease-out), transform .18s var(--ease-out); }
-    .download-row:last-child { border-bottom: 1px solid var(--line); }
-    .download-row strong { font-weight: 500; }
-    .download-row span { color: var(--ink-faint); }
-    .contact-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
-    .footer { padding-block: 2rem; border-top: 1px solid var(--line); }
-    .footer-inner { display: flex; justify-content: space-between; gap: 1rem; color: var(--ink-faint); font: 400 .7rem/1.5 var(--font-mono); }
+    .timeline { border-top: 1px solid var(--silver-line); }
+    .timeline-entry { display: grid; grid-template-columns: minmax(14rem, .55fr) 1fr; gap: clamp(2rem, 6vw, 6rem); padding: 1.6rem 0; border-bottom: 1px solid var(--silver-line); }
+    .timeline-meta { display: grid; gap: .35rem; align-content: start; }
+    .timeline-company { font-weight: 500; }
+    .timeline-date { color: var(--meta-ink); }
+    .timeline-copy h3 { margin: 0; font-size: 1.3rem; font-weight: 500; letter-spacing: -.02em; }
+    .timeline-copy p { max-width: 70ch; margin: .6rem 0 0; color: var(--graphite); }
+
+    .download-row, .contact-record { display: grid; grid-template-columns: minmax(12rem, .42fr) 1fr; gap: clamp(1.5rem, 5vw, 5rem); padding: 1.4rem 0; border-top: 1px solid var(--silver-line); transition: color .18s var(--ease-out), transform .18s var(--ease-out); }
+    .download-row:last-of-type { border-bottom: 1px solid var(--silver-line); }
+    .download-row { text-decoration: none; }
+    .download-row strong, .contact-record h3 { margin: 0; font-size: 1.2rem; font-weight: 500; }
+    .download-row span, .contact-record p { margin: 0; color: var(--graphite); }
+    .contact { border-bottom: 0; }
+    .footer { color: var(--porcelain-raised); background: var(--carbon); }
+    .footer-inner { min-height: 5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font: 500 .66rem/1.5 var(--font-mono); letter-spacing: .04em; }
 
     .reveal { opacity: 1; transform: none; }
     .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .45s var(--ease-out), transform .45s var(--ease-out); }
-    .js .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .js .reveal.is-visible { opacity: 1; transform: none; }
 
     @media (hover: hover) and (pointer: fine) {
-      .button:hover { transform: translateY(-2px); }
-      .button--primary:hover { color: var(--paper-raised); background: var(--accent-strong); border-color: var(--accent-strong); }
-      .archive-toggle:hover { border-color: var(--accent); }
-      .download-row:hover { transform: translateX(.35rem); }
+      .button:hover { color: var(--vermilion); border-color: var(--vermilion); transform: translateY(-2px); }
+      .button--primary:hover { color: var(--porcelain-raised); background: var(--vermilion); }
+      .nav-links a:hover, .profile-link:hover { color: var(--vermilion); }
+      .lens-btn:hover, .archive-toggle:hover { border-color: var(--vermilion); transform: translateY(-2px); }
+      .download-row:hover { color: var(--vermilion); transform: translateX(4px); }
     }
 
     @media (max-width: 900px) {
-      .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
-      .nav-links { position: absolute; top: calc(100% + 1px); right: 1rem; left: 1rem; display: none; padding: 1rem; border: 1px solid var(--line); background: var(--paper-raised); }
+      .nav-toggle { display: inline-flex; }
+      .nav-links { position: absolute; top: calc(100% + 1px); right: 0; left: 0; display: none; gap: 0; padding: .5rem 1rem 1rem; background: var(--porcelain-raised); border-bottom: 1px solid var(--silver-line); }
       .nav-links.is-open { display: grid; }
-      .nav-links a { min-height: 44px; display: flex; align-items: center; }
-      .hero-grid, .about-grid, .role-routing, .ecosystem-grid, .case-record { grid-template-columns: 1fr; }
-      .hero-note { max-width: 25rem; }
-      .proof-grid, .matrix { grid-template-columns: repeat(2, 1fr); }
-      .proof:nth-child(2) { border-right: 0; }
-      .proof:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-      .plane-notes, .skill-index { grid-template-columns: repeat(2, 1fr); }
-      .architecture-graph { display: none; }
-      .graph-fallback { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; margin: 0; padding: 0; list-style: none; }
-      .graph-fallback li { min-width: 0; padding: .8rem; border: 1px solid color-mix(in oklch, var(--paper) 28%, transparent); overflow-wrap: anywhere; }
-      .ecosystem-spokes { border-top: 1px solid var(--line); }
-      .ecosystem-spoke:nth-child(odd) { border-left: 0; }
-      .ledger li { grid-template-columns: 1fr 1fr; }
-      .ledger small { grid-column: 1 / -1; }
+      .nav-links a { display: flex; min-height: 44px; align-items: center; border-bottom: 1px solid var(--silver-line); }
+      .hero-copy { grid-column: 1 / span 7; }
+      .engagement-profile { grid-column: 8 / -1; }
+      .flow-panel { grid-column: span 6; }
+      .capability-matrix { grid-template-columns: repeat(2, 1fr); }
     }
 
-    @media (max-width: 620px) {
-      .wrap { width: min(calc(100% - 1.25rem), var(--content)); }
-      .section-head { grid-template-columns: 1fr; gap: .75rem; }
-      .hero h1 { font-size: clamp(2.4rem, 12vw, 4.5rem); }
-      .proof-grid, .plane-notes, .matrix, .skill-index, .ecosystem-spokes { grid-template-columns: 1fr; }
-      .proof { min-height: 7rem; border-right: 0; border-bottom: 1px solid var(--line); }
-      .proof:last-child { border-bottom: 0; }
-      .method-list li, .credential-list li { grid-template-columns: 3.25rem 1fr; }
-      .method-list li p { grid-column: 2; }
-      .graph-fallback { grid-template-columns: 1fr; }
-      .role-row, .ledger li, .timeline-entry, .archive-row, .principles li, .education-record, .download-row, .contact-record { grid-template-columns: 1fr; gap: .55rem; }
-      .ledger small { grid-column: auto; }
-      .ecosystem-spoke { border-left: 0; border-bottom: 1px solid var(--line) !important; }
-      .ecosystem-spoke:last-child { border-bottom: 0 !important; }
-      .footer-inner { display: grid; }
+    @media (max-width: 767px) {
+      .grid-12 { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .hero-copy, .engagement-profile, .practice-panel, .assurance-band, .flow-panel { grid-column: 1; }
+      .hero h1 { font-size: clamp(2.7rem, 13vw, 4.6rem); }
+      .engagement-profile { margin-top: 1rem; }
+      .section-head, .credential-ledger > div, .practice-breadth, .case-record, .timeline-entry, .download-row, .contact-record { grid-template-columns: 1fr; gap: .75rem; }
+      .section-index { margin-bottom: .4rem; }
+      .authority-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .proof { grid-column: auto; min-height: 8rem; padding-right: .75rem; border-bottom: 1px solid var(--silver-line); }
+      .proof strong { font-size: clamp(1.25rem, 6vw, 2rem); white-space: nowrap; }
+      .proof:nth-child(2n) { border-right: 0; padding-left: .75rem; }
+      .practice-cutaway::before { display: none; }
+      .practice-panel + .practice-panel { border-top: 1px solid var(--silver-line); }
+      .assurance-band { display: grid; grid-template-columns: 1fr; }
+      .atlas-graphic { display: none; }
+      .atlas-fallback { display: grid; }
+      .lens-controls { display: none; }
+      .js .lens-controls { display: grid; grid-template-columns: 1fr 1fr; }
+      .lens-btn { min-height: 48px; }
+      .case-narrative > p { grid-template-columns: 1fr; gap: .25rem; }
+      .archive-row { grid-template-columns: 1fr; gap: .35rem; }
+      .delivery-loop li { grid-template-columns: 3rem 1fr; }
+      .capability-matrix { grid-template-columns: 1fr; }
+      .footer-inner { min-height: 6rem; flex-direction: column; justify-content: center; align-items: flex-start; }
     }
 
     @media (prefers-reduced-motion: reduce) {
+      .js .reveal { opacity: 1; transform: none; transition: none; }
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-      .js .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
   
   
+  
+  
+
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <header class="site-header">
@@ -264,11 +265,12 @@
       <a class="brand" href="#hero">Erick <span>Aquino</span></a>
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">Open menu</button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#ai-practice">AI Practice</a></li>
+        <li><a href="#practice">Practice</a></li>
+        <li><a href="#system-lens">System lens</a></li>
+        <li><a href="#projects">Selected work</a></li>
+        <li><a href="#operating-system">Operating system</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#downloads">CV</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -277,273 +279,248 @@
 
   <main id="main-content" tabindex="-1">
     <section class="hero" id="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow">Enterprise systems / AI orchestration</p>
-          <h1>Systems that hold up under scrutiny.</h1>
-          <p class="hero-lede">I design enterprise systems and governed multi-LLM delivery loops that move from requirements to verified production.</p>
+      <div class="wrap grid-12 hero-grid">
+        <div class="hero-copy reveal">
+          <p class="hero-kicker">NetSuite / Integration / AI-accelerated delivery</p>
+          <h1><span>NetSuite architecture.</span><span>Integration without blind spots.</span></h1>
+          <p class="hero-lede">I design ERP, integration, and AI-accelerated delivery systems that stay reliable under operational pressure.</p>
           <div class="hero-actions">
-            <a class="button button--primary hero-action" href="#projects">Inspect selected systems</a>
-            <a class="button button--quiet hero-action" href="#contact">Start a conversation</a>
+            <a class="button button--primary" href="mailto:ejaquino26@gmail.com?subject=Consulting%20Inquiry">Discuss a system</a>
+            <a class="button button--quiet" href="#projects">Review selected systems</a>
+            <a class="button button--quiet" href="#downloads">Download CV</a>
           </div>
         </div>
-        <aside class="hero-note" aria-label="Current practice">
-          <p><strong>Senior NetSuite and Integration Architect</strong><span>Requirements, SuiteCloud, Celigo, APIs, automation, and production delivery.</span></p>
-          <p><strong>Multi-LLM Systems Architect</strong><span>Task graphs, model-role routing, TDD, evidence gates, and durable knowledge loops.</span></p>
-          <p class="mono"><a href="https://www.linkedin.com/in/ejaquino/" target="_blank" rel="noopener">LinkedIn / ejaquino</a></p>
+        <aside class="engagement-profile reveal" aria-label="Engagement profile">
+          <p class="profile-title">Engagement profile</p>
+          <dl>
+            <div><dt>Platform scope</dt><dd>NetSuite architecture, SuiteCloud engineering, financials, commerce, and operations.</dd></div>
+            <div><dt>Integration surface</dt><dd>Celigo, APIs, EDI, 3PL, retail, commerce, data, and automation boundaries.</dd></div>
+            <div><dt>Delivery discipline</dt><dd>Contracts, test-driven delivery, observability, independent review, and guarded release.</dd></div>
+          </dl>
+          <a class="profile-link" href="https://www.linkedin.com/in/ejaquino/" target="_blank" rel="noopener">LinkedIn / ejaquino</a>
         </aside>
       </div>
     </section>
 
-    <div class="proof-band" aria-label="Portfolio proof">
-      <div class="wrap proof-grid">
-        <div class="proof"><strong>10</strong><span>Years in enterprise systems</span></div>
-        <div class="proof"><strong>155</strong><span>Repositories and project workspaces indexed</span></div>
-        <div class="proof"><strong>48,854</strong><span>Source files indexed</span></div>
-        <div class="proof"><strong>7,272,564</strong><span>Lines of code indexed</span></div>
-      </div>
-    </div>
-
-    <section class="section" id="about">
+    <section class="section authority" id="authority">
       <div class="wrap">
-        <header class="section-head reveal"><p class="section-index">About</p><div><h2 class="section-title">Inside the platform. Across the whole system.</h2></div></header>
-        <div class="about-grid">
-          <div class="prose reveal">
-            <p>I have spent 10 years working from NetSuite's platform core outward: first inside Oracle NetSuite, including its SWAT and escalation teams, then as a senior architect responsible for enterprise integrations and production delivery.</p>
-            <p>Today my work spans requirements, SuiteCloud architecture, Celigo flows, APIs, 3PL and commerce connectivity, financial workflows, release controls, and the operating systems used to coordinate modern AI-assisted engineering.</p>
-            <p>The thread is consistent: understand the data flow, make boundaries explicit, build for failure, and leave behind evidence another engineer can verify.</p>
-          </div>
-          <ul class="credential-list reveal" aria-label="Selected credentials">
-            <li><small>Oracle</small><strong>Ex-NetSuite SWAT and Engineering Solutions Management</strong></li>
-            <li><small>Celigo</small><strong>Mastery Level 4: Legendary and Builder Core</strong></li>
-            <li><small>NetSuite</small><strong>SuiteFoundation, AI, BI and reporting, and financial credentials</strong></li>
-            <li><small>Foundation</small><strong>BS Computer Engineering, Mapua University</strong></li>
-          </ul>
+        <header class="section-head reveal"><p class="section-index">Authority</p><div><h2 class="section-title">Platform depth before platform advice.</h2><p class="section-intro">Ten years across NetSuite engineering, escalations, integration architecture, and production ownership.</p></div></header>
+        <div class="authority-stats grid-12 reveal" aria-label="Portfolio proof">
+          <div class="proof"><strong>10</strong><span>Years in enterprise systems</span></div>
+          <div class="proof"><strong>155</strong><span>Project workspaces indexed</span></div>
+          <div class="proof"><strong>48,854</strong><span>Source files indexed</span></div>
+          <div class="proof"><strong>7,272,564</strong><span>Lines of code indexed</span></div>
+        </div>
+        <div class="credential-ledger reveal">
+          <div><span>Oracle NetSuite</span><strong>SWAT, Engineering Solutions, Defect Deflection, and SuiteCloud Support</strong></div>
+          <div><span>Celigo</span><strong>Mastery Level 4: Legendary and Builder Core</strong></div>
+          <div><span>NetSuite credentials</span><strong>SuiteFoundation, AI, BI and reporting, and financial management</strong></div>
+          <div><span>Engineering foundation</span><strong>BS Computer Engineering, Mapua University</strong></div>
         </div>
       </div>
     </section>
 
-    <section class="section section--sunk" id="methodology">
+    <section class="section practice" id="practice">
       <div class="wrap">
-        <header class="section-head reveal"><p class="section-index">Method</p><div><h2 class="section-title">From ambiguity to verified state.</h2><p class="section-intro">The same operating discipline applies to an ERP integration, an AI feature, or an agent delivery graph.</p></div></header>
-        <ol class="method-list">
-          <li class="reveal"><strong>Bind the real system</strong><p>Resolve the repository, runtime, requirements, constraints, ownership, and current state before proposing a change.</p></li>
-          <li class="reveal"><strong>Freeze the contract</strong><p>Translate intent into interfaces, edge cases, acceptance criteria, tests, authorization gates, and rollback.</p></li>
-          <li class="reveal"><strong>Build through evidence</strong><p>Use systematic diagnosis and RED/GREEN/REFACTOR, then keep model and tool execution inside explicit scope.</p></li>
-          <li class="reveal"><strong>Verify independently</strong><p>Treat completion summaries as claims until diffs, tests, runtime behavior, and fingerprints agree.</p></li>
-        </ol>
+        <header class="section-head reveal"><p class="section-index">Practice</p><div><h2 class="section-title">One system practice. Three connected disciplines.</h2><p class="section-intro">Architecture begins inside NetSuite, crosses every integration boundary, and stays accountable through delivery.</p></div></header>
+        <div class="practice-cutaway grid-12 reveal">
+          <article class="practice-panel platform-practice"><p>Platform core</p><h3>NetSuite platform engineering</h3><p>SuiteScript 2.x, SDF, SuiteQL, SuiteFlow, Suitelets, Map/Reduce, configuration governance, performance, and financial workflows.</p></article>
+          <article class="practice-panel integration-practice"><p>Connected boundary</p><h3>Integration architecture</h3><p>Celigo iPaaS, REST and SOAP APIs, SuiteTalk, EDI, 3PL, commerce, marketplaces, retail channels, data contracts, and reconciliation.</p></article>
+          <aside class="assurance-band"><p>Acceleration and assurance</p><h3>AI-accelerated delivery</h3><p>Role separation, task graphs, context binding, capability routing, evidence gates, human authorization, and guarded deployment strengthen the enterprise practice without changing who owns the outcome.</p></aside>
+        </div>
+        <p class="practice-breadth reveal"><span>Operating breadth</span> Consumer, industrial, commodities, apparel, retail, marketplace, and multi-subsidiary models.</p>
       </div>
     </section>
 
-    <section class="section section--ink" id="ai-practice">
+    <section class="section system-lens" id="system-lens" data-lens>
       <div class="wrap">
-        <header class="section-head reveal"><p class="section-index">AI Practice</p><div><h2 class="section-title">A control plane for multi-LLM engineering.</h2><p class="section-intro">This is not a collection of chat tools. It is a governed task graph with separated roles, bounded execution, evidence, and memory.</p></div></header>
-        <div class="architecture-shell reveal">
-          <svg class="architecture-graph" viewBox="0 0 1160 270" role="img" aria-labelledby="graphTitle" aria-describedby="graphDesc">
-            <title id="graphTitle">Six-plane multi-LLM orchestration architecture</title>
-            <desc id="graphDesc">Context flows through control, model routing, execution, evidence, and learning. Verified learning returns to future context.</desc>
-            <defs>
-              <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--paper)"></path></marker>
-              <marker id="arrowAccent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent-tint)"></path></marker>
-            </defs>
-            <path class="edge" marker-end="url(#arrow)" d="M180 100H205"></path>
-            <path class="edge" marker-end="url(#arrow)" d="M365 100H390"></path>
-            <path class="edge" marker-end="url(#arrow)" d="M550 100H575"></path>
-            <path class="edge" marker-end="url(#arrow)" d="M735 100H760"></path>
-            <path class="edge" marker-end="url(#arrow)" d="M920 100H945"></path>
-            <path class="edge loop" marker-end="url(#arrowAccent)" d="M1030 170V225H105Q70 225 70 190V178"></path>
-            <g transform="translate(25 45)"><rect class="node" width="155" height="125" rx="8"></rect><text class="node-index" x="18" y="29">PLANE 01</text><text x="18" y="67">Context</text><text class="node-index" x="18" y="94">STATE + MEMORY</text></g>
-            <g transform="translate(210 45)"><rect class="node" width="155" height="125" rx="8"></rect><text class="node-index" x="18" y="29">PLANE 02</text><text x="18" y="67">Control</text><text class="node-index" x="18" y="94">TASK DAG</text></g>
-            <g transform="translate(395 45)"><rect class="node" width="155" height="125" rx="8"></rect><text class="node-index" x="18" y="29">PLANE 03</text><text x="18" y="67">Model</text><text class="node-index" x="18" y="94">ROLE ROUTING</text></g>
-            <g transform="translate(580 45)"><rect class="node" width="155" height="125" rx="8"></rect><text class="node-index" x="18" y="29">PLANE 04</text><text x="18" y="67">Execution</text><text class="node-index" x="18" y="94">TDD + TOOLS</text></g>
-            <g transform="translate(765 45)"><rect class="node" width="155" height="125" rx="8"></rect><text class="node-index" x="18" y="29">PLANE 05</text><text x="18" y="67">Evidence</text><text class="node-index" x="18" y="94">VERIFY STATE</text></g>
-            <g transform="translate(950 45)"><rect class="node" width="155" height="125" rx="8"></rect><text class="node-index" x="18" y="29">PLANE 06</text><text x="18" y="67">Learning</text><text class="node-index" x="18" y="94">DURABLE LOOP</text></g>
+        <header class="section-head reveal"><p class="section-index">System lens</p><div><h2 class="section-title">See the boundary before changing the flow.</h2><p class="section-intro">Inspect how NetSuite contracts move across finance, commerce, fulfillment, data, and operational controls.</p></div></header>
+        <div class="lens-controls reveal" role="group" aria-label="Choose an enterprise system flow">
+          <button class="lens-btn" type="button" data-flow="o2c" aria-pressed="false" aria-controls="flow-o2c">Order to cash</button>
+          <button class="lens-btn" type="button" data-flow="p2p" aria-pressed="false" aria-controls="flow-p2p">Procure to pay</button>
+          <button class="lens-btn" type="button" data-flow="fulfillment" aria-pressed="false" aria-controls="flow-fulfillment">Fulfillment</button>
+          <button class="lens-btn" type="button" data-flow="close" aria-pressed="false" aria-controls="flow-close">Financial close</button>
+        </div>
+        <figure class="atlas atlas-frame reveal">
+          <svg class="atlas-graphic" viewBox="0 0 960 620" role="img" aria-labelledby="atlasTitle" aria-describedby="atlasDesc">
+            <title id="atlasTitle">NetSuite enterprise integration boundary map</title>
+            <desc id="atlasDesc">NetSuite ERP connects finance and banking, commerce channels, third-party logistics and carriers, retail and EDI, data and analytics, and automation and delivery through explicit contracts.</desc>
+            <g class="atlas-edge" data-flows="o2c p2p close"><path d="M480 310 L180 120"></path><text x="250" y="190">REST / bank files</text></g>
+            <g class="atlas-edge" data-flows="o2c fulfillment"><path d="M480 310 L480 95"></path><text x="495" y="175">Celigo iPaaS</text></g>
+            <g class="atlas-edge" data-flows="o2c fulfillment"><path d="M480 310 L780 120"></path><text x="635" y="190">REST / file exchange</text></g>
+            <g class="atlas-edge" data-flows="o2c fulfillment"><path d="M480 310 L800 440"></path><text x="655" y="365">EDI documents</text></g>
+            <g class="atlas-edge" data-flows="p2p close"><path d="M480 310 L480 545"></path><text x="495" y="465">SuiteQL / ODBC</text></g>
+            <g class="atlas-edge" data-flows="o2c p2p fulfillment close"><path d="M480 310 L160 440"></path><text x="235" y="370">Scheduled automation</text></g>
+            <g class="atlas-node" data-flows="o2c p2p close" transform="translate(55 55)"><rect width="250" height="105"></rect><text x="24" y="46">Finance and banking</text><text class="atlas-contract" x="24" y="73">REST / SOAP / BANK FILES</text></g>
+            <g class="atlas-node" data-flows="o2c fulfillment" transform="translate(355 35)"><rect width="250" height="105"></rect><text x="24" y="46">Commerce channels</text><text class="atlas-contract" x="24" y="73">CELIGO IPAAS FLOWS</text></g>
+            <g class="atlas-node" data-flows="o2c fulfillment" transform="translate(655 55)"><rect width="250" height="105"></rect><text x="24" y="46">3PL and carriers</text><text class="atlas-contract" x="24" y="73">REST / FILE EXCHANGE</text></g>
+            <g class="atlas-node" data-flows="o2c fulfillment" transform="translate(675 405)"><rect width="250" height="105"></rect><text x="24" y="46">Retail and EDI</text><text class="atlas-contract" x="24" y="73">EDI DOCUMENTS</text></g>
+            <g class="atlas-node" data-flows="p2p close" transform="translate(355 480)"><rect width="250" height="105"></rect><text x="24" y="46">Data and analytics</text><text class="atlas-contract" x="24" y="73">SUITEQL / ODBC</text></g>
+            <g class="atlas-node" data-flows="o2c p2p fulfillment close" transform="translate(35 405)"><rect width="250" height="105"></rect><text x="24" y="46">Automation and delivery</text><text class="atlas-contract" x="24" y="73">SCHEDULED CONTROLS</text></g>
+            <g class="atlas-hub" transform="translate(350 235)"><rect width="260" height="150"></rect><text x="35" y="65">NetSuite ERP</text><text class="atlas-contract" x="35" y="98">FINANCE / OPERATIONS</text></g>
           </svg>
-          <ol class="graph-fallback" aria-label="Six-plane architecture">
-            <li>Context: current state and relevant memory</li><li>Control: Runs, Tasks, Dispatches, and decision gates</li><li>Model: role-based LLM and tool routing</li><li>Execution: TDD, diagnostics, and bounded changes</li><li>Evidence: independent assessment against exact state</li><li>Learning: verified knowledge returns to future context</li>
+          <ol class="atlas-fallback" aria-label="Integration boundaries and contracts">
+            <li><strong>Finance and banking</strong><span>REST, SOAP, bank files, and payment contracts</span></li>
+            <li><strong>Commerce channels</strong><span>Celigo iPaaS flows and order contracts</span></li>
+            <li><strong>3PL and carriers</strong><span>REST APIs and file exchange</span></li>
+            <li><strong>Retail and EDI</strong><span>EDI documents and acknowledgements</span></li>
+            <li><strong>Data and analytics</strong><span>SuiteQL, ODBC, reporting, and reconciliation</span></li>
+            <li><strong>Automation and delivery</strong><span>Scheduled controls, observability, and release evidence</span></li>
           </ol>
-        </div>
-        <div class="plane-notes reveal">
-          <div class="plane-note"><strong>Context</strong><p>Project registry, requirements, repository state, and filtered historical evidence.</p></div>
-          <div class="plane-note"><strong>Control</strong><p>Orca Runs, Tasks, Dispatches, ask/reply decisions, lifecycle, and task DAGs.</p></div>
-          <div class="plane-note"><strong>Model</strong><p>Route architecture, implementation, and review to separate models by role and capability.</p></div>
-          <div class="plane-note"><strong>Execution</strong><p>Systematic debugging, RED/GREEN/REFACTOR, browsers, APIs, and domain tools.</p></div>
-          <div class="plane-note"><strong>Evidence</strong><p>Frozen criteria, raw command results, runtime probes, diffs, and matching fingerprints.</p></div>
-          <div class="plane-note"><strong>Learning</strong><p>Claude-mem evidence becomes durable knowledge only after live verification and guarded curation.</p></div>
-        </div>
-        <div class="role-routing reveal">
-          <h3>Roles are stable. Models are routed.</h3>
-          <div class="role-list">
-            <div class="role-row"><strong>Architecture</strong><span>Claude/Fable synthesizes constraints, contracts, edge cases, and the blueprint.</span></div>
-            <div class="role-row"><strong>Implementation</strong><span>Claude, Codex, Antigravity/Gemini, Kilo, or Pi executes according to task and environment.</span></div>
-            <div class="role-row"><strong>Verification</strong><span>A separate model or session audits claims against the diff, tests, runtime, and criteria.</span></div>
-            <div class="role-row"><strong>Coordination</strong><span>Orca binds state, workers, task graphs, decisions, evidence paths, and lifecycle settlement.</span></div>
-          </div>
-        </div>
-        <div class="activity-ledger reveal">
-          <h3>Activity ledger</h3>
-          <ul class="ledger">
-            <li><strong>Architecture and task graphs</strong><span>Blueprints, dependencies, authority boundaries, acceptance criteria, and rollback.</span><small>Verified by plan-to-diff audit</small></li>
-            <li><strong>Enterprise integration</strong><span>NetSuite, SuiteScript, SDF, Celigo, APIs, EDI, commerce, and 3PL data flows.</span><small>Verified by validation and runtime parity</small></li>
-            <li><strong>AI product engineering</strong><span>Streaming, tool use, OCR, guardrails, analytics, and interruption-safe behavior.</span><small>Verified by regression and probes</small></li>
-            <li><strong>Reliability and release</strong><span>TDD, independent review, fingerprints, atomic delivery, and fail-closed controls.</span><small>Verified by fresh evidence gates</small></li>
-            <li><strong>Knowledge systems</strong><span>Isolated memory profiles, project registries, retrieval, and durable context loops.</span><small>Verified by guarded curation receipts</small></li>
-          </ul>
+          <figcaption>Integration boundary map / contracts change by operational flow</figcaption>
+        </figure>
+        <div class="flow-panels grid-12 reveal">
+          <article class="flow-panel" id="flow-o2c"><p>Flow 01</p><h3>Order to cash</h3><ol><li><strong>Capture demand</strong><span>Commerce or EDI order contract</span></li><li><strong>Validate and price</strong><span>NetSuite customer, item, tax, and approval controls</span></li><li><strong>Fulfill and confirm</strong><span>3PL release, shipment, and acknowledgement</span></li><li><strong>Invoice and settle</strong><span>Accounts receivable, payment, and bank evidence</span></li></ol></article>
+          <article class="flow-panel" id="flow-p2p"><p>Flow 02</p><h3>Procure to pay</h3><ol><li><strong>Authorize demand</strong><span>Requisition and approval boundary</span></li><li><strong>Commit supply</strong><span>Purchase order and vendor contract</span></li><li><strong>Receive and reconcile</strong><span>Item receipt, bill, and three-way match</span></li><li><strong>Release payment</strong><span>Authorization, bank file, and settlement evidence</span></li></ol></article>
+          <article class="flow-panel" id="flow-fulfillment"><p>Flow 03</p><h3>Fulfillment</h3><ol><li><strong>Allocate inventory</strong><span>Location, lot, and promise controls</span></li><li><strong>Release the order</strong><span>3PL or warehouse instruction contract</span></li><li><strong>Confirm movement</strong><span>Pick, pack, ship, and carrier events</span></li><li><strong>Reconcile exceptions</strong><span>Short, damage, delay, and retry evidence</span></li></ol></article>
+          <article class="flow-panel" id="flow-close"><p>Flow 04</p><h3>Financial close</h3><ol><li><strong>Bind the period</strong><span>Subsidiary, accounting book, and close scope</span></li><li><strong>Reconcile boundaries</strong><span>Bank, commerce, inventory, and intercompany controls</span></li><li><strong>Resolve exceptions</strong><span>Ownership, evidence, and approval trail</span></li><li><strong>Publish confidence</strong><span>Reporting, variance, and audit-ready outcome</span></li></ol></article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="ecosystem">
+    <section class="section projects" id="projects">
       <div class="wrap">
-        <header class="section-head reveal"><p class="section-index">Ecosystem</p><div><h2 class="section-title">Integration is the architecture.</h2><p class="section-intro">NetSuite sits at the operational center, but value moves through every connected boundary.</p></div></header>
-        <div class="ecosystem-grid reveal">
-          <div class="ecosystem-core"><div><strong>NetSuite ERP</strong><span>FINANCE / OPERATIONS / COMMERCE</span></div></div>
-          <div class="ecosystem-spokes">
-            <div class="ecosystem-spoke"><strong>3PL and carriers</strong><p>Masonhub, ShipBob, Capacity, ILG, Radial, DHL, and FedEx.</p></div>
-            <div class="ecosystem-spoke"><strong>Commerce</strong><p>Shopify, SuiteCommerce, Amazon, eBay, and DTC channels.</p></div>
-            <div class="ecosystem-spoke"><strong>Integration</strong><p>Celigo iPaaS, REST, SOAP, SuiteTalk, ODBC, and direct APIs.</p></div>
-            <div class="ecosystem-spoke"><strong>Retail and EDI</strong><p>Walmart, Lowe's, Home Depot, B2B routing, and document exchange.</p></div>
-            <div class="ecosystem-spoke"><strong>Data and automation</strong><p>SuiteQL, Map/Reduce, transformations, reconciliation, and reporting.</p></div>
-            <div class="ecosystem-spoke"><strong>AI control plane</strong><p>Task graphs, model routing, runtime tools, evidence, and memory systems.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--sunk" id="verticals">
-      <div class="wrap">
-        <header class="section-head reveal"><p class="section-index">Industries</p><div><h2 class="section-title">Enterprise patterns across operating models.</h2></div></header>
-        <div class="matrix reveal">
-          <div class="matrix-item"><strong>Beauty and DTC</strong><span>ORDER / PAYMENT / 3PL</span></div><div class="matrix-item"><strong>Sports equipment</strong><span>GLOBAL ERP / MULTI-SUB</span></div><div class="matrix-item"><strong>Consumer electronics</strong><span>RETAIL / DTC / BATCH</span></div><div class="matrix-item"><strong>Consumer goods</strong><span>FRAUD / MARKETPLACE</span></div><div class="matrix-item"><strong>Industrial manufacturing</strong><span>SUPPLY / OPERATIONS</span></div><div class="matrix-item"><strong>Metals and commodities</strong><span>PRICING / LOTS / FINANCE</span></div><div class="matrix-item"><strong>Furniture and home</strong><span>B2B / FULFILLMENT</span></div><div class="matrix-item"><strong>Fashion and apparel</strong><span>COMMERCE / MARKETPLACE</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="experience">
-      <div class="wrap">
-        <header class="section-head reveal"><p class="section-index">Experience</p><div><h2 class="section-title">Platform depth, then system ownership.</h2></div></header>
-        <div class="timeline">
-          <article class="timeline-entry reveal"><div class="timeline-meta"><span class="timeline-company">Ekwani Consulting LLC</span><span class="timeline-date">MAY 2021 - PRESENT</span></div><div class="timeline-copy"><h3>Senior NetSuite Developer and Integration Architect</h3><p>Lead architecture and delivery across enterprise NetSuite, Celigo, commerce, 3PL, EDI, automation, and AI-enabled engineering systems.</p></div></article>
-          <article class="timeline-entry reveal"><div class="timeline-meta"><span class="timeline-company">Kodella LLC</span><span class="timeline-date">MAR 2019 - APR 2021</span></div><div class="timeline-copy"><h3>NetSuite Developer</h3><p>Full-cycle platform delivery across finance, supply chain, reporting, Map/Reduce automation, upgrade readiness, and configuration governance.</p></div></article>
-          <article class="timeline-entry reveal"><div class="timeline-meta"><span class="timeline-company">Oracle NetSuite</span><span class="timeline-date">JUN 2016 - MAR 2019</span></div><div class="timeline-copy"><h3>Engineering Solutions, Defect Deflection, SWAT, and SuiteCloud Support</h3><p>Progressed through four roles resolving platform defects, complex customizations, integration failures, performance issues, and escalations for strategic enterprise accounts.</p></div></article>
-          <article class="timeline-entry reveal"><div class="timeline-meta"><span class="timeline-company">Accenture</span><span class="timeline-date">FEB 2016 - MAR 2016</span></div><div class="timeline-copy"><h3>Development and Operations Intern</h3><p>Early work in CI/CD, Selenium, Jenkins, SonarQube, Java test automation, and operational quality.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--sunk" id="projects">
-      <div class="wrap">
-        <header class="section-head reveal"><p class="section-index">Projects</p><div><h2 class="section-title">Selected systems, then the full ledger.</h2><p class="section-intro">Featured records explain the operating problem, architecture, and outcome. The complete archive remains available below.</p></div></header>
+        <header class="section-head reveal"><p class="section-index">Selected systems</p><div><h2 class="section-title">Architecture records, not project thumbnails.</h2><p class="section-intro">Each record exposes the operating problem, boundary, implementation controls, and verified outcome supported by available project data.</p></div></header>
         <div class="case-list">
           
           <article class="case-record reveal">
-            <div><p class="case-kicker">Sports Equipment</p><h3>Global Sports Equipment Manufacturer</h3></div>
+            <header class="case-header"><p class="case-kicker">Sports Equipment</p><h3>Global Sports Equipment Manufacturer</h3></header>
             <div class="case-narrative">
               
-              <p><b>Challenge</b>A global snowboard and sports equipment manufacturer operating across North America, Europe, and Asia-Pacific needed a unified ERP platform to orchestrate multi-vendor integrations, complex pricing engines, and multi-channel fulfillment  -  with no existing architecture in place.</p>
-              <p><b>Architecture</b>Served as sole technical architect from requirements through production. Designed and delivered the complete platform: multi-vendor integrations, dynamic pricing engines, automated fulfillment workflows, payment processing, and multi-subsidiary financial consolidation. Built the entire 1,248-file codebase end-to-end.</p>
-              <p><b>Outcome</b>Replaced manual multi-system operations with a fully automated ERP ecosystem. Enabled the company to scale global e-commerce and B2B operations without adding headcount to back-office teams.</p>
+              <p><b>Operating problem</b><span>A global snowboard and sports equipment manufacturer operating across North America, Europe, and Asia-Pacific needed a unified ERP platform to orchestrate multi-vendor integrations, complex pricing engines, and multi-channel fulfillment  -  with no existing architecture in place.</span></p>
+              
+              <p><b>Architecture</b><span>Served as sole technical architect from requirements through production. Designed and delivered the complete platform: multi-vendor integrations, dynamic pricing engines, automated fulfillment workflows, payment processing, and multi-subsidiary financial consolidation. Built the entire 1,248-file codebase end-to-end.</span></p>
+              
+              <p><b>Verified outcome</b><span>Replaced manual multi-system operations with a fully automated ERP ecosystem. Enabled the company to scale global e-commerce and B2B operations without adding headcount to back-office teams.</span></p>
               
               <div class="case-metrics"><span class="case-metric"><strong>1,200+</strong><span>scripts</span></span><span class="case-metric"><strong>Sole</strong><span>architect</span></span><span class="case-metric"><strong>Multi-sub</strong><span>global</span></span><span class="case-metric"><strong>Full</strong><span>lifecycle</span></span></div>
-              <p class="case-tech">SuiteScript 2.x / SuiteFlow / Celigo iPaaS / REST APIs / Shopify / Multi-subsidiary</p>
+              
+    
+    <p class="case-tech"><b>System boundary</b>SuiteScript 2.x / SuiteFlow / Celigo iPaaS / REST APIs / Shopify / Multi-subsidiary</p>
             </div>
           </article>
           
           <article class="case-record reveal">
-            <div><p class="case-kicker">Consumer Electronics</p><h3>Consumer Electronics Brand Platform</h3></div>
+            <header class="case-header"><p class="case-kicker">Consumer Electronics</p><h3>Consumer Electronics Brand Platform</h3></header>
             <div class="case-narrative">
               
-              <p><b>Challenge</b>A major consumer electronics brand with globally recognized kitchen appliance products needed deep NetSuite customization: 95+ custom UIs, heavy batch data processing, and complex inventory workflows across retail and DTC channels.</p>
-              <p><b>Architecture</b>Built a long-term, high-touch platform with 697+ active scripts, 95+ Suitelets for custom operational UIs, 35+ MapReduce scripts for batch processing, and 27+ UserEvent scripts for business logic automation.</p>
-              <p><b>Outcome</b>Delivered a deeply customized ERP that became the operational backbone for global product distribution, eliminating manual data entry across retail and DTC fulfillment channels.</p>
+              <p><b>Operating problem</b><span>A major consumer electronics brand with globally recognized kitchen appliance products needed deep NetSuite customization: 95+ custom UIs, heavy batch data processing, and complex inventory workflows across retail and DTC channels.</span></p>
+              
+              <p><b>Architecture</b><span>Built a long-term, high-touch platform with 697+ active scripts, 95+ Suitelets for custom operational UIs, 35+ MapReduce scripts for batch processing, and 27+ UserEvent scripts for business logic automation.</span></p>
+              
+              <p><b>Verified outcome</b><span>Delivered a deeply customized ERP that became the operational backbone for global product distribution, eliminating manual data entry across retail and DTC fulfillment channels.</span></p>
               
               <div class="case-metrics"><span class="case-metric"><strong>697+</strong><span>scripts</span></span><span class="case-metric"><strong>95+</strong><span>Suitelets</span></span><span class="case-metric"><strong>35+</strong><span>MapReduce</span></span></div>
-              <p class="case-tech">SuiteScript 2.x / Suitelets / MapReduce / UserEvent / SuiteFlow</p>
+              
+    
+    <p class="case-tech"><b>System boundary</b>SuiteScript 2.x / Suitelets / MapReduce / UserEvent / SuiteFlow</p>
             </div>
           </article>
           
           <article class="case-record reveal">
-            <div><p class="case-kicker">Full-Stack SaaS</p><h3>EKW-SPHERE Operations Platform</h3></div>
+            <header class="case-header"><p class="case-kicker">Full-Stack SaaS</p><h3>EKW-SPHERE Operations Platform</h3></header>
             <div class="case-narrative">
               
-              <p><b>Challenge</b>Needed a centralized operations platform for demand planning, inventory reconciliation, and financial reporting across a 20+ client portfolio  -  existing tools were fragmented and lacked security controls.</p>
-              <p><b>Architecture</b>Built a production SaaS platform from scratch: 10 internal tools spanning demand forecasting, inventory reconciliation, client health dashboards, and automated reporting. Enterprise security with RBAC, 2FA, field-level encryption, and audit logging. Performance-tuned to sustain 3,600+ requests/second.</p>
-              <p><b>Outcome</b>Consolidated 10 separate operational workflows into a single platform. Reduced manual reporting from hours to real-time dashboards. Serves as the operational backbone for the entire consulting practice.</p>
+              <p><b>Operating problem</b><span>Needed a centralized operations platform for demand planning, inventory reconciliation, and financial reporting across a 20+ client portfolio  -  existing tools were fragmented and lacked security controls.</span></p>
+              
+              <p><b>Architecture</b><span>Built a production SaaS platform from scratch: 10 internal tools spanning demand forecasting, inventory reconciliation, client health dashboards, and automated reporting. Enterprise security with RBAC, 2FA, field-level encryption, and audit logging. Performance-tuned to sustain 3,600+ requests/second.</span></p>
+              
+              <p><b>Verified outcome</b><span>Consolidated 10 separate operational workflows into a single platform. Reduced manual reporting from hours to real-time dashboards. Serves as the operational backbone for the entire consulting practice.</span></p>
               
               <div class="case-metrics"><span class="case-metric"><strong>29,500+</strong><span>lines Python</span></span><span class="case-metric"><strong>3,600+</strong><span>RPS</span></span><span class="case-metric"><strong>10</strong><span>tools</span></span><span class="case-metric"><strong>220+</strong><span>source files</span></span></div>
-              <p class="case-tech">Python / Flask / PostgreSQL / Redis / Celery / React / TypeScript</p>
+              
+    
+    <p class="case-tech"><b>System boundary</b>Python / Flask / PostgreSQL / Redis / Celery / React / TypeScript</p>
             </div>
           </article>
           
           <article class="case-record reveal">
-            <div><p class="case-kicker">Metals &amp; Commodities</p><h3>COMEX Commodity Trading Platform</h3></div>
+            <header class="case-header"><p class="case-kicker">Metals &amp; Commodities</p><h3>COMEX Commodity Trading Platform</h3></header>
             <div class="case-narrative">
               
-              <p><b>Challenge</b>A copper trading company needed real-time COMEX commodity pricing, Certificate of Assay workflows, lot tracking across physical metal inventory, and multi-subsidiary financial consolidation across 3 entities.</p>
-              <p><b>Architecture</b>Engineered a metals trading platform with live COMEX pricing integration, Certificate of Assay document workflows, physical lot tracking from assay through sale, and intercompany elimination across 3 subsidiaries.</p>
-              <p><b>Outcome</b>Automated commodity pricing updates and assay-to-sale tracking. Financial consolidation across 3 subsidiaries runs automatically with proper intercompany eliminations.</p>
+              <p><b>Operating problem</b><span>A copper trading company needed real-time COMEX commodity pricing, Certificate of Assay workflows, lot tracking across physical metal inventory, and multi-subsidiary financial consolidation across 3 entities.</span></p>
+              
+              <p><b>Architecture</b><span>Engineered a metals trading platform with live COMEX pricing integration, Certificate of Assay document workflows, physical lot tracking from assay through sale, and intercompany elimination across 3 subsidiaries.</span></p>
+              
+              <p><b>Verified outcome</b><span>Automated commodity pricing updates and assay-to-sale tracking. Financial consolidation across 3 subsidiaries runs automatically with proper intercompany eliminations.</span></p>
               
               <div class="case-metrics"><span class="case-metric"><strong>118+</strong><span>scripts</span></span><span class="case-metric"><strong>3</strong><span>subsidiaries</span></span></div>
-              <p class="case-tech">SuiteScript 2.x / COMEX API / Multi-subsidiary / Lot Tracking</p>
+              
+    
+    <p class="case-tech"><b>System boundary</b>SuiteScript 2.x / COMEX API / Multi-subsidiary / Lot Tracking</p>
             </div>
           </article>
           
           <article class="case-record reveal">
-            <div><p class="case-kicker">Omnichannel E-Commerce</p><h3>Signifyd Fraud-Integrated Platform</h3></div>
+            <header class="case-header"><p class="case-kicker">Omnichannel E-Commerce</p><h3>Signifyd Fraud-Integrated Platform</h3></header>
             <div class="case-narrative">
               
-              <p><b>Challenge</b>A global consumer goods company needed an omnichannel platform with real-time fraud detection, Amazon marketplace connectivity, multi-language/region support, and unified D2C order processing.</p>
-              <p><b>Architecture</b>Delivered a service-oriented architecture integrating Signifyd for real-time fraud scoring, Amazon marketplace for expanded reach, multi-language/region localization, and a unified order processing pipeline.</p>
-              <p><b>Outcome</b>Reduced fraud-related chargebacks while expanding the brand&#39;s marketplace presence. Unified DTC and marketplace order flows into a single operational pipeline.</p>
+              <p><b>Operating problem</b><span>A global consumer goods company needed an omnichannel platform with real-time fraud detection, Amazon marketplace connectivity, multi-language/region support, and unified D2C order processing.</span></p>
+              
+              <p><b>Architecture</b><span>Delivered a service-oriented architecture integrating Signifyd for real-time fraud scoring, Amazon marketplace for expanded reach, multi-language/region localization, and a unified order processing pipeline.</span></p>
+              
+              <p><b>Verified outcome</b><span>Reduced fraud-related chargebacks while expanding the brand&#39;s marketplace presence. Unified DTC and marketplace order flows into a single operational pipeline.</span></p>
               
               <div class="case-metrics"><span class="case-metric"><strong>538+</strong><span>scripts</span></span><span class="case-metric"><strong>SOA</strong><span>architecture</span></span></div>
-              <p class="case-tech">SuiteScript 2.x / Signifyd / Amazon / REST APIs / Multi-region</p>
+              
+    
+    <p class="case-tech"><b>System boundary</b>SuiteScript 2.x / Signifyd / Amazon / REST APIs / Multi-region</p>
             </div>
           </article>
           
           <article class="case-record reveal">
-            <div><p class="case-kicker">Multi-Client B2B</p><h3>Multi-Client B2B Fulfillment Platform</h3></div>
+            <header class="case-header"><p class="case-kicker">Multi-Client B2B</p><h3>Multi-Client B2B Fulfillment Platform</h3></header>
             <div class="case-narrative">
               
-              <p><b>Challenge</b>11+ clients across furniture, sporting goods, and industrial supply needed unified fulfillment with backorder allocation, warehouse automation, and payment processing  -  each with distinct business rules.</p>
-              <p><b>Architecture</b>Delivered a multi-tenant platform with client-specific configuration records, MapReduce-driven batch processing for backorder allocation, automated warehouse workflows, and payment gateway integration.</p>
-              <p><b>Outcome</b>Consolidated 11+ separate client workflows into a single reusable platform. New client onboarding reduced to configuration rather than custom development.</p>
+              <p><b>Operating problem</b><span>11+ clients across furniture, sporting goods, and industrial supply needed unified fulfillment with backorder allocation, warehouse automation, and payment processing  -  each with distinct business rules.</span></p>
+              
+              <p><b>Architecture</b><span>Delivered a multi-tenant platform with client-specific configuration records, MapReduce-driven batch processing for backorder allocation, automated warehouse workflows, and payment gateway integration.</span></p>
+              
+              <p><b>Verified outcome</b><span>Consolidated 11+ separate client workflows into a single reusable platform. New client onboarding reduced to configuration rather than custom development.</span></p>
               
               <div class="case-metrics"><span class="case-metric"><strong>74+</strong><span>scripts</span></span><span class="case-metric"><strong>11+</strong><span>clients</span></span><span class="case-metric"><strong>26+</strong><span>MapReduce</span></span></div>
-              <p class="case-tech">SuiteScript 2.x / MapReduce / SuiteFlow / Config Records</p>
+              
+    
+    <p class="case-tech"><b>System boundary</b>SuiteScript 2.x / MapReduce / SuiteFlow / Config Records</p>
             </div>
           </article>
           
           <article class="case-record reveal">
-            <div><p class="case-kicker">DTC Beauty</p><h3>Major DTC Beauty Brand Platform</h3></div>
+            <header class="case-header"><p class="case-kicker">DTC Beauty</p><h3>Major DTC Beauty Brand Platform</h3></header>
             <div class="case-narrative">
               
-              <p><b>Challenge</b>A high-profile, high-growth beauty brand needed to scale from startup-stage operations to enterprise e-commerce while automating order management, payment processing, and multi-channel fulfillment across multiple 3PL providers.</p>
-              <p><b>Architecture</b>Architected a full-lifecycle NetSuite platform: 896 custom scripts spanning order management, payment processing, fulfillment automation, Shopify integration, and 3PL connectivity with advanced inventory allocation logic.</p>
-              <p><b>Outcome</b>Enabled the brand to scale from early-stage DTC to a globally recognized beauty brand with automated operations handling high-volume order surges during product launches.</p>
+              <p><b>Operating problem</b><span>A high-profile, high-growth beauty brand needed to scale from startup-stage operations to enterprise e-commerce while automating order management, payment processing, and multi-channel fulfillment across multiple 3PL providers.</span></p>
+              
+              <p><b>Architecture</b><span>Architected a full-lifecycle NetSuite platform: 896 custom scripts spanning order management, payment processing, fulfillment automation, Shopify integration, and 3PL connectivity with advanced inventory allocation logic.</span></p>
+              
+              <p><b>Verified outcome</b><span>Enabled the brand to scale from early-stage DTC to a globally recognized beauty brand with automated operations handling high-volume order surges during product launches.</span></p>
               
               <div class="case-metrics"><span class="case-metric"><strong>896</strong><span>scripts</span></span><span class="case-metric"><strong>Multi-3PL</strong><span>integration</span></span></div>
-              <p class="case-tech">SuiteScript 2.x / Shopify / 3PL / Celigo / MapReduce</p>
+              
+    
+    <p class="case-tech"><b>System boundary</b>SuiteScript 2.x / Shopify / 3PL / Celigo / MapReduce</p>
             </div>
           </article>
           
           <article class="case-record reveal">
-            <div><p class="case-kicker">Retail EDI &amp; Integration</p><h3>Retail EDI Connectivity Platform</h3></div>
+            <header class="case-header"><p class="case-kicker">Retail EDI &amp; Integration</p><h3>Retail EDI Connectivity Platform</h3></header>
             <div class="case-narrative">
               
-              <p><b>Challenge</b>Needed warehouse and EDI connectivity for 3 major retail chains with complex B2B/B2C routing requirements, manual RMA processes, and Shopify synchronization gaps causing inventory discrepancies.</p>
-              <p><b>Architecture</b>Built a configuration-record architecture managing all integration behavior without code changes  -  dual B2B/B2C routing, bidirectional Shopify sync, automated RMA processing, and EDI document exchange.</p>
-              <p><b>Outcome</b>Eliminated manual EDI processing. New retail channel onboarding reduced from weeks to days using the configuration-driven architecture.</p>
+              <p><b>Operating problem</b><span>Needed warehouse and EDI connectivity for 3 major retail chains with complex B2B/B2C routing requirements, manual RMA processes, and Shopify synchronization gaps causing inventory discrepancies.</span></p>
+              
+              <p><b>Architecture</b><span>Built a configuration-record architecture managing all integration behavior without code changes  -  dual B2B/B2C routing, bidirectional Shopify sync, automated RMA processing, and EDI document exchange.</span></p>
+              
+              <p><b>Verified outcome</b><span>Eliminated manual EDI processing. New retail channel onboarding reduced from weeks to days using the configuration-driven architecture.</span></p>
               
               <div class="case-metrics"><span class="case-metric"><strong>3</strong><span>major retailers</span></span><span class="case-metric"><strong>Zero-code</strong><span>config</span></span></div>
-              <p class="case-tech">EDI / Walmart / Lowe&#39;s / Home Depot / Shopify</p>
+              
+    
+    <p class="case-tech"><b>System boundary</b>EDI / Walmart / Lowe&#39;s / Home Depot / Shopify</p>
             </div>
           </article>
           
         </div>
-        <div class="archive-control reveal">
-          <button class="archive-toggle" id="portfolioToggle" type="button" aria-expanded="false" aria-controls="extendedPortfolio">View all 147 projects</button>
-        </div>
+        <div class="archive-control reveal"><button class="archive-toggle" id="portfolioToggle" type="button" aria-expanded="false" aria-controls="extendedPortfolio">View all 147 projects</button></div>
         <div class="archive" id="extendedPortfolio">
           
           <article class="archive-row" aria-labelledby="archive-title-1"><strong id="archive-title-1">Global Golf Equipment Brand</strong><span>Sports / Retail</span><span>Large-scale NetSuite implementation for a golf equipment manufacturer with complex inventory management, B2B/B2C portals, and order processing workflows.</span></article>
@@ -844,40 +821,47 @@
       </div>
     </section>
 
-    <section class="section" id="skills">
+    <section class="section operating-system" id="operating-system">
       <div class="wrap">
-        <header class="section-head reveal"><p class="section-index">Capabilities</p><div><h2 class="section-title">Tools in service of systems.</h2></div></header>
-        <div class="skill-index reveal">
-          <div class="skill-group"><h3>Enterprise platforms</h3><p>NetSuite administration, SuiteScript 2.x, SuiteFlow, SuiteTalk, SDF, SuiteQL, Celigo iPaaS, and SuiteCommerce.</p></div>
-          <div class="skill-group"><h3>Integration and data</h3><p>REST, SOAP, EDI, Shopify, marketplaces, 3PL, carriers, JSON/XML transformation, SQL, and reconciliation.</p></div>
-          <div class="skill-group"><h3>AI systems</h3><p>Multi-LLM orchestration, task DAGs, agents, tool use, memory, guardrails, evaluation, OCR, and streaming.</p></div>
-          <div class="skill-group"><h3>Engineering</h3><p>JavaScript, TypeScript, Python, Node.js, React, Flask, FastAPI, PostgreSQL, Redis, HTML, and CSS.</p></div>
-          <div class="skill-group"><h3>Delivery</h3><p>TDD, systematic debugging, Git, CI/CD, SDF validation, independent review, browser QA, and guarded deployment.</p></div>
-          <div class="skill-group"><h3>Business systems</h3><p>Order-to-cash, procure-to-pay, fulfillment, inventory, supply chain, revenue recognition, and financial close.</p></div>
+        <header class="section-head reveal"><p class="section-index">Delivery operating system</p><div><h2 class="section-title">Speed is useful only when the state stays trustworthy.</h2><p class="section-intro">The method is model-agnostic, contract-bound, and built to leave behind evidence another engineer can verify.</p></div></header>
+        <ol class="delivery-loop reveal">
+          <li><span>01</span><div><h3>Frame</h3><p>Bind the real system, constraints, acceptance criteria, and human-owned scope.</p></div></li>
+          <li><span>02</span><div><h3>Route</h3><p>Use role separation and capability routing to assign each task graph node to the right specialist.</p></div></li>
+          <li><span>03</span><div><h3>Build</h3><p>Use test-driven execution with observability inside an explicit authorization boundary.</p></div></li>
+          <li><span>04</span><div><h3>Verify</h3><p>Independent review and evidence gates precede human authorization, guarded deployment, and rollback.</p></div></li>
+          <li><span>05</span><div><h3>Learn</h3><p>Verified outcomes become durable learning without exposing client material or overruling live reality.</p></div></li>
+        </ol>
+        <div class="method-strip reveal" aria-label="Delivery methods"><span>Context binding</span><span>Capability routing</span><span>Test-driven development</span><span>Observability</span><span>Independent review</span><span>Rollback</span><span>Evidence gates</span><span>Human authorization</span><span>Guarded deployment</span><span>Durable learning</span></div>
+      </div>
+    </section>
+
+    <section class="section capabilities" id="capabilities">
+      <div class="wrap">
+        <header class="section-head reveal"><p class="section-index">Capability matrix</p><div><h2 class="section-title">Responsibility before technology.</h2><p class="section-intro">Tools matter when they clarify ownership, preserve contracts, and move an enterprise process safely.</p></div></header>
+        <div class="capability-matrix reveal">
+          <article><h3>Platform</h3><p>NetSuite administration, SuiteScript 2.x, SuiteFlow, SuiteTalk, SDF, SuiteQL, Suitelets, Map/Reduce, and SuiteCommerce.</p></article>
+          <article><h3>Integration</h3><p>Celigo iPaaS, REST and SOAP APIs, EDI, 3PL, carriers, marketplaces, JSON and XML transformation, SQL, and reconciliation.</p></article>
+          <article><h3>Business process</h3><p>Order to cash, procure to pay, fulfillment, inventory, supply chain, revenue recognition, and financial close.</p></article>
+          <article><h3>Engineering</h3><p>JavaScript, TypeScript, Python, Node.js, React, Flask, PostgreSQL, Redis, HTML, CSS, CI/CD, and systematic debugging.</p></article>
+          <article><h3>Assurance</h3><p>Test-driven development, observability, SDF validation, independent review, browser QA, evidence gates, and guarded deployment.</p></article>
+          <article><h3>AI acceleration</h3><p>Role separation, task graphs, context binding, capability routing, evaluation, human authorization, and durable knowledge loops.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section section--sunk" id="philosophy">
+    <section class="section experience" id="experience">
       <div class="wrap">
-        <header class="section-head reveal"><p class="section-index">Principles</p><div><h2 class="section-title">Engineering doctrines that survive the demo.</h2></div></header>
-        <ol class="principles">
-          <li class="reveal"><strong>Configuration over repetition</strong><span>Build reusable behavior once; move client and workflow variance into explicit configuration.</span></li>
-          <li class="reveal"><strong>Data flow before interface</strong><span>Start with systems, contracts, ownership, failure modes, and reconciliation.</span></li>
-          <li class="reveal"><strong>Evidence before approval</strong><span>Tests, runtime probes, diffs, and exact state outrank confident summaries.</span></li>
-          <li class="reveal"><strong>Memory after verification</strong><span>Let knowledge compound, but never allow stale history to overrule live reality.</span></li>
-        </ol>
+        <header class="section-head reveal"><p class="section-index">Experience</p><div><h2 class="section-title">Platform depth, then system ownership.</h2></div></header>
+        <div class="timeline">
+          <article class="timeline-entry reveal"><div class="timeline-meta"><span class="timeline-company">Ekwani Consulting LLC</span><span class="timeline-date">MAY 2021 - PRESENT</span></div><div class="timeline-copy"><h3>Senior NetSuite Developer and Integration Architect</h3><p>Lead architecture and delivery across enterprise NetSuite, Celigo, commerce, 3PL, EDI, automation, and AI-accelerated engineering systems.</p></div></article>
+          <article class="timeline-entry reveal"><div class="timeline-meta"><span class="timeline-company">Kodella LLC</span><span class="timeline-date">MAR 2019 - APR 2021</span></div><div class="timeline-copy"><h3>NetSuite Developer</h3><p>Full-cycle platform delivery across finance, supply chain, reporting, Map/Reduce automation, upgrade readiness, and configuration governance.</p></div></article>
+          <article class="timeline-entry reveal"><div class="timeline-meta"><span class="timeline-company">Oracle NetSuite</span><span class="timeline-date">JUN 2016 - MAR 2019</span></div><div class="timeline-copy"><h3>Engineering Solutions, Defect Deflection, SWAT, and SuiteCloud Support</h3><p>Progressed through four roles resolving platform defects, complex customizations, integration failures, performance issues, and escalations for strategic enterprise accounts.</p></div></article>
+          <article class="timeline-entry reveal"><div class="timeline-meta"><span class="timeline-company">Accenture</span><span class="timeline-date">FEB 2016 - MAR 2016</span></div><div class="timeline-copy"><h3>Development and Operations Intern</h3><p>Early work in CI/CD, Selenium, Jenkins, SonarQube, Java test automation, and operational quality.</p></div></article>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="education">
-      <div class="wrap">
-        <header class="section-head reveal"><p class="section-index">Education</p><div><h2 class="section-title">Engineering foundation.</h2></div></header>
-        <div class="education-record reveal"><h3>BS Computer Engineering</h3><p>Mapua Institute of Technology, now Mapua University. Microsoft .NET specialization, Top 5 in class, Best Thesis in Computer Engineering, and department presentation honors. 2011 - 2016.</p></div>
-      </div>
-    </section>
-
-    <section class="section section--sunk" id="downloads">
+    <section class="section downloads" id="downloads">
       <div class="wrap">
         <header class="section-head reveal"><p class="section-index">Documents</p><div><h2 class="section-title">Take the record with you.</h2></div></header>
         <a class="download-row reveal" href="Aquino_Erick_CV_ATS.pdf" target="_blank" rel="noopener"><strong>ATS-optimized CV</strong><span>Clean format for applicant tracking and structured review</span></a>
@@ -885,13 +869,13 @@
       </div>
     </section>
 
-    <section class="section" id="contact">
+    <section class="section contact" id="contact">
       <div class="wrap">
-        <header class="section-head reveal"><p class="section-index">Contact</p><div><h2 class="section-title">Bring me the system that needs to make sense.</h2></div></header>
-        <div class="contact-record reveal"><h3>Senior roles and architecture engagements</h3><p>I am open to conversations about enterprise systems, NetSuite architecture, integration strategy, automation, and governed AI engineering.</p></div>
+        <header class="section-head reveal"><p class="section-index">Contact</p><div><h2 class="section-title">Bring me the system that needs to make sense.</h2><p class="section-intro">NetSuite architecture, integration strategy, operational reliability, and evidence-led delivery.</p></div></header>
+        <div class="contact-record reveal"><h3>Principal consulting and senior architecture engagements</h3><p>Start with the operating problem, the boundaries involved, and what reliable must mean in production.</p></div>
         <div class="contact-links reveal">
-          <a class="button button--primary" href="mailto:ejaquino26@gmail.com?subject=Career%20Opportunity">I'm hiring</a>
-          <a class="button button--quiet" href="mailto:ejaquino26@gmail.com?subject=Consulting%20Inquiry">I need an architect</a>
+          <a class="button button--primary" href="mailto:ejaquino26@gmail.com?subject=Consulting%20Inquiry">Discuss a system</a>
+          <a class="button button--quiet" href="mailto:ejaquino26@gmail.com?subject=Career%20Opportunity">I'm hiring</a>
           <a class="button button--quiet" href="mailto:ejaquino26@gmail.com">Email</a>
           <a class="button button--quiet" href="https://wa.me/639055147337">WhatsApp</a>
           <a class="button button--quiet" href="https://www.linkedin.com/in/ejaquino/" target="_blank" rel="noopener">LinkedIn</a>
@@ -942,11 +926,34 @@
     (function () {
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var items = document.querySelectorAll('.reveal');
-      if (reduced || !('IntersectionObserver' in window)) { items.forEach(function (item) { item.classList.add('is-visible'); }); return; }
+      if (reduced) { items.forEach(function (item) { item.classList.add('is-visible'); }); return; }
+      if (!('IntersectionObserver' in window)) { items.forEach(function (item) { item.classList.add('is-visible'); }); return; }
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
       }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
       items.forEach(function (item) { observer.observe(item); });
+    })();
+
+    (function () {
+      var root = document.querySelector('[data-lens]');
+      if (!root) return;
+      var buttons = root.querySelectorAll('.lens-btn');
+      var atlas = root.querySelector('.atlas');
+      var panels = root.querySelectorAll('.flow-panel');
+      if (!buttons.length || !atlas || !panels.length) return;
+      function selectFlow(key) {
+        buttons.forEach(function (button) {
+          button.setAttribute('aria-pressed', String(button.dataset.flow === key));
+        });
+        panels.forEach(function (panel) {
+          panel.hidden = panel.id !== 'flow-' + key;
+        });
+        atlas.setAttribute('data-active-flow', key);
+      }
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function () { selectFlow(button.dataset.flow); });
+      });
+      selectFlow('o2c');
     })();
   </script>
 </body>
