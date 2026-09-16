@@ -751,11 +751,100 @@
       font-size: .82rem;
       color: var(--text-muted);
     }
-    .vessel-subsystem strong {
-      display: block;
+    /* AI & Autonomous Agent Orchestration Cards */
+    .agent-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .agent-card {
+      padding: 1.85rem;
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 36px rgb(0 0 0 / .35), inset 0 1px 0 rgb(255 255 255 / .05);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 160ms ease, transform 160ms ease;
+    }
+    .agent-card:hover {
+      border-color: var(--border-bright);
+      transform: translateY(-2px);
+    }
+    .agent-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--signal-copper), transparent);
+      opacity: 0;
+      transition: opacity 160ms ease;
+    }
+    .agent-card:hover::before {
+      opacity: 1;
+    }
+    .agent-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .agent-badge {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .55rem;
+      border-radius: 6px;
+      background: rgb(217 119 6 / .12);
+      color: var(--signal-copper);
+      border: 1px solid rgb(217 119 6 / .25);
+    }
+    .agent-title {
+      font-size: 1.18rem;
+      font-weight: 600;
       color: var(--text-bright);
-      font-size: .85rem;
-      margin-bottom: .2rem;
+      margin: 0 0 .4rem;
+      letter-spacing: -.02em;
+    }
+    .agent-sub {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--signal-copper);
+      margin-bottom: 1rem;
+    }
+    .agent-desc {
+      font-size: .88rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin: 0 0 1.25rem;
+    }
+    .agent-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgb(255 255 255 / .06);
+    }
+    .agent-highlight-item {
+      font-size: .8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: .5rem;
+    }
+    .agent-highlight-item span {
+      color: var(--signal-copper);
+      font-weight: bold;
+      flex-shrink: 0;
     }
 
     /* Dynamic Project Case Cards */
@@ -1227,11 +1316,11 @@
 
         <!-- Bio and identity -->
         <div class="reveal">
-          <div class="hero-kicker">Senior NetSuite Solutions Architect · Enterprise Integration Specialist</div>
-          <h1 class="hero-title">NetSuite architecture for systems that cannot drift.</h1>
-          <p class="hero-lede">I connect ERP, commerce, finance, fulfillment, and engineering with evidence at every boundary.</p>
+          <div class="hero-kicker">Senior NetSuite Solutions Architect · Enterprise Integration Specialist · AI Orchestrator</div>
+          <h1 class="hero-title">Bringing order to enterprise chaos.</h1>
+          <p class="hero-lede">Architecting mission-critical NetSuite platforms, resilient integration fabrics, and autonomous AI delivery that turn operational friction into engineered precision.</p>
           <p class="hero-bio">
-            Began my career inside Oracle NetSuite on the elite SWAT team supporting Top 200 global enterprise accounts. Over 10 years, I've architected multi-subsidiary platforms, Celigo iPaaS pipelines, and high-volume 3PL logistics networks for leading DTC and enterprise brands.
+            Began my career inside Oracle NetSuite on the elite SWAT desk supporting Top 200 global enterprise accounts. Over a decade, I've architected multi-subsidiary platforms, Celigo iPaaS pipelines, and high-volume 3PL logistics networks for world-class DTC and enterprise brands. Today, I combine deep ERP domain mastery with parallel AI agent orchestration - running autonomous multi-agent development loops to investigate, build, verify, and ship enterprise-grade solutions at unprecedented velocity.
           </p>
 
           <div class="hero-actions">
@@ -1753,10 +1842,97 @@
         </article>
       </div>
 
+      <!-- 02.3: Autonomous Engineering & Multi-Agent Orchestration -->
+      <div class="section-head reveal" style="margin-top: 4.5rem;">
+        <div>
+          <span class="section-kicker">02.3 // autonomous engineering methodology</span>
+          <h2 class="section-title">Parallel AI Agent Orchestration & Autonomous Delivery</h2>
+          <p class="section-sub">How I orchestrate specialized multi-agent swarms and domain-specific developer loops to deliver enterprise NetSuite and integration engineering at 10x velocity with zero drift.</p>
+        </div>
+      </div>
+
+      <div class="agent-matrix-grid reveal">
+        <!-- Card 1: Role-Decomposed Loops -->
+        <article class="agent-card">
+          <div>
+            <div class="agent-head">
+              <span class="agent-badge">Architecture & QA Loops</span>
+            </div>
+            <h4 class="agent-title">Role-Decomposed Autonomous Cycles</h4>
+            <div class="agent-sub">dev-loop // Architect · Builder · Auditor</div>
+            <p class="agent-desc">
+              Decouples software delivery into specialized concurrent agent roles: an Architect for requirements modeling and blueprint verification, a Builder for SuiteScript 2.1 and API transforms, and an independent QA Auditor for compliance and regression defense.
+            </p>
+          </div>
+          <div class="agent-highlights">
+            <div class="agent-highlight-item"><span>//</span> Eliminates single-agent bias via adversarial cross-verification</div>
+            <div class="agent-highlight-item"><span>//</span> Blueprint validation enforced before any code mutates workspace</div>
+            <div class="agent-highlight-item"><span>//</span> Automated test suite execution with evidence-based acceptance</div>
+          </div>
+        </article>
+
+        <!-- Card 2: Domain-Specific Tracker Pipelines -->
+        <article class="agent-card">
+          <div>
+            <div class="agent-head">
+              <span class="agent-badge">Tracker Integration</span>
+            </div>
+            <h4 class="agent-title">Domain-Specific Tracker Pipelines</h4>
+            <div class="agent-sub">cb-dev · ekw-fs · oaf-clickup</div>
+            <p class="agent-desc">
+              Automated agent pipelines directly integrated into enterprise trackers (Jira, ClickUp, Freshservice). Ingests incidents, parses execution logs, reproduces issues across multi-thousand-file codebases, and prepares verified pull requests.
+            </p>
+          </div>
+          <div class="agent-highlights">
+            <div class="agent-highlight-item"><span>//</span> Autonomous root-cause diagnosis across complex SuiteScript suites</div>
+            <div class="agent-highlight-item"><span>//</span> Automated sandbox verification against live account configurations</div>
+            <div class="agent-highlight-item"><span>//</span> Compresses defect deflection cycle from days to under 2 hours</div>
+          </div>
+        </article>
+
+        <!-- Card 3: Parallel Worktree Concurrency -->
+        <article class="agent-card">
+          <div>
+            <div class="agent-head">
+              <span class="agent-badge">Concurrency</span>
+            </div>
+            <h4 class="agent-title">Parallel Worktree Dispatch & Task DAGs</h4>
+            <div class="agent-sub">Multi-Agent Concurrency // Zero Context-Switching</div>
+            <p class="agent-desc">
+              Dispatches concurrent worker agents into isolated Git worktrees governed by structured task DAGs. Multiple complex integrations, data migrations, and script upgrades progress simultaneously without repository lock or merge collision.
+            </p>
+          </div>
+          <div class="agent-highlights">
+            <div class="agent-highlight-item"><span>//</span> Concurrent development across separate subsidiaries and 3PL endpoints</div>
+            <div class="agent-highlight-item"><span>//</span> Synchronous decision gates with automated worker handoffs</div>
+            <div class="agent-highlight-item"><span>//</span> Zero human context-switching penalties across enterprise tracks</div>
+          </div>
+        </article>
+
+        <!-- Card 4: Zero-Regression Sandbox Gatekeeping -->
+        <article class="agent-card">
+          <div>
+            <div class="agent-head">
+              <span class="agent-badge">Reliability Gate</span>
+            </div>
+            <h4 class="agent-title">Zero-Regression Sandbox Gatekeeping</h4>
+            <div class="agent-sub">Continuous Verification // Release Governance</div>
+            <p class="agent-desc">
+              Autonomous release pipelines enforce mandatory multi-tier verification before promotion. Every SuiteScript candidate executes automated unit tests, dry-run balance checks, and SDF dependency validations before production sign-off.
+            </p>
+          </div>
+          <div class="agent-highlights">
+            <div class="agent-highlight-item"><span>//</span> Double-entry ledger parity checks across ERP and 3PL boundaries</div>
+            <div class="agent-highlight-item"><span>//</span> Automated SDF XML object structure and permission audits</div>
+            <div class="agent-highlight-item"><span>//</span> Zero-defect cutovers with verified rollback snapshots</div>
+          </div>
+        </article>
+      </div>
+
       <!-- Dynamic Project Cases -->
       <div class="section-head reveal">
         <div>
-          <span class="section-kicker">02.3 // indexed case records</span>
+          <span class="section-kicker">02.4 // indexed case records</span>
           <h3 class="section-title" style="font-size: clamp(1.4rem, 2.5vw, 1.85rem);">Automated Workspace Validations</h3>
         </div>
       </div>
@@ -1898,10 +2074,10 @@
         
       </div>
 
-      <!-- 02.4: Comparative Technical Spec Sheet Table (Seasats Lightfish format) -->
+      <!-- 02.5: Comparative Technical Spec Sheet Table (Seasats Lightfish format) -->
       <div class="section-head reveal" style="margin-top: 3.5rem;">
         <div>
-          <span class="section-kicker">02.4 // engineering specifications</span>
+          <span class="section-kicker">02.5 // engineering specifications</span>
           <h3 class="section-title" style="font-size: clamp(1.4rem, 2.5vw, 1.85rem);">Comparative Technical Spec Sheet</h3>
           <p class="section-sub">Direct architectural parameters, governance ceilings, and protocols across flagship platforms.</p>
         </div>
@@ -2956,7 +3132,20 @@
             <span class="stack-pill">Git</span>
             <span class="stack-pill">CI/CD</span>
             <span class="stack-pill">Observability</span>
-            <span class="stack-pill">AI-Augmented Engineering</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">AI Agent Orchestration & Autonomous Systems</div>
+          <div class="pill-grid">
+            <span class="stack-pill">Parallel Agent Swarms</span>
+            <span class="stack-pill">Autonomous Dev Loops</span>
+            <span class="stack-pill">Multi-Agent Task DAGs</span>
+            <span class="stack-pill">Automated Root-Cause Diagnosis</span>
+            <span class="stack-pill">Tracker Pipeline Integration (Jira / ClickUp / Freshservice)</span>
+            <span class="stack-pill">Automated Sandbox QA</span>
+            <span class="stack-pill">Isolated Worktree Dispatch</span>
+            <span class="stack-pill">Zero-Regression Gatekeeping</span>
           </div>
         </div>
       </div>
