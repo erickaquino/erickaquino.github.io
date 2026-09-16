@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#eef2f8">
-  <meta name="description" content="Erick Aquino designs NetSuite architecture, Celigo integrations, and AI-accelerated delivery systems that stay reliable under operational pressure.">
-  <meta property="og:title" content="Erick Aquino | NetSuite Architecture and Enterprise Integration">
-  <meta property="og:description" content="NetSuite platform architecture, enterprise integration, and evidence-led delivery for systems that cannot afford blind spots.">
+  <meta name="description" content="Erick Aquino is a Senior NetSuite Solutions Architect & Enterprise Integration Specialist with 10+ years delivering ERP, Celigo iPaaS, and 3PL logistics platforms.">
+  <meta property="og:title" content="Erick Aquino | Senior NetSuite Solutions Architect & Enterprise Integration Specialist">
+  <meta property="og:description" content="10+ years delivering enterprise NetSuite ERP architecture, Celigo iPaaS integrations, 3PL logistics networks, and high-volume e-commerce platforms.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://erickaquino.github.io">
-  <title>Erick Aquino | NetSuite Architecture and Enterprise Integration</title>
+  <title>Erick Aquino | Senior NetSuite Solutions Architect & Enterprise Integration Specialist</title>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,6 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=JetBrains+Mono:wght@400..600&amp;display=optional" rel="stylesheet"></noscript>
   <script>document.documentElement.classList.add('js');</script>
   <style id="glass-command-deck">
-    /* Liquid Glass web approximation. Apple does not provide a web CSS package. */
     :root {
       --ambient-pearl: oklch(0.96 0.015 250);
       --pearl-raised: oklch(0.99 0.008 245);
@@ -28,14 +27,14 @@
       --signal-sapphire: oklch(0.52 0.2 260);
       --sapphire-wash: oklch(0.91 0.055 255);
       --focus: oklch(0.48 0.2 260);
-      --radius-panel: 28px;
+      --radius-panel: 20px;
       --radius-control: 999px;
-      --glass-edge: rgb(255 255 255 / .72);
-      --glass-fill: rgb(248 251 255 / .62);
+      --glass-edge: rgb(255 255 255 / .78);
+      --glass-fill: rgb(248 251 255 / .72);
       --glass-solid: oklch(0.985 0.009 245);
-      --glass-shadow: 0 24px 70px rgb(55 76 112 / .13), inset 0 1px 0 rgb(255 255 255 / .88), inset 0 -1px 0 rgb(119 145 180 / .16);
+      --glass-shadow: 0 16px 45px rgb(45 65 95 / .08), inset 0 1px 0 rgb(255 255 255 / .92);
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-      --content: 82rem;
+      --content: 68rem;
       --font-sans: "Geologica", system-ui, sans-serif;
       --font-mono: "JetBrains Mono", ui-monospace, monospace;
     }
@@ -47,9 +46,9 @@
       min-width: 320px;
       color: var(--carbon);
       background:
-        radial-gradient(ellipse 70% 42% at 88% 4%, rgb(98 153 255 / .22), transparent 68%),
-        radial-gradient(ellipse 58% 36% at 8% 28%, rgb(206 223 247 / .78), transparent 72%),
-        linear-gradient(145deg, var(--pearl-raised), var(--ambient-pearl) 52%, oklch(0.93 0.026 245));
+        radial-gradient(ellipse 70% 38% at 85% 6%, rgb(98 153 255 / .18), transparent 70%),
+        radial-gradient(ellipse 55% 32% at 10% 32%, rgb(206 223 247 / .65), transparent 75%),
+        linear-gradient(155deg, var(--pearl-raised), var(--ambient-pearl) 50%, oklch(0.93 0.022 245));
       background-attachment: fixed;
       font-family: var(--font-sans);
       font-size: 1rem;
@@ -57,388 +56,628 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    body::before {
+
+    /* Subtle halftone dot backdrop */
+    .halftone-field {
       position: fixed;
-      z-index: -1;
       inset: 0;
+      z-index: -1;
       pointer-events: none;
-      background:
-        linear-gradient(112deg, transparent 15%, rgb(255 255 255 / .46) 38%, transparent 62%),
-        radial-gradient(ellipse 36% 24% at 72% 68%, rgb(33 98 224 / .09), transparent 72%);
-      content: "";
+      background-image: radial-gradient(circle at center, rgb(15 23 42 / .12) 1px, transparent 1.6px);
+      background-size: 12px 12px;
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 85%);
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 85%);
+      opacity: 0.65;
     }
+
     img, svg { display: block; max-width: 100%; }
     a { color: inherit; text-underline-offset: .22em; text-decoration-thickness: .08em; }
     button, a { -webkit-tap-highlight-color: transparent; }
     button { color: inherit; font: inherit; }
-    :focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
     ::selection { color: var(--pearl-raised); background: var(--signal-sapphire); }
     [hidden] { display: none !important; }
-    section[id] { scroll-margin-top: 7rem; }
-    .wrap { width: min(calc(100% - 2rem), var(--content)); margin-inline: auto; }
-    .grid-12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 2rem); }
-    .skip-link { position: fixed; z-index: 1000; top: .75rem; left: .75rem; padding: .75rem 1rem; color: var(--pearl-raised); background: var(--carbon); border-radius: var(--radius-control); transform: translateY(-160%); transition: transform .22s var(--ease-out); }
+    section[id] { scroll-margin-top: 6.5rem; }
+    .wrap { width: min(calc(100% - 2.5rem), var(--content)); margin-inline: auto; }
+
+    /* Skip link */
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      top: .75rem;
+      left: .75rem;
+      padding: .75rem 1.25rem;
+      color: var(--pearl-raised);
+      background: var(--carbon);
+      border-radius: var(--radius-control);
+      transform: translateY(-160%);
+      transition: transform 180ms var(--ease-out);
+      font-family: var(--font-mono);
+      font-size: .82rem;
+    }
     .skip-link:focus { transform: translateY(0); }
 
-    .nav { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
-    .brand { flex: 0 0 auto; font-weight: 620; text-decoration: none; }
-    .nav-toggle { display: none; align-items: center; justify-content: center; cursor: pointer; }
-    .nav-links { display: flex; align-items: center; margin: 0; padding: 0; list-style: none; }
-    .nav-links a { text-decoration: none; }
-    .hero { display: grid; }
-    .hero-actions, .contact-links { display: flex; flex-wrap: wrap; gap: .7rem; }
-    .button { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
-    .hero-kicker, .proof span, .case-kicker, .case-narrative b, .credential-ledger span, .case-tech b, .atlas figcaption { font-family: var(--font-mono); font-size: .68rem; font-weight: 500; letter-spacing: .085em; text-transform: uppercase; }
-    .hero h1, .hero-lede { margin-bottom: 0; }
-
-    .credential-ledger { margin-top: 0; }
-    .credential-ledger > div { display: grid; grid-template-columns: minmax(10rem, .38fr) 1fr; gap: clamp(1rem, 4vw, 4rem); padding-block: 1.15rem; border-bottom: 1px solid rgb(119 145 180 / .16); }
-    .credential-ledger strong { font-weight: 500; }
-    .lens-controls { display: none; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
-    .js .lens-controls { display: flex; }
-    .lens-btn { min-height: 46px; padding: .75rem 1rem; color: var(--carbon); border: 1px solid var(--chrome); cursor: pointer; transition: color .22s var(--ease-out), background-color .22s var(--ease-out), border-color .22s var(--ease-out), transform .22s var(--ease-out); }
-    .atlas-graphic { width: 100%; height: auto; }
-    .atlas-edge path { fill: none; stroke-width: 2.25; }
-    .atlas-edge text { font: 500 12px var(--font-mono); letter-spacing: .025em; }
-    .atlas-node rect { stroke-width: 1.5; }
-    .atlas-node text, .atlas-hub text { font: 500 18px var(--font-sans); }
-    .atlas-node .atlas-contract, .atlas-hub .atlas-contract { font: 500 11px var(--font-mono); letter-spacing: .055em; }
-    .atlas-hub text { fill: var(--pearl-raised); font-size: 29px; }
-    .atlas-hub .atlas-contract { fill: var(--pearl-raised); }
-    .atlas [data-flows] path, .atlas [data-flows] rect { transition: opacity .22s var(--ease-out), stroke .22s var(--ease-out); }
-    .atlas[data-active-flow] [data-flows] path, .atlas[data-active-flow] [data-flows] rect { opacity: .25; }
-    .atlas[data-active-flow="o2c"] [data-flows~="o2c"] path, .atlas[data-active-flow="p2p"] [data-flows~="p2p"] path, .atlas[data-active-flow="fulfillment"] [data-flows~="fulfillment"] path, .atlas[data-active-flow="close"] [data-flows~="close"] path,
-    .atlas[data-active-flow="o2c"] [data-flows~="o2c"] rect, .atlas[data-active-flow="p2p"] [data-flows~="p2p"] rect, .atlas[data-active-flow="fulfillment"] [data-flows~="fulfillment"] rect, .atlas[data-active-flow="close"] [data-flows~="close"] rect { opacity: 1; }
-    .atlas figcaption { padding: .65rem .35rem 0; color: var(--graphite); }
-    .atlas-fallback { display: none; margin: 0; padding: 0; list-style: none; }
-    .atlas-fallback li { display: grid; gap: .35rem; padding: 1rem; border-bottom: 1px solid rgb(119 145 180 / .16); }
-    .atlas-fallback span { color: var(--graphite); }
-    .flow-panel ol { display: grid; gap: .8rem; margin: 1rem 0 0; padding: 0; list-style: none; }
-    .flow-panel li { display: grid; gap: .12rem; padding-top: .8rem; border-top: 1px solid rgb(119 145 180 / .16); }
-    .flow-panel li strong { font-size: .9rem; font-weight: 500; }
-    .flow-panel li span { color: var(--graphite); font-size: .76rem; line-height: 1.5; }
-
-    .case-header h3 { margin: 0; font-weight: 500; line-height: .95; overflow-wrap: anywhere; }
-    .case-narrative > p { display: grid; grid-template-columns: minmax(8rem, .38fr) 1fr; gap: 1rem; margin: 0; padding: .9rem 0; border-top: 1px solid rgb(119 145 180 / .16); }
-    .case-narrative span, .case-description { color: var(--graphite); }
-    .case-description { display: block !important; }
-    .case-metrics { display: flex; flex-wrap: wrap; gap: 1rem; padding: 1.25rem 0; border-top: 1px solid rgb(119 145 180 / .16); }
-    .case-metric { min-width: 6rem; }
-    .case-metric strong { display: block; font: 500 1.8rem/1 var(--font-mono); }
-    .case-metric span { display: block; margin-top: .35rem; color: var(--graphite); font-size: .72rem; }
-    .case-tech { font-size: .8rem; }
-    .case-tech b { margin-right: 1rem; }
-    .archive-toggle { display: none; min-height: 46px; padding: .75rem 1rem; color: var(--carbon); border: 1px solid var(--chrome); cursor: pointer; }
-    .js .archive-toggle { display: inline-flex; align-items: center; }
-    .archive-row { display: grid; grid-template-columns: 1.05fr .5fr 1.45fr; gap: 1rem; padding: 1rem; border-bottom: 1px solid rgb(119 145 180 / .16); }
-    .archive-row strong { font-weight: 500; overflow-wrap: anywhere; }
-    .archive-row span { color: var(--graphite); font-size: .8rem; }
-    .delivery-loop { margin: 0; padding: 0; list-style: none; }
-    .delivery-loop h3 { margin: 0; font-weight: 500; letter-spacing: -.035em; }
-    .delivery-loop p { max-width: 70ch; margin-bottom: 0; color: var(--graphite); }
-    .footer { color: var(--pearl-raised); background: var(--carbon); }
-    .footer-inner { min-height: 5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font: 500 .66rem/1.5 var(--font-mono); letter-spacing: .04em; }
-    .reveal { opacity: 1; transform: none; }
-    .js .reveal { opacity: 0; }
-    .js .reveal.is-visible { opacity: 1; }
-
-    .glass-island,
-    .glass-vessel {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      border: 1px solid var(--glass-edge);
-      background:
-        linear-gradient(135deg, rgb(255 255 255 / .72), rgb(231 240 252 / .36)),
-        var(--glass-fill);
-      backdrop-filter: blur(24px) saturate(155%) contrast(1.03);
-      -webkit-backdrop-filter: blur(24px) saturate(155%) contrast(1.03);
-      box-shadow: var(--glass-shadow);
-    }
-    .glass-island::before,
-    .glass-vessel::before {
-      position: absolute;
-      z-index: -1;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 12% 0%, rgb(255 255 255 / .82), transparent 32%),
-        linear-gradient(90deg, rgb(255 255 255 / .28), transparent 46%, rgb(112 161 241 / .12));
-      content: "";
-    }
-    .glass-island::after,
-    .glass-vessel::after {
-      position: absolute;
-      inset: 1px;
-      border: 1px solid rgb(255 255 255 / .36);
-      border-radius: inherit;
-      pointer-events: none;
-      content: "";
-    }
-
-    .site-header {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      padding-top: .85rem;
-      background: transparent;
-      border: 0;
-      pointer-events: none;
-    }
+    /* Header & Navigation Island */
+    .site-header { position: sticky; top: 1rem; z-index: 90; margin-bottom: 2rem; }
     .nav {
-      width: min(calc(100% - 2rem), 72rem);
-      min-height: 4rem;
-      padding: .45rem .6rem .45rem 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .65rem 1.25rem;
+      border: 1px solid var(--glass-edge);
       border-radius: var(--radius-control);
-      pointer-events: auto;
+      background: var(--glass-fill);
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+      box-shadow: 0 8px 30px rgb(45 65 95 / .06);
     }
-    .brand { font-size: .95rem; letter-spacing: -.03em; }
-    .brand span::after { display: none; }
-    .nav-links { gap: .2rem; }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-decoration: none;
+      letter-spacing: -.02em;
+    }
+    .brand-status {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .2rem .6rem;
+      border-radius: var(--radius-control);
+      background: rgb(21 89 214 / .08);
+      color: var(--signal-sapphire);
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    @keyframes pulseBlink { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--signal-sapphire);
+      animation: pulseBlink 2s ease-in-out infinite;
+    }
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: .4rem .75rem;
+      border: 1px solid var(--chrome);
+      border-radius: var(--radius-control);
+      background: var(--pearl-raised);
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      cursor: pointer;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
     .nav-links a {
       display: inline-flex;
       align-items: center;
-      min-height: 44px;
-      padding: .55rem .9rem;
+      padding: .4rem .85rem;
       border-radius: var(--radius-control);
-      font: 520 .72rem/1 var(--font-sans);
-      letter-spacing: -.01em;
-      text-transform: none;
-      transition: color .22s var(--ease-out), background-color .22s var(--ease-out), transform .22s var(--ease-out);
+      font-family: var(--font-mono);
+      font-size: .76rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--graphite);
+      transition: color 150ms ease, background-color 150ms ease;
     }
-    .nav-toggle {
-      min-width: 44px;
-      min-height: 44px;
-      padding: .5rem .85rem;
-      background: rgb(255 255 255 / .48);
-      border-color: rgb(255 255 255 / .64);
-      border-radius: var(--radius-control);
-    }
+    .nav-links a:hover { color: var(--carbon); background: rgb(255 255 255 / .6); }
 
-    .hero {
-      min-height: 100dvh;
-      align-items: end;
-      padding: clamp(8rem, 14vh, 10rem) 0 clamp(3rem, 7vh, 5rem);
-      border: 0;
-    }
-    .hero-command {
+    /* Hero Section */
+    .hero { padding-top: 1rem; padding-bottom: 3.5rem; }
+    .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.55fr) minmax(18rem, .65fr);
-      gap: clamp(2rem, 6vw, 6rem);
-      align-items: end;
+      grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+      align-items: start;
+      gap: clamp(2rem, 5vw, 3.5rem);
     }
-    .hero-copy { grid-column: auto; }
+    .hero-portrait-card {
+      position: relative;
+      border-radius: var(--radius-panel);
+      overflow: hidden;
+      border: 1px solid var(--glass-edge);
+      background: linear-gradient(180deg, rgb(255 255 255 / .9), rgb(235 242 252 / .6));
+      box-shadow: var(--glass-shadow);
+      aspect-ratio: 4 / 5.2;
+    }
+    .hero-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
     .hero-kicker {
-      margin: 0 0 1.25rem;
-      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: .75rem;
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
       color: var(--signal-sapphire);
-      border: 0;
-      font-family: var(--font-sans);
-      font-size: .78rem;
-      letter-spacing: -.005em;
-      text-transform: none;
     }
-    .hero h1 {
-      max-width: 11ch;
-      font-size: clamp(3.5rem, 7.4vw, 7rem);
-      font-weight: 520;
-      letter-spacing: -.066em;
-      line-height: .91;
+    .hero-title {
+      margin: 0 0 1rem;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 650;
+      line-height: 1.05;
+      letter-spacing: -.04em;
     }
-    .hero-lede { max-width: 56ch; margin-top: 1.5rem; font-size: clamp(1.05rem, 1.6vw, 1.28rem); }
-    .hero-actions, .contact-links { margin-top: 1.5rem; }
-    .button {
-      min-height: 48px;
-      padding: .78rem 1.15rem;
-      border-color: rgb(83 105 140 / .24);
-      border-radius: var(--radius-control);
-      font: 560 .78rem/1 var(--font-sans);
-      letter-spacing: -.01em;
-      box-shadow: inset 0 1px 0 rgb(255 255 255 / .46);
-      transition: color .22s var(--ease-out), background-color .22s var(--ease-out), border-color .22s var(--ease-out), box-shadow .22s var(--ease-out), transform .22s var(--ease-out);
+    .hero-lede {
+      font-size: clamp(1.08rem, 2vw, 1.22rem);
+      font-weight: 450;
+      line-height: 1.5;
+      color: var(--carbon);
+      margin-bottom: 1rem;
     }
-    .button--primary { color: var(--pearl-raised); background: var(--signal-sapphire); border-color: var(--signal-sapphire); box-shadow: 0 12px 28px rgb(21 89 214 / .22), inset 0 1px 0 rgb(255 255 255 / .3); }
-    .button--quiet { color: var(--carbon); background: rgb(255 255 255 / .5); }
-    .button:active { transform: scale(.98); }
+    .hero-bio {
+      font-size: .95rem;
+      line-height: 1.65;
+      color: var(--graphite);
+      margin-bottom: 1.75rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .65rem;
+      margin-bottom: 2rem;
+    }
 
-    .authority-stats {
+    /* Buttons (Emil design eng: tactile feedback, exact transitions) */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .45rem;
+      min-height: 42px;
+      padding: .5rem 1.15rem;
+      border-radius: var(--radius-control);
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 140ms var(--ease-out), background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+    }
+    .button:active { transform: scale(0.97); }
+    .button--primary {
+      color: var(--pearl-raised);
+      background: var(--signal-sapphire);
+      border-color: var(--signal-sapphire);
+      box-shadow: 0 4px 14px rgb(21 89 214 / .25);
+    }
+    .button--primary:hover { background: oklch(0.48 0.22 260); border-color: oklch(0.48 0.22 260); transform: translateY(-1px); }
+    .button--quiet {
+      color: var(--carbon);
+      background: rgb(255 255 255 / .7);
+      border-color: var(--chrome);
+    }
+    .button--quiet:hover { background: var(--pearl-raised); border-color: var(--graphite); transform: translateY(-1px); }
+
+    /* Quick links */
+    .hero-quicklinks {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: .76rem;
+      color: var(--graphite);
+    }
+    .hero-quicklinks a { text-decoration: none; transition: color 140ms ease; }
+    .hero-quicklinks a:hover { color: var(--carbon); }
+
+    /* Stats bar (Bryl Lim style 4-column divider) */
+    .stats-ribbon {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgb(119 145 180 / .2);
+      border-bottom: 1px solid rgb(119 145 180 / .2);
+      background: rgb(248 251 255 / .4);
+    }
+    .stat-item {
+      padding: 1.25rem 1rem;
+      border-right: 1px solid rgb(119 145 180 / .2);
+    }
+    .stat-item:last-child { border-right: 0; }
+    .stat-val {
+      font-family: var(--font-mono);
+      font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+      font-weight: 600;
+      line-height: 1;
+      color: var(--carbon);
+    }
+    .stat-lbl {
+      margin-top: .4rem;
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--graphite);
+    }
+
+    /* Section Layouts */
+    .section { padding-block: 4.5rem; }
+    .section-head {
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 1px solid rgb(119 145 180 / .2);
+      padding-bottom: .85rem;
+    }
+    .section-kicker {
+      font-family: var(--font-mono);
+      font-size: .74rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: lowercase;
+      color: var(--graphite);
+    }
+    .section-title {
+      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+      font-weight: 600;
+      letter-spacing: -.03em;
+      margin: .25rem 0 0;
+    }
+
+    /* Experience Timeline (Open & Scannable) */
+    .timeline { display: grid; gap: 0; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 8.5rem 1fr;
+      gap: 1.5rem;
+      padding-block: 1.5rem;
+      border-bottom: 1px solid rgb(119 145 180 / .16);
+      transition: background-color 150ms ease;
+    }
+    .timeline-item:last-child { border-bottom: 0; }
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: .76rem;
+      font-weight: 500;
+      color: var(--graphite);
+      padding-top: .15rem;
+    }
+    .timeline-role {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--carbon);
+      margin: 0;
+    }
+    .timeline-org {
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--signal-sapphire);
+      margin-top: .15rem;
+    }
+    .timeline-desc {
+      font-size: .88rem;
+      line-height: 1.6;
+      color: var(--graphite);
+      margin-top: .5rem;
+      margin-bottom: 0;
+    }
+
+    /* Case Study Cards (Selected Systems) */
+    .case-grid {
       display: grid;
       grid-template-columns: 1fr;
-      align-self: stretch;
+      gap: 1.5rem;
+    }
+    .case-card {
+      padding: clamp(1.5rem, 3.5vw, 2.25rem);
       border: 1px solid var(--glass-edge);
       border-radius: var(--radius-panel);
-      background: rgb(248 251 255 / .64);
+      background: linear-gradient(150deg, rgb(255 255 255 / .85), rgb(240 246 254 / .5));
       box-shadow: var(--glass-shadow);
-      overflow: hidden;
+      transition: transform 180ms var(--ease-out), box-shadow 180ms ease, border-color 150ms ease;
     }
-    .proof { min-height: 0; display: grid; align-content: end; gap: .45rem; padding: 1.25rem; border: 0; border-bottom: 1px solid rgb(119 145 180 / .18); }
-    .proof:last-child { border-bottom: 0; }
-    .proof strong { font-size: clamp(1.45rem, 3vw, 2.45rem); letter-spacing: -.055em; white-space: nowrap; }
-    .proof span { color: var(--graphite); font-family: var(--font-sans); font-size: .73rem; letter-spacing: 0; line-height: 1.3; text-transform: none; }
-
-    .section { padding-block: clamp(5rem, 10vw, 9rem); border: 0; }
-    .chapter-head { display: grid; gap: .9rem; max-width: 48rem; margin-bottom: clamp(2rem, 5vw, 4rem); }
-    .chapter-head h2 { margin: 0; font-size: clamp(2.4rem, 5vw, 4.8rem); font-weight: 500; letter-spacing: -.055em; line-height: .96; text-wrap: balance; }
-    .chapter-head p { max-width: 48ch; margin: 0; color: var(--graphite); font-size: 1.05rem; }
-
-    .expertise-lenses {
+    .case-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 45px rgb(45 65 95 / .11);
+      border-color: rgb(185 198 214 / .9);
+    }
+    .case-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--signal-sapphire);
+      margin-bottom: .4rem;
+    }
+    .case-name {
+      font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+      font-weight: 600;
+      letter-spacing: -.03em;
+      margin: 0 0 1rem;
+    }
+    .case-points {
       display: grid;
-      grid-template-columns: 1.15fr 1fr 1fr;
-      border: 1px solid var(--glass-edge);
-      border-radius: var(--radius-panel);
-      background: linear-gradient(135deg, rgb(255 255 255 / .7), rgb(225 237 252 / .42));
-      box-shadow: var(--glass-shadow);
-      overflow: hidden;
+      gap: .75rem;
+      margin: 1rem 0;
     }
-    .expertise-lenses article { min-height: 16rem; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(1.4rem, 3vw, 2.5rem); border-right: 1px solid rgb(119 145 180 / .2); }
-    .expertise-lenses article:last-child { border-right: 0; }
-    .expertise-lenses span, .case-kicker, .case-narrative b, .credential-ledger span, .experience-strip span, .case-tech b { color: var(--signal-sapphire); font-family: var(--font-mono); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; }
-    .expertise-lenses h3 { margin: .7rem 0 0; font-size: clamp(1.65rem, 3vw, 2.5rem); font-weight: 520; letter-spacing: -.045em; }
-    .expertise-lenses p { max-width: 35ch; margin: .8rem 0 0; color: var(--graphite); }
-
-    .evidence-drawer {
+    .case-row {
+      display: grid;
+      grid-template-columns: minmax(7.5rem, .26fr) 1fr;
+      gap: .75rem;
+      font-size: .88rem;
+      line-height: 1.55;
+      padding-top: .6rem;
+      border-top: 1px solid rgb(119 145 180 / .14);
+    }
+    .case-row b {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--graphite);
+    }
+    .case-row span { color: var(--carbon); }
+    .case-metrics-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgb(119 145 180 / .16);
+    }
+    .case-metric-chip {
+      font-family: var(--font-mono);
+    }
+    .case-metric-chip strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1;
+      color: var(--carbon);
+    }
+    .case-metric-chip span {
+      display: block;
+      font-size: .68rem;
+      color: var(--graphite);
+      margin-top: .25rem;
+      text-transform: uppercase;
+    }
+    .case-tech-line {
       margin-top: 1rem;
-      border: 1px solid rgb(255 255 255 / .68);
+      font-size: .8rem;
+      color: var(--graphite);
+    }
+    .case-tech-line b {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-right: .5rem;
+      color: var(--carbon);
+    }
+
+    /* Archive */
+    .archive-wrap { margin-top: 1.75rem; }
+    .archive-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      min-height: 42px;
+      padding: .6rem 1.25rem;
+      border-radius: var(--radius-control);
+      border: 1px solid var(--chrome);
+      background: rgb(255 255 255 / .7);
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      cursor: pointer;
+      transition: background-color 140ms ease, border-color 140ms ease;
+    }
+    .archive-btn:hover { background: var(--pearl-raised); border-color: var(--graphite); }
+    .archive-list {
+      margin-top: 1.25rem;
+      border: 1px solid var(--glass-edge);
       border-radius: var(--radius-panel);
-      background: rgb(248 251 255 / .64);
-      box-shadow: 0 12px 36px rgb(55 76 112 / .08), inset 0 1px 0 rgb(255 255 255 / .72);
+      background: rgb(248 251 255 / .6);
       overflow: hidden;
     }
-    .evidence-drawer summary { min-height: 52px; display: flex; align-items: center; justify-content: space-between; padding: .9rem 1.2rem; cursor: pointer; font-weight: 560; list-style: none; }
-    .evidence-drawer summary::-webkit-details-marker { display: none; }
-    .evidence-drawer summary::after { color: var(--signal-sapphire); content: "+"; font-size: 1.2rem; transition: transform .22s var(--ease-out); }
-    .evidence-drawer[open] summary::after { transform: rotate(45deg); }
-    .credential-ledger, .experience-strip, .document-links { border-top: 1px solid rgb(119 145 180 / .16); }
-    .credential-ledger > div { padding-inline: 1.2rem; }
-    .experience-strip { display: grid; grid-template-columns: repeat(4, 1fr); }
-    .experience-strip article { padding: 1.25rem; border-right: 1px solid rgb(119 145 180 / .16); }
-    .experience-strip article:last-child { border-right: 0; }
-    .experience-strip strong { display: block; margin-top: .55rem; }
-    .experience-strip p { margin: .35rem 0 0; color: var(--graphite); font-size: .86rem; }
-    .document-links { display: grid; grid-template-columns: 1fr 1fr; }
-    .document-links a { display: grid; gap: .25rem; padding: 1.25rem; text-decoration: none; transition: color .22s var(--ease-out), background-color .22s var(--ease-out), transform .22s var(--ease-out); }
-    .document-links a + a { border-left: 1px solid rgb(119 145 180 / .16); }
-    .document-links span { color: var(--graphite); font-size: .82rem; }
+    .archive-row {
+      display: grid;
+      grid-template-columns: 1.1fr .6fr 1.3fr;
+      gap: 1rem;
+      padding: .9rem 1.25rem;
+      border-bottom: 1px solid rgb(119 145 180 / .14);
+      font-size: .84rem;
+    }
+    .archive-row:last-child { border-bottom: 0; }
+    .archive-row strong { font-weight: 550; color: var(--carbon); }
+    .archive-row span { color: var(--graphite); }
 
-    .system-lens { padding-block: clamp(4rem, 8vw, 7rem); }
-    .lens-controls {
-      width: fit-content;
-      max-width: 100%;
-      padding: .35rem;
+    /* Stack & Capabilities (Categorized Pills) */
+    .stack-group { margin-bottom: 1.75rem; }
+    .stack-group:last-child { margin-bottom: 0; }
+    .stack-label {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--graphite);
+      margin-bottom: .6rem;
+    }
+    .pill-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .stack-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: .35rem .75rem;
+      border-radius: 8px;
+      border: 1px solid rgb(119 145 180 / .2);
+      background: rgb(255 255 255 / .85);
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      font-weight: 500;
+      color: var(--carbon);
+      box-shadow: 0 1px 3px rgb(45 65 95 / .04);
+    }
+
+    /* Credentials & Certifications Cards */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+      gap: 1rem;
+    }
+    .cert-card {
+      padding: 1.25rem 1.5rem;
       border: 1px solid var(--glass-edge);
-      border-radius: var(--radius-control);
-      background: rgb(248 251 255 / .58);
-      backdrop-filter: blur(18px) saturate(145%);
-      -webkit-backdrop-filter: blur(18px) saturate(145%);
-      box-shadow: 0 14px 40px rgb(55 76 112 / .1), inset 0 1px 0 rgb(255 255 255 / .8);
+      border-radius: 16px;
+      background: linear-gradient(160deg, rgb(255 255 255 / .9), rgb(240 246 254 / .55));
+      box-shadow: var(--glass-shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .lens-btn { border-color: transparent; border-radius: var(--radius-control); background: transparent; font-family: var(--font-sans); font-size: .77rem; letter-spacing: -.01em; text-transform: none; }
-    .lens-btn[aria-pressed="true"] { color: var(--pearl-raised); background: var(--signal-sapphire); border-color: var(--signal-sapphire); box-shadow: 0 7px 18px rgb(21 89 214 / .2), inset 0 1px 0 rgb(255 255 255 / .28); }
-    .atlas { margin-top: 1rem; padding: clamp(.65rem, 2vw, 1.2rem); border: 1px solid var(--glass-edge); border-radius: var(--radius-panel); background: linear-gradient(145deg, rgb(255 255 255 / .72), rgb(225 237 252 / .46)); box-shadow: var(--glass-shadow); }
-    .atlas-node rect { fill: rgb(248 251 255 / .76); stroke: var(--chrome); }
-    .atlas-node text, .atlas-edge text { fill: var(--carbon); }
-    .atlas-edge path { stroke: var(--chrome); }
-    .atlas-hub rect { fill: var(--signal-sapphire); stroke: rgb(255 255 255 / .7); }
-    .atlas[data-active-flow="o2c"] [data-flows~="o2c"] path, .atlas[data-active-flow="p2p"] [data-flows~="p2p"] path, .atlas[data-active-flow="fulfillment"] [data-flows~="fulfillment"] path, .atlas[data-active-flow="close"] [data-flows~="close"] path,
-    .atlas[data-active-flow="o2c"] [data-flows~="o2c"] rect, .atlas[data-active-flow="p2p"] [data-flows~="p2p"] rect, .atlas[data-active-flow="fulfillment"] [data-flows~="fulfillment"] rect, .atlas[data-active-flow="close"] [data-flows~="close"] rect { stroke: var(--signal-sapphire); }
-    .flow-panels { margin-top: 1rem; }
-    .flow-panel { grid-column: 1 / -1; min-height: 0; padding: 1.4rem; border: 1px solid var(--glass-edge); border-radius: var(--radius-panel); background: rgb(248 251 255 / .7); box-shadow: 0 12px 36px rgb(55 76 112 / .08); }
-    .flow-panel > p:first-child { display: none; }
-    .flow-panel h3 { font-size: 1.45rem; }
-    .flow-panel ol { grid-template-columns: repeat(4, 1fr); }
-
-    .case-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .case-record { display: grid; grid-template-columns: 1fr; gap: 1.5rem; padding: clamp(1.4rem, 3vw, 2.5rem); border: 1px solid var(--glass-edge); border-radius: var(--radius-panel); background: linear-gradient(145deg, rgb(255 255 255 / .7), rgb(225 237 252 / .4)); box-shadow: var(--glass-shadow); }
-    .case-record:first-child { grid-column: 1 / -1; grid-template-columns: minmax(14rem, .65fr) minmax(0, 1.35fr); }
-    .case-header h3 { max-width: 16ch; font-size: clamp(1.65rem, 3vw, 2.8rem); }
-    .case-narrative p { border-color: rgb(119 145 180 / .16); }
-    .case-metrics { border-color: rgb(119 145 180 / .16); }
-    .archive-control { border: 0; }
-    .archive-toggle { border-color: rgb(83 105 140 / .22); border-radius: var(--radius-control); background: rgb(248 251 255 / .62); }
-    .archive { border: 0; border-radius: var(--radius-panel); background: rgb(248 251 255 / .56); box-shadow: 0 12px 36px rgb(55 76 112 / .08); overflow: hidden; }
-    .archive-row { border-color: rgb(119 145 180 / .16); }
-
-    .delivery-loop { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border: 1px solid var(--glass-edge); border-radius: var(--radius-panel); background: rgb(248 251 255 / .64); box-shadow: var(--glass-shadow); overflow: hidden; }
-    .delivery-loop li { grid-template-columns: 1fr; gap: 1rem; align-content: start; padding: 1.4rem; border: 0; border-right: 1px solid rgb(119 145 180 / .16); }
-    .delivery-loop li:last-child { border-right: 0; }
-    .delivery-loop li > span { color: var(--signal-sapphire); }
-    .delivery-loop h3 { font-size: 1.25rem; }
-    .delivery-loop p { margin-top: .55rem; font-size: .88rem; }
-
-    .contact { padding-top: clamp(4rem, 8vw, 7rem); }
-    .contact-vessel { padding: clamp(1.5rem, 5vw, 4rem); border-radius: var(--radius-panel); }
-    .contact-vessel .chapter-head { margin-bottom: 0; }
-    .footer { border: 0; }
-    .footer-inner { color: var(--chrome); }
-
-    .js .reveal { transform: translateY(1.4rem) scale(.99); transition: opacity .6s var(--ease-out), transform .6s var(--ease-out); }
-    .js .reveal.is-visible { transform: none; }
-
-    @media (hover: hover) and (pointer: fine) {
-      .nav-links a:hover { color: var(--signal-sapphire); background: rgb(255 255 255 / .52); transform: translateY(-1px); }
-      .button:hover { transform: translateY(-2px); box-shadow: 0 16px 30px rgb(55 76 112 / .14), inset 0 1px 0 rgb(255 255 255 / .56); }
-      .button--primary:hover { color: var(--pearl-raised); background: oklch(0.47 0.2 260); }
-      .lens-btn:hover { color: var(--signal-sapphire); background: rgb(255 255 255 / .58); }
-      .lens-btn[aria-pressed="true"]:hover { color: var(--pearl-raised); background: var(--signal-sapphire); }
-      .archive-toggle:hover, .evidence-drawer summary:hover { color: var(--signal-sapphire); background: rgb(255 255 255 / .5); }
-      .document-links a:hover { color: var(--signal-sapphire); background: rgb(255 255 255 / .38); transform: translateY(-1px); }
+    .cert-issuer {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--signal-sapphire);
+      margin-bottom: .4rem;
+    }
+    .cert-title {
+      font-size: .98rem;
+      font-weight: 600;
+      color: var(--carbon);
+      margin: 0 0 .5rem;
+    }
+    .cert-sub {
+      font-size: .8rem;
+      color: var(--graphite);
+      margin: 0;
     }
 
+    /* Contact Vessel */
+    .contact-card {
+      padding: clamp(2rem, 5vw, 3.5rem);
+      border: 1px solid var(--glass-edge);
+      border-radius: var(--radius-panel);
+      background: linear-gradient(150deg, rgb(255 255 255 / .92), rgb(235 244 255 / .65));
+      box-shadow: var(--glass-shadow);
+    }
+    .contact-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: -.03em;
+      margin: 0 0 .75rem;
+    }
+    .contact-desc {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--graphite);
+      max-width: 48ch;
+      margin: 0 0 1.75rem;
+    }
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgb(119 145 180 / .18);
+      padding-block: 2.5rem;
+      margin-top: 3rem;
+      background: var(--ambient-pearl);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--graphite);
+    }
+
+    /* Reveal animations */
+    .reveal { opacity: 1; transform: none; }
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+    }
+    .js .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* Responsive */
     @media (max-width: 900px) {
-      .nav { border-radius: 24px; }
       .nav-toggle { display: inline-flex; }
-      .nav-links { position: absolute; top: calc(100% + .55rem); right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; padding: .55rem; border: 1px solid var(--glass-edge); border-radius: 22px; background: var(--glass-solid); box-shadow: var(--glass-shadow); }
+      .nav-links {
+        position: absolute;
+        top: calc(100% + .5rem);
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: .65rem;
+        border: 1px solid var(--glass-edge);
+        border-radius: 18px;
+        background: var(--pearl-raised);
+        box-shadow: var(--glass-shadow);
+      }
       .nav-links.is-open { display: flex; }
-      .nav-links a { width: 100%; justify-content: center; }
+      .nav-links a { justify-content: center; }
     }
 
     @media (max-width: 767px) {
-      .hero { min-height: auto; padding-top: 8rem; }
-      .hero-command, .expertise-lenses, .case-list, .case-record:first-child, .experience-strip, .document-links, .delivery-loop { grid-template-columns: 1fr; }
-      .hero-command { gap: 2.2rem; }
-      .hero h1 { max-width: 12ch; font-size: clamp(3.2rem, 15vw, 5.2rem); }
-      .authority-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .proof { padding: .9rem .7rem; border-right: 1px solid rgb(119 145 180 / .16); border-bottom: 0; }
-      .proof:last-child { border-right: 0; }
-      .proof strong { font-size: clamp(1.1rem, 5vw, 1.5rem); }
-      .proof span { font-size: .62rem; }
-      .section { padding-block: 4.5rem; }
-      .expertise-lenses article { min-height: 12rem; border-right: 0; border-bottom: 1px solid rgb(119 145 180 / .16); }
-      .expertise-lenses article:last-child { border-bottom: 0; }
-      .grid-12 { grid-template-columns: 1fr; }
-      .js .lens-controls { width: 100%; display: grid; grid-template-columns: 1fr 1fr; border-radius: 24px; }
-      .atlas-graphic { display: none; }
-      .atlas-fallback { display: grid; }
-      .flow-panel ol { grid-template-columns: 1fr; }
-      .case-record:first-child { grid-column: auto; }
-      .experience-strip article { border-right: 0; border-bottom: 1px solid rgb(119 145 180 / .16); }
-      .experience-strip article:last-child { border-bottom: 0; }
-      .document-links a + a { border-top: 1px solid rgb(119 145 180 / .16); border-left: 0; }
-      .delivery-loop li { border-right: 0; border-bottom: 1px solid rgb(119 145 180 / .16); }
-      .delivery-loop li:last-child { border-bottom: 0; }
-      .credential-ledger > div, .case-narrative > p, .archive-row { grid-template-columns: 1fr; gap: .5rem; }
-      .footer-inner { min-height: 7rem; flex-direction: column; justify-content: center; text-align: center; }
-      .glass-island, .glass-vessel, .lens-controls { backdrop-filter: blur(14px) saturate(135%); -webkit-backdrop-filter: blur(14px) saturate(135%); }
-    }
-
-    @supports not (backdrop-filter: blur(1px)) {
-      .glass-island, .glass-vessel, .lens-controls { background: var(--glass-solid); }
-    }
-
-    @media (prefers-reduced-transparency: reduce) {
-      .glass-island, .glass-vessel, .lens-controls { background: var(--glass-solid); backdrop-filter: none; -webkit-backdrop-filter: none; }
+      .hero-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+      .hero-portrait-card { max-width: 14rem; aspect-ratio: 1; border-radius: 50%; margin-inline: auto; }
+      .stats-ribbon { grid-template-columns: 1fr 1fr; }
+      .stat-item:nth-child(2) { border-right: 0; }
+      .stat-item:nth-child(3) { border-top: 1px solid rgb(119 145 180 / .2); }
+      .stat-item:nth-child(4) { border-top: 1px solid rgb(119 145 180 / .2); border-right: 0; }
+      .timeline-item { grid-template-columns: 1fr; gap: .35rem; }
+      .case-row { grid-template-columns: 1fr; gap: .25rem; }
+      .archive-row { grid-template-columns: 1fr; gap: .35rem; }
+      .footer-inner { flex-direction: column; text-align: center; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
       .js .reveal, .js .reveal.is-visible { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
+  <div class="halftone-field" aria-hidden="true"></div>
+
   
   
   
@@ -446,509 +685,1365 @@
 
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="site-header">
-    <nav class="nav wrap glass-island" aria-label="Primary navigation">
-      <a class="brand" href="#hero">Erick <span>Aquino</span></a>
-      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">Open menu</button>
+  <header class="site-header wrap">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#hero">
+        <span>Erick Aquino</span>
+        <span class="brand-status"><span class="pulse-dot"></span> Available</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">Menu</button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#systems">Systems</a></li>
-        <li><a href="#method">Method</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#credentials">Credentials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main-content" tabindex="-1">
-    <section class="hero" id="hero">
-      <div class="wrap hero-command">
-        <div class="hero-copy reveal">
-          <p class="hero-kicker">Erick Aquino / Principal systems consultant</p>
-          <h1>NetSuite architecture for systems that cannot drift.</h1>
+    <!-- ── Hero ── -->
+    <section class="hero wrap" id="hero">
+      <div class="hero-grid">
+        <!-- Steve Jobs-inspired studio portrait -->
+        <div class="hero-portrait-card reveal">
+          <picture>
+            <source srcset="portrait.webp" type="image/webp">
+            <img class="hero-portrait-img" src="portrait.png" alt="Erick Aquino - Senior NetSuite Solutions Architect" width="843" height="1264" loading="eager" decoding="async">
+          </picture>
+        </div>
+
+        <!-- Bio and identity -->
+        <div class="reveal">
+          <div class="hero-kicker">Senior NetSuite Solutions Architect · Enterprise Integration Specialist</div>
+          <h1 class="hero-title">NetSuite architecture for systems that cannot drift.</h1>
           <p class="hero-lede">I connect ERP, commerce, finance, fulfillment, and engineering with evidence at every boundary.</p>
+          <p class="hero-bio">
+            Began my career inside Oracle NetSuite on the elite SWAT team supporting Top 200 global enterprise accounts. Over 10 years, I've architected multi-subsidiary platforms, Celigo iPaaS pipelines, and high-volume 3PL logistics networks for leading DTC and enterprise brands.
+          </p>
+
           <div class="hero-actions">
             <a class="button button--primary" href="mailto:ejaquino26@gmail.com?subject=Consulting%20Inquiry">Discuss a system</a>
-            <a class="button button--quiet" href="#systems">Selected systems</a>
+            <a class="button button--quiet" href="Aquino_Erick_CV_ATS.pdf" target="_blank" rel="noopener">ATS CV (PDF) ↗</a>
+            <a class="button button--quiet" href="Aquino_Erick_CV_Designed.pdf" target="_blank" rel="noopener">Designed CV (PDF) ↗</a>
+          </div>
+
+          <div class="hero-quicklinks">
+            <a href="https://www.linkedin.com/in/ejaquino/" target="_blank" rel="noopener">linkedin ↗</a>
+            <a href="https://wa.me/639055147337" target="_blank" rel="noopener">whatsapp ↗</a>
+            <a href="mailto:ejaquino26@gmail.com">email ↗</a>
+            <a href="mailto:ejaquino26@gmail.com?subject=Career%20Opportunity">hiring inquiry ↗</a>
           </div>
         </div>
-        <div class="authority-stats reveal" aria-label="Portfolio proof">
-          <div class="proof"><strong>10</strong><span>Years in enterprise systems</span></div>
-          <div class="proof"><strong>155</strong><span>Project workspaces indexed</span></div>
-          <div class="proof"><strong>7,272,564</strong><span>Lines of code indexed</span></div>
+      </div>
+
+      <!-- Stats ribbon -->
+      <div class="stats-ribbon reveal" aria-label="Portfolio proof">
+        <div class="stat-item proof">
+          <div class="stat-val"><strong>10</strong></div>
+          <div class="stat-lbl"><span>Years in enterprise systems</span></div>
+        </div>
+        <div class="stat-item proof">
+          <div class="stat-val"><strong>155</strong></div>
+          <div class="stat-lbl"><span>Project workspaces indexed</span></div>
+        </div>
+        <div class="stat-item proof">
+          <div class="stat-val"><strong>7,272,564</strong></div>
+          <div class="stat-lbl"><span>Lines of code indexed</span></div>
+        </div>
+        <div class="stat-item proof">
+          <div class="stat-val"><strong>50+</strong></div>
+          <div class="stat-lbl"><span>Global Brands & Clients</span></div>
         </div>
       </div>
     </section>
 
-    <section class="section expertise" id="expertise">
-      <div class="wrap">
-        <header class="chapter-head reveal"><h2>One practice. Three lenses.</h2><p>Platform depth, connected boundaries, and governed acceleration.</p></header>
-        <div class="expertise-lenses reveal">
-          <article><span>Platform</span><h3>NetSuite</h3><p>SuiteScript, SDF, SuiteQL, financials, commerce, performance, and operational governance.</p></article>
-          <article><span>Boundary</span><h3>Integrations</h3><p>Celigo, APIs, EDI, 3PL, channels, data contracts, reconciliation, and exception ownership.</p></article>
-          <article><span>Assurance</span><h3>AI-assisted engineering</h3><p>Task graphs, TDD, evidence gates, independent review, human authorization, and guarded release.</p></article>
+    <!-- ── 01: Experience (Open, uncollapsed, chronological) ── -->
+    <section class="section wrap" id="experience">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-kicker">01 - experience</span>
+          <h2 class="section-title">Career & Enterprise Track Record</h2>
         </div>
-        <details class="evidence-drawer reveal"><summary>Credentials</summary><div class="credential-ledger">
-          <div><span>Oracle NetSuite</span><strong>SWAT, Engineering Solutions, Defect Deflection, and SuiteCloud Support</strong></div>
-          <div><span>Celigo</span><strong>Mastery Level 4: Legendary and Builder Core</strong></div>
-          <div><span>NetSuite</span><strong>SuiteFoundation, AI, BI and reporting, and financial management</strong></div>
-          <div><span>Education</span><strong>BS Computer Engineering, Mapua University</strong></div>
-        </div></details>
+        <a class="button button--quiet" href="Aquino_Erick_CV_ATS.pdf" target="_blank" rel="noopener">Full CV ↗</a>
+      </div>
+
+      <div class="timeline reveal">
+        <article class="timeline-item">
+          <div class="timeline-date">2021 - Present</div>
+          <div>
+            <h3 class="timeline-role">Senior NetSuite Developer & Integration Architect</h3>
+            <div class="timeline-org">Ekwani Consulting LLC</div>
+            <p class="timeline-desc">
+              Lead technical architect for multi-system enterprise integrations. Design and deliver production-grade connectivity between NetSuite ERP and logistics networks (Masonhub, ShipBob, Capacity 3PL, Radial, ILG). Engineer automated carrier pipelines for DHL and FedEx, bidirectional Shopify synchronization, and advanced Celigo iPaaS orchestration (Legendary Level 4).
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date">2019 - 2021</div>
+          <div>
+            <h3 class="timeline-role">NetSuite Developer</h3>
+            <div class="timeline-org">Kodella LLC</div>
+            <p class="timeline-desc">
+              Delivered custom SuiteScript 2.x, SuiteFlow, and MapReduce batch data architectures across finance, inventory, and supply chain. Managed full NetSuite Release Preview upgrade lifecycles with zero-disruption cutovers, executive KPI dashboards, and platform governance across complex client customizations.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date">2016 - 2019</div>
+          <div>
+            <h3 class="timeline-role">Senior Consultant (ESM) · Defect Deflection · SWAT Desk</h3>
+            <div class="timeline-org">Oracle NetSuite Corporation</div>
+            <p class="timeline-desc">
+              Earned 4 successive promotions within NetSuite Global Support & Engineering Services. Handled the platform's Top 200 enterprise customer escalations on the elite SWAT desk. Performed root-cause analysis for core platform defects across SuiteScript, SuiteFlow, and SDF, and conducted architectural quality audits under Oracle's Engineering Solutions Management (ESM) methodology.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date">2016</div>
+          <div>
+            <h3 class="timeline-role">Development & Operations (DevOps) Intern</h3>
+            <div class="timeline-org">Accenture, Inc.</div>
+            <p class="timeline-desc">
+              Built automated CI/CD pipelines and quality assurance tooling using Jenkins, SonarQube, Selenium, and Java test frameworks.
+            </p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <div class="system-lens" id="system-lens" data-lens>
-      <div class="wrap">
-        <header class="chapter-head reveal"><h2>See the connected system.</h2><p>Change the operating lens. Keep every boundary legible.</p></header>
-        <div class="lens-controls reveal" role="group" aria-label="Choose an enterprise system flow">
-          <button class="lens-btn" type="button" data-flow="o2c" aria-pressed="false" aria-controls="flow-o2c">Order to cash</button>
-          <button class="lens-btn" type="button" data-flow="p2p" aria-pressed="false" aria-controls="flow-p2p">Procure to pay</button>
-          <button class="lens-btn" type="button" data-flow="fulfillment" aria-pressed="false" aria-controls="flow-fulfillment">Fulfillment</button>
-          <button class="lens-btn" type="button" data-flow="close" aria-pressed="false" aria-controls="flow-close">Financial close</button>
-        </div>
-        <figure class="atlas atlas-frame reveal">
-          <svg class="atlas-graphic" viewBox="0 0 960 620" role="img" aria-labelledby="atlasTitle" aria-describedby="atlasDesc">
-            <title id="atlasTitle">NetSuite enterprise integration boundary map</title>
-            <desc id="atlasDesc">NetSuite ERP connects finance and banking, commerce channels, third-party logistics and carriers, retail and EDI, data and analytics, and automation and delivery through explicit contracts.</desc>
-            <g class="atlas-edge" data-flows="o2c p2p close"><path d="M480 310 L180 120"></path><text x="250" y="190">REST / bank files</text></g>
-            <g class="atlas-edge" data-flows="o2c fulfillment"><path d="M480 310 L480 95"></path><text x="495" y="175">Celigo iPaaS</text></g>
-            <g class="atlas-edge" data-flows="o2c fulfillment"><path d="M480 310 L780 120"></path><text x="635" y="190">REST / file exchange</text></g>
-            <g class="atlas-edge" data-flows="o2c fulfillment"><path d="M480 310 L800 440"></path><text x="655" y="365">EDI documents</text></g>
-            <g class="atlas-edge" data-flows="p2p close"><path d="M480 310 L480 545"></path><text x="495" y="465">SuiteQL / ODBC</text></g>
-            <g class="atlas-edge" data-flows="o2c p2p fulfillment close"><path d="M480 310 L160 440"></path><text x="235" y="370">Scheduled automation</text></g>
-            <g class="atlas-node" data-flows="o2c p2p close" transform="translate(55 55)"><rect width="250" height="105"></rect><text x="24" y="46">Finance and banking</text><text class="atlas-contract" x="24" y="73">REST / SOAP / BANK FILES</text></g>
-            <g class="atlas-node" data-flows="o2c fulfillment" transform="translate(355 35)"><rect width="250" height="105"></rect><text x="24" y="46">Commerce channels</text><text class="atlas-contract" x="24" y="73">CELIGO IPAAS FLOWS</text></g>
-            <g class="atlas-node" data-flows="o2c fulfillment" transform="translate(655 55)"><rect width="250" height="105"></rect><text x="24" y="46">3PL and carriers</text><text class="atlas-contract" x="24" y="73">REST / FILE EXCHANGE</text></g>
-            <g class="atlas-node" data-flows="o2c fulfillment" transform="translate(675 405)"><rect width="250" height="105"></rect><text x="24" y="46">Retail and EDI</text><text class="atlas-contract" x="24" y="73">EDI DOCUMENTS</text></g>
-            <g class="atlas-node" data-flows="p2p close" transform="translate(355 480)"><rect width="250" height="105"></rect><text x="24" y="46">Data and analytics</text><text class="atlas-contract" x="24" y="73">SUITEQL / ODBC</text></g>
-            <g class="atlas-node" data-flows="o2c p2p fulfillment close" transform="translate(35 405)"><rect width="250" height="105"></rect><text x="24" y="46">Automation and delivery</text><text class="atlas-contract" x="24" y="73">SCHEDULED CONTROLS</text></g>
-            <g class="atlas-hub" transform="translate(350 235)"><rect width="260" height="150"></rect><text x="35" y="65">NetSuite ERP</text><text class="atlas-contract" x="35" y="98">FINANCE / OPERATIONS</text></g>
-          </svg>
-          <ol class="atlas-fallback" aria-label="Integration boundaries and contracts">
-            <li><strong>Finance and banking</strong><span>REST, SOAP, bank files, and payment contracts</span></li>
-            <li><strong>Commerce channels</strong><span>Celigo iPaaS flows and order contracts</span></li>
-            <li><strong>3PL and carriers</strong><span>REST APIs and file exchange</span></li>
-            <li><strong>Retail and EDI</strong><span>EDI documents and acknowledgements</span></li>
-            <li><strong>Data and analytics</strong><span>SuiteQL, ODBC, reporting, and reconciliation</span></li>
-            <li><strong>Automation and delivery</strong><span>Scheduled controls, observability, and release evidence</span></li>
-          </ol>
-          <figcaption>Integration boundary map / contracts change by operational flow</figcaption>
-        </figure>
-        <div class="flow-panels grid-12 reveal">
-          <article class="flow-panel" id="flow-o2c"><p>Flow 01</p><h3>Order to cash</h3><ol><li><strong>Capture demand</strong><span>Commerce or EDI order contract</span></li><li><strong>Validate and price</strong><span>NetSuite customer, item, tax, and approval controls</span></li><li><strong>Fulfill and confirm</strong><span>3PL release, shipment, and acknowledgement</span></li><li><strong>Invoice and settle</strong><span>Accounts receivable, payment, and bank evidence</span></li></ol></article>
-          <article class="flow-panel" id="flow-p2p"><p>Flow 02</p><h3>Procure to pay</h3><ol><li><strong>Authorize demand</strong><span>Requisition and approval boundary</span></li><li><strong>Commit supply</strong><span>Purchase order and vendor contract</span></li><li><strong>Receive and reconcile</strong><span>Item receipt, bill, and three-way match</span></li><li><strong>Release payment</strong><span>Authorization, bank file, and settlement evidence</span></li></ol></article>
-          <article class="flow-panel" id="flow-fulfillment"><p>Flow 03</p><h3>Fulfillment</h3><ol><li><strong>Allocate inventory</strong><span>Location, lot, and promise controls</span></li><li><strong>Release the order</strong><span>3PL or warehouse instruction contract</span></li><li><strong>Confirm movement</strong><span>Pick, pack, ship, and carrier events</span></li><li><strong>Reconcile exceptions</strong><span>Short, damage, delay, and retry evidence</span></li></ol></article>
-          <article class="flow-panel" id="flow-close"><p>Flow 04</p><h3>Financial close</h3><ol><li><strong>Bind the period</strong><span>Subsidiary, accounting book, and close scope</span></li><li><strong>Reconcile boundaries</strong><span>Bank, commerce, inventory, and intercompany controls</span></li><li><strong>Resolve exceptions</strong><span>Ownership, evidence, and approval trail</span></li><li><strong>Publish confidence</strong><span>Reporting, variance, and audit-ready outcome</span></li></ol></article>
+    <!-- ── 02: Systems (Selected Work) ── -->
+    <section class="section wrap" id="systems">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-kicker">02 - selected systems</span>
+          <h2 class="section-title">High-Scale Enterprise Platforms</h2>
         </div>
       </div>
-    </div>
 
-    <section class="section systems" id="systems">
-      <div class="wrap">
-        <header class="chapter-head reveal"><h2>Selected systems.</h2><p>Three operating records, reduced to the decisions that mattered.</p></header>
-        <div class="case-list">
-          
-          <article class="case-record reveal">
-            <header class="case-header"><p class="case-kicker">Sports Equipment</p><h3>Global Sports Equipment Manufacturer</h3></header>
-            <div class="case-narrative">
-              
-              <p><b>Operating problem</b><span>A global snowboard and sports equipment manufacturer operating across North America, Europe, and Asia-Pacific needed a unified ERP platform to orchestrate multi-vendor integrations, complex pricing engines, and multi-channel fulfillment  -  with no existing architecture in place.</span></p>
-              
-              <p><b>Architecture</b><span>Served as sole technical architect from requirements through production. Designed and delivered the complete platform: multi-vendor integrations, dynamic pricing engines, automated fulfillment workflows, payment processing, and multi-subsidiary financial consolidation. Built the entire 1,248-file codebase end-to-end.</span></p>
-              
-              <p><b>Verified outcome</b><span>Replaced manual multi-system operations with a fully automated ERP ecosystem. Enabled the company to scale global e-commerce and B2B operations without adding headcount to back-office teams.</span></p>
-              
-              <div class="case-metrics"><span class="case-metric"><strong>1,200+</strong><span>scripts</span></span><span class="case-metric"><strong>Sole</strong><span>architect</span></span><span class="case-metric"><strong>Multi-sub</strong><span>global</span></span><span class="case-metric"><strong>Full</strong><span>lifecycle</span></span></div>
-              
-    
-    <p class="case-tech"><b>System boundary</b>SuiteScript 2.x / SuiteFlow / Celigo iPaaS / REST APIs / Shopify / Multi-subsidiary</p>
-            </div>
-          </article>
-          
-          <article class="case-record reveal">
-            <header class="case-header"><p class="case-kicker">Consumer Electronics</p><h3>Consumer Electronics Brand Platform</h3></header>
-            <div class="case-narrative">
-              
-              <p><b>Operating problem</b><span>A major consumer electronics brand with globally recognized kitchen appliance products needed deep NetSuite customization: 95+ custom UIs, heavy batch data processing, and complex inventory workflows across retail and DTC channels.</span></p>
-              
-              <p><b>Architecture</b><span>Built a long-term, high-touch platform with 697+ active scripts, 95+ Suitelets for custom operational UIs, 35+ MapReduce scripts for batch processing, and 27+ UserEvent scripts for business logic automation.</span></p>
-              
-              <p><b>Verified outcome</b><span>Delivered a deeply customized ERP that became the operational backbone for global product distribution, eliminating manual data entry across retail and DTC fulfillment channels.</span></p>
-              
-              <div class="case-metrics"><span class="case-metric"><strong>697+</strong><span>scripts</span></span><span class="case-metric"><strong>95+</strong><span>Suitelets</span></span><span class="case-metric"><strong>35+</strong><span>MapReduce</span></span></div>
-              
-    
-    <p class="case-tech"><b>System boundary</b>SuiteScript 2.x / Suitelets / MapReduce / UserEvent / SuiteFlow</p>
-            </div>
-          </article>
-          
-          <article class="case-record reveal">
-            <header class="case-header"><p class="case-kicker">Full-Stack SaaS</p><h3>EKW-SPHERE Operations Platform</h3></header>
-            <div class="case-narrative">
-              
-              <p><b>Operating problem</b><span>Needed a centralized operations platform for demand planning, inventory reconciliation, and financial reporting across a 20+ client portfolio  -  existing tools were fragmented and lacked security controls.</span></p>
-              
-              <p><b>Architecture</b><span>Built a production SaaS platform from scratch: 10 internal tools spanning demand forecasting, inventory reconciliation, client health dashboards, and automated reporting. Enterprise security with RBAC, 2FA, field-level encryption, and audit logging. Performance-tuned to sustain 3,600+ requests/second.</span></p>
-              
-              <p><b>Verified outcome</b><span>Consolidated 10 separate operational workflows into a single platform. Reduced manual reporting from hours to real-time dashboards. Serves as the operational backbone for the entire consulting practice.</span></p>
-              
-              <div class="case-metrics"><span class="case-metric"><strong>29,500+</strong><span>lines Python</span></span><span class="case-metric"><strong>3,600+</strong><span>RPS</span></span><span class="case-metric"><strong>10</strong><span>tools</span></span><span class="case-metric"><strong>220+</strong><span>source files</span></span></div>
-              
-    
-    <p class="case-tech"><b>System boundary</b>Python / Flask / PostgreSQL / Redis / Celery / React / TypeScript</p>
-            </div>
-          </article>
-          
-        </div>
+      <div class="case-grid">
         
-        <div class="archive-control reveal"><button class="archive-toggle" id="portfolioToggle" type="button" aria-expanded="false" aria-controls="extendedPortfolio">View all 152 projects</button></div>
-        <div class="archive" id="extendedPortfolio">
-          
-          <article class="archive-row" aria-labelledby="archive-title-1"><strong id="archive-title-1">COMEX Commodity Trading Platform</strong><span>Metals &amp; Commodities</span><span>59038 lines of code</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-2"><strong id="archive-title-2">Signifyd Fraud-Integrated Platform</strong><span>Omnichannel E-Commerce</span><span>7950 lines of code</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-3"><strong id="archive-title-3">Multi-Client B2B Fulfillment Platform</strong><span>Multi-Client B2B</span><span>11974 lines of code</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-4"><strong id="archive-title-4">Major DTC Beauty Brand Platform</strong><span>DTC Beauty</span><span>3142 lines of code</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-5"><strong id="archive-title-5">Retail EDI Connectivity Platform</strong><span>Retail EDI &amp; Integration</span><span>62 lines of code</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-6"><strong id="archive-title-6">Global Golf Equipment Brand</strong><span>Sports / Retail</span><span>Large-scale NetSuite implementation for a golf equipment manufacturer with complex inventory management, B2B/B2C portals, and order processing workflows.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-7"><strong id="archive-title-7">Enterprise Wholesale ERP System</strong><span>NetSuite/SuiteScript</span><span>A comprehensive NetSuite implementation featuring extensive SuiteScript 2.x customizations and automated integration pipelines to streamline high-volume business operations.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-8"><strong id="archive-title-8">Enterprise E-commerce Platform Refresh</strong><span>JavaScript</span><span>A comprehensive overhaul of a large-scale enterprise e-commerce platform utilizing extensive configuration and JavaScript to enhance user experience and system performance.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-9"><strong id="archive-title-9">Large-Scale Enterprise ERP Platform</strong><span>NetSuite/SuiteScript</span><span>A comprehensive NetSuite ERP customization featuring an extensive frontend architecture and complex business process automation.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-10"><strong id="archive-title-10">Enterprise Agent Orchestration System</strong><span>Python</span><span>A highly concurrent, large-scale orchestration system designed to coordinate distributed automated agents and processes.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-11"><strong id="archive-title-11">Regional Food Manufacturing System</strong><span>Python</span><span>An enterprise-scale data management and logistics platform streamlining food production operations using a robust Python and TypeScript architecture.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-12"><strong id="archive-title-12">Enterprise Business Workflow Automation</strong><span>JavaScript</span><span>A vast library of JavaScript automation modules designed to streamline complex business logic and operational workflows across enterprise systems.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-13"><strong id="archive-title-13">Enterprise Customer Portal</strong><span>Python</span><span>A comprehensive, full-stack client management platform built with Python and JavaScript to streamline user interactions and complex data processing.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-14"><strong id="archive-title-14">Industrial Supply Company</strong><span>Industrial / Manufacturing</span><span>Manufacturing and distribution ERP with custom procurement workflows, vendor management, and production tracking.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-15"><strong id="archive-title-15">Global E-Commerce ERP Platform</strong><span>NetSuite/SuiteScript</span><span>A comprehensive enterprise resource planning implementation leveraging SuiteScript 2.x to automate complex retail business processes.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-16"><strong id="archive-title-16">Enterprise Operations Ecosystem</strong><span>Python</span><span>A robust internal management platform built with Python and JavaScript to streamline enterprise workflows and centralize business data.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-17"><strong id="archive-title-17">Enterprise Integration Middleware</strong><span>JavaScript</span><span>A centralized JavaScript-based integration framework bridging operational data sources and automated reporting modules.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-18"><strong id="archive-title-18">ERP Operational Script Repository</strong><span>JavaScript</span><span>A comprehensive suite of custom JavaScript solutions engineered to automate core ERP processes and data validation requirements.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-19"><strong id="archive-title-19">Apparel Manufacturing ERP Implementation</strong><span>NetSuite/SuiteScript</span><span>A production-ready ERP customization automating complex manufacturing workflows, supply chain routing, and financial reconciliation.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-20"><strong id="archive-title-20">Media Agency ERP Integration</strong><span>NetSuite/SuiteScript</span><span>A robust NetSuite automation initiative utilizing SuiteScript 2.x to customize business processes and manage complex data flows for a digital media enterprise.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-21"><strong id="archive-title-21">DTC Beauty Brand ERP Automation</strong><span>NetSuite/SuiteScript</span><span>Custom NetSuite ERP automation and XML-based integrations streamlining operations for a direct-to-consumer cosmetics brand.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-22"><strong id="archive-title-22">Internal Operations Command Center</strong><span>Web Application</span><span>A comprehensive web dashboard built with Next.js and TypeScript to centralize enterprise workflows and facilitate real-time data management.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-23"><strong id="archive-title-23">HRIS &amp; Payroll API Integration</strong><span>JavaScript</span><span>A robust middleware integration synchronizing employee time-tracking and payroll data between enterprise human resources systems.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-24"><strong id="archive-title-24">Supply Chain Network Automation</strong><span>NetSuite/SuiteScript</span><span>A sophisticated architecture designed to optimize vendor management, procurement routing, and global inventory allocation.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-25"><strong id="archive-title-25">Enterprise ERP Component Extension</strong><span>NetSuite/SuiteScript</span><span>Developed a comprehensive SuiteScript customization to enhance complex data selection and record management within an enterprise resource planning environment.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-26"><strong id="archive-title-26">Public Sector ERP Integration</strong><span>NetSuite/SuiteScript</span><span>An extensive NetSuite and Python integration designed to automate compliance reporting and complex financial business processes for a public service organization.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-27"><strong id="archive-title-27">iOS Application Suite</strong><span>Other</span><span>A collection of native iOS applications and components developed using Swift.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-28"><strong id="archive-title-28">Enterprise IT Services Automation</strong><span>NetSuite/SuiteScript</span><span>A NetSuite ERP implementation utilizing SuiteScript 2.x to automate specialized business workflows and optimize enterprise resource planning.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-29"><strong id="archive-title-29">Global Marketplace ERP Integration</strong><span>NetSuite/SuiteScript</span><span>An automated NetSuite SuiteScript solution synchronizing fulfillment data and inventory metrics with third-party e-commerce marketplace channels.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-30"><strong id="archive-title-30">Cold Chain Logistics ERP System</strong><span>NetSuite/SuiteScript</span><span>A specialized operational platform automating temperature-controlled inventory management and regulatory compliance workflows.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-31"><strong id="archive-title-31">Enterprise ERP Workflow Automation</strong><span>NetSuite/SuiteScript</span><span>SuiteScript-driven customizations designed to optimize business processes and operational efficiency within a corporate NetSuite environment.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-32"><strong id="archive-title-32">Infrastructure Automation Toolkit</strong><span>Python</span><span>A robust suite of Python and shell scripts engineered to automate routine server provisioning, streamline configuration management, and optimize deployment workflows.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-33"><strong id="archive-title-33">Competitor Market Intelligence Engine</strong><span>Python</span><span>A robust data extraction pipeline leveraging Python and TypeScript to aggregate and analyze competitive product catalogs at scale.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-34"><strong id="archive-title-34">Warehousing Network Middleware</strong><span>JavaScript</span><span>A JavaScript-based integration solution designed to synchronize operational data and streamline processes across distributed fulfillment centers.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-35"><strong id="archive-title-35">DTC Cosmetics Data Migration</strong><span>NetSuite/SuiteScript</span><span>A large-scale data transformation and import framework designed to transition legacy retail records into a modernized ERP environment.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-36"><strong id="archive-title-36">Investment Group Web Platform</strong><span>Web Application</span><span>A modern, responsive web application built with Next.js and TypeScript serving as the digital hub for a private investment and finance community.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-37"><strong id="archive-title-37">B2B Financial Automation Suite</strong><span>NetSuite/SuiteScript</span><span>A targeted set of enterprise scripts engineered to automate complex financial reporting and multi-subsidiary consolidation processes.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-38"><strong id="archive-title-38">Financial Operations Dashboard</strong><span>Web Application</span><span>A responsive Next.js and React web application developed with TypeScript to centralize internal operational tracking and financial analytics.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-39"><strong id="archive-title-39">Productivity Synchronization Middleware</strong><span>JavaScript</span><span>A scalable backend integration service utilizing Fastify and TypeScript to seamlessly synchronize data between task management and time tracking platforms.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-40"><strong id="archive-title-40">Enterprise ERP Analytics Platform</strong><span>NetSuite/SuiteScript</span><span>A comprehensive web-based dashboard built with Next.js and React that integrates deeply with enterprise ERP systems to automate complex business processes and streamline data analysis workflows.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-41"><strong id="archive-title-41">Regional Distribution Hub Operations</strong><span>NetSuite/SuiteScript</span><span>A localized enterprise solution facilitating cross-border fulfillment, regional tax compliance, and automated warehouse routing.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-42"><strong id="archive-title-42">Autonomous Agent Management Interface</strong><span>Web Application</span><span>A modern, React-based web dashboard built for configuring, monitoring, and orchestrating intelligent automated agents.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-43"><strong id="archive-title-43">Refurbished Equipment Logistics System</strong><span>NetSuite/SuiteScript</span><span>A comprehensive ERP customization managing the intake, refurbishment lifecycle, and resale fulfillment of high-value technical assets.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-44"><strong id="archive-title-44">Luxury Retail E-commerce Middleware</strong><span>JavaScript</span><span>A specialized JavaScript integration orchestrating synchronized catalog updates and inventory availability across high-traffic digital storefronts.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-45"><strong id="archive-title-45">Resource Capacity Planning Middleware</strong><span>JavaScript</span><span>A JavaScript-driven integration solution built to seamlessly synchronize capacity and resource data with enterprise NetSuite environments.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-46"><strong id="archive-title-46">Personal Finance Mobile App</strong><span>Other</span><span>A native iOS application developed in Swift for intuitive personal budget tracking.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-47"><strong id="archive-title-47">Algorithmic Trading System</strong><span>Algorithmic Trading</span><span>Financial analysis and automated trading execution platform with Ichimoku cloud analysis, real-time market data processing, and position management.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-48"><strong id="archive-title-48">Boutique Manufacturing Workflow</strong><span>JavaScript</span><span>An automated workflow engine designed to track custom manufacturing orders from initial design through final customer delivery.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-49"><strong id="archive-title-49">Hair Wellness DTC Brand</strong><span>Hair Wellness</span><span>High-growth hair wellness brand with subscription management, 3PL integration, and DTC fulfillment automation.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-50"><strong id="archive-title-50">Sales Analytics Dashboard</strong><span>Web Application</span><span>A high-performance Next.js and React web application built with TypeScript to deliver real-time lead analytics and responsive data visualization.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-51"><strong id="archive-title-51">DTC Skincare Fulfillment Automation</strong><span>JavaScript</span><span>A targeted JavaScript integration streamlining direct-to-consumer order processing and third-party logistics synchronization.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-52"><strong id="archive-title-52">Media Streaming ERP Portal</strong><span>NetSuite/SuiteScript</span><span>A full-stack video delivery service bridging a React and Express frontend with NetSuite backend operations for seamless user and subscription management.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-53"><strong id="archive-title-53">Third-Party Logistics Integration</strong><span>JavaScript</span><span>A custom JavaScript integration facilitating automated data exchange and order synchronization with an external fulfillment provider.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-54"><strong id="archive-title-54">Enterprise API Gateway Integration</strong><span>NetSuite/SuiteScript</span><span>A robust ERP integration layer securely exposing internal business logic to external partner applications and third-party vendors.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-55"><strong id="archive-title-55">Service Provider Web Portal</strong><span>JavaScript</span><span>A web platform built with PHP and JavaScript for managing customer connectivity and service requests.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-56"><strong id="archive-title-56">Enterprise ERP Integration Suite</strong><span>NetSuite/SuiteScript</span><span>A tailored NetSuite customization suite leveraging SuiteScript 2.x and XML to automate critical business processes and enhance enterprise resource planning.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-57"><strong id="archive-title-57">AI-Driven ERP Diagnostic Tool</strong><span>Python</span><span>An intelligent utility built with Python and JavaScript designed to automatically evaluate and analyze enterprise system configurations.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-58"><strong id="archive-title-58">Luxury Cosmetics Brand</strong><span>Luxury Cosmetics</span><span>Full ERP customization for a prestige cosmetics brand  -  order management, inventory allocation, and multi-channel fulfillment.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-59"><strong id="archive-title-59">Clinical Skincare Brand</strong><span>Clinical Skincare</span><span>NetSuite customization for clinical skincare brand  -  order management, inventory sync, and fulfillment automation (123+ scripts)</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-60"><strong id="archive-title-60">Algorithmic Demand Planning Integration</strong><span>Other</span><span>A sophisticated C# service applying statistical modeling to historical sales data to automate predictive inventory replenishment.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-61"><strong id="archive-title-61">Clean Beauty Brand</strong><span>Clean Beauty</span><span>Sustainable beauty brand platform with inventory management, Shopify integration, and automated fulfillment workflows.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-62"><strong id="archive-title-62">Pet Care Workflow Integration</strong><span>JavaScript</span><span>A JavaScript and XML integration system streamlining product catalog management and automated order processing for a specialized retail brand.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-63"><strong id="archive-title-63">Travel Data Analytics Engine</strong><span>Python</span><span>A data processing and analytics utility utilizing Python to aggregate, analyze, and report on international travel metrics from tabular datasets.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-64"><strong id="archive-title-64">E-Commerce Fulfillment Automation</strong><span>Python</span><span>Automated fulfillment and inventory synchronization integration leveraging JavaScript, Python, and Playwright for an international e-commerce network.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-65"><strong id="archive-title-65">Financial Invoicing Engine</strong><span>Python</span><span>A robust Python-based application that automates the generation, processing, and formatting of standardized billing documents.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-66"><strong id="archive-title-66">DTC Cosmetics ERP Integration</strong><span>NetSuite/SuiteScript</span><span>A specialized NetSuite customization leveraging XML configuration and SuiteScript to streamline retail operations for a direct-to-consumer brand.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-67"><strong id="archive-title-67">Logistics &amp; Fulfillment Integration</strong><span>JavaScript</span><span>A JavaScript-based integration system bridging e-commerce platforms with shipping and fulfillment providers.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-68"><strong id="archive-title-68">B2B E-Commerce Connector</strong><span>JavaScript</span><span>A specialized JavaScript-based solution extending traditional retail platforms to support complex wholesale and business-to-business transactions.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-69"><strong id="archive-title-69">Sales Force Automation Sync</strong><span>Other</span><span>A robust C# application synchronizing critical pipeline data and product availability between external CRM systems and the central operational platform.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-70"><strong id="archive-title-70">Consumer Food Delivery iOS App</strong><span>Other</span><span>A native Swift mobile application providing users with an intuitive, location-based interface for ordering and delivery tracking.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-71"><strong id="archive-title-71">Digital Media Enterprise ERP</strong><span>NetSuite/SuiteScript</span><span>Implemented custom SuiteScript automations and XML integrations to streamline business operations for a digital media enterprise.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-72"><strong id="archive-title-72">Health &amp; Wellness ERP Automation</strong><span>JavaScript</span><span>A suite of custom JavaScript integrations and automated business processes designed to streamline order fulfillment and inventory management for a consumer supplements retailer.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-73"><strong id="archive-title-73">Japanese-Inspired Skincare Brand</strong><span>Japanese Skincare</span><span>Luxury skincare brand platform with international fulfillment, inventory management, and e-commerce integration.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-74"><strong id="archive-title-74">Automated Invoice Generation Tool</strong><span>Python</span><span>Built a Python-based utility to automatically generate and format professional HTML invoices via shell scripting.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-75"><strong id="archive-title-75">Sporting Goods ERP Automation</strong><span>NetSuite/SuiteScript</span><span>A tailored NetSuite implementation utilizing SuiteScript and Python to streamline retail operations, order processing, and inventory management.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-76"><strong id="archive-title-76">Minimalist Beauty Brand</strong><span>Minimalist Beauty</span><span>Streamlined ERP automation for a fast-growing minimalist beauty brand with Shopify and 3PL connectivity.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-77"><strong id="archive-title-77">Interactive Frontend Web Application</strong><span>Web Application</span><span>Designed and developed a responsive, interactive web application utilizing React and TypeScript for robust state management.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-78"><strong id="archive-title-78">Native iOS Social Networking App</strong><span>Other</span><span>Constructed a native iOS social application utilizing Swift to deliver seamless user interactions and robust mobile networking.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-79"><strong id="archive-title-79">Supply Chain Network ERP Deployment</strong><span>NetSuite/SuiteScript</span><span>Orchestrated a comprehensive NetSuite ERP deployment featuring custom SuiteScript 2.x modules for supply chain operations.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-80"><strong id="archive-title-80">Event Management Automation Platform</strong><span>JavaScript</span><span>Created dynamic JavaScript-based automation scripts to facilitate on-site event logistics and operational tracking.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-81"><strong id="archive-title-81">Version Control Automation Utility</strong><span>Python</span><span>A specialized utility leveraging JavaScript and Python to streamline and automate customized repository management workflows.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-82"><strong id="archive-title-82">Secure Payment Gateway Integration</strong><span>Python</span><span>Integrated secure payment processing capabilities utilizing Python to connect backend systems with financial gateway APIs.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-83"><strong id="archive-title-83">Phone Terminal PWA</strong><span>Developer Utility</span><span>Access your MacBook terminal from your iPhone. Persistent sessions via tmux, WebSocket-based real-time communication, and mobile-optimized xterm.js interface.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-84"><strong id="archive-title-84">DTC Beauty Brand ERP Automation</strong><span>NetSuite/SuiteScript</span><span>A targeted NetSuite SuiteScript implementation built to streamline e-commerce order processing and inventory fulfillment workflows.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-85"><strong id="archive-title-85">ERP Development Automation Toolkit</strong><span>Python</span><span>A standardized Python and JavaScript tooling suite designed to automate and enforce consistent local development environments for NetSuite engineering teams.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-86"><strong id="archive-title-86">Expense Management System Connector</strong><span>Other</span><span>Formulated a data mapping and integration layer to synchronize enterprise expense reporting systems via structured JSON payloads.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-87"><strong id="archive-title-87">Luxury Cosmetics E-Commerce Optimization</strong><span>JavaScript</span><span>Streamlined e-commerce functionalities and user experience for a direct-to-consumer beauty brand using specialized JavaScript implementations.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-88"><strong id="archive-title-88">Industrial Manufacturing Application</strong><span>JavaScript</span><span>A data-intensive custom JavaScript solution designed to manage specialized workflows for the industrial chemical sector.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-89"><strong id="archive-title-89">Skincare Brand Operational Workflow</strong><span>JavaScript</span><span>Customized core operational business workflows utilizing JavaScript and XML for a rapidly scaling direct-to-consumer skincare brand.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-90"><strong id="archive-title-90">Enterprise ERP Data Migration Layer</strong><span>NetSuite/SuiteScript</span><span>Executed a targeted NetSuite ERP data migration utilizing SuiteScript 2.x to ensure seamless business continuity.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-91"><strong id="archive-title-91">Commercial Furniture ERP Customization</strong><span>NetSuite/SuiteScript</span><span>Implemented custom NetSuite SuiteScript modules to automate inventory and fulfillment processes for a commercial furniture provider.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-92"><strong id="archive-title-92">Professional Networking Data Analysis</strong><span>Other</span><span>Compiled and structured comprehensive professional networking data sets using standardized HTML and Markdown documentation.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-93"><strong id="archive-title-93">Celebrity-Founded Beauty Brand</strong><span>Celebrity Beauty</span><span>Emerging celebrity beauty brand with e-commerce integration and initial ERP automation setup.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-94"><strong id="archive-title-94">Warehouse Capacity &amp; Fulfillment Automation</strong><span>NetSuite/SuiteScript</span><span>Developed a NetSuite SDF project utilizing SuiteScript 2.x to automate warehouse scanning and optimize fulfillment capacity.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-95"><strong id="archive-title-95">Clean Color Cosmetics Brand</strong><span>Clean Color Cosmetics</span><span>Clean cosmetics brand with multi-channel order routing, inventory sync, and Shopify-NetSuite connectivity.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-96"><strong id="archive-title-96">Consumer Goods Prototyping Platform</strong><span>JavaScript</span><span>Engineered specialized JavaScript functionalities to support a consumer-focused product prototyping and delivery platform.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-97"><strong id="archive-title-97">Appliance Manufacturer ERP Framework</strong><span>NetSuite/SuiteScript</span><span>Structured an automated SuiteCloud Development Framework deployment to streamline ERP updates for a consumer appliance manufacturer.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-98"><strong id="archive-title-98">Luxury Fashion Retail Automation</strong><span>NetSuite/SuiteScript</span><span>Customized NetSuite business processes using SuiteScript to enhance retail operations for a luxury fashion accessory brand.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-99"><strong id="archive-title-99">ERP Demand Planning Connector</strong><span>JavaScript</span><span>Built a tailored JavaScript integration to synchronize enterprise resource planning with advanced demand forecasting systems.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-100"><strong id="archive-title-100">EKW Auto Login</strong><span>Automation</span><span>Automated authentication system for multi-portal access management, streamlining daily operational workflows across client environments.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-101"><strong id="archive-title-101">Project Management Automation Scripts</strong><span>Other</span><span>Created custom shell scripts to automate and streamline agile project management workflows.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-102"><strong id="archive-title-102">Beverage E-Commerce Customization</strong><span>JavaScript</span><span>Optimized e-commerce functionalities with targeted JavaScript enhancements for a specialized consumer beverage brand.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-103"><strong id="archive-title-103">Consulting Services ERP Enhancements</strong><span>NetSuite/SuiteScript</span><span>Deployed concise SuiteScript 2.x customizations to support specialized billing and resource management for a consulting firm.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-104"><strong id="archive-title-104">Bulk Data Processing Utility</strong><span>JavaScript</span><span>Developed an efficient JavaScript utility to automate the parsing, transformation, and processing of bulk CSV data feeds.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-105"><strong id="archive-title-105">Personal Care Franchise Integration</strong><span>JavaScript</span><span>A focused JavaScript and XML integration developed to streamline operational workflows for a national beauty retail chain.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-106"><strong id="archive-title-106">Clean Beauty Digital Optimization</strong><span>JavaScript</span><span>Implemented targeted JavaScript and XML refinements to support dynamic e-commerce operations for a cosmetics brand.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-107"><strong id="archive-title-107">Procedural Animation Scripts</strong><span>Python</span><span>A specialized collection of Python scripts developed for programmatic visualization and automated animation generation.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-108"><strong id="archive-title-108">Digital Marketing Portal</strong><span>Other</span><span>A streamlined digital marketing platform utilizing markdown and static HTML for optimized content distribution.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-109"><strong id="archive-title-109">Digital Portfolio Platform</strong><span>Other</span><span>A streamlined static web platform utilizing HTML and Markdown for high-performance content delivery and professional presentation.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-110"><strong id="archive-title-110">Consumer Finance ERP Integration</strong><span>NetSuite/SuiteScript</span><span>Delivered customized NetSuite scripting solutions to support backend financial operations for a consumer credit provider.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-111"><strong id="archive-title-111">ERP Orchestration Engine</strong><span>NetSuite/SuiteScript</span><span>A SuiteScript-driven NetSuite customization for automating complex enterprise business processes.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-112"><strong id="archive-title-112">Dermatological Skincare Web Enhancements</strong><span>JavaScript</span><span>Provided precise JavaScript enhancements to elevate the digital storefront of a premium dermatological brand.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-113"><strong id="archive-title-113">Logistics Data Management Script</strong><span>Python</span><span>Engineered a lightweight Python application to manage and configure specialized logistics data parameters.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-114"><strong id="archive-title-114">Appliance Retailer Data Pipeline</strong><span>Python</span><span>A customized Python-based ODBC integration utility designed to securely extract and transform mission-critical enterprise data.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-115"><strong id="archive-title-115">Global Sourcing ERP Automation</strong><span>NetSuite/SuiteScript</span><span>Streamlined procurement workflows and supplier data management through custom SuiteScript modules.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-116"><strong id="archive-title-116">Financial Data Migration Scripts</strong><span>NetSuite/SuiteScript</span><span>Facilitated seamless legacy data transition into the NetSuite ERP ecosystem using targeted automated scripts.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-117"><strong id="archive-title-117">Technical Documentation Hub</strong><span>Other</span><span>Comprehensive Markdown-based architecture and process documentation for an enterprise system.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-118"><strong id="archive-title-118">DTC Apparel Enhancements</strong><span>JavaScript</span><span>Developed custom frontend modules to enhance user experience for a direct-to-consumer lifestyle brand.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-119"><strong id="archive-title-119">Tour and Activity Booking Integration</strong><span>JavaScript</span><span>Developed dynamic JavaScript components for a high-traffic travel reservation and management platform.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-120"><strong id="archive-title-120">Health Food Retail Platform</strong><span>JavaScript</span><span>Built interactive user interface components and integrations for a specialized nutritional retail storefront.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-121"><strong id="archive-title-121">DTC Beauty ERP Workflow</strong><span>JavaScript</span><span>A targeted NetSuite User Event script optimizing transaction workflows for a direct-to-consumer brand.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-122"><strong id="archive-title-122">Professional Services Website</strong><span>JavaScript</span><span>A lightweight, responsive web presence developed for a boutique consulting firm.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-123"><strong id="archive-title-123">B2B Fulfillment ERP Customization</strong><span>NetSuite/SuiteScript</span><span>Implemented targeted NetSuite automations to optimize warehouse routing and order fulfillment processes.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-124"><strong id="archive-title-124">Wellness Brand E-commerce Scripts</strong><span>JavaScript</span><span>Delivered lightweight frontend interactions and UI enhancements for a boutique wellness platform.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-125"><strong id="archive-title-125">Nutraceutical Storefront Enhancements</strong><span>JavaScript</span><span>Developed responsive JavaScript features and XML data integrations for a dietary supplement e-commerce site.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-126"><strong id="archive-title-126">Pharmacy API Integration</strong><span>JavaScript</span><span>Created a focused JavaScript integration layer for secure telehealth and prescription fulfillment services.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-127"><strong id="archive-title-127">Retail Product Recommendation Extension</strong><span>JavaScript</span><span>A focused JavaScript extension providing automated product recommendation features for an e-commerce storefront.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-128"><strong id="archive-title-128">HRIS Data Integration Pipeline</strong><span>Other</span><span>A data integration workflow designed to synchronize records between payroll and time-tracking platforms.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-129"><strong id="archive-title-129">Developer Tooling Landing Page</strong><span>JavaScript</span><span>Constructed a responsive, interactive marketing website for a cloud development environment platform.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-130"><strong id="archive-title-130">Pharmaceutical Corporate Portal</strong><span>JavaScript</span><span>Built dynamic user interface components for a global pharmaceutical and dermo-cosmetics corporate website.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-131"><strong id="archive-title-131">DTC Makeup Storefront</strong><span>JavaScript</span><span>Developed targeted UI modules to improve cart conversion rates for a rapidly growing direct-to-consumer beauty brand.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-132"><strong id="archive-title-132">ERP System Diagnostics</strong><span>NetSuite/SuiteScript</span><span>Created minimal NetSuite validation scripts to ensure environment integrity and functionality.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-133"><strong id="archive-title-133">Digital Asset Education Platform</strong><span>JavaScript</span><span>Engineered a comprehensive interactive learning module for cryptocurrency and digital asset education.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-134"><strong id="archive-title-134">Financial Advisory Dashboard</strong><span>JavaScript</span><span>Implemented customized interactive frontend components for a boutique financial management advisory firm.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-135"><strong id="archive-title-135">AI Workflow Automation Engine</strong><span>Python</span><span>Developed a robust Python automation utility to streamline repetitive system data processing tasks.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-136"><strong id="archive-title-136">ITSM Service Desk Utility</strong><span>Other</span><span>A lightweight configuration utility built to streamline IT service management ticketing workflows.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-137"><strong id="archive-title-137">Enterprise ERP REST Integration</strong><span>Other</span><span>A streamlined REST API service designed to facilitate automated machine-to-machine communication and data synchronization within an enterprise ERP system.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-138"><strong id="archive-title-138">Consumer Goods API Authentication</strong><span>Other</span><span>An integration module handling OAuth2 and SOAP communications for enterprise manufacturing systems.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-139"><strong id="archive-title-139">Enterprise Refund Workflow Interfaces</strong><span>Other</span><span>Process definitions and layout guidelines for an automated corporate customer refund system.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-140"><strong id="archive-title-140">Professional Networking Page</strong><span>Other</span><span>A static HTML landing page designed for targeted professional outreach and portfolio presentation.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-141"><strong id="archive-title-141">Cosmetics Data Schema</strong><span>Other</span><span>Defined structured XML data schemas for product catalog management in a retail environment.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-142"><strong id="archive-title-142">Skincare E-commerce UI</strong><span>JavaScript</span><span>Built specialized interactive frontend components for a high-traffic skincare brand storefront.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-143"><strong id="archive-title-143">Specialty Retail Storefront</strong><span>JavaScript</span><span>Enhanced product filtering and display capabilities using custom JavaScript for a specialty apparel site.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-144"><strong id="archive-title-144">Logistics Inventory Reconciliation</strong><span>Other</span><span>Documentation and utility configuration designed to streamline and automate warehouse inventory reconciliation processes.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-145"><strong id="archive-title-145">Financial Services Authentication Module</strong><span>Other</span><span>A secure authentication integration module for financial institution access.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-146"><strong id="archive-title-146">Technical Documentation Page</strong><span>Other</span><span>A streamlined single-page web asset providing structured technical guidelines.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-147"><strong id="archive-title-147">Automated Document Generation</strong><span>JavaScript</span><span>Created a custom utility to programmatically generate dynamic PDF invoices for an e-commerce platform.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-148"><strong id="archive-title-148">Static Promotional Site</strong><span>Other</span><span>A streamlined HTML landing page for product marketing.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-149"><strong id="archive-title-149">Clean Beauty Network Platform</strong><span>Clean Beauty Network</span><span>Multi-channel clean beauty company with complex commission structures and inventory allocation logic.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-150"><strong id="archive-title-150">Version Control Utility Script</strong><span>JavaScript</span><span>Authored a specialized JavaScript utility to automate and manage custom source control workflows.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-151"><strong id="archive-title-151">Minimalist Retail UI Component</strong><span>JavaScript</span><span>Implemented targeted frontend animations and interactions for a highly curated direct-to-consumer brand website.</span></article>
-          
-          <article class="archive-row" aria-labelledby="archive-title-152"><strong id="archive-title-152">Biotech Dashboard Module</strong><span>JavaScript</span><span>Developed a concise JavaScript visualization component for a specialized biopharmaceutical data dashboard.</span></article>
+        <article class="case-card reveal">
+          <span class="case-tag">Sports Equipment</span>
+          <h3 class="case-name">Global Sports Equipment Manufacturer</h3>
+
+          <div class="case-points">
+            
+              <div class="case-row"><b>Problem</b><span>A global snowboard and sports equipment manufacturer operating across North America, Europe, and Asia-Pacific needed a unified ERP platform to orchestrate multi-vendor integrations, complex pricing engines, and multi-channel fulfillment  -  with no existing architecture in place.</span></div>
+              
+              <div class="case-row"><b>Architecture</b><span>Served as sole technical architect from requirements through production. Designed and delivered the complete platform: multi-vendor integrations, dynamic pricing engines, automated fulfillment workflows, payment processing, and multi-subsidiary financial consolidation. Built the entire 1,248-file codebase end-to-end.</span></div>
+              
+              <div class="case-row"><b>Outcome</b><span>Replaced manual multi-system operations with a fully automated ERP ecosystem. Enabled the company to scale global e-commerce and B2B operations without adding headcount to back-office teams.</span></div>
+            
+          </div>
+
+          
+          <div class="case-metrics-bar">
+            
+            <div class="case-metric-chip">
+              <strong>1,200+</strong>
+              <span>scripts</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>Sole</strong>
+              <span>architect</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>Multi-sub</strong>
+              <span>global</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>Full</strong>
+              <span>lifecycle</span>
+            </div>
+            
+          </div>
+          
+
+          
+          
+    
+    <p class="case-tech-line"><b>System boundary</b>SuiteScript 2.x / SuiteFlow / Celigo iPaaS / REST APIs / Shopify / Multi-subsidiary</p>
+        </article>
+        
+        <article class="case-card reveal">
+          <span class="case-tag">Consumer Electronics</span>
+          <h3 class="case-name">Consumer Electronics Brand Platform</h3>
+
+          <div class="case-points">
+            
+              <div class="case-row"><b>Problem</b><span>A major consumer electronics brand with globally recognized kitchen appliance products needed deep NetSuite customization: 95+ custom UIs, heavy batch data processing, and complex inventory workflows across retail and DTC channels.</span></div>
+              
+              <div class="case-row"><b>Architecture</b><span>Built a long-term, high-touch platform with 697+ active scripts, 95+ Suitelets for custom operational UIs, 35+ MapReduce scripts for batch processing, and 27+ UserEvent scripts for business logic automation.</span></div>
+              
+              <div class="case-row"><b>Outcome</b><span>Delivered a deeply customized ERP that became the operational backbone for global product distribution, eliminating manual data entry across retail and DTC fulfillment channels.</span></div>
+            
+          </div>
+
+          
+          <div class="case-metrics-bar">
+            
+            <div class="case-metric-chip">
+              <strong>697+</strong>
+              <span>scripts</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>95+</strong>
+              <span>Suitelets</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>35+</strong>
+              <span>MapReduce</span>
+            </div>
+            
+          </div>
+          
+
+          
+          
+    
+    <p class="case-tech-line"><b>System boundary</b>SuiteScript 2.x / Suitelets / MapReduce / UserEvent / SuiteFlow</p>
+        </article>
+        
+        <article class="case-card reveal">
+          <span class="case-tag">Full-Stack SaaS</span>
+          <h3 class="case-name">EKW-SPHERE Operations Platform</h3>
+
+          <div class="case-points">
+            
+              <div class="case-row"><b>Problem</b><span>Needed a centralized operations platform for demand planning, inventory reconciliation, and financial reporting across a 20+ client portfolio  -  existing tools were fragmented and lacked security controls.</span></div>
+              
+              <div class="case-row"><b>Architecture</b><span>Built a production SaaS platform from scratch: 10 internal tools spanning demand forecasting, inventory reconciliation, client health dashboards, and automated reporting. Enterprise security with RBAC, 2FA, field-level encryption, and audit logging. Performance-tuned to sustain 3,600+ requests/second.</span></div>
+              
+              <div class="case-row"><b>Outcome</b><span>Consolidated 10 separate operational workflows into a single platform. Reduced manual reporting from hours to real-time dashboards. Serves as the operational backbone for the entire consulting practice.</span></div>
+            
+          </div>
+
+          
+          <div class="case-metrics-bar">
+            
+            <div class="case-metric-chip">
+              <strong>29,500+</strong>
+              <span>lines Python</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>3,600+</strong>
+              <span>RPS</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>10</strong>
+              <span>tools</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>220+</strong>
+              <span>source files</span>
+            </div>
+            
+          </div>
+          
+
+          
+          
+    
+    <p class="case-tech-line"><b>System boundary</b>Python / Flask / PostgreSQL / Redis / Celery / React / TypeScript</p>
+        </article>
+        
+      </div>
+
+      <!-- Project Archive -->
+      
+      <div class="archive-wrap reveal">
+        <button class="archive-btn" id="portfolioToggle" type="button" aria-expanded="false" aria-controls="extendedPortfolio">View all 152 projects</button>
+
+        <div class="archive-list" id="extendedPortfolio">
+          
+          <article class="archive-row" aria-labelledby="archive-title-1">
+            <strong id="archive-title-1">COMEX Commodity Trading Platform</strong>
+            <span>Metals &amp; Commodities</span>
+            <span>59038 lines of code</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-2">
+            <strong id="archive-title-2">Signifyd Fraud-Integrated Platform</strong>
+            <span>Omnichannel E-Commerce</span>
+            <span>7950 lines of code</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-3">
+            <strong id="archive-title-3">Multi-Client B2B Fulfillment Platform</strong>
+            <span>Multi-Client B2B</span>
+            <span>11974 lines of code</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-4">
+            <strong id="archive-title-4">Major DTC Beauty Brand Platform</strong>
+            <span>DTC Beauty</span>
+            <span>3142 lines of code</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-5">
+            <strong id="archive-title-5">Retail EDI Connectivity Platform</strong>
+            <span>Retail EDI &amp; Integration</span>
+            <span>62 lines of code</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-6">
+            <strong id="archive-title-6">Global Golf Equipment Brand</strong>
+            <span>Sports / Retail</span>
+            <span>Large-scale NetSuite implementation for a golf equipment manufacturer with complex inventory management, B2B/B2C portals, and order processing workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-7">
+            <strong id="archive-title-7">Enterprise Wholesale ERP System</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A comprehensive NetSuite implementation featuring extensive SuiteScript 2.x customizations and automated integration pipelines to streamline high-volume business operations.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-8">
+            <strong id="archive-title-8">Enterprise E-commerce Platform Refresh</strong>
+            <span>JavaScript</span>
+            <span>A comprehensive overhaul of a large-scale enterprise e-commerce platform utilizing extensive configuration and JavaScript to enhance user experience and system performance.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-9">
+            <strong id="archive-title-9">Large-Scale Enterprise ERP Platform</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A comprehensive NetSuite ERP customization featuring an extensive frontend architecture and complex business process automation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-10">
+            <strong id="archive-title-10">Enterprise Agent Orchestration System</strong>
+            <span>Python</span>
+            <span>A highly concurrent, large-scale orchestration system designed to coordinate distributed automated agents and processes.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-11">
+            <strong id="archive-title-11">Regional Food Manufacturing System</strong>
+            <span>Python</span>
+            <span>An enterprise-scale data management and logistics platform streamlining food production operations using a robust Python and TypeScript architecture.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-12">
+            <strong id="archive-title-12">Enterprise Business Workflow Automation</strong>
+            <span>JavaScript</span>
+            <span>A vast library of JavaScript automation modules designed to streamline complex business logic and operational workflows across enterprise systems.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-13">
+            <strong id="archive-title-13">Enterprise Customer Portal</strong>
+            <span>Python</span>
+            <span>A comprehensive, full-stack client management platform built with Python and JavaScript to streamline user interactions and complex data processing.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-14">
+            <strong id="archive-title-14">Industrial Supply Company</strong>
+            <span>Industrial / Manufacturing</span>
+            <span>Manufacturing and distribution ERP with custom procurement workflows, vendor management, and production tracking.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-15">
+            <strong id="archive-title-15">Global E-Commerce ERP Platform</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A comprehensive enterprise resource planning implementation leveraging SuiteScript 2.x to automate complex retail business processes.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-16">
+            <strong id="archive-title-16">Enterprise Operations Ecosystem</strong>
+            <span>Python</span>
+            <span>A robust internal management platform built with Python and JavaScript to streamline enterprise workflows and centralize business data.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-17">
+            <strong id="archive-title-17">Enterprise Integration Middleware</strong>
+            <span>JavaScript</span>
+            <span>A centralized JavaScript-based integration framework bridging operational data sources and automated reporting modules.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-18">
+            <strong id="archive-title-18">ERP Operational Script Repository</strong>
+            <span>JavaScript</span>
+            <span>A comprehensive suite of custom JavaScript solutions engineered to automate core ERP processes and data validation requirements.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-19">
+            <strong id="archive-title-19">Apparel Manufacturing ERP Implementation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A production-ready ERP customization automating complex manufacturing workflows, supply chain routing, and financial reconciliation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-20">
+            <strong id="archive-title-20">Media Agency ERP Integration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A robust NetSuite automation initiative utilizing SuiteScript 2.x to customize business processes and manage complex data flows for a digital media enterprise.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-21">
+            <strong id="archive-title-21">DTC Beauty Brand ERP Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Custom NetSuite ERP automation and XML-based integrations streamlining operations for a direct-to-consumer cosmetics brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-22">
+            <strong id="archive-title-22">Internal Operations Command Center</strong>
+            <span>Web Application</span>
+            <span>A comprehensive web dashboard built with Next.js and TypeScript to centralize enterprise workflows and facilitate real-time data management.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-23">
+            <strong id="archive-title-23">HRIS &amp; Payroll API Integration</strong>
+            <span>JavaScript</span>
+            <span>A robust middleware integration synchronizing employee time-tracking and payroll data between enterprise human resources systems.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-24">
+            <strong id="archive-title-24">Supply Chain Network Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A sophisticated architecture designed to optimize vendor management, procurement routing, and global inventory allocation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-25">
+            <strong id="archive-title-25">Enterprise ERP Component Extension</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Developed a comprehensive SuiteScript customization to enhance complex data selection and record management within an enterprise resource planning environment.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-26">
+            <strong id="archive-title-26">Public Sector ERP Integration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>An extensive NetSuite and Python integration designed to automate compliance reporting and complex financial business processes for a public service organization.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-27">
+            <strong id="archive-title-27">iOS Application Suite</strong>
+            <span>Other</span>
+            <span>A collection of native iOS applications and components developed using Swift.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-28">
+            <strong id="archive-title-28">Enterprise IT Services Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A NetSuite ERP implementation utilizing SuiteScript 2.x to automate specialized business workflows and optimize enterprise resource planning.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-29">
+            <strong id="archive-title-29">Global Marketplace ERP Integration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>An automated NetSuite SuiteScript solution synchronizing fulfillment data and inventory metrics with third-party e-commerce marketplace channels.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-30">
+            <strong id="archive-title-30">Cold Chain Logistics ERP System</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A specialized operational platform automating temperature-controlled inventory management and regulatory compliance workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-31">
+            <strong id="archive-title-31">Enterprise ERP Workflow Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>SuiteScript-driven customizations designed to optimize business processes and operational efficiency within a corporate NetSuite environment.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-32">
+            <strong id="archive-title-32">Infrastructure Automation Toolkit</strong>
+            <span>Python</span>
+            <span>A robust suite of Python and shell scripts engineered to automate routine server provisioning, streamline configuration management, and optimize deployment workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-33">
+            <strong id="archive-title-33">Competitor Market Intelligence Engine</strong>
+            <span>Python</span>
+            <span>A robust data extraction pipeline leveraging Python and TypeScript to aggregate and analyze competitive product catalogs at scale.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-34">
+            <strong id="archive-title-34">Warehousing Network Middleware</strong>
+            <span>JavaScript</span>
+            <span>A JavaScript-based integration solution designed to synchronize operational data and streamline processes across distributed fulfillment centers.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-35">
+            <strong id="archive-title-35">DTC Cosmetics Data Migration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A large-scale data transformation and import framework designed to transition legacy retail records into a modernized ERP environment.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-36">
+            <strong id="archive-title-36">Investment Group Web Platform</strong>
+            <span>Web Application</span>
+            <span>A modern, responsive web application built with Next.js and TypeScript serving as the digital hub for a private investment and finance community.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-37">
+            <strong id="archive-title-37">B2B Financial Automation Suite</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A targeted set of enterprise scripts engineered to automate complex financial reporting and multi-subsidiary consolidation processes.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-38">
+            <strong id="archive-title-38">Financial Operations Dashboard</strong>
+            <span>Web Application</span>
+            <span>A responsive Next.js and React web application developed with TypeScript to centralize internal operational tracking and financial analytics.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-39">
+            <strong id="archive-title-39">Productivity Synchronization Middleware</strong>
+            <span>JavaScript</span>
+            <span>A scalable backend integration service utilizing Fastify and TypeScript to seamlessly synchronize data between task management and time tracking platforms.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-40">
+            <strong id="archive-title-40">Enterprise ERP Analytics Platform</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A comprehensive web-based dashboard built with Next.js and React that integrates deeply with enterprise ERP systems to automate complex business processes and streamline data analysis workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-41">
+            <strong id="archive-title-41">Regional Distribution Hub Operations</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A localized enterprise solution facilitating cross-border fulfillment, regional tax compliance, and automated warehouse routing.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-42">
+            <strong id="archive-title-42">Autonomous Agent Management Interface</strong>
+            <span>Web Application</span>
+            <span>A modern, React-based web dashboard built for configuring, monitoring, and orchestrating intelligent automated agents.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-43">
+            <strong id="archive-title-43">Refurbished Equipment Logistics System</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A comprehensive ERP customization managing the intake, refurbishment lifecycle, and resale fulfillment of high-value technical assets.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-44">
+            <strong id="archive-title-44">Luxury Retail E-commerce Middleware</strong>
+            <span>JavaScript</span>
+            <span>A specialized JavaScript integration orchestrating synchronized catalog updates and inventory availability across high-traffic digital storefronts.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-45">
+            <strong id="archive-title-45">Resource Capacity Planning Middleware</strong>
+            <span>JavaScript</span>
+            <span>A JavaScript-driven integration solution built to seamlessly synchronize capacity and resource data with enterprise NetSuite environments.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-46">
+            <strong id="archive-title-46">Personal Finance Mobile App</strong>
+            <span>Other</span>
+            <span>A native iOS application developed in Swift for intuitive personal budget tracking.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-47">
+            <strong id="archive-title-47">Algorithmic Trading System</strong>
+            <span>Algorithmic Trading</span>
+            <span>Financial analysis and automated trading execution platform with Ichimoku cloud analysis, real-time market data processing, and position management.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-48">
+            <strong id="archive-title-48">Boutique Manufacturing Workflow</strong>
+            <span>JavaScript</span>
+            <span>An automated workflow engine designed to track custom manufacturing orders from initial design through final customer delivery.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-49">
+            <strong id="archive-title-49">Hair Wellness DTC Brand</strong>
+            <span>Hair Wellness</span>
+            <span>High-growth hair wellness brand with subscription management, 3PL integration, and DTC fulfillment automation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-50">
+            <strong id="archive-title-50">Sales Analytics Dashboard</strong>
+            <span>Web Application</span>
+            <span>A high-performance Next.js and React web application built with TypeScript to deliver real-time lead analytics and responsive data visualization.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-51">
+            <strong id="archive-title-51">DTC Skincare Fulfillment Automation</strong>
+            <span>JavaScript</span>
+            <span>A targeted JavaScript integration streamlining direct-to-consumer order processing and third-party logistics synchronization.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-52">
+            <strong id="archive-title-52">Media Streaming ERP Portal</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A full-stack video delivery service bridging a React and Express frontend with NetSuite backend operations for seamless user and subscription management.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-53">
+            <strong id="archive-title-53">Third-Party Logistics Integration</strong>
+            <span>JavaScript</span>
+            <span>A custom JavaScript integration facilitating automated data exchange and order synchronization with an external fulfillment provider.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-54">
+            <strong id="archive-title-54">Enterprise API Gateway Integration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A robust ERP integration layer securely exposing internal business logic to external partner applications and third-party vendors.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-55">
+            <strong id="archive-title-55">Service Provider Web Portal</strong>
+            <span>JavaScript</span>
+            <span>A web platform built with PHP and JavaScript for managing customer connectivity and service requests.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-56">
+            <strong id="archive-title-56">Enterprise ERP Integration Suite</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A tailored NetSuite customization suite leveraging SuiteScript 2.x and XML to automate critical business processes and enhance enterprise resource planning.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-57">
+            <strong id="archive-title-57">AI-Driven ERP Diagnostic Tool</strong>
+            <span>Python</span>
+            <span>An intelligent utility built with Python and JavaScript designed to automatically evaluate and analyze enterprise system configurations.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-58">
+            <strong id="archive-title-58">Luxury Cosmetics Brand</strong>
+            <span>Luxury Cosmetics</span>
+            <span>Full ERP customization for a prestige cosmetics brand  -  order management, inventory allocation, and multi-channel fulfillment.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-59">
+            <strong id="archive-title-59">Clinical Skincare Brand</strong>
+            <span>Clinical Skincare</span>
+            <span>NetSuite customization for clinical skincare brand  -  order management, inventory sync, and fulfillment automation (123+ scripts)</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-60">
+            <strong id="archive-title-60">Algorithmic Demand Planning Integration</strong>
+            <span>Other</span>
+            <span>A sophisticated C# service applying statistical modeling to historical sales data to automate predictive inventory replenishment.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-61">
+            <strong id="archive-title-61">Clean Beauty Brand</strong>
+            <span>Clean Beauty</span>
+            <span>Sustainable beauty brand platform with inventory management, Shopify integration, and automated fulfillment workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-62">
+            <strong id="archive-title-62">Pet Care Workflow Integration</strong>
+            <span>JavaScript</span>
+            <span>A JavaScript and XML integration system streamlining product catalog management and automated order processing for a specialized retail brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-63">
+            <strong id="archive-title-63">Travel Data Analytics Engine</strong>
+            <span>Python</span>
+            <span>A data processing and analytics utility utilizing Python to aggregate, analyze, and report on international travel metrics from tabular datasets.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-64">
+            <strong id="archive-title-64">E-Commerce Fulfillment Automation</strong>
+            <span>Python</span>
+            <span>Automated fulfillment and inventory synchronization integration leveraging JavaScript, Python, and Playwright for an international e-commerce network.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-65">
+            <strong id="archive-title-65">Financial Invoicing Engine</strong>
+            <span>Python</span>
+            <span>A robust Python-based application that automates the generation, processing, and formatting of standardized billing documents.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-66">
+            <strong id="archive-title-66">DTC Cosmetics ERP Integration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A specialized NetSuite customization leveraging XML configuration and SuiteScript to streamline retail operations for a direct-to-consumer brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-67">
+            <strong id="archive-title-67">Logistics &amp; Fulfillment Integration</strong>
+            <span>JavaScript</span>
+            <span>A JavaScript-based integration system bridging e-commerce platforms with shipping and fulfillment providers.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-68">
+            <strong id="archive-title-68">B2B E-Commerce Connector</strong>
+            <span>JavaScript</span>
+            <span>A specialized JavaScript-based solution extending traditional retail platforms to support complex wholesale and business-to-business transactions.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-69">
+            <strong id="archive-title-69">Sales Force Automation Sync</strong>
+            <span>Other</span>
+            <span>A robust C# application synchronizing critical pipeline data and product availability between external CRM systems and the central operational platform.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-70">
+            <strong id="archive-title-70">Consumer Food Delivery iOS App</strong>
+            <span>Other</span>
+            <span>A native Swift mobile application providing users with an intuitive, location-based interface for ordering and delivery tracking.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-71">
+            <strong id="archive-title-71">Digital Media Enterprise ERP</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Implemented custom SuiteScript automations and XML integrations to streamline business operations for a digital media enterprise.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-72">
+            <strong id="archive-title-72">Health &amp; Wellness ERP Automation</strong>
+            <span>JavaScript</span>
+            <span>A suite of custom JavaScript integrations and automated business processes designed to streamline order fulfillment and inventory management for a consumer supplements retailer.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-73">
+            <strong id="archive-title-73">Japanese-Inspired Skincare Brand</strong>
+            <span>Japanese Skincare</span>
+            <span>Luxury skincare brand platform with international fulfillment, inventory management, and e-commerce integration.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-74">
+            <strong id="archive-title-74">Automated Invoice Generation Tool</strong>
+            <span>Python</span>
+            <span>Built a Python-based utility to automatically generate and format professional HTML invoices via shell scripting.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-75">
+            <strong id="archive-title-75">Sporting Goods ERP Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A tailored NetSuite implementation utilizing SuiteScript and Python to streamline retail operations, order processing, and inventory management.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-76">
+            <strong id="archive-title-76">Minimalist Beauty Brand</strong>
+            <span>Minimalist Beauty</span>
+            <span>Streamlined ERP automation for a fast-growing minimalist beauty brand with Shopify and 3PL connectivity.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-77">
+            <strong id="archive-title-77">Interactive Frontend Web Application</strong>
+            <span>Web Application</span>
+            <span>Designed and developed a responsive, interactive web application utilizing React and TypeScript for robust state management.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-78">
+            <strong id="archive-title-78">Native iOS Social Networking App</strong>
+            <span>Other</span>
+            <span>Constructed a native iOS social application utilizing Swift to deliver seamless user interactions and robust mobile networking.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-79">
+            <strong id="archive-title-79">Supply Chain Network ERP Deployment</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Orchestrated a comprehensive NetSuite ERP deployment featuring custom SuiteScript 2.x modules for supply chain operations.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-80">
+            <strong id="archive-title-80">Event Management Automation Platform</strong>
+            <span>JavaScript</span>
+            <span>Created dynamic JavaScript-based automation scripts to facilitate on-site event logistics and operational tracking.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-81">
+            <strong id="archive-title-81">Version Control Automation Utility</strong>
+            <span>Python</span>
+            <span>A specialized utility leveraging JavaScript and Python to streamline and automate customized repository management workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-82">
+            <strong id="archive-title-82">Secure Payment Gateway Integration</strong>
+            <span>Python</span>
+            <span>Integrated secure payment processing capabilities utilizing Python to connect backend systems with financial gateway APIs.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-83">
+            <strong id="archive-title-83">Phone Terminal PWA</strong>
+            <span>Developer Utility</span>
+            <span>Access your MacBook terminal from your iPhone. Persistent sessions via tmux, WebSocket-based real-time communication, and mobile-optimized xterm.js interface.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-84">
+            <strong id="archive-title-84">DTC Beauty Brand ERP Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A targeted NetSuite SuiteScript implementation built to streamline e-commerce order processing and inventory fulfillment workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-85">
+            <strong id="archive-title-85">ERP Development Automation Toolkit</strong>
+            <span>Python</span>
+            <span>A standardized Python and JavaScript tooling suite designed to automate and enforce consistent local development environments for NetSuite engineering teams.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-86">
+            <strong id="archive-title-86">Expense Management System Connector</strong>
+            <span>Other</span>
+            <span>Formulated a data mapping and integration layer to synchronize enterprise expense reporting systems via structured JSON payloads.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-87">
+            <strong id="archive-title-87">Luxury Cosmetics E-Commerce Optimization</strong>
+            <span>JavaScript</span>
+            <span>Streamlined e-commerce functionalities and user experience for a direct-to-consumer beauty brand using specialized JavaScript implementations.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-88">
+            <strong id="archive-title-88">Industrial Manufacturing Application</strong>
+            <span>JavaScript</span>
+            <span>A data-intensive custom JavaScript solution designed to manage specialized workflows for the industrial chemical sector.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-89">
+            <strong id="archive-title-89">Skincare Brand Operational Workflow</strong>
+            <span>JavaScript</span>
+            <span>Customized core operational business workflows utilizing JavaScript and XML for a rapidly scaling direct-to-consumer skincare brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-90">
+            <strong id="archive-title-90">Enterprise ERP Data Migration Layer</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Executed a targeted NetSuite ERP data migration utilizing SuiteScript 2.x to ensure seamless business continuity.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-91">
+            <strong id="archive-title-91">Commercial Furniture ERP Customization</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Implemented custom NetSuite SuiteScript modules to automate inventory and fulfillment processes for a commercial furniture provider.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-92">
+            <strong id="archive-title-92">Professional Networking Data Analysis</strong>
+            <span>Other</span>
+            <span>Compiled and structured comprehensive professional networking data sets using standardized HTML and Markdown documentation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-93">
+            <strong id="archive-title-93">Celebrity-Founded Beauty Brand</strong>
+            <span>Celebrity Beauty</span>
+            <span>Emerging celebrity beauty brand with e-commerce integration and initial ERP automation setup.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-94">
+            <strong id="archive-title-94">Warehouse Capacity &amp; Fulfillment Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Developed a NetSuite SDF project utilizing SuiteScript 2.x to automate warehouse scanning and optimize fulfillment capacity.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-95">
+            <strong id="archive-title-95">Clean Color Cosmetics Brand</strong>
+            <span>Clean Color Cosmetics</span>
+            <span>Clean cosmetics brand with multi-channel order routing, inventory sync, and Shopify-NetSuite connectivity.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-96">
+            <strong id="archive-title-96">Consumer Goods Prototyping Platform</strong>
+            <span>JavaScript</span>
+            <span>Engineered specialized JavaScript functionalities to support a consumer-focused product prototyping and delivery platform.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-97">
+            <strong id="archive-title-97">Appliance Manufacturer ERP Framework</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Structured an automated SuiteCloud Development Framework deployment to streamline ERP updates for a consumer appliance manufacturer.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-98">
+            <strong id="archive-title-98">Luxury Fashion Retail Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Customized NetSuite business processes using SuiteScript to enhance retail operations for a luxury fashion accessory brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-99">
+            <strong id="archive-title-99">ERP Demand Planning Connector</strong>
+            <span>JavaScript</span>
+            <span>Built a tailored JavaScript integration to synchronize enterprise resource planning with advanced demand forecasting systems.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-100">
+            <strong id="archive-title-100">EKW Auto Login</strong>
+            <span>Automation</span>
+            <span>Automated authentication system for multi-portal access management, streamlining daily operational workflows across client environments.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-101">
+            <strong id="archive-title-101">Project Management Automation Scripts</strong>
+            <span>Other</span>
+            <span>Created custom shell scripts to automate and streamline agile project management workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-102">
+            <strong id="archive-title-102">Beverage E-Commerce Customization</strong>
+            <span>JavaScript</span>
+            <span>Optimized e-commerce functionalities with targeted JavaScript enhancements for a specialized consumer beverage brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-103">
+            <strong id="archive-title-103">Consulting Services ERP Enhancements</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Deployed concise SuiteScript 2.x customizations to support specialized billing and resource management for a consulting firm.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-104">
+            <strong id="archive-title-104">Bulk Data Processing Utility</strong>
+            <span>JavaScript</span>
+            <span>Developed an efficient JavaScript utility to automate the parsing, transformation, and processing of bulk CSV data feeds.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-105">
+            <strong id="archive-title-105">Personal Care Franchise Integration</strong>
+            <span>JavaScript</span>
+            <span>A focused JavaScript and XML integration developed to streamline operational workflows for a national beauty retail chain.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-106">
+            <strong id="archive-title-106">Clean Beauty Digital Optimization</strong>
+            <span>JavaScript</span>
+            <span>Implemented targeted JavaScript and XML refinements to support dynamic e-commerce operations for a cosmetics brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-107">
+            <strong id="archive-title-107">Procedural Animation Scripts</strong>
+            <span>Python</span>
+            <span>A specialized collection of Python scripts developed for programmatic visualization and automated animation generation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-108">
+            <strong id="archive-title-108">Digital Marketing Portal</strong>
+            <span>Other</span>
+            <span>A streamlined digital marketing platform utilizing markdown and static HTML for optimized content distribution.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-109">
+            <strong id="archive-title-109">Digital Portfolio Platform</strong>
+            <span>Other</span>
+            <span>A streamlined static web platform utilizing HTML and Markdown for high-performance content delivery and professional presentation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-110">
+            <strong id="archive-title-110">Consumer Finance ERP Integration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Delivered customized NetSuite scripting solutions to support backend financial operations for a consumer credit provider.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-111">
+            <strong id="archive-title-111">ERP Orchestration Engine</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A SuiteScript-driven NetSuite customization for automating complex enterprise business processes.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-112">
+            <strong id="archive-title-112">Dermatological Skincare Web Enhancements</strong>
+            <span>JavaScript</span>
+            <span>Provided precise JavaScript enhancements to elevate the digital storefront of a premium dermatological brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-113">
+            <strong id="archive-title-113">Logistics Data Management Script</strong>
+            <span>Python</span>
+            <span>Engineered a lightweight Python application to manage and configure specialized logistics data parameters.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-114">
+            <strong id="archive-title-114">Appliance Retailer Data Pipeline</strong>
+            <span>Python</span>
+            <span>A customized Python-based ODBC integration utility designed to securely extract and transform mission-critical enterprise data.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-115">
+            <strong id="archive-title-115">Global Sourcing ERP Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Streamlined procurement workflows and supplier data management through custom SuiteScript modules.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-116">
+            <strong id="archive-title-116">Financial Data Migration Scripts</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Facilitated seamless legacy data transition into the NetSuite ERP ecosystem using targeted automated scripts.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-117">
+            <strong id="archive-title-117">Technical Documentation Hub</strong>
+            <span>Other</span>
+            <span>Comprehensive Markdown-based architecture and process documentation for an enterprise system.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-118">
+            <strong id="archive-title-118">DTC Apparel Enhancements</strong>
+            <span>JavaScript</span>
+            <span>Developed custom frontend modules to enhance user experience for a direct-to-consumer lifestyle brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-119">
+            <strong id="archive-title-119">Tour and Activity Booking Integration</strong>
+            <span>JavaScript</span>
+            <span>Developed dynamic JavaScript components for a high-traffic travel reservation and management platform.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-120">
+            <strong id="archive-title-120">Health Food Retail Platform</strong>
+            <span>JavaScript</span>
+            <span>Built interactive user interface components and integrations for a specialized nutritional retail storefront.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-121">
+            <strong id="archive-title-121">DTC Beauty ERP Workflow</strong>
+            <span>JavaScript</span>
+            <span>A targeted NetSuite User Event script optimizing transaction workflows for a direct-to-consumer brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-122">
+            <strong id="archive-title-122">Professional Services Website</strong>
+            <span>JavaScript</span>
+            <span>A lightweight, responsive web presence developed for a boutique consulting firm.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-123">
+            <strong id="archive-title-123">B2B Fulfillment ERP Customization</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Implemented targeted NetSuite automations to optimize warehouse routing and order fulfillment processes.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-124">
+            <strong id="archive-title-124">Wellness Brand E-commerce Scripts</strong>
+            <span>JavaScript</span>
+            <span>Delivered lightweight frontend interactions and UI enhancements for a boutique wellness platform.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-125">
+            <strong id="archive-title-125">Nutraceutical Storefront Enhancements</strong>
+            <span>JavaScript</span>
+            <span>Developed responsive JavaScript features and XML data integrations for a dietary supplement e-commerce site.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-126">
+            <strong id="archive-title-126">Pharmacy API Integration</strong>
+            <span>JavaScript</span>
+            <span>Created a focused JavaScript integration layer for secure telehealth and prescription fulfillment services.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-127">
+            <strong id="archive-title-127">Retail Product Recommendation Extension</strong>
+            <span>JavaScript</span>
+            <span>A focused JavaScript extension providing automated product recommendation features for an e-commerce storefront.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-128">
+            <strong id="archive-title-128">HRIS Data Integration Pipeline</strong>
+            <span>Other</span>
+            <span>A data integration workflow designed to synchronize records between payroll and time-tracking platforms.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-129">
+            <strong id="archive-title-129">Developer Tooling Landing Page</strong>
+            <span>JavaScript</span>
+            <span>Constructed a responsive, interactive marketing website for a cloud development environment platform.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-130">
+            <strong id="archive-title-130">Pharmaceutical Corporate Portal</strong>
+            <span>JavaScript</span>
+            <span>Built dynamic user interface components for a global pharmaceutical and dermo-cosmetics corporate website.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-131">
+            <strong id="archive-title-131">DTC Makeup Storefront</strong>
+            <span>JavaScript</span>
+            <span>Developed targeted UI modules to improve cart conversion rates for a rapidly growing direct-to-consumer beauty brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-132">
+            <strong id="archive-title-132">ERP System Diagnostics</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Created minimal NetSuite validation scripts to ensure environment integrity and functionality.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-133">
+            <strong id="archive-title-133">Digital Asset Education Platform</strong>
+            <span>JavaScript</span>
+            <span>Engineered a comprehensive interactive learning module for cryptocurrency and digital asset education.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-134">
+            <strong id="archive-title-134">Financial Advisory Dashboard</strong>
+            <span>JavaScript</span>
+            <span>Implemented customized interactive frontend components for a boutique financial management advisory firm.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-135">
+            <strong id="archive-title-135">AI Workflow Automation Engine</strong>
+            <span>Python</span>
+            <span>Developed a robust Python automation utility to streamline repetitive system data processing tasks.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-136">
+            <strong id="archive-title-136">ITSM Service Desk Utility</strong>
+            <span>Other</span>
+            <span>A lightweight configuration utility built to streamline IT service management ticketing workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-137">
+            <strong id="archive-title-137">Enterprise ERP REST Integration</strong>
+            <span>Other</span>
+            <span>A streamlined REST API service designed to facilitate automated machine-to-machine communication and data synchronization within an enterprise ERP system.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-138">
+            <strong id="archive-title-138">Consumer Goods API Authentication</strong>
+            <span>Other</span>
+            <span>An integration module handling OAuth2 and SOAP communications for enterprise manufacturing systems.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-139">
+            <strong id="archive-title-139">Enterprise Refund Workflow Interfaces</strong>
+            <span>Other</span>
+            <span>Process definitions and layout guidelines for an automated corporate customer refund system.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-140">
+            <strong id="archive-title-140">Professional Networking Page</strong>
+            <span>Other</span>
+            <span>A static HTML landing page designed for targeted professional outreach and portfolio presentation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-141">
+            <strong id="archive-title-141">Cosmetics Data Schema</strong>
+            <span>Other</span>
+            <span>Defined structured XML data schemas for product catalog management in a retail environment.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-142">
+            <strong id="archive-title-142">Skincare E-commerce UI</strong>
+            <span>JavaScript</span>
+            <span>Built specialized interactive frontend components for a high-traffic skincare brand storefront.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-143">
+            <strong id="archive-title-143">Specialty Retail Storefront</strong>
+            <span>JavaScript</span>
+            <span>Enhanced product filtering and display capabilities using custom JavaScript for a specialty apparel site.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-144">
+            <strong id="archive-title-144">Logistics Inventory Reconciliation</strong>
+            <span>Other</span>
+            <span>Documentation and utility configuration designed to streamline and automate warehouse inventory reconciliation processes.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-145">
+            <strong id="archive-title-145">Financial Services Authentication Module</strong>
+            <span>Other</span>
+            <span>A secure authentication integration module for financial institution access.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-146">
+            <strong id="archive-title-146">Technical Documentation Page</strong>
+            <span>Other</span>
+            <span>A streamlined single-page web asset providing structured technical guidelines.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-147">
+            <strong id="archive-title-147">Automated Document Generation</strong>
+            <span>JavaScript</span>
+            <span>Created a custom utility to programmatically generate dynamic PDF invoices for an e-commerce platform.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-148">
+            <strong id="archive-title-148">Static Promotional Site</strong>
+            <span>Other</span>
+            <span>A streamlined HTML landing page for product marketing.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-149">
+            <strong id="archive-title-149">Clean Beauty Network Platform</strong>
+            <span>Clean Beauty Network</span>
+            <span>Multi-channel clean beauty company with complex commission structures and inventory allocation logic.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-150">
+            <strong id="archive-title-150">Version Control Utility Script</strong>
+            <span>JavaScript</span>
+            <span>Authored a specialized JavaScript utility to automate and manage custom source control workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-151">
+            <strong id="archive-title-151">Minimalist Retail UI Component</strong>
+            <span>JavaScript</span>
+            <span>Implemented targeted frontend animations and interactions for a highly curated direct-to-consumer brand website.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-152">
+            <strong id="archive-title-152">Biotech Dashboard Module</strong>
+            <span>JavaScript</span>
+            <span>Developed a concise JavaScript visualization component for a specialized biopharmaceutical data dashboard.</span>
+          </article>
           
         </div>
       </div>
     </section>
 
-    <section class="section method" id="method">
-      <div class="wrap">
-        <header class="chapter-head reveal"><h2>Speed needs control.</h2><p>A model-agnostic delivery loop that leaves evidence another engineer can verify.</p></header>
-        <ol class="delivery-loop reveal">
-          <li><span>01</span><div><h3>Frame</h3><p>Bind the real system, constraints, acceptance criteria, and human-owned scope.</p></div></li>
-          <li><span>02</span><div><h3>Route</h3><p>Use role separation and capability routing to assign each task graph node to the right specialist.</p></div></li>
-          <li><span>03</span><div><h3>Build</h3><p>Use test-driven execution with observability inside an explicit authorization boundary.</p></div></li>
-          <li><span>04</span><div><h3>Verify</h3><p>Independent review and evidence gates precede human authorization, guarded deployment, and rollback.</p></div></li>
-          <li><span>05</span><div><h3>Learn</h3><p>Verified outcomes become durable learning without exposing client material or overruling live reality.</p></div></li>
-        </ol>
-        <details class="evidence-drawer reveal"><summary>Experience</summary><div class="experience-strip">
-          <article><span>2021 - present</span><strong>Ekwani Consulting</strong><p>Senior NetSuite Developer and Integration Architect</p></article>
-          <article><span>2019 - 2021</span><strong>Kodella</strong><p>NetSuite Developer</p></article>
-          <article><span>2016 - 2019</span><strong>Oracle NetSuite</strong><p>Engineering Solutions, Defect Deflection, SWAT, and SuiteCloud Support</p></article>
-          <article><span>2016</span><strong>Accenture</strong><p>Development and Operations Intern</p></article>
-        </div></details>
-        <details class="evidence-drawer reveal"><summary>Documents</summary><div class="document-links">
-          <a href="Aquino_Erick_CV_ATS.pdf" target="_blank" rel="noopener"><strong>ATS-optimized CV</strong><span>Structured review</span></a>
-          <a href="Aquino_Erick_CV_Designed.pdf" target="_blank" rel="noopener"><strong>Designed CV</strong><span>Visual review</span></a>
-        </div></details>
+    <!-- ── 03: Stack & Capabilities ── -->
+    <section class="section wrap" id="stack">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-kicker">03 - stack & capabilities</span>
+          <h2 class="section-title">Core Technologies & Boundaries</h2>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="stack-group">
+          <div class="stack-label">ERP Platform & SuiteCloud</div>
+          <div class="pill-grid">
+            <span class="stack-pill">NetSuite</span>
+            <span class="stack-pill">SuiteScript 2.x</span>
+            <span class="stack-pill">SuiteFlow</span>
+            <span class="stack-pill">SuiteTalk</span>
+            <span class="stack-pill">SuiteQL</span>
+            <span class="stack-pill">SDF</span>
+            <span class="stack-pill">Map/Reduce</span>
+            <span class="stack-pill">Suitelets</span>
+            <span class="stack-pill">RESTlets</span>
+            <span class="stack-pill">Multi-Subsidiary</span>
+            <span class="stack-pill">Revenue Recognition</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">Integration & Middleware</div>
+          <div class="pill-grid">
+            <span class="stack-pill">Celigo iPaaS (Legendary)</span>
+            <span class="stack-pill">REST APIs</span>
+            <span class="stack-pill">SOAP Web Services</span>
+            <span class="stack-pill">EDI</span>
+            <span class="stack-pill">Webhooks</span>
+            <span class="stack-pill">ODBC</span>
+            <span class="stack-pill">JSON / XML Transformation</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">3PL, Logistics & Channels</div>
+          <div class="pill-grid">
+            <span class="stack-pill">Masonhub</span>
+            <span class="stack-pill">ShipBob</span>
+            <span class="stack-pill">Capacity 3PL</span>
+            <span class="stack-pill">Radial</span>
+            <span class="stack-pill">ILG</span>
+            <span class="stack-pill">DHL Express</span>
+            <span class="stack-pill">FedEx</span>
+            <span class="stack-pill">Shopify</span>
+            <span class="stack-pill">Amazon</span>
+            <span class="stack-pill">Walmart</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">Engineering, Languages & Tools</div>
+          <div class="pill-grid">
+            <span class="stack-pill">JavaScript</span>
+            <span class="stack-pill">TypeScript</span>
+            <span class="stack-pill">Python (FastAPI / Flask)</span>
+            <span class="stack-pill">SQL</span>
+            <span class="stack-pill">Node.js</span>
+            <span class="stack-pill">Git</span>
+            <span class="stack-pill">CI/CD</span>
+            <span class="stack-pill">Observability</span>
+            <span class="stack-pill">AI-Augmented Engineering</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section contact" id="contact">
-      <div class="wrap contact-vessel glass-vessel reveal">
-        <header class="chapter-head"><h2>Bring me the system that needs clarity.</h2><p>Start with the operating problem and what reliable must mean in production.</p></header>
-        <div class="contact-links reveal">
+    <!-- ── 04: Credentials & Education ── -->
+    <section class="section wrap" id="credentials">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-kicker">04 - credentials</span>
+          <h2 class="section-title">Certifications & Education</h2>
+        </div>
+      </div>
+
+      <div class="cert-grid reveal">
+        <div class="cert-card">
+          <div>
+            <div class="cert-issuer">Celigo</div>
+            <h3 class="cert-title">Mastery Level 4: LEGENDARY</h3>
+            <p class="cert-sub">Highest tier of technical mastery on the Celigo iPaaS platform.</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <div class="cert-issuer">Celigo</div>
+            <h3 class="cert-title">Builder Core Certification</h3>
+            <p class="cert-sub">Architecting high-volume integration flows, error management, and data transformations.</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <div class="cert-issuer">Oracle NetSuite</div>
+            <h3 class="cert-title">NetSuite Certified Associate</h3>
+            <p class="cert-sub">Certified Financial Associate, BI & Reporting Associate, and AI Foundations Associate.</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <div class="cert-issuer">Oracle Cloud Infrastructure</div>
+            <h3 class="cert-title">OCI Certified AI Foundations Associate</h3>
+            <p class="cert-sub">Cloud architecture, machine learning concepts, and AI workloads on Oracle Cloud.</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <div class="cert-issuer">Oracle NetSuite</div>
+            <h3 class="cert-title">NetSuite SuiteFoundation</h3>
+            <p class="cert-sub">Core NetSuite ERP platform configuration, security, user administration, and financial workflows.</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <div class="cert-issuer">Mapúa Institute of Technology</div>
+            <h3 class="cert-title">B.S. Computer Engineering</h3>
+            <p class="cert-sub">Top 5 in Class (Excellence Awardee), Best Thesis in Computer Engineering, Debate Champion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 05: Contact ── -->
+    <section class="section wrap" id="contact">
+      <div class="contact-card reveal">
+        <span class="section-kicker">05 - contact</span>
+        <h2 class="contact-title">Bring me the system that needs clarity.</h2>
+        <p class="contact-desc">
+          Whether you are evaluating a NetSuite implementation, resolving high-volume 3PL bottlenecks, or architecting multi-subsidiary integrations - let's talk.
+        </p>
+
+        <div class="contact-actions">
           <a class="button button--primary" href="mailto:ejaquino26@gmail.com?subject=Consulting%20Inquiry">Discuss a system</a>
           <a class="button button--quiet" href="mailto:ejaquino26@gmail.com?subject=Career%20Opportunity">I'm hiring</a>
           <a class="button button--quiet" href="mailto:ejaquino26@gmail.com">Email</a>
-          <a class="button button--quiet" href="https://wa.me/639055147337">WhatsApp</a>
+          <a class="button button--quiet" href="https://wa.me/639055147337" target="_blank" rel="noopener">WhatsApp</a>
           <a class="button button--quiet" href="https://www.linkedin.com/in/ejaquino/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer"><div class="wrap footer-inner"><span>&copy; 2026 Erick Joshua A. Aquino</span><span>Generated 2026-05-26T13:14:20Z / built for evidence</span></div></footer>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>&copy; 2026 Erick Joshua A. Aquino</span>
+      <span>Generated 2026-05-26T13:14:20Z / built for evidence</span>
+    </div>
+  </footer>
 
   <script>
     (function () {
@@ -959,7 +2054,7 @@
         links.classList.remove('is-open');
         toggle.setAttribute('aria-expanded', 'false');
         toggle.setAttribute('aria-label', 'Open menu');
-        toggle.textContent = 'Open menu';
+        toggle.textContent = 'Menu';
         if (returnFocus) toggle.focus();
       }
       toggle.addEventListener('click', function () {
@@ -967,7 +2062,7 @@
         links.classList.toggle('is-open', opening);
         toggle.setAttribute('aria-expanded', String(opening));
         toggle.setAttribute('aria-label', opening ? 'Close menu' : 'Open menu');
-        toggle.textContent = opening ? 'Close menu' : 'Open menu';
+        toggle.textContent = opening ? 'Close' : 'Menu';
       });
       links.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', function () { closeNav(false); }); });
       document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && links.classList.contains('is-open')) closeNav(true); });
@@ -997,28 +2092,6 @@
         entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
       }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
       items.forEach(function (item) { observer.observe(item); });
-    })();
-
-    (function () {
-      var root = document.querySelector('[data-lens]');
-      if (!root) return;
-      var buttons = root.querySelectorAll('.lens-btn');
-      var atlas = root.querySelector('.atlas');
-      var panels = root.querySelectorAll('.flow-panel');
-      if (!buttons.length || !atlas || !panels.length) return;
-      function selectFlow(key) {
-        buttons.forEach(function (button) {
-          button.setAttribute('aria-pressed', String(button.dataset.flow === key));
-        });
-        panels.forEach(function (panel) {
-          panel.hidden = panel.id !== 'flow-' + key;
-        });
-        atlas.setAttribute('data-active-flow', key);
-      }
-      buttons.forEach(function (button) {
-        button.addEventListener('click', function () { selectFlow(button.dataset.flow); });
-      });
-      selectFlow('o2c');
     })();
   </script>
 </body>
