@@ -571,6 +571,42 @@
       transition: border-color 160ms ease;
     }
     .timeline-item:hover { border-color: var(--border-bright); }
+    .timeline-meta-col {
+      display: flex;
+      flex-direction: column;
+      gap: .85rem;
+      align-items: flex-start;
+    }
+    .timeline-logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      width: 100%;
+      max-width: 170px;
+      padding: .6rem .85rem;
+      border-radius: 10px;
+      background: var(--titanium-surface);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 14px rgb(0 0 0 / .22), inset 0 1px 0 rgb(255 255 255 / .03);
+      transition: border-color 160ms ease, background-color 160ms ease;
+    }
+    .timeline-item:hover .timeline-logo-box {
+      border-color: var(--border-bright);
+      background: oklch(0.25 0.03 255);
+    }
+    .timeline-logo-img {
+      max-height: 36px;
+      width: auto;
+      max-width: 135px;
+      object-fit: contain;
+      filter: brightness(0.96) contrast(1.1);
+    }
+    .timeline-logo-svg {
+      height: 28px;
+      width: 100%;
+      max-width: 155px;
+    }
     .timeline-date {
       font-family: var(--font-mono);
       font-size: .84rem;
@@ -1037,8 +1073,9 @@
       .stats-ribbon { grid-template-columns: 1fr 1fr; }
       .stat-item:nth-child(2) { border-right: 0; }
       .stat-item:nth-child(3) { border-top: 1px solid var(--border-subtle); }
-      .stat-item:nth-child(4) { border-top: 1px solid var(--border-subtle); border-right: 0; }
-      .timeline-item { grid-template-columns: 1fr; gap: .35rem; }
+      .timeline-item { grid-template-columns: 1fr; gap: 1rem; }
+      .timeline-meta-col { flex-direction: row; align-items: center; justify-content: space-between; width: 100%; }
+      .timeline-logo-box { max-width: 140px; min-height: 44px; padding: .4rem .65rem; }
       .case-row { grid-template-columns: 1fr; gap: .25rem; }
       .archive-row { grid-template-columns: 1fr; gap: .35rem; }
       .footer-inner { flex-direction: column; text-align: center; }
@@ -1308,7 +1345,15 @@
 
       <div class="timeline reveal">
         <article class="timeline-item">
-          <div class="timeline-date">2021 - Present</div>
+          <div class="timeline-meta-col">
+            <div class="timeline-logo-box" title="Ekwani Consulting LLC">
+              <picture>
+                <source srcset="ekwani_logo.webp" type="image/webp">
+                <img src="ekwani_logo.png" alt="Ekwani Consulting" class="timeline-logo-img" width="120" height="42" loading="lazy">
+              </picture>
+            </div>
+            <div class="timeline-date">2021 - Present</div>
+          </div>
           <div>
             <h3 class="timeline-role">Senior NetSuite Developer & Integration Architect</h3>
             <div class="timeline-org">Ekwani Consulting LLC</div>
@@ -1319,7 +1364,21 @@
         </article>
 
         <article class="timeline-item">
-          <div class="timeline-date">2019 - 2021</div>
+          <div class="timeline-meta-col">
+            <div class="timeline-logo-box" title="Kodella LLC">
+              <svg class="timeline-logo-svg" viewBox="0 0 130 30" fill="none" role="img" aria-label="Kodella">
+                <title>Kodella</title>
+                <g transform="translate(6, 4)">
+                  <polygon points="11,1 21,7 11,13 1,7" fill="#f59e0b"/>
+                  <polygon points="1,7 11,13 11,21 1,15" fill="#d97736"/>
+                  <polygon points="21,7 11,13 11,21 21,15" fill="#ea580c"/>
+                  <polygon points="11,1 16,4 11,7 6,4" fill="#fbbf24"/>
+                </g>
+                <text x="75" y="21" text-anchor="middle" font-family="'Geologica', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.03em" fill="#f1f5f9">kodella</text>
+              </svg>
+            </div>
+            <div class="timeline-date">2019 - 2021</div>
+          </div>
           <div>
             <h3 class="timeline-role">NetSuite Developer</h3>
             <div class="timeline-org">Kodella LLC</div>
@@ -1330,7 +1389,24 @@
         </article>
 
         <article class="timeline-item">
-          <div class="timeline-date">2016 - 2019</div>
+          <div class="timeline-meta-col">
+            <div class="timeline-logo-box" title="Oracle NetSuite Corporation">
+              <svg class="timeline-logo-svg" viewBox="0 0 160 30" fill="none" role="img" aria-label="Oracle NetSuite">
+                <title>Oracle NetSuite</title>
+                <text x="36" y="19" text-anchor="middle" font-family="'Geologica', system-ui, sans-serif" font-size="11.5" font-weight="800" letter-spacing="0.12em" fill="#f87171">ORACLE</text>
+                <g transform="translate(74, 5)">
+                  <polygon points="6,0 12,3 6,6 0,3" fill="#38bdf8"/>
+                  <polygon points="0,3 6,6 6,11 0,8" fill="#0284c7"/>
+                  <polygon points="12,3 6,6 6,11 12,8" fill="#0369a1"/>
+                  <polygon points="13,7 19,10 13,13 7,10" fill="#60a5fa"/>
+                  <polygon points="7,10 13,13 13,18 7,15" fill="#2563eb"/>
+                  <polygon points="19,10 13,13 13,18 19,15" fill="#1d4ed8"/>
+                </g>
+                <text x="126" y="20" text-anchor="middle" font-family="'Geologica', system-ui, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.06em" fill="#f1f5f9">NETSUITE</text>
+              </svg>
+            </div>
+            <div class="timeline-date">2016 - 2019</div>
+          </div>
           <div>
             <h3 class="timeline-role">Senior Consultant (ESM) · Defect Deflection · SWAT Desk</h3>
             <div class="timeline-org">Oracle NetSuite Corporation</div>
@@ -1341,7 +1417,16 @@
         </article>
 
         <article class="timeline-item">
-          <div class="timeline-date">2016</div>
+          <div class="timeline-meta-col">
+            <div class="timeline-logo-box" title="Accenture, Inc.">
+              <svg class="timeline-logo-svg" viewBox="0 0 130 30" fill="none" role="img" aria-label="Accenture">
+                <title>Accenture</title>
+                <text x="62" y="21" text-anchor="middle" font-family="'Geologica', system-ui, sans-serif" font-size="17.5" font-weight="700" letter-spacing="-0.03em" fill="#f1f5f9">accenture</text>
+                <path d="M 64 3 L 71 8 L 64 13" stroke="#a855f7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="timeline-date">2016</div>
+          </div>
           <div>
             <h3 class="timeline-role">Development & Operations (DevOps) Intern</h3>
             <div class="timeline-org">Accenture, Inc.</div>
