@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#eef2f8">
+  <meta name="theme-color" content="#0a0d14">
   <meta name="description" content="Erick Aquino is a Senior NetSuite Solutions Architect & Enterprise Integration Specialist with 10+ years delivering ERP, Celigo iPaaS, and 3PL logistics platforms.">
   <meta property="og:title" content="Erick Aquino | Senior NetSuite Solutions Architect & Enterprise Integration Specialist">
   <meta property="og:description" content="10+ years delivering enterprise NetSuite ERP architecture, Celigo iPaaS integrations, 3PL logistics networks, and high-volume e-commerce platforms.">
@@ -16,39 +16,38 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=JetBrains+Mono:wght@400..600&amp;display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=JetBrains+Mono:wght@400..600&amp;display=optional" rel="stylesheet"></noscript>
   <script>document.documentElement.classList.add('js');</script>
-  <style id="glass-command-deck">
+  <style id="industrial-command-deck">
     :root {
-      --ambient-pearl: oklch(0.96 0.015 250);
-      --pearl-raised: oklch(0.99 0.008 245);
-      --frost: oklch(0.92 0.025 250);
-      --chrome: oklch(0.78 0.035 250);
-      --carbon: oklch(0.21 0.025 255);
-      --graphite: oklch(0.43 0.03 255);
-      --signal-sapphire: oklch(0.52 0.2 260);
-      --sapphire-wash: oklch(0.91 0.055 255);
-      --focus: oklch(0.48 0.2 260);
-      --radius-panel: 20px;
+      --ambient-titanium: oklch(0.12 0.015 255);
+      --titanium-raised: oklch(0.17 0.022 255);
+      --titanium-surface: oklch(0.22 0.028 255);
+      --border-subtle: oklch(0.29 0.032 255);
+      --border-bright: oklch(0.40 0.045 255);
+      --signal-copper: oklch(0.64 0.16 48);
+      --signal-sapphire: oklch(0.55 0.21 260);
+      --text-bright: oklch(0.96 0.006 255);
+      --text-muted: oklch(0.72 0.022 255);
+      --text-dim: oklch(0.52 0.025 255);
+      --focus: oklch(0.72 0.15 220);
+      --radius-panel: 16px;
       --radius-control: 999px;
-      --glass-edge: rgb(255 255 255 / .78);
-      --glass-fill: rgb(248 251 255 / .72);
-      --glass-solid: oklch(0.985 0.009 245);
-      --glass-shadow: 0 16px 45px rgb(45 65 95 / .08), inset 0 1px 0 rgb(255 255 255 / .92);
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-      --content: 68rem;
+      --content: 72rem;
       --font-sans: "Geologica", system-ui, sans-serif;
       --font-mono: "JetBrains Mono", ui-monospace, monospace;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: var(--ambient-pearl); }
+    html { scroll-behavior: smooth; background: var(--ambient-titanium); }
     body {
       margin: 0;
       min-width: 320px;
-      color: var(--carbon);
-      background:
-        radial-gradient(ellipse 70% 38% at 85% 6%, rgb(98 153 255 / .18), transparent 70%),
-        radial-gradient(ellipse 55% 32% at 10% 32%, rgb(206 223 247 / .65), transparent 75%),
-        linear-gradient(155deg, var(--pearl-raised), var(--ambient-pearl) 50%, oklch(0.93 0.022 245));
+      color: var(--text-bright);
+      background-color: var(--ambient-titanium);
+      background-image:
+        radial-gradient(ellipse 60% 40% at 85% 5%, rgb(37 99 235 / .12), transparent 70%),
+        radial-gradient(ellipse 50% 30% at 15% 35%, rgb(217 119 54 / .07), transparent 75%),
+        linear-gradient(180deg, var(--ambient-titanium) 0%, oklch(0.10 0.012 255) 100%);
       background-attachment: fixed;
       font-family: var(--font-sans);
       font-size: 1rem;
@@ -57,17 +56,19 @@
       overflow-x: hidden;
     }
 
-    /* Subtle halftone dot backdrop */
+    /* Technical precision grid backdrop */
     .halftone-field {
       position: fixed;
       inset: 0;
       z-index: -1;
       pointer-events: none;
-      background-image: radial-gradient(circle at center, rgb(15 23 42 / .12) 1px, transparent 1.6px);
-      background-size: 12px 12px;
-      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 85%);
-      mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 85%);
-      opacity: 0.65;
+      background-image:
+        linear-gradient(to right, rgb(255 255 255 / .03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(255 255 255 / .03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 90%);
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 90%);
+      opacity: 0.75;
     }
 
     img, svg { display: block; max-width: 100%; }
@@ -75,7 +76,7 @@
     button, a { -webkit-tap-highlight-color: transparent; }
     button { color: inherit; font: inherit; }
     :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
-    ::selection { color: var(--pearl-raised); background: var(--signal-sapphire); }
+    ::selection { color: #fff; background: var(--signal-sapphire); }
     [hidden] { display: none !important; }
     section[id] { scroll-margin-top: 6.5rem; }
     .wrap { width: min(calc(100% - 2.5rem), var(--content)); margin-inline: auto; }
@@ -87,8 +88,9 @@
       top: .75rem;
       left: .75rem;
       padding: .75rem 1.25rem;
-      color: var(--pearl-raised);
-      background: var(--carbon);
+      color: #fff;
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-bright);
       border-radius: var(--radius-control);
       transform: translateY(-160%);
       transition: transform 180ms var(--ease-out);
@@ -98,67 +100,62 @@
     .skip-link:focus { transform: translateY(0); }
 
     /* Header & Navigation Island */
-    .site-header { position: sticky; top: 1rem; z-index: 90; margin-bottom: 2rem; }
+    .site-header {
+      position: sticky;
+      top: 1rem;
+      z-index: 100;
+      margin-bottom: 2rem;
+    }
     .nav {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      padding: .65rem 1.25rem;
-      border: 1px solid var(--glass-edge);
+      min-height: 54px;
+      padding: .4rem .6rem .4rem 1.25rem;
       border-radius: var(--radius-control);
-      background: var(--glass-fill);
-      backdrop-filter: blur(16px) saturate(140%);
-      -webkit-backdrop-filter: blur(16px) saturate(140%);
-      box-shadow: 0 8px 30px rgb(45 65 95 / .06);
+      background: rgb(18 24 36 / .88);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 40px rgb(0 0 0 / .45), inset 0 1px 0 rgb(255 255 255 / .06);
+    }
+    @supports (backdrop-filter: blur(14px)) {
+      .nav { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
     }
     .brand {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: .6rem;
+      gap: .75rem;
       font-weight: 600;
-      font-size: 1.05rem;
-      text-decoration: none;
+      font-size: .94rem;
       letter-spacing: -.02em;
+      text-decoration: none;
+      color: var(--text-bright);
     }
     .brand-status {
       display: inline-flex;
       align-items: center;
       gap: .4rem;
-      padding: .2rem .6rem;
-      border-radius: var(--radius-control);
-      background: rgb(21 89 214 / .08);
-      color: var(--signal-sapphire);
       font-family: var(--font-mono);
-      font-size: .65rem;
-      font-weight: 600;
+      font-size: .7rem;
+      font-weight: 500;
       text-transform: uppercase;
       letter-spacing: .06em;
+      color: var(--signal-copper);
+      padding: .2rem .55rem;
+      border-radius: 999px;
+      background: rgb(217 119 54 / .12);
+      border: 1px solid rgb(217 119 54 / .3);
     }
-    @keyframes pulseBlink { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
     .pulse-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--signal-sapphire);
-      animation: pulseBlink 2s ease-in-out infinite;
-    }
-    .nav-toggle {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: .4rem .75rem;
-      border: 1px solid var(--chrome);
-      border-radius: var(--radius-control);
-      background: var(--pearl-raised);
-      font-family: var(--font-mono);
-      font-size: .75rem;
-      cursor: pointer;
+      background: var(--signal-copper);
     }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: .35rem;
+      gap: .25rem;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -166,307 +163,535 @@
     .nav-links a {
       display: inline-flex;
       align-items: center;
-      padding: .4rem .85rem;
+      min-height: 38px;
+      padding-inline: .95rem;
       border-radius: var(--radius-control);
-      font-family: var(--font-mono);
-      font-size: .76rem;
+      font-size: .84rem;
       font-weight: 500;
+      color: var(--text-muted);
       text-decoration: none;
-      color: var(--graphite);
-      transition: color 150ms ease, background-color 150ms ease;
+      transition: color 140ms ease, background-color 140ms ease;
     }
-    .nav-links a:hover { color: var(--carbon); background: rgb(255 255 255 / .6); }
+    .nav-links a:hover {
+      color: var(--text-bright);
+      background: var(--titanium-surface);
+    }
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding-inline: 1rem;
+      border-radius: var(--radius-control);
+      border: 1px solid var(--border-subtle);
+      background: var(--titanium-surface);
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      color: var(--text-bright);
+      cursor: pointer;
+    }
+
+    /* Buttons */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      min-height: 46px;
+      padding: .65rem 1.4rem;
+      border-radius: var(--radius-control);
+      font-size: .88rem;
+      font-weight: 550;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 120ms var(--ease-out), background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+    }
+    .button:active {
+      transform: scale(0.97);
+    }
+    .button--primary {
+      background: var(--signal-sapphire);
+      color: #fff;
+      border-color: rgb(255 255 255 / .15);
+      box-shadow: 0 4px 14px rgb(37 99 235 / .35);
+    }
+    .button--primary:hover {
+      background: oklch(0.58 0.22 260);
+      box-shadow: 0 6px 20px rgb(37 99 235 / .48);
+    }
+    .button--quiet {
+      background: var(--titanium-surface);
+      color: var(--text-bright);
+      border-color: var(--border-subtle);
+    }
+    .button--quiet:hover {
+      background: oklch(0.26 0.032 255);
+      border-color: var(--border-bright);
+    }
 
     /* Hero Section */
-    .hero { padding-top: 1rem; padding-bottom: 3.5rem; }
+    .hero {
+      padding-top: 1.5rem;
+      padding-bottom: 4rem;
+    }
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
-      align-items: start;
-      gap: clamp(2rem, 5vw, 3.5rem);
+      grid-template-columns: 21rem 1fr;
+      gap: 3.5rem;
+      align-items: center;
     }
     .hero-portrait-card {
       position: relative;
       border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-bright);
+      box-shadow: 0 24px 60px rgb(0 0 0 / .6), inset 0 1px 0 rgb(255 255 255 / .1);
       overflow: hidden;
-      border: 1px solid var(--glass-edge);
-      background: linear-gradient(180deg, rgb(255 255 255 / .9), rgb(235 242 252 / .6));
-      box-shadow: var(--glass-shadow);
-      aspect-ratio: 4 / 5.2;
+      aspect-ratio: 843 / 1150;
     }
     .hero-portrait-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center top;
-      display: block;
+      filter: contrast(1.06) brightness(0.98);
     }
+    .hero-portrait-badge {
+      position: absolute;
+      bottom: .85rem;
+      left: .85rem;
+      right: .85rem;
+      padding: .65rem .85rem;
+      border-radius: 10px;
+      background: rgb(10 13 20 / .85);
+      border: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hero-portrait-badge strong {
+      color: var(--text-bright);
+    }
+
     .hero-kicker {
-      display: inline-flex;
+      font-family: var(--font-mono);
+      font-size: .76rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--signal-copper);
+      margin-bottom: 1rem;
+      display: flex;
       align-items: center;
       gap: .5rem;
-      margin-bottom: .75rem;
-      font-family: var(--font-mono);
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      color: var(--signal-sapphire);
     }
     .hero-title {
-      margin: 0 0 1rem;
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 650;
-      line-height: 1.05;
-      letter-spacing: -.04em;
+      font-size: clamp(2.3rem, 4.8vw, 3.8rem);
+      font-weight: 550;
+      line-height: 1.08;
+      letter-spacing: -.035em;
+      color: var(--text-bright);
+      margin: 0 0 1.25rem;
     }
     .hero-lede {
-      font-size: clamp(1.08rem, 2vw, 1.22rem);
-      font-weight: 450;
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
       line-height: 1.5;
-      color: var(--carbon);
-      margin-bottom: 1rem;
+      color: var(--text-muted);
+      margin: 0 0 1.25rem;
+      max-width: 48ch;
     }
     .hero-bio {
       font-size: .95rem;
       line-height: 1.65;
-      color: var(--graphite);
-      margin-bottom: 1.75rem;
+      color: var(--text-muted);
+      margin: 0 0 2rem;
+      max-width: 54ch;
     }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: .65rem;
-      margin-bottom: 2rem;
+      gap: .75rem;
+      margin-bottom: 1.75rem;
     }
-
-    /* Buttons (Emil design eng: tactile feedback, exact transitions) */
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: .45rem;
-      min-height: 42px;
-      padding: .5rem 1.15rem;
-      border-radius: var(--radius-control);
-      font-family: var(--font-mono);
-      font-size: .78rem;
-      font-weight: 500;
-      text-decoration: none;
-      cursor: pointer;
-      border: 1px solid transparent;
-      transition: transform 140ms var(--ease-out), background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
-    }
-    .button:active { transform: scale(0.97); }
-    .button--primary {
-      color: var(--pearl-raised);
-      background: var(--signal-sapphire);
-      border-color: var(--signal-sapphire);
-      box-shadow: 0 4px 14px rgb(21 89 214 / .25);
-    }
-    .button--primary:hover { background: oklch(0.48 0.22 260); border-color: oklch(0.48 0.22 260); transform: translateY(-1px); }
-    .button--quiet {
-      color: var(--carbon);
-      background: rgb(255 255 255 / .7);
-      border-color: var(--chrome);
-    }
-    .button--quiet:hover { background: var(--pearl-raised); border-color: var(--graphite); transform: translateY(-1px); }
-
-    /* Quick links */
     .hero-quicklinks {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 1.25rem;
       font-family: var(--font-mono);
-      font-size: .76rem;
-      color: var(--graphite);
+      font-size: .78rem;
+      color: var(--text-dim);
     }
-    .hero-quicklinks a { text-decoration: none; transition: color 140ms ease; }
-    .hero-quicklinks a:hover { color: var(--carbon); }
+    .hero-quicklinks a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 140ms ease;
+    }
+    .hero-quicklinks a:hover {
+      color: var(--text-bright);
+    }
 
-    /* Stats bar (Bryl Lim style 4-column divider) */
+    /* Stats Proof Ribbon */
     .stats-ribbon {
-      margin-top: 1rem;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid rgb(119 145 180 / .2);
-      border-bottom: 1px solid rgb(119 145 180 / .2);
-      background: rgb(248 251 255 / .4);
+      gap: 0;
+      margin-top: 3.5rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      box-shadow: 0 16px 40px rgb(0 0 0 / .35), inset 0 1px 0 rgb(255 255 255 / .05);
+      overflow: hidden;
     }
     .stat-item {
-      padding: 1.25rem 1rem;
-      border-right: 1px solid rgb(119 145 180 / .2);
+      padding: 1.75rem 1.5rem;
+      border-right: 1px solid var(--border-subtle);
     }
     .stat-item:last-child { border-right: 0; }
-    .stat-val {
+    .stat-val strong {
       font-family: var(--font-mono);
-      font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+      font-size: clamp(1.8rem, 3.2vw, 2.4rem);
       font-weight: 600;
+      color: var(--text-bright);
       line-height: 1;
-      color: var(--carbon);
+      letter-spacing: -.02em;
     }
-    .stat-lbl {
+    .stat-lbl span {
+      display: block;
       margin-top: .4rem;
       font-family: var(--font-mono);
-      font-size: .68rem;
-      font-weight: 500;
-      letter-spacing: .06em;
+      font-size: .74rem;
+      color: var(--text-dim);
       text-transform: uppercase;
-      color: var(--graphite);
+      letter-spacing: .05em;
     }
 
-    /* Section Layouts */
-    .section { padding-block: 4.5rem; }
+    /* Section structure */
+    .section {
+      padding-block: 4.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
     .section-head {
-      margin-bottom: 2rem;
       display: flex;
-      align-items: baseline;
+      align-items: flex-end;
       justify-content: space-between;
-      gap: 1rem;
-      border-bottom: 1px solid rgb(119 145 180 / .2);
-      padding-bottom: .85rem;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
     }
     .section-kicker {
+      display: block;
       font-family: var(--font-mono);
-      font-size: .74rem;
+      font-size: .75rem;
       font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: lowercase;
-      color: var(--graphite);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--signal-copper);
+      margin-bottom: .5rem;
     }
     .section-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 550;
+      letter-spacing: -.03em;
+      color: var(--text-bright);
+      margin: 0;
+      line-height: 1.15;
+    }
+    .section-sub {
+      font-size: .98rem;
+      color: var(--text-muted);
+      margin: .5rem 0 0;
+      max-width: 56ch;
+    }
+
+    /* 6-Pillar Architectural Attribute Grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+    .pillar-card {
+      padding: 1.6rem 1.5rem;
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 30px rgb(0 0 0 / .3), inset 0 1px 0 rgb(255 255 255 / .05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 160ms ease, background-color 160ms ease;
+    }
+    .pillar-card:hover {
+      border-color: var(--border-bright);
+      background: var(--titanium-surface);
+    }
+    .pillar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: .75rem;
+    }
+    .pillar-index {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--signal-copper);
+      letter-spacing: .08em;
+    }
+    .pillar-badge {
+      font-family: var(--font-mono);
+      font-size: .64rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: .15rem .45rem;
+      border-radius: 4px;
+      background: rgb(255 255 255 / .05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+    }
+    .pillar-title {
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin: 0 0 .35rem;
+      letter-spacing: -.02em;
+    }
+    .pillar-sub {
+      font-family: var(--font-mono);
+      font-size: .74rem;
+      color: var(--signal-sapphire);
+      margin-bottom: .6rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .pillar-desc {
+      font-size: .88rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Open Chronological Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 14rem 1fr;
+      gap: 2rem;
+      padding: 1.75rem 2rem;
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 30px rgb(0 0 0 / .25), inset 0 1px 0 rgb(255 255 255 / .04);
+      transition: border-color 160ms ease;
+    }
+    .timeline-item:hover { border-color: var(--border-bright); }
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: .84rem;
+      font-weight: 600;
+      color: var(--signal-copper);
+      letter-spacing: .04em;
+    }
+    .timeline-role {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin: 0 0 .25rem;
+      letter-spacing: -.02em;
+    }
+    .timeline-org {
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--signal-sapphire);
+      margin-bottom: .75rem;
+    }
+    .timeline-desc {
+      font-size: .92rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin: 0;
+      max-width: 64ch;
+    }
+
+    /* Product-Style Engineered Platforms */
+    .vessels-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .vessel-card {
+      padding: 2.25rem;
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 20px 50px rgb(0 0 0 / .4), inset 0 1px 0 rgb(255 255 255 / .06);
+      transition: border-color 160ms ease;
+    }
+    .vessel-card:hover {
+      border-color: var(--border-bright);
+    }
+    .vessel-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-bottom: 1rem;
+    }
+    .vessel-classification {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--signal-copper);
+    }
+    .vessel-badge {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      padding: .2rem .6rem;
+      border-radius: 999px;
+      background: rgb(37 99 235 / .15);
+      border: 1px solid rgb(37 99 235 / .35);
+      color: #93c5fd;
+    }
+    .vessel-title {
       font-size: clamp(1.4rem, 2.5vw, 1.85rem);
       font-weight: 600;
       letter-spacing: -.03em;
-      margin: .25rem 0 0;
-    }
-
-    /* Experience Timeline (Open & Scannable) */
-    .timeline { display: grid; gap: 0; }
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 8.5rem 1fr;
-      gap: 1.5rem;
-      padding-block: 1.5rem;
-      border-bottom: 1px solid rgb(119 145 180 / .16);
-      transition: background-color 150ms ease;
-    }
-    .timeline-item:last-child { border-bottom: 0; }
-    .timeline-date {
-      font-family: var(--font-mono);
-      font-size: .76rem;
-      font-weight: 500;
-      color: var(--graphite);
-      padding-top: .15rem;
-    }
-    .timeline-role {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--carbon);
-      margin: 0;
-    }
-    .timeline-org {
-      font-size: .88rem;
-      font-weight: 500;
-      color: var(--signal-sapphire);
-      margin-top: .15rem;
-    }
-    .timeline-desc {
-      font-size: .88rem;
-      line-height: 1.6;
-      color: var(--graphite);
-      margin-top: .5rem;
-      margin-bottom: 0;
-    }
-
-    /* Case Study Cards (Selected Systems) */
-    .case-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    .case-card {
-      padding: clamp(1.5rem, 3.5vw, 2.25rem);
-      border: 1px solid var(--glass-edge);
-      border-radius: var(--radius-panel);
-      background: linear-gradient(150deg, rgb(255 255 255 / .85), rgb(240 246 254 / .5));
-      box-shadow: var(--glass-shadow);
-      transition: transform 180ms var(--ease-out), box-shadow 180ms ease, border-color 150ms ease;
-    }
-    .case-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 45px rgb(45 65 95 / .11);
-      border-color: rgb(185 198 214 / .9);
-    }
-    .case-tag {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: .68rem;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--signal-sapphire);
-      margin-bottom: .4rem;
-    }
-    .case-name {
-      font-size: clamp(1.25rem, 2.2vw, 1.6rem);
-      font-weight: 600;
-      letter-spacing: -.03em;
+      color: var(--text-bright);
       margin: 0 0 1rem;
     }
-    .case-points {
-      display: grid;
-      gap: .75rem;
-      margin: 1rem 0;
-    }
-    .case-row {
-      display: grid;
-      grid-template-columns: minmax(7.5rem, .26fr) 1fr;
-      gap: .75rem;
-      font-size: .88rem;
-      line-height: 1.55;
-      padding-top: .6rem;
-      border-top: 1px solid rgb(119 145 180 / .14);
-    }
-    .case-row b {
-      font-family: var(--font-mono);
-      font-size: .68rem;
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--graphite);
-    }
-    .case-row span { color: var(--carbon); }
-    .case-metrics-bar {
+    .vessel-specs-strip {
       display: flex;
       flex-wrap: wrap;
       gap: 1.25rem;
+      padding: .85rem 1.25rem;
+      border-radius: 10px;
+      background: var(--titanium-surface);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--text-bright);
+    }
+    .vessel-spec-item b {
+      color: var(--text-dim);
+      font-weight: 500;
+      margin-right: .35rem;
+    }
+    .vessel-subsystems {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      gap: .75rem;
+      margin-top: 1.25rem;
+    }
+    .vessel-subsystem {
+      padding: .75rem 1rem;
+      border-radius: 8px;
+      background: rgb(255 255 255 / .02);
+      border: 1px solid rgb(255 255 255 / .05);
+      font-size: .82rem;
+      color: var(--text-muted);
+    }
+    .vessel-subsystem strong {
+      display: block;
+      color: var(--text-bright);
+      font-size: .85rem;
+      margin-bottom: .2rem;
+    }
+
+    /* Dynamic Project Case Cards */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .case-card {
+      padding: 1.75rem;
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 30px rgb(0 0 0 / .3), inset 0 1px 0 rgb(255 255 255 / .04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 160ms ease;
+    }
+    .case-card:hover { border-color: var(--border-bright); }
+    .case-tag {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--signal-copper);
+      margin-bottom: .5rem;
+    }
+    .case-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin: 0 0 1rem;
+      letter-spacing: -.02em;
+    }
+    .case-points {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      font-size: .86rem;
+      line-height: 1.5;
+    }
+    .case-row {
+      display: grid;
+      grid-template-columns: 5.5rem 1fr;
+      gap: .75rem;
+    }
+    .case-row b {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+    .case-row span { color: var(--text-muted); }
+    .case-metrics-bar {
+      display: flex;
+      gap: 1.25rem;
       margin-top: 1.25rem;
       padding-top: 1rem;
-      border-top: 1px solid rgb(119 145 180 / .16);
+      border-top: 1px solid var(--border-subtle);
     }
-    .case-metric-chip {
-      font-family: var(--font-mono);
-    }
+    .case-metric-chip { font-family: var(--font-mono); }
     .case-metric-chip strong {
       display: block;
       font-size: 1.35rem;
       line-height: 1;
-      color: var(--carbon);
+      color: var(--text-bright);
     }
     .case-metric-chip span {
       display: block;
       font-size: .68rem;
-      color: var(--graphite);
+      color: var(--text-dim);
       margin-top: .25rem;
       text-transform: uppercase;
     }
     .case-tech-line {
       margin-top: 1rem;
       font-size: .8rem;
-      color: var(--graphite);
+      color: var(--text-muted);
     }
     .case-tech-line b {
       font-family: var(--font-mono);
@@ -474,11 +699,72 @@
       text-transform: uppercase;
       letter-spacing: .06em;
       margin-right: .5rem;
-      color: var(--carbon);
+      color: var(--text-bright);
+    }
+
+    /* Comparative Technical Spec Sheet Table */
+    .spec-matrix-wrap {
+      margin-top: 3.5rem;
+      margin-bottom: 3rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      box-shadow: 0 20px 50px rgb(0 0 0 / .4), inset 0 1px 0 rgb(255 255 255 / .05);
+      overflow-x: auto;
+    }
+    .spec-matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .84rem;
+      text-align: left;
+    }
+    .spec-matrix-table th,
+    .spec-matrix-table td {
+      padding: 1.1rem 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      vertical-align: top;
+    }
+    .spec-matrix-table th:last-child,
+    .spec-matrix-table td:last-child {
+      border-right: 0;
+    }
+    .spec-matrix-table thead th {
+      background: var(--titanium-surface);
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      border-bottom: 2px solid var(--border-bright);
+    }
+    .spec-matrix-table tbody th {
+      font-family: var(--font-mono);
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--signal-copper);
+      background: rgb(255 255 255 / .01);
+      width: 13rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .spec-matrix-table tbody tr:last-child th,
+    .spec-matrix-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+    .spec-matrix-table td {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .spec-matrix-table td strong {
+      color: var(--text-bright);
+      display: block;
+      margin-bottom: .2rem;
     }
 
     /* Archive */
-    .archive-wrap { margin-top: 1.75rem; }
+    .archive-wrap { margin-top: 2rem; }
     .archive-btn {
       display: inline-flex;
       align-items: center;
@@ -486,19 +772,20 @@
       min-height: 42px;
       padding: .6rem 1.25rem;
       border-radius: var(--radius-control);
-      border: 1px solid var(--chrome);
-      background: rgb(255 255 255 / .7);
+      border: 1px solid var(--border-subtle);
+      background: var(--titanium-surface);
       font-family: var(--font-mono);
       font-size: .78rem;
+      color: var(--text-bright);
       cursor: pointer;
       transition: background-color 140ms ease, border-color 140ms ease;
     }
-    .archive-btn:hover { background: var(--pearl-raised); border-color: var(--graphite); }
+    .archive-btn:hover { background: oklch(0.26 0.03 255); border-color: var(--border-bright); }
     .archive-list {
       margin-top: 1.25rem;
-      border: 1px solid var(--glass-edge);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-panel);
-      background: rgb(248 251 255 / .6);
+      background: var(--titanium-raised);
       overflow: hidden;
     }
     .archive-row {
@@ -506,97 +793,107 @@
       grid-template-columns: 1.1fr .6fr 1.3fr;
       gap: 1rem;
       padding: .9rem 1.25rem;
-      border-bottom: 1px solid rgb(119 145 180 / .14);
+      border-bottom: 1px solid var(--border-subtle);
       font-size: .84rem;
     }
     .archive-row:last-child { border-bottom: 0; }
-    .archive-row strong { font-weight: 550; color: var(--carbon); }
-    .archive-row span { color: var(--graphite); }
+    .archive-row strong { font-weight: 550; color: var(--text-bright); }
+    .archive-row span { color: var(--text-muted); }
 
     /* Stack & Capabilities (Categorized Pills) */
-    .stack-group { margin-bottom: 1.75rem; }
+    .stack-group { margin-bottom: 2rem; }
     .stack-group:last-child { margin-bottom: 0; }
     .stack-label {
       font-family: var(--font-mono);
-      font-size: .72rem;
+      font-size: .74rem;
       font-weight: 600;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--graphite);
-      margin-bottom: .6rem;
+      color: var(--signal-copper);
+      margin-bottom: .75rem;
     }
     .pill-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
     .stack-pill {
       display: inline-flex;
       align-items: center;
-      padding: .35rem .75rem;
+      padding: .4rem .85rem;
       border-radius: 8px;
-      border: 1px solid rgb(119 145 180 / .2);
-      background: rgb(255 255 255 / .85);
+      border: 1px solid var(--border-subtle);
+      background: var(--titanium-raised);
       font-family: var(--font-mono);
-      font-size: .75rem;
+      font-size: .78rem;
       font-weight: 500;
-      color: var(--carbon);
-      box-shadow: 0 1px 3px rgb(45 65 95 / .04);
+      color: var(--text-bright);
+      box-shadow: 0 1px 3px rgb(0 0 0 / .2);
+      transition: border-color 140ms ease, background-color 140ms ease;
+    }
+    .stack-pill:hover {
+      border-color: var(--border-bright);
+      background: var(--titanium-surface);
     }
 
     /* Credentials & Certifications Cards */
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-      gap: 1rem;
+      gap: 1.25rem;
     }
     .cert-card {
-      padding: 1.25rem 1.5rem;
-      border: 1px solid var(--glass-edge);
-      border-radius: 16px;
-      background: linear-gradient(160deg, rgb(255 255 255 / .9), rgb(240 246 254 / .55));
-      box-shadow: var(--glass-shadow);
+      padding: 1.5rem 1.6rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      box-shadow: 0 12px 30px rgb(0 0 0 / .3), inset 0 1px 0 rgb(255 255 255 / .04);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: border-color 160ms ease;
     }
+    .cert-card:hover { border-color: var(--border-bright); }
     .cert-issuer {
       font-family: var(--font-mono);
       font-size: .68rem;
       font-weight: 600;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--signal-sapphire);
+      color: var(--signal-copper);
       margin-bottom: .4rem;
     }
     .cert-title {
-      font-size: .98rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      color: var(--carbon);
+      color: var(--text-bright);
       margin: 0 0 .5rem;
+      letter-spacing: -.02em;
     }
     .cert-sub {
-      font-size: .8rem;
-      color: var(--graphite);
+      font-size: .84rem;
+      line-height: 1.5;
+      color: var(--text-muted);
       margin: 0;
     }
 
     /* Contact Vessel */
     .contact-card {
       padding: clamp(2rem, 5vw, 3.5rem);
-      border: 1px solid var(--glass-edge);
+      border: 1px solid var(--border-bright);
       border-radius: var(--radius-panel);
-      background: linear-gradient(150deg, rgb(255 255 255 / .92), rgb(235 244 255 / .65));
-      box-shadow: var(--glass-shadow);
+      background: var(--titanium-raised);
+      box-shadow: 0 24px 60px rgb(0 0 0 / .6), inset 0 1px 0 rgb(255 255 255 / .08);
     }
     .contact-title {
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
       font-weight: 600;
       letter-spacing: -.03em;
+      color: var(--text-bright);
       margin: 0 0 .75rem;
     }
     .contact-desc {
       font-size: 1.05rem;
       line-height: 1.6;
-      color: var(--graphite);
-      max-width: 48ch;
-      margin: 0 0 1.75rem;
+      color: var(--text-muted);
+      max-width: 52ch;
+      margin: 0 0 2rem;
     }
     .contact-actions {
       display: flex;
@@ -606,10 +903,10 @@
 
     /* Footer */
     .footer {
-      border-top: 1px solid rgb(119 145 180 / .18);
+      border-top: 1px solid var(--border-subtle);
       padding-block: 2.5rem;
-      margin-top: 3rem;
-      background: var(--ambient-pearl);
+      margin-top: 4rem;
+      background: var(--ambient-titanium);
     }
     .footer-inner {
       display: flex;
@@ -617,8 +914,8 @@
       justify-content: space-between;
       gap: 1rem;
       font-family: var(--font-mono);
-      font-size: .72rem;
-      color: var(--graphite);
+      font-size: .74rem;
+      color: var(--text-dim);
     }
 
     /* Reveal animations */
@@ -642,22 +939,23 @@
         flex-direction: column;
         align-items: stretch;
         padding: .65rem;
-        border: 1px solid var(--glass-edge);
+        border: 1px solid var(--border-bright);
         border-radius: 18px;
-        background: var(--pearl-raised);
-        box-shadow: var(--glass-shadow);
+        background: var(--titanium-raised);
+        box-shadow: 0 16px 40px rgb(0 0 0 / .6);
       }
       .nav-links.is-open { display: flex; }
       .nav-links a { justify-content: center; }
+      .pillars-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 767px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 1.75rem; }
-      .hero-portrait-card { max-width: 14rem; aspect-ratio: 1; border-radius: 50%; margin-inline: auto; }
+      .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-portrait-card { max-width: 15rem; aspect-ratio: 1; border-radius: 50%; margin-inline: auto; }
       .stats-ribbon { grid-template-columns: 1fr 1fr; }
       .stat-item:nth-child(2) { border-right: 0; }
-      .stat-item:nth-child(3) { border-top: 1px solid rgb(119 145 180 / .2); }
-      .stat-item:nth-child(4) { border-top: 1px solid rgb(119 145 180 / .2); border-right: 0; }
+      .stat-item:nth-child(3) { border-top: 1px solid var(--border-subtle); }
+      .stat-item:nth-child(4) { border-top: 1px solid var(--border-subtle); border-right: 0; }
       .timeline-item { grid-template-columns: 1fr; gap: .35rem; }
       .case-row { grid-template-columns: 1fr; gap: .25rem; }
       .archive-row { grid-template-columns: 1fr; gap: .35rem; }
@@ -712,6 +1010,10 @@
             <source srcset="portrait.webp" type="image/webp">
             <img class="hero-portrait-img" src="portrait.png" alt="Erick Aquino - Senior NetSuite Solutions Architect" width="843" height="1264" loading="eager" decoding="async">
           </picture>
+          <div class="hero-portrait-badge">
+            <span><strong>Erick Aquino</strong> // Architect</span>
+            <span>10+ Yrs NetSuite</span>
+          </div>
         </div>
 
         <!-- Bio and identity -->
@@ -763,8 +1065,9 @@
     <section class="section wrap" id="experience">
       <div class="section-head reveal">
         <div>
-          <span class="section-kicker">01 - experience</span>
+          <span class="section-kicker">01 // flight log</span>
           <h2 class="section-title">Career & Enterprise Track Record</h2>
+          <p class="section-sub">Ten years of high-consequence enterprise engineering, platform defense, and production delivery.</p>
         </div>
         <a class="button button--quiet" href="Aquino_Erick_CV_ATS.pdf" target="_blank" rel="noopener">Full CV ↗</a>
       </div>
@@ -816,12 +1119,239 @@
       </div>
     </section>
 
-    <!-- ── 02: Systems (Selected Work) ── -->
+    <!-- ── 02: Systems (Selected Work & Industrial Breakdowns) ── -->
     <section class="section wrap" id="systems">
+      <!-- 02.1: Six Pillars of Reliability -->
       <div class="section-head reveal">
         <div>
-          <span class="section-kicker">02 - selected systems</span>
-          <h2 class="section-title">High-Scale Enterprise Platforms</h2>
+          <span class="section-kicker">02.1 // architectural pillars</span>
+          <h2 class="section-title">Six Tenets of Mission-Critical NetSuite Architecture</h2>
+          <p class="section-sub">Engineered for zero data drift, peak volume endurance, and provable financial integrity.</p>
+        </div>
+      </div>
+
+      <div class="pillars-grid reveal">
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-index">01</span>
+            <span class="pillar-badge">Integrity</span>
+          </div>
+          <h3 class="pillar-title">Zero-Drift</h3>
+          <div class="pillar-sub">Ledger Parity & Boundary Proof</div>
+          <p class="pillar-desc">Financial reconciliations balancing to the penny across multi-subsidiary ERP, banking, and payment gateways with automated anomaly alerts.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-index">02</span>
+            <span class="pillar-badge">Concurrency</span>
+          </div>
+          <h3 class="pillar-title">High-Throughput</h3>
+          <div class="pillar-sub">Zero Record-Lock Architecture</div>
+          <p class="pillar-desc">Architected for peak flash sale drops exceeding 15,000 orders/hour with zero script governance crashes and decoupled batch queues.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-index">03</span>
+            <span class="pillar-badge">Fulfillment</span>
+          </div>
+          <h3 class="pillar-title">Multi-3PL</h3>
+          <div class="pillar-sub">Distributed Warehouse Routing</div>
+          <p class="pillar-desc">Global logistics routing across North America, EMEA, and APAC (Masonhub, ShipBob, Capacity, Radial, ILG) with automated carrier failover.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-index">04</span>
+            <span class="pillar-badge">Resilience</span>
+          </div>
+          <h3 class="pillar-title">Fault-Tolerant</h3>
+          <div class="pillar-sub">Self-Healing iPaaS Pipelines</div>
+          <p class="pillar-desc">Idempotent webhooks, automatic exponential backoff retries, and dead-letter queues preventing silent transaction drops during upstream outages.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-index">05</span>
+            <span class="pillar-badge">Governance</span>
+          </div>
+          <h3 class="pillar-title">Audit-Ready</h3>
+          <div class="pillar-sub">SOX & SDF Version Control</div>
+          <p class="pillar-desc">Complete trace logging, SDF version-controlled migrations, and audit compliance built natively into every SuiteScript execution path.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-index">06</span>
+            <span class="pillar-badge">Execution</span>
+          </div>
+          <h3 class="pillar-title">Full-Lifecycle</h3>
+          <div class="pillar-sub">Requirements to Hypercare</div>
+          <p class="pillar-desc">Sole-architect ownership from executive stakeholder discovery to production deployment, cutover execution, and post-go-live stabilization.</p>
+        </div>
+      </div>
+
+      <!-- 02.2: Product-Style Engineered Platforms -->
+      <div class="section-head reveal" style="margin-top: 4rem;">
+        <div>
+          <span class="section-kicker">02.2 // engineered platforms</span>
+          <h2 class="section-title">Flagship Enterprise Deployments</h2>
+          <p class="section-sub">Production platforms engineered for category leaders with verified technical specifications.</p>
+        </div>
+      </div>
+
+      <div class="vessels-grid reveal">
+        <!-- Nidecker Group -->
+        <article class="vessel-card">
+          <div class="vessel-meta">
+            <span class="vessel-classification">Global ERP & Matrix Pricing Vessel</span>
+            <span class="vessel-badge">Sole Lead Architect</span>
+          </div>
+          <h3 class="vessel-title">Nidecker Group Global Enterprise ERP</h3>
+          <div class="vessel-specs-strip">
+            <div class="vessel-spec-item"><b>Codebase:</b> 1,248 JavaScript / SuiteScript files</div>
+            <div class="vessel-spec-item"><b>Scope:</b> 14 Global Subsidiaries</div>
+            <div class="vessel-spec-item"><b>Currencies:</b> Multi-Currency EMEA / Americas</div>
+            <div class="vessel-spec-item"><b>Throughput:</b> Sub-second Matrix Pricing</div>
+          </div>
+          <p style="color: var(--text-muted); font-size: .94rem; line-height: 1.6; margin: 0 0 1.25rem;">
+            Sole architect from initial requirements through global production go-live. Engineered a high-performance dynamic matrix pricing engine calculating real-time landed costs, currency conversions, and customer group discounts across 14 international subsidiaries. Integrated automated EDI 850/855/856 order orchestration for major global sporting goods retailers.
+          </p>
+          <div class="vessel-subsystems">
+            <div class="vessel-subsystem">
+              <strong>Dynamic Pricing Engine</strong>
+              Sub-second multi-currency matrix pricing and landed cost calculator.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Global EDI 850/856</strong>
+              Automated B2B purchase order ingestion and advanced shipping notices.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Multi-Subsidiary Core</strong>
+              Intercompany transactions, automated elimination, and currency revaluation.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Tax Automation</strong>
+              Real-time multi-jurisdiction nexus calculation and compliance filing.
+            </div>
+          </div>
+        </article>
+
+        <!-- Rare Beauty -->
+        <article class="vessel-card">
+          <div class="vessel-meta">
+            <span class="vessel-classification">High-Velocity Omnichannel & Logistics Pipeline</span>
+            <span class="vessel-badge">Lead NetSuite Architect</span>
+          </div>
+          <h3 class="vessel-title">Rare Beauty Omnichannel Fulfillment Platform</h3>
+          <div class="vessel-specs-strip">
+            <div class="vessel-spec-item"><b>Codebase:</b> 896 JavaScript / SuiteScript files</div>
+            <div class="vessel-spec-item"><b>Nodes:</b> 4 Global 3PL Warehouses</div>
+            <div class="vessel-spec-item"><b>Peak Velocity:</b> 50k+ Daily Orders</div>
+            <div class="vessel-spec-item"><b>Allocation:</b> Real-Time Zero-Oversell</div>
+          </div>
+          <p style="color: var(--text-muted); font-size: .94rem; line-height: 1.6; margin: 0 0 1.25rem;">
+            Architected the mission-critical fulfillment backbone powering high-velocity product drops for one of the world's fastest-growing beauty brands. Synchronized Shopify Plus with NetSuite ERP and 4 geographically distributed 3PL distribution centers, engineering real-time inventory allocation that eliminated overselling during viral traffic surges.
+          </p>
+          <div class="vessel-subsystems">
+            <div class="vessel-subsystem">
+              <strong>Omnichannel Drop Pipeline</strong>
+              Absorbs 50,000+ daily orders with parallel MapReduce ingestion.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Distributed 3PL Sync</strong>
+              Bidirectional real-time inventory and shipping parity across 4 nodes.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Inventory Allocation Guard</strong>
+              Atomic pre-order reservation logic preventing split inventory drift.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Automated RMA Processing</strong>
+              Return merchandise authorization inspection and ledger restock routing.
+            </div>
+          </div>
+        </article>
+
+        <!-- Capital Brands (Nutribullet) -->
+        <article class="vessel-card">
+          <div class="vessel-meta">
+            <span class="vessel-classification">Enterprise Automation & Asynchronous Grid</span>
+            <span class="vessel-badge">Enterprise NetSuite Architect</span>
+          </div>
+          <h3 class="vessel-title">Capital Brands (Nutribullet) Manufacturing Grid</h3>
+          <div class="vessel-specs-strip">
+            <div class="vessel-spec-item"><b>Codebase:</b> 697+ Custom JS Files</div>
+            <div class="vessel-spec-item"><b>UI Customization:</b> 95+ Interactive Suitelets</div>
+            <div class="vessel-spec-item"><b>Batch Processing:</b> 35+ MapReduce Engines</div>
+            <div class="vessel-spec-item"><b>Event Triggers:</b> 27+ UserEvent Scripts</div>
+          </div>
+          <p style="color: var(--text-muted); font-size: .94rem; line-height: 1.6; margin: 0 0 1.25rem;">
+            Designed enterprise-scale asynchronous automation for high-volume kitchen appliance manufacturing and wholesale distribution. Built 95+ custom operational Suitelet interfaces for warehouse operators and engineered 35+ MapReduce batch jobs reconciling high-volume shipments, vendor chargebacks, and SPS Commerce EDI transaction streams.
+          </p>
+          <div class="vessel-subsystems">
+            <div class="vessel-subsystem">
+              <strong>95+ Operational Suitelets</strong>
+              Custom interactive warehouse management and order verification consoles.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>35+ MapReduce Jobs</strong>
+              High-volume asynchronous financial settlement and batch reconciliation.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>SPS Commerce EDI</strong>
+              Automated high-throughput retail EDI pipelines for Tier-1 box stores.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>RMA Inspection Gate</strong>
+              Serialized warranty evaluation and salvage ledger classification.
+            </div>
+          </div>
+        </article>
+
+        <!-- EKW-SPHERE -->
+        <article class="vessel-card">
+          <div class="vessel-meta">
+            <span class="vessel-classification">Distributed Financial Reconciliation & Sync SaaS</span>
+            <span class="vessel-badge">Lead Systems Architect</span>
+          </div>
+          <h3 class="vessel-title">EKW-SPHERE Multi-Tenant Financial Gateway</h3>
+          <div class="vessel-specs-strip">
+            <div class="vessel-spec-item"><b>Architecture:</b> 50,000+ LoC Python / React</div>
+            <div class="vessel-spec-item"><b>Throughput:</b> 3,600+ RPS Processing</div>
+            <div class="vessel-spec-item"><b>Latency:</b> Sub-50ms Response Time</div>
+            <div class="vessel-spec-item"><b>Detection:</b> Continuous Anomaly Alerts</div>
+          </div>
+          <p style="color: var(--text-muted); font-size: .94rem; line-height: 1.6; margin: 0 0 1.25rem;">
+            Engineered a full-stack enterprise reconciliation platform connecting NetSuite with external WMS and transactional databases. Designed high-throughput asynchronous event consumers processing 3,600+ requests per second, matching ledger records in real time and isolating data discrepancies before financial period close.
+          </p>
+          <div class="vessel-subsystems">
+            <div class="vessel-subsystem">
+              <strong>3,600+ RPS Event Consumer</strong>
+              High-throughput asynchronous event ingestion and stream validation.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Ledger Parity Engine</strong>
+              Continuous bi-directional balance checking between WMS and ERP.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Discrepancy Resolver</strong>
+              Automated rule-based correction pipelines for trapped transactions.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Audit Ledger Vault</strong>
+              Immutable cryptographic transaction history for compliance verification.
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Dynamic Project Cases -->
+      <div class="section-head reveal">
+        <div>
+          <span class="section-kicker">02.3 // indexed case records</span>
+          <h3 class="section-title" style="font-size: clamp(1.4rem, 2.5vw, 1.85rem);">Automated Workspace Validations</h3>
         </div>
       </div>
 
@@ -960,6 +1490,73 @@
     <p class="case-tech-line"><b>System boundary</b>Python / Flask / PostgreSQL / Redis / Celery / React / TypeScript</p>
         </article>
         
+      </div>
+
+      <!-- 02.4: Comparative Technical Spec Sheet Table (Seasats Lightfish format) -->
+      <div class="section-head reveal" style="margin-top: 3.5rem;">
+        <div>
+          <span class="section-kicker">02.4 // engineering specifications</span>
+          <h3 class="section-title" style="font-size: clamp(1.4rem, 2.5vw, 1.85rem);">Comparative Technical Spec Sheet</h3>
+          <p class="section-sub">Direct architectural parameters, governance ceilings, and protocols across flagship platforms.</p>
+        </div>
+      </div>
+
+      <div class="spec-matrix-wrap reveal">
+        <table class="spec-matrix-table" aria-label="Comparative Technical Spec Sheet">
+          <thead>
+            <tr>
+              <th scope="col">Specification Parameter</th>
+              <th scope="col">Nidecker Group</th>
+              <th scope="col">Rare Beauty</th>
+              <th scope="col">Capital Brands</th>
+              <th scope="col">EKW-SPHERE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Architecture Pattern</th>
+              <td><strong>SuiteScript 2.1 SDF Core</strong>Multi-subsidiary global ERP with dynamic pricing engine</td>
+              <td><strong>Event-Driven iPaaS</strong>Decoupled Shopify Plus to NetSuite order orchestration</td>
+              <td><strong>Hybrid Batch/UI Grid</strong>High-volume MapReduce jobs paired with 95+ Suitelets</td>
+              <td><strong>Distributed Event Loop</strong>High-performance Python/React transaction gateway</td>
+            </tr>
+            <tr>
+              <th scope="row">Codebase Scale</th>
+              <td><strong>1,248 script files</strong>14 international subsidiaries, custom financial engines</td>
+              <td><strong>896 script files</strong>4 3PL warehouse integrations, order routing pipelines</td>
+              <td><strong>697+ custom files</strong>95 interactive Suitelets, 35 MapReduce engines</td>
+              <td><strong>50,000+ LoC</strong>Full-stack multi-tenant reconciliation SaaS</td>
+            </tr>
+            <tr>
+              <th scope="row">Integration Protocols</th>
+              <td><strong>Celigo, Shopify, 3PL EDI</strong>REST Web Services, SOAP, EDI 850/855/856</td>
+              <td><strong>Celigo, Shopify Plus, 4x 3PLs</strong>RESTlets, Webhooks, Carrier APIs (DHL, FedEx)</td>
+              <td><strong>Celigo, SPS Commerce, EDI</strong>REST, ODBC, AS2, SFTP batch sync</td>
+              <td><strong>Celigo, REST Webhooks, WMS API</strong>Bi-directional REST, OAuth 2.0, Webhook mesh</td>
+            </tr>
+            <tr>
+              <th scope="row">Peak Throughput</th>
+              <td><strong>Sub-second Pricing</strong>Real-time landed cost calculation on multi-currency catalogs</td>
+              <td><strong>50,000+ Daily Orders</strong>Zero record locking during high-velocity flash drops</td>
+              <td><strong>35 Concurrent Queues</strong>Massive asynchronous batch financial reconciliation</td>
+              <td><strong>3,600+ RPS</strong>Sub-50ms latency on transaction matching pipeline</td>
+            </tr>
+            <tr>
+              <th scope="row">Ledger & Inventory Parity</th>
+              <td><strong>Landed Cost Parity</strong>Real-time multi-currency tax & margin reconciliation</td>
+              <td><strong>Zero-Oversell Allocation</strong>Atomic pre-order reservations across 4 3PL nodes</td>
+              <td><strong>SOX Close Compliance</strong>Automated RMA credit and vendor chargeback audits</td>
+              <td><strong>Continuous Audit Vault</strong>Automated discrepancy detection before accounting close</td>
+            </tr>
+            <tr>
+              <th scope="row">Engineering Role</th>
+              <td><strong>Sole / Lead Architect</strong>Requirements discovery to global production cutover</td>
+              <td><strong>Lead NetSuite Architect</strong>Omnichannel fulfillment & 3PL logistics architecture</td>
+              <td><strong>Enterprise NetSuite Architect</strong>Warehouse operations & asynchronous batch engineering</td>
+              <td><strong>Lead Systems Architect</strong>Full-stack SaaS architecture and high-scale ingestion</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <!-- Project Archive -->
@@ -1889,8 +2486,9 @@
     <section class="section wrap" id="stack">
       <div class="section-head reveal">
         <div>
-          <span class="section-kicker">03 - stack & capabilities</span>
+          <span class="section-kicker">03 // capabilities & stack</span>
           <h2 class="section-title">Core Technologies & Boundaries</h2>
+          <p class="section-sub">Specialized toolsets across NetSuite ERP, integration middleware, logistics, and engineering.</p>
         </div>
       </div>
 
@@ -1962,8 +2560,9 @@
     <section class="section wrap" id="credentials">
       <div class="section-head reveal">
         <div>
-          <span class="section-kicker">04 - credentials</span>
+          <span class="section-kicker">04 // credentials</span>
           <h2 class="section-title">Certifications & Education</h2>
+          <p class="section-sub">Industry credentials, vendor certifications, and academic engineering honors.</p>
         </div>
       </div>
 
@@ -2021,7 +2620,7 @@
     <!-- ── 05: Contact ── -->
     <section class="section wrap" id="contact">
       <div class="contact-card reveal">
-        <span class="section-kicker">05 - contact</span>
+        <span class="section-kicker">05 // transmission</span>
         <h2 class="contact-title">Bring me the system that needs clarity.</h2>
         <p class="contact-desc">
           Whether you are evaluating a NetSuite implementation, resolving high-volume 3PL bottlenecks, or architecting multi-subsidiary integrations - let's talk.
