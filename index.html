@@ -249,16 +249,24 @@
       border-radius: var(--radius-panel);
       background: var(--titanium-raised);
       border: 1px solid var(--border-bright);
-      box-shadow: 0 24px 60px rgb(0 0 0 / .6), inset 0 1px 0 rgb(255 255 255 / .1);
+      box-shadow: 0 24px 60px rgb(0 0 0 / .6), 0 0 40px rgb(56 189 248 / .05), inset 0 1px 0 rgb(255 255 255 / .1);
       overflow: hidden;
       aspect-ratio: 843 / 1150;
+    }
+    .hero-portrait-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 58%, rgb(9 13 20 / .75) 100%);
+      pointer-events: none;
     }
     .hero-portrait-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
-      filter: contrast(1.06) brightness(0.98);
+      object-position: center 14%;
+      filter: contrast(1.05) brightness(0.98);
+      display: block;
     }
     .hero-portrait-badge {
       position: absolute;
@@ -268,6 +276,8 @@
       padding: .65rem .85rem;
       border-radius: 10px;
       background: rgb(10 13 20 / .85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border-subtle);
       font-family: var(--font-mono);
       font-size: .68rem;
@@ -275,6 +285,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: .5rem;
+      z-index: 2;
+      box-shadow: 0 4px 16px rgb(0 0 0 / .4);
     }
     .hero-portrait-badge strong {
       color: var(--text-bright);
@@ -1087,18 +1100,75 @@
     }
 
     @media (max-width: 767px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-portrait-card { max-width: 15rem; aspect-ratio: 1; border-radius: 50%; margin-inline: auto; }
-      .client-logos-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-portrait-card {
+        max-width: min(16.5rem, 80vw);
+        aspect-ratio: 4 / 5;
+        border-radius: 22px;
+        margin-inline: auto;
+        box-shadow: 0 16px 48px rgb(0 0 0 / .6), 0 0 30px rgb(56 189 248 / .08), inset 0 1px 0 rgb(255 255 255 / .12);
+      }
+      .hero-portrait-img {
+        object-position: center 14%;
+      }
+      .hero-portrait-badge {
+        bottom: .75rem;
+        left: .75rem;
+        right: .75rem;
+        padding: .5rem .75rem;
+        font-size: clamp(0.6rem, 2.5vw, 0.66rem);
+        border-radius: 9px;
+      }
+      .client-logos-grid { grid-template-columns: repeat(2, 1fr); gap: .6rem; }
       .stats-ribbon { grid-template-columns: 1fr 1fr; }
       .stat-item:nth-child(2) { border-right: 0; }
       .timeline-item { padding: 1.5rem; }
       .timeline-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .timeline-brand { flex-direction: column; align-items: flex-start; gap: .85rem; }
-      .timeline-logo-box { min-width: 130px; height: 48px; }
+      .timeline-brand { display: flex; align-items: center; flex-wrap: wrap; gap: .85rem; }
+      .timeline-logo-box { min-width: 125px; height: 48px; }
       .case-row { grid-template-columns: 1fr; gap: .25rem; }
       .archive-row { grid-template-columns: 1fr; gap: .35rem; }
       .footer-inner { flex-direction: column; text-align: center; }
+      .spec-matrix-table { min-width: 580px; }
+    }
+
+    @media (max-width: 480px) {
+      .wrap { padding-inline: 1.25rem; }
+      .hero-portrait-card {
+        max-width: min(15rem, 85vw);
+        border-radius: 20px;
+      }
+      .hero-portrait-badge {
+        bottom: .65rem;
+        left: .65rem;
+        right: .65rem;
+        padding: .45rem .65rem;
+        font-size: .6rem;
+      }
+      .hero-title {
+        font-size: clamp(1.85rem, 8vw, 2.4rem);
+      }
+      .hero-kicker {
+        font-size: .7rem;
+      }
+      .client-logo-card {
+        padding: .75rem .4rem;
+        min-height: 52px;
+      }
+      .client-brand-name {
+        font-size: .88rem;
+      }
+      .timeline-item {
+        padding: 1.15rem;
+      }
+      .timeline-logo-box {
+        min-width: 110px;
+        height: 44px;
+        padding: .35rem .65rem;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
