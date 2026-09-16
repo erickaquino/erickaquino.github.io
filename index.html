@@ -370,6 +370,84 @@
       letter-spacing: .05em;
     }
 
+    /* Client Trust & Brand Logos */
+    .client-trust {
+      margin-top: 3.5rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .client-trust-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-bottom: 1.5rem;
+    }
+    .client-trust-kicker {
+      font-family: var(--font-mono);
+      font-size: .74rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--signal-copper);
+    }
+    .client-trust-count {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--text-dim);
+    }
+    .client-logos-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: .85rem;
+    }
+    .client-logo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 84px;
+      padding: 1.1rem .85rem;
+      border-radius: 12px;
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 8px 24px rgb(0 0 0 / .25), inset 0 1px 0 rgb(255 255 255 / .03);
+      transition: border-color 160ms ease, background-color 160ms ease;
+      text-align: center;
+    }
+    .client-logo-card:hover {
+      border-color: var(--border-bright);
+      background: var(--titanium-surface);
+    }
+    .client-logo-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+      width: 100%;
+    }
+    .client-logo-svg {
+      height: 24px;
+      width: 100%;
+      max-width: 140px;
+      fill: var(--text-muted);
+      color: var(--text-muted);
+      transition: fill 140ms ease, color 140ms ease;
+    }
+    .client-logo-card:hover .client-logo-svg {
+      fill: #ffffff;
+      color: #ffffff;
+    }
+    .client-logo-sub {
+      margin-top: .45rem;
+      font-family: var(--font-mono);
+      font-size: .62rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
     /* Section structure */
     .section {
       padding-block: 4.5rem;
@@ -927,7 +1005,10 @@
     }
     .js .reveal.is-visible { opacity: 1; transform: none; }
 
-    /* Responsive */
+    @media (max-width: 1100px) {
+      .client-logos-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
     @media (max-width: 900px) {
       .nav-toggle { display: inline-flex; }
       .nav-links {
@@ -952,6 +1033,7 @@
     @media (max-width: 767px) {
       .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
       .hero-portrait-card { max-width: 15rem; aspect-ratio: 1; border-radius: 50%; margin-inline: auto; }
+      .client-logos-grid { grid-template-columns: repeat(2, 1fr); }
       .stats-ribbon { grid-template-columns: 1fr 1fr; }
       .stat-item:nth-child(2) { border-right: 0; }
       .stat-item:nth-child(3) { border-top: 1px solid var(--border-subtle); }
@@ -1057,6 +1139,158 @@
         <div class="stat-item proof">
           <div class="stat-val"><strong>50+</strong></div>
           <div class="stat-lbl"><span>Global Brands & Clients</span></div>
+        </div>
+      </div>
+
+      <!-- Client Trust & Brand Logos -->
+      <div class="client-trust reveal" aria-label="Selected client brands">
+        <div class="client-trust-head">
+          <span class="client-trust-kicker">Enterprise Clients & Deployments</span>
+          <span class="client-trust-count">Representative brands from 10+ years of NetSuite architecture & integrations</span>
+        </div>
+        <div class="client-logos-grid">
+          <!-- Rare Beauty -->
+          <div class="client-logo-card" title="Rare Beauty">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 160 26" fill="currentColor" role="img" aria-label="Rare Beauty">
+                <title>Rare Beauty</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', Times, 'Geologica', serif" font-size="16" font-weight="600" letter-spacing="0.22em">RARE BEAUTY</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Global DTC · NetSuite</span>
+          </div>
+
+          <!-- Nutribullet / Capital Brands -->
+          <div class="client-logo-card" title="Nutribullet (Capital Brands)">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 140 26" fill="currentColor" role="img" aria-label="Nutribullet">
+                <title>Nutribullet</title>
+                <text x="46%" y="19" text-anchor="middle" font-family="'Geologica', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.04em">nutribullet</text>
+                <circle cx="116" cy="17" r="3" fill="var(--signal-copper)"/>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Capital Brands · EDI</span>
+          </div>
+
+          <!-- Nidecker Group -->
+          <div class="client-logo-card" title="Nidecker Group">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 140 26" fill="currentColor" role="img" aria-label="Nidecker">
+                <title>Nidecker</title>
+                <polygon points="10,21 18,7 26,21" fill="none" stroke="currentColor" stroke-width="2.4"/>
+                <polygon points="19,21 24,12 29,21" fill="var(--signal-copper)"/>
+                <text x="80" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="800" letter-spacing="0.1em">NIDECKER</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Sports · 14 Subsidiaries</span>
+          </div>
+
+          <!-- Tatcha -->
+          <div class="client-logo-card" title="Tatcha">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="Tatcha">
+                <title>Tatcha</title>
+                <g transform="translate(10, 5)">
+                  <polygon points="7,0 14,7 7,14 0,7" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <circle cx="7" cy="7" r="2" fill="var(--signal-copper)"/>
+                </g>
+                <text x="76" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="16" font-weight="500" letter-spacing="0.26em">TATCHA</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Luxury Skincare</span>
+          </div>
+
+          <!-- Hourglass -->
+          <div class="client-logo-card" title="Hourglass Cosmetics">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 150 26" fill="currentColor" role="img" aria-label="Hourglass">
+                <title>Hourglass</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="13.5" font-weight="500" letter-spacing="0.32em">HOURGLASS</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Cosmetics · 3PL</span>
+          </div>
+
+          <!-- Kosas -->
+          <div class="client-logo-card" title="Kosas">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 110 26" fill="currentColor" role="img" aria-label="Kosas">
+                <title>Kosas</title>
+                <text x="50%" y="20" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="20" font-weight="700" letter-spacing="-0.02em">Kosas</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Clean Beauty</span>
+          </div>
+
+          <!-- Vegamour -->
+          <div class="client-logo-card" title="Vegamour">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 140 26" fill="currentColor" role="img" aria-label="Vegamour">
+                <title>Vegamour</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="600" letter-spacing="0.18em">VEGAMOUR</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Hair Wellness</span>
+          </div>
+
+          <!-- Pacifica -->
+          <div class="client-logo-card" title="Pacifica Beauty">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="Pacifica">
+                <title>Pacifica</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="16" font-weight="600" letter-spacing="0.18em">PACIFICA</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Clean Beauty</span>
+          </div>
+
+          <!-- Merit -->
+          <div class="client-logo-card" title="Merit Beauty">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 110 26" fill="currentColor" role="img" aria-label="Merit">
+                <title>Merit</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="17" font-weight="600" letter-spacing="0.28em">MERIT</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Luxury Beauty</span>
+          </div>
+
+          <!-- Jones Road -->
+          <div class="client-logo-card" title="Jones Road Beauty">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 150 26" fill="currentColor" role="img" aria-label="Jones Road">
+                <title>Jones Road</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="15" font-weight="700" letter-spacing="0.14em">JONES ROAD</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Clean Makeup</span>
+          </div>
+
+          <!-- Beautycounter -->
+          <div class="client-logo-card" title="Beautycounter">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 160 26" fill="currentColor" role="img" aria-label="Beautycounter">
+                <title>Beautycounter</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="13.5" font-weight="600" letter-spacing="0.16em">BEAUTYCOUNTER</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">B-Corp DTC</span>
+          </div>
+
+          <!-- GT Golf -->
+          <div class="client-logo-card" title="GT Golf Supplies">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="GT Golf">
+                <title>GT Golf</title>
+                <g transform="translate(6, 5)">
+                  <path d="M0,0 L11,4 L0,8 Z" fill="var(--signal-copper)"/>
+                  <line x1="0" y1="0" x2="0" y2="16" stroke="currentColor" stroke-width="2"/>
+                </g>
+                <text x="72" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="800" letter-spacing="0.08em">GT GOLF</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Wholesale · 1,165 Scripts</span>
+          </div>
         </div>
       </div>
     </section>
