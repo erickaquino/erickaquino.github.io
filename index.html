@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://erickaquino.github.io">
   <title>Erick Aquino | Senior NetSuite Solutions Architect & Enterprise Integration Specialist</title>
-  <link rel="icon" href="data:,">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=Instrument+Serif:ital@1&amp;family=JetBrains+Mono:wght@400..600&amp;display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -193,6 +193,36 @@
     .font-serif {
       font-family: var(--font-serif);
       font-style: italic;
+    }
+
+    /* Milan Compain-inspired Astroid Star Elements */
+    .hero-star-mark {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      z-index: 6;
+      pointer-events: none;
+      filter: drop-shadow(0 0 14px rgb(217 119 54 / .55)) drop-shadow(0 0 32px rgb(217 119 54 / .25));
+      animation: star-spin 32s linear infinite;
+    }
+    .contact-star-mark {
+      display: inline-block;
+      margin-bottom: 1.25rem;
+      filter: drop-shadow(0 0 18px rgb(217 119 54 / .6)) drop-shadow(0 0 38px rgb(217 119 54 / .3));
+      animation: star-spin 36s linear infinite;
+    }
+    .kicker-star {
+      display: inline-block;
+      vertical-align: -2px;
+      margin-right: .4rem;
+      filter: drop-shadow(0 0 6px rgb(217 119 54 / .6));
+    }
+    @keyframes star-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-star-mark, .contact-star-mark { animation: none; }
     }
 
     /* Skip link */
@@ -1741,6 +1771,21 @@
   <div class="copy-toast" id="copyToast" aria-live="polite">✓ Copied ejaquino26@gmail.com</div>
   <div class="halftone-field" aria-hidden="true"></div>
 
+  <svg style="display:none" aria-hidden="true">
+    <defs>
+      <radialGradient id="star-copper-grad" cx="0" cy="0" r="105" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#5c270e"/>
+        <stop offset="45%" stop-color="#9a3412"/>
+        <stop offset="75%" stop-color="#d97736"/>
+        <stop offset="100%" stop-color="#ffedd5"/>
+      </radialGradient>
+      <g id="star-path">
+        <path d="M100.0 0.0L79.0 -2.1L71.6 -3.8L66.5 -5.2L62.6 -6.6L59.4 -7.8L56.6 -9.0L54.3 -10.1L52.2 -11.1L50.3 -12.1L48.5 -13.0L47.0 -13.9L45.5 -14.8L44.2 -15.6L42.9 -16.5L41.7 -17.3L40.5 -18.1L39.5 -18.8L38.4 -19.6L37.5 -20.3L36.5 -21.1L35.6 -21.8L34.7 -22.6L33.9 -23.3L33.0 -24.0L32.2 -24.7L31.4 -25.5L30.7 -26.2L29.9 -26.9L29.2 -27.7L28.4 -28.4L27.7 -29.2L27.0 -29.9L26.2 -30.7L25.5 -31.5L24.8 -32.3L24.1 -33.2L23.4 -34.0L22.7 -34.9L22.0 -35.8L21.2 -36.8L20.5 -37.8L19.8 -38.8L19.0 -39.9L18.2 -41.0L17.5 -42.2L16.7 -43.4L15.8 -44.7L15.0 -46.2L14.1 -47.7L13.2 -49.4L12.3 -51.2L11.3 -53.2L10.3 -55.4L9.2 -57.9L8.0 -60.8L6.8 -64.3L5.4 -68.5L3.9 -74.0L2.1 -82.0L0.0 -105.0L-2.1 -82.0L-3.9 -74.0L-5.4 -68.5L-6.8 -64.3L-8.0 -60.8L-9.2 -57.9L-10.3 -55.4L-11.3 -53.2L-12.3 -51.2L-13.2 -49.4L-14.1 -47.7L-15.0 -46.2L-15.8 -44.7L-16.7 -43.4L-17.5 -42.2L-18.2 -41.0L-19.0 -39.9L-19.8 -38.8L-20.5 -37.8L-21.2 -36.8L-22.0 -35.8L-22.7 -34.9L-23.4 -34.0L-24.1 -33.2L-24.8 -32.3L-25.5 -31.5L-26.2 -30.7L-27.0 -29.9L-27.7 -29.2L-28.4 -28.4L-29.2 -27.7L-29.9 -26.9L-30.7 -26.2L-31.4 -25.5L-32.2 -24.7L-33.0 -24.0L-33.9 -23.3L-34.7 -22.6L-35.6 -21.8L-36.5 -21.1L-37.5 -20.3L-38.4 -19.6L-39.5 -18.8L-40.5 -18.1L-41.7 -17.3L-42.9 -16.5L-44.2 -15.6L-45.5 -14.8L-47.0 -13.9L-48.5 -13.0L-50.3 -12.1L-52.2 -11.1L-54.3 -10.1L-56.6 -9.0L-59.4 -7.8L-62.6 -6.6L-66.5 -5.2L-71.6 -3.8L-79.0 -2.1L-100.0 -0.0L-79.0 2.1L-71.6 3.8L-66.5 5.2L-62.6 6.6L-59.4 7.8L-56.6 9.0L-54.3 10.1L-52.2 11.1L-50.3 12.1L-48.5 13.0L-47.0 13.9L-45.5 14.8L-44.2 15.6L-42.9 16.5L-41.7 17.3L-40.5 18.1L-39.5 18.8L-38.4 19.6L-37.5 20.3L-36.5 21.1L-35.6 21.8L-34.7 22.6L-33.9 23.3L-33.0 24.0L-32.2 24.7L-31.4 25.5L-30.7 26.2L-29.9 26.9L-29.2 27.7L-28.4 28.4L-27.7 29.2L-27.0 29.9L-26.2 30.7L-25.5 31.5L-24.8 32.3L-24.1 33.2L-23.4 34.0L-22.7 34.9L-22.0 35.8L-21.2 36.8L-20.5 37.8L-19.8 38.8L-19.0 39.9L-18.2 41.0L-17.5 42.2L-16.7 43.4L-15.8 44.7L-15.0 46.2L-14.1 47.7L-13.2 49.4L-12.3 51.2L-11.3 53.2L-10.3 55.4L-9.2 57.9L-8.0 60.8L-6.8 64.3L-5.4 68.5L-3.9 74.0L-2.1 82.0L-0.0 105.0L2.1 82.0L3.9 74.0L5.4 68.5L6.8 64.3L8.0 60.8L9.2 57.9L10.3 55.4L11.3 53.2L12.3 51.2L13.2 49.4L14.1 47.7L15.0 46.2L15.8 44.7L16.7 43.4L17.5 42.2L18.2 41.0L19.0 39.9L19.8 38.8L20.5 37.8L21.2 36.8L22.0 35.8L22.7 34.9L23.4 34.0L24.1 33.2L24.8 32.3L25.5 31.5L26.2 30.7L27.0 29.9L27.7 29.2L28.4 28.4L29.2 27.7L29.9 26.9L30.7 26.2L31.4 25.5L32.2 24.7L33.0 24.0L33.9 23.3L34.7 22.6L35.6 21.8L36.5 21.1L37.5 20.3L38.4 19.6L39.5 18.8L40.5 18.1L41.7 17.3L42.9 16.5L44.2 15.6L45.5 14.8L47.0 13.9L48.5 13.0L50.3 12.1L52.2 11.1L54.3 10.1L56.6 9.0L59.4 7.8L62.6 6.6L66.5 5.2L71.6 3.8L79.0 2.1L100.0 0.0Z" fill="url(#star-copper-grad)"/>
+      </g>
+    </defs>
+  </svg>
+
+  
   
   
   
@@ -1776,6 +1821,11 @@
   <span class="pc pc-tr" aria-hidden="true"></span>
   <span class="pc pc-bl" aria-hidden="true"></span>
   <span class="pc pc-br" aria-hidden="true"></span>
+          <div class="hero-star-mark" aria-hidden="true">
+            <svg class="" viewBox="-106 -111 212 222" width="44" height="44" aria-hidden="true">
+    <use href="#star-path"/>
+  </svg>
+          </div>
           <picture>
             <source srcset="portrait.webp" type="image/webp">
             <img class="hero-portrait-img" src="portrait.png" alt="Erick Aquino - Senior NetSuite Solutions Architect" width="843" height="1264" loading="eager" decoding="async">
@@ -1788,7 +1838,9 @@
 
         <!-- Bio and identity -->
         <div class="reveal">
-          <div class="hero-kicker">Senior NetSuite Solutions Architect · Enterprise Integration Specialist · AI Orchestrator</div>
+          <div class="hero-kicker"><span class="kicker-star" aria-hidden="true"><svg class="" viewBox="-106 -111 212 222" width="13" height="13" aria-hidden="true">
+    <use href="#star-path"/>
+  </svg></span>Senior NetSuite Solutions Architect · Enterprise Integration Specialist · AI Orchestrator</div>
           <h1 class="hero-title">Bringing order to enterprise chaos.</h1>
           <p class="hero-lede">Architecting mission-critical NetSuite platforms, resilient integration fabrics, and autonomous AI delivery that turn operational friction into engineered precision.</p>
           <p class="hero-bio">
@@ -3959,6 +4011,11 @@
   <span class="pc pc-tr" aria-hidden="true"></span>
   <span class="pc pc-bl" aria-hidden="true"></span>
   <span class="pc pc-br" aria-hidden="true"></span>
+        <div class="contact-star-mark" aria-hidden="true">
+          <svg class="" viewBox="-106 -111 212 222" width="44" height="44" aria-hidden="true">
+    <use href="#star-path"/>
+  </svg>
+        </div>
         <span class="section-kicker">05 // transmission</span>
         <h2 class="contact-title">Bring me the system that needs clarity.</h2>
         <p class="contact-desc">
