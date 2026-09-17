@@ -16,8 +16,8 @@
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=JetBrains+Mono:wght@400..600&amp;display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=JetBrains+Mono:wght@400..600&amp;display=optional" rel="stylesheet"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=Instrument+Serif:ital@1&amp;family=JetBrains+Mono:wght@400..600&amp;display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=Instrument+Serif:ital@1&amp;family=JetBrains+Mono:wght@400..600&amp;display=optional" rel="stylesheet"></noscript>
   <script>document.documentElement.classList.add('js');</script>
   <style id="industrial-command-deck">
     :root {
@@ -37,6 +37,7 @@
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
       --content: 72rem;
       --font-sans: "Geologica", system-ui, sans-serif;
+      --font-serif: "Instrument Serif", Georgia, serif;
       --font-mono: "JetBrains Mono", ui-monospace, monospace;
     }
 
@@ -83,6 +84,116 @@
     [hidden] { display: none !important; }
     section[id] { scroll-margin-top: 6.5rem; }
     .wrap { width: min(calc(100% - 2.5rem), var(--content)); margin-inline: auto; }
+
+    /* Filmic Atmospheric Grain Overlay (Milan Compain style) */
+    #grain {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .032;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Precision Viewfinder Corner Brackets */
+    .viewfinder {
+      position: relative;
+    }
+    .pc {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border: 0 solid var(--signal-copper);
+      pointer-events: none;
+      opacity: .32;
+      transition: opacity 220ms cubic-bezier(.22, 1, .36, 1), border-color 220ms cubic-bezier(.22, 1, .36, 1);
+      z-index: 4;
+    }
+    .viewfinder:hover .pc,
+    .viewfinder:focus-within .pc {
+      opacity: .95;
+      border-color: var(--signal-copper);
+    }
+    .pc-tl { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; border-top-left-radius: 4px; }
+    .pc-tr { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; border-top-right-radius: 4px; }
+    .pc-bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; border-bottom-left-radius: 4px; }
+    .pc-br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: 4px; }
+
+    /* Custom Cursor (Milan Compain style - fine pointer only) */
+    @media (hover: hover) and (pointer: fine) {
+      body.has-custom-cursor,
+      body.has-custom-cursor a,
+      body.has-custom-cursor button,
+      body.has-custom-cursor [role="tab"] {
+        cursor: none;
+      }
+      #cur-dot, #cur-ring {
+        position: fixed;
+        top: 0; left: 0;
+        z-index: 10000;
+        pointer-events: none;
+        will-change: transform;
+      }
+      #cur-dot {
+        width: 6px;
+        height: 6px;
+        margin: -3px 0 0 -3px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: 0 0 6px rgb(255 255 255 / .8);
+        transition: opacity 150ms ease, transform 150ms ease;
+      }
+      #cur-ring {
+        width: 32px;
+        height: 32px;
+        margin: -16px 0 0 -16px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        transition: border-color 220ms cubic-bezier(.22, 1, .36, 1), width 220ms cubic-bezier(.22, 1, .36, 1), height 220ms cubic-bezier(.22, 1, .36, 1), margin 220ms cubic-bezier(.22, 1, .36, 1), background-color 220ms cubic-bezier(.22, 1, .36, 1), opacity 150ms ease;
+      }
+      #cur-ring.is-hovering {
+        width: 48px;
+        height: 48px;
+        margin: -24px 0 0 -24px;
+        border-color: var(--signal-copper);
+        background: rgb(217 119 54 / .14);
+      }
+    }
+    @media (hover: none), (pointer: coarse) {
+      #cur-dot, #cur-ring { display: none !important; }
+    }
+
+    /* Email Copy Toast */
+    .copy-toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      padding: .5rem 1.1rem;
+      border-radius: var(--radius-control);
+      background: var(--titanium-surface);
+      border: 1px solid var(--signal-copper);
+      color: var(--text-bright);
+      font-family: var(--font-mono);
+      font-size: .82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      box-shadow: 0 16px 40px rgb(0 0 0 / .6), 0 0 20px rgb(217 119 54 / .25);
+      transition: opacity 220ms ease, transform 220ms cubic-bezier(.22, 1, .36, 1);
+      z-index: 10001;
+    }
+    .copy-toast.is-active {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .font-serif {
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
 
     /* Skip link */
     .skip-link {
@@ -369,12 +480,14 @@
     }
     .stat-item:last-child { border-right: 0; }
     .stat-val strong {
-      font-family: var(--font-mono);
-      font-size: clamp(1.8rem, 3.2vw, 2.4rem);
-      font-weight: 600;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(2.3rem, 3.8vw, 3rem);
+      font-weight: 400;
       color: var(--text-bright);
       line-height: 1;
-      letter-spacing: -.02em;
+      letter-spacing: -.01em;
+      font-variant-numeric: tabular-nums;
     }
     .stat-lbl span {
       display: block;
@@ -1504,7 +1617,7 @@
       transform: translateY(14px);
       transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
     }
-    .js .reveal.is-visible { opacity: 1; transform: none; }
+    .js .reveal, .js .reveal.is-visible { opacity: 1; transform: none; }
 
     @media (max-width: 1100px) {
       .client-logos-grid { grid-template-columns: repeat(4, 1fr); }
@@ -1622,8 +1735,13 @@
   </style>
 </head>
 <body>
+  <div id="grain" aria-hidden="true"></div>
+  <div id="cur-dot" aria-hidden="true"></div>
+  <div id="cur-ring" aria-hidden="true"></div>
+  <div class="copy-toast" id="copyToast" aria-live="polite">✓ Copied ejaquino26@gmail.com</div>
   <div class="halftone-field" aria-hidden="true"></div>
 
+  
   
   
   
@@ -1653,7 +1771,11 @@
     <section class="hero wrap" id="hero">
       <div class="hero-grid">
         <!-- Steve Jobs-inspired studio portrait -->
-        <div class="hero-portrait-card reveal">
+        <div class="hero-portrait-card viewfinder reveal">
+          <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
           <picture>
             <source srcset="portrait.webp" type="image/webp">
             <img class="hero-portrait-img" src="portrait.png" alt="Erick Aquino - Senior NetSuite Solutions Architect" width="843" height="1264" loading="eager" decoding="async">
@@ -2056,7 +2178,11 @@
 
       <div class="vessels-grid reveal">
         <!-- Nidecker Group -->
-        <article class="vessel-card">
+        <article class="vessel-card viewfinder">
+          <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
           <div class="vessel-meta">
             <span class="vessel-classification">Global ERP & Matrix Pricing Vessel</span>
             <span class="vessel-badge">Sole Lead Architect</span>
@@ -2092,7 +2218,11 @@
         </article>
 
         <!-- Rare Beauty -->
-        <article class="vessel-card">
+        <article class="vessel-card viewfinder">
+          <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
           <div class="vessel-meta">
             <span class="vessel-classification">High-Velocity Omnichannel & Logistics Pipeline</span>
             <span class="vessel-badge">Lead NetSuite Architect</span>
@@ -2128,7 +2258,11 @@
         </article>
 
         <!-- Capital Brands (Nutribullet) -->
-        <article class="vessel-card">
+        <article class="vessel-card viewfinder">
+          <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
           <div class="vessel-meta">
             <span class="vessel-classification">Enterprise Automation & Asynchronous Grid</span>
             <span class="vessel-badge">Enterprise NetSuite Architect</span>
@@ -2164,7 +2298,11 @@
         </article>
 
         <!-- EKW-SPHERE -->
-        <article class="vessel-card">
+        <article class="vessel-card viewfinder">
+          <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
           <div class="vessel-meta">
             <span class="vessel-classification">Distributed Financial Reconciliation & Sync SaaS</span>
             <span class="vessel-badge">Lead Systems Architect</span>
@@ -2210,7 +2348,11 @@
       </div>
 
       <!-- Interactive Autonomous Pipeline Console -->
-      <div class="pipeline-console reveal" id="pipelineConsole">
+      <div class="pipeline-console viewfinder reveal" id="pipelineConsole">
+        <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
         <div class="console-topbar">
           <div class="console-controls">
             <span class="ctrl-dot ctrl-red" aria-hidden="true"></span>
@@ -3812,7 +3954,11 @@
 
     <!-- ── 05: Contact ── -->
     <section class="section wrap" id="contact">
-      <div class="contact-card reveal">
+      <div class="contact-card viewfinder reveal">
+        <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
         <span class="section-kicker">05 // transmission</span>
         <h2 class="contact-title">Bring me the system that needs clarity.</h2>
         <p class="contact-desc">
@@ -3937,6 +4083,89 @@
             activateTab(tabs[targetIndex]);
           }
         });
+      });
+    })();
+
+    (function () {
+      var isFinePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (!isFinePointer) return;
+      var dot = document.getElementById('cur-dot');
+      var ring = document.getElementById('cur-ring');
+      if (!dot || !ring) return;
+
+      document.body.classList.add('has-custom-cursor');
+
+      var mouseX = -100;
+      var mouseY = -100;
+      var ringX = -100;
+      var ringY = -100;
+      var isVisible = false;
+
+      window.addEventListener('pointermove', function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (!isVisible) {
+          isVisible = true;
+          dot.style.opacity = '1';
+          ring.style.opacity = '1';
+        }
+        dot.style.transform = 'translate3d(' + mouseX + 'px,' + mouseY + 'px,0)';
+      }, { passive: true });
+
+      document.addEventListener('pointerleave', function () {
+        isVisible = false;
+        dot.style.opacity = '0';
+        ring.style.opacity = '0';
+      });
+
+      document.addEventListener('pointerenter', function () {
+        isVisible = true;
+        dot.style.opacity = '1';
+        ring.style.opacity = '1';
+      });
+
+      function renderRing() {
+        if (isVisible) {
+          ringX += (mouseX - ringX) * 0.22;
+          ringY += (mouseY - ringY) * 0.22;
+          ring.style.transform = 'translate3d(' + ringX + 'px,' + ringY + 'px,0)';
+        }
+        requestAnimationFrame(renderRing);
+      }
+      requestAnimationFrame(renderRing);
+
+      var hoverables = 'a, button, [role="tab"], .viewfinder, input, textarea';
+      document.addEventListener('pointerover', function (e) {
+        if (e.target && e.target.closest && e.target.closest(hoverables)) {
+          ring.classList.add('is-hovering');
+        }
+      });
+      document.addEventListener('pointerout', function (e) {
+        if (e.target && e.target.closest && e.target.closest(hoverables)) {
+          ring.classList.remove('is-hovering');
+        }
+      });
+    })();
+
+    (function () {
+      var toast = document.getElementById('copyToast');
+      var toastTimer = null;
+      var email = 'ejaquino26@gmail.com';
+
+      document.addEventListener('click', function (e) {
+        var anchor = e.target && e.target.closest ? e.target.closest('a[href*="mailto:' + email + '"]') : null;
+        if (!anchor) return;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(function () {
+            if (!toast) return;
+            toast.classList.add('is-active');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(function () {
+              toast.classList.remove('is-active');
+            }, 2200);
+          }).catch(function () {});
+        }
       });
     })();
   </script>
