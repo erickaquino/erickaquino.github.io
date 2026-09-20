@@ -672,18 +672,18 @@
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: .85rem;
+      gap: 1rem;
       margin-bottom: 2.75rem;
     }
     .pillar-card {
-      padding: 1rem 1.15rem;
+      padding: 1.35rem 1.45rem;
       border-radius: var(--radius-panel);
       background: #111622;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04);
       display: flex;
       flex-direction: column;
-      gap: .3rem;
+      gap: .4rem;
       transition: border-color 160ms ease, background-color 160ms ease;
     }
     .pillar-card:hover {
@@ -694,7 +694,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: .25rem;
+      margin-bottom: .2rem;
     }
     .pillar-index {
       font-family: var(--font-mono);
@@ -708,32 +708,20 @@
       font-size: .72rem;
       text-transform: uppercase;
       letter-spacing: .06em;
-      padding: .12rem .4rem;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
       color: #86868b;
     }
     .pillar-title {
-      font-size: 1.15rem;
+      font-size: 1.18rem;
       font-weight: 600;
       color: #f5f5f7;
       margin: 0;
       letter-spacing: -.015em;
     }
-    .pillar-sub {
-      font-family: var(--font-mono);
-      font-size: .75rem;
-      color: #86868b;
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-    }
     .pillar-desc {
-      font-size: .85rem;
-      line-height: 1.45;
-      color: #a1a1a6;
-      margin: .25rem 0 0;
+      font-size: .88rem;
+      line-height: 1.5;
+      color: #94a3b8;
+      margin: 0;
     }
 
     /* Open Chronological Timeline */
@@ -2012,12 +2000,9 @@
         <div class="reveal">
           <div class="hero-kicker"><span class="kicker-star" aria-hidden="true"><svg class="" viewBox="-106 -111 212 222" width="13" height="13" aria-hidden="true">
     <use href="#star-path"/>
-  </svg></span>Senior NetSuite Solutions Architect · Enterprise Integration Specialist · AI Orchestrator</div>
+  </svg></span>Senior NetSuite Solutions Architect · Integrations &amp; AI</div>
           <h1 class="hero-title">Bringing order to enterprise chaos.</h1>
           <p class="hero-lede">Architecting mission-critical NetSuite platforms, resilient integration fabrics, and autonomous AI delivery that turn operational friction into engineered precision.</p>
-          <p class="hero-bio">
-            Former Oracle NetSuite SWAT engineer leading multi-subsidiary ERP, Celigo iPaaS pipelines, and Tier-1 3PL logistics networks for world-class DTC and enterprise brands.
-          </p>
 
           <div class="hero-capabilities-strip" role="list" aria-label="Core Architectural Capabilities">
             <span class="capability-pill" role="listitem">Autonomous AI Delivery</span>
@@ -2307,7 +2292,7 @@
       <div class="section-head reveal">
         <div>
           <span class="section-kicker">02.1 // architectural pillars</span>
-          <h2 class="section-title">Six Tenets of Mission-Critical NetSuite Architecture</h2>
+          <h2 class="section-title">Core Architectural Tenets</h2>
           <p class="section-sub">Engineered for zero data drift, peak volume endurance, and provable financial integrity.</p>
         </div>
       </div>
@@ -2319,8 +2304,7 @@
             <span class="pillar-badge">Integrity</span>
           </div>
           <h3 class="pillar-title">Zero-Drift</h3>
-          <div class="pillar-sub">Ledger Parity & Boundary Proof</div>
-          <p class="pillar-desc">Penny-accurate reconciliations balancing ERP, banking, and payment gateways with automated anomaly alerts.</p>
+          <p class="pillar-desc">Penny-accurate ledger parity balancing ERP, banking, and payment gateways with zero drift.</p>
         </div>
 
         <div class="pillar-card">
@@ -2329,8 +2313,7 @@
             <span class="pillar-badge">Concurrency</span>
           </div>
           <h3 class="pillar-title">High-Throughput</h3>
-          <div class="pillar-sub">Zero Record-Lock Architecture</div>
-          <p class="pillar-desc">Engineered for flash-sale order drops exceeding 15,000 orders/hour with zero database record locks.</p>
+          <p class="pillar-desc">Zero record-lock architecture engineered for flash-sale drops over 15,000 orders/hour.</p>
         </div>
 
         <div class="pillar-card">
@@ -2339,7 +2322,6 @@
             <span class="pillar-badge">Fulfillment</span>
           </div>
           <h3 class="pillar-title">Multi-3PL</h3>
-          <div class="pillar-sub">Distributed Warehouse Routing</div>
           <p class="pillar-desc">Distributed warehouse routing across North America, EMEA, and APAC with automated carrier failover.</p>
         </div>
 
@@ -2349,8 +2331,7 @@
             <span class="pillar-badge">Resilience</span>
           </div>
           <h3 class="pillar-title">Fault-Tolerant</h3>
-          <div class="pillar-sub">Self-Healing iPaaS Pipelines</div>
-          <p class="pillar-desc">Self-healing idempotent iPaaS pipelines preventing transaction drops during upstream outages.</p>
+          <p class="pillar-desc">Self-healing idempotent iPaaS pipelines eliminating transaction drops during upstream outages.</p>
         </div>
 
         <div class="pillar-card">
@@ -2359,8 +2340,7 @@
             <span class="pillar-badge">Governance</span>
           </div>
           <h3 class="pillar-title">Audit-Ready</h3>
-          <div class="pillar-sub">SOX & SDF Version Control</div>
-          <p class="pillar-desc">Native SOX compliance, complete trace logging, and SDF version-controlled migrations.</p>
+          <p class="pillar-desc">Native SOX compliance, complete trace audit logging, and SDF version control.</p>
         </div>
 
         <div class="pillar-card">
@@ -2369,8 +2349,7 @@
             <span class="pillar-badge">Execution</span>
           </div>
           <h3 class="pillar-title">Full-Lifecycle</h3>
-          <div class="pillar-sub">Requirements to Hypercare</div>
-          <p class="pillar-desc">Sole-architect ownership from stakeholder discovery through production cutover and hypercare.</p>
+          <p class="pillar-desc">Single-architect ownership from stakeholder discovery through production cutover and hypercare.</p>
         </div>
       </div>
 
