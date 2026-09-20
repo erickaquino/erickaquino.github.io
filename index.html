@@ -601,7 +601,7 @@
 
     /* Section structure */
     .section {
-      padding-block: 3.5rem;
+      padding-block: clamp(3.75rem, 6vw, 5.5rem);
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
     .section-head {
@@ -609,7 +609,7 @@
       align-items: flex-end;
       justify-content: space-between;
       gap: 1.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: clamp(2rem, 3.5vw, 3rem);
     }
     .section-kicker {
       display: block;
@@ -1655,134 +1655,82 @@
 
     @media (min-width: 960px) {
       .site-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: 250px;
-        margin: 0;
-        padding: 2.5rem 1.5rem;
-        background: rgba(10, 13, 20, 0.94);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-right: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        z-index: 100;
-      }
-      .site-header.wrap {
-        width: 250px;
-        max-width: 250px;
-        margin-inline: 0;
+        position: sticky;
+        top: 1.25rem;
+        z-index: 1000;
+        width: min(calc(100% - 3rem), var(--content));
+        margin-inline: auto;
+        margin-bottom: 3.5rem;
       }
       .nav {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        height: 100%;
-        min-height: auto;
-        padding: 0;
-        background: transparent;
-        border: none;
-        box-shadow: none;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 52px;
+        padding: .35rem .75rem .35rem 1.25rem;
+        border-radius: 999px;
+        background: rgba(10, 13, 20, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
       }
       .brand {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: .35rem;
-        margin-bottom: 2.25rem;
+        display: flex;
+        align-items: center;
+        gap: .75rem;
       }
       .brand-title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        letter-spacing: -.03em;
-        color: var(--text-bright);
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: -.02em;
       }
       .brand-sub {
-        display: block;
-        font-family: var(--font-mono);
-        font-size: .75rem;
-        color: var(--text-dim);
-        line-height: 1.35;
-        text-transform: uppercase;
-        letter-spacing: .06em;
+        display: none;
       }
       .nav-links {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        gap: .35rem;
+        flex-direction: row;
+        align-items: center;
+        gap: .25rem;
         margin: 0;
         padding: 0;
-      }
-      .nav-links li {
-        width: 100%;
+        list-style: none;
       }
       .nav-links a {
-        width: 100%;
-        padding: .5rem .75rem;
-        border-radius: 8px;
-        font-size: .85rem;
+        display: inline-flex;
+        align-items: center;
+        padding: .45rem .85rem;
+        border-radius: 999px;
+        font-size: .82rem;
         color: var(--text-muted);
-        justify-content: flex-start;
+        text-decoration: none;
+        transition: color 140ms ease, background-color 140ms ease;
       }
       .nav-links a:hover {
         color: #ffffff;
-        background: rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.08);
       }
       .sidebar-footer {
-        display: flex;
-        flex-direction: column;
-        gap: .65rem;
-        margin-top: auto;
-        padding-top: 1.5rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        width: 100%;
-      }
-      .sidebar-meta {
-        font-family: var(--font-mono);
-        font-size: .75rem;
-        color: #86868b;
-        line-height: 1.4;
-      }
-      .sidebar-link {
-        font-family: var(--font-mono);
-        font-size: .75rem;
-        color: #a1a1a6;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: .4rem;
-        transition: color 140ms ease;
-      }
-      .sidebar-link:hover {
-        color: var(--signal-copper);
+        display: none;
       }
       #main-content {
-        margin-left: 250px;
-        width: calc(100% - 250px);
-        box-sizing: border-box;
+        margin-left: 0;
+        width: 100%;
       }
       #main-content .wrap {
-        width: 100%;
-        max-width: 940px;
+        width: min(calc(100% - 3rem), var(--content));
         margin-inline: auto;
-        padding-inline: 3rem;
+        padding-inline: 0;
       }
       .footer {
-        margin-left: 250px;
-        width: calc(100% - 250px);
-        box-sizing: border-box;
+        margin-left: 0;
+        width: 100%;
       }
       .footer .wrap {
-        width: 100%;
-        max-width: 940px;
+        width: min(calc(100% - 3rem), var(--content));
         margin-inline: auto;
-        padding-inline: 3rem;
+        padding-inline: 0;
       }
     }
 
@@ -1992,12 +1940,6 @@
           <h1 class="hero-title">Bringing order to enterprise chaos.</h1>
           <p class="hero-lede">Architecting mission-critical NetSuite platforms, resilient integration fabrics, and autonomous AI delivery that turn operational friction into engineered precision.</p>
 
-          <div class="hero-capabilities-strip" role="list" aria-label="Core Architectural Capabilities">
-            <span class="capability-pill" role="listitem">Autonomous AI Delivery</span>
-            <span class="capability-pill" role="listitem">Zero-Drift Architecture</span>
-            <span class="capability-pill" role="listitem">Tier-1 3PL Logistics</span>
-          </div>
-
           <div class="hero-actions">
             <a class="button button--primary" href="mailto:ejaquino26@gmail.com?subject=Consulting%20Inquiry">Discuss a system</a>
             <a class="button button--quiet" href="Aquino_Erick_CV_Designed.pdf" target="_blank" rel="noopener">Architect Dossier (PDF) ↗</a>
@@ -2183,7 +2125,7 @@
     <section class="section wrap" id="experience">
       <div class="section-head reveal">
         <div>
-          <span class="section-kicker">01 // flight log</span>
+          <span class="section-kicker">01 // Experience</span>
           <h2 class="section-title">Career & Enterprise Track Record</h2>
           <p class="section-sub">Ten years of high-consequence enterprise engineering, platform defense, and production delivery.</p>
         </div>
@@ -2279,7 +2221,7 @@
       <!-- 02.1: Six Pillars of Reliability -->
       <div class="section-head reveal">
         <div>
-          <span class="section-kicker">02.1 // architectural pillars</span>
+          <span class="section-kicker">02 // Architectural Principles</span>
           <h2 class="section-title">Core Architectural Tenets</h2>
           <p class="section-sub">Engineered for zero data drift, peak volume endurance, and provable financial integrity.</p>
         </div>
@@ -2342,9 +2284,9 @@
       </div>
 
       <!-- 02.2: Product-Style Engineered Platforms -->
-      <div class="section-head reveal" style="margin-top: 2.75rem;">
+      <div class="section-head reveal" style="margin-top: clamp(3.5rem, 5vw, 5rem);">
         <div>
-          <span class="section-kicker">02.2 // engineered platforms</span>
+          <span class="section-kicker">Flagship Deployments</span>
           <h2 class="section-title">Flagship Enterprise Deployments</h2>
           <p class="section-sub">Production platforms engineered for category leaders with verified technical specifications.</p>
         </div>
@@ -2509,9 +2451,9 @@
       </div>
 
       <!-- 02.3: Autonomous Engineering & Multi-Agent Orchestration -->
-      <div class="section-head reveal" style="margin-top: 2.75rem;">
+      <div class="section-head reveal" style="margin-top: clamp(3.5rem, 5vw, 5rem);">
         <div>
-          <span class="section-kicker">02.3 // autonomous engineering methodology</span>
+          <span class="section-kicker">Autonomous Delivery</span>
           <h2 class="section-title">Parallel AI Agent Orchestration & Autonomous Delivery</h2>
           <p class="section-sub">A cut above legacy consulting: orchestrating specialized multi-agent swarms, isolated Git worktrees, and domain-specific developer loops to deliver enterprise NetSuite architectures at 10x velocity with zero drift.</p>
         </div>
@@ -2786,9 +2728,9 @@
       </div>
 
       <!-- Dynamic Project Cases -->
-      <div class="section-head reveal" style="margin-top: 2.75rem;">
+      <div class="section-head reveal" style="margin-top: clamp(3.5rem, 5vw, 5rem);">
         <div>
-          <span class="section-kicker">02.4 // indexed case records</span>
+          <span class="section-kicker">Project Archive</span>
           <h3 class="section-title" style="font-size: clamp(1.4rem, 2.5vw, 1.85rem);">Automated Workspace Validations</h3>
           <p class="section-sub">Verified codebase records and delivery artifacts indexed across 155+ production repositories.</p>
         </div>
@@ -3884,7 +3826,7 @@
     <section class="section wrap" id="stack">
       <div class="section-head reveal">
         <div>
-          <span class="section-kicker">03 // capabilities & stack</span>
+          <span class="section-kicker">03 // Capabilities &amp; Stack</span>
           <h2 class="section-title">Core Technologies & Boundaries</h2>
           <p class="section-sub">Specialized toolsets across NetSuite ERP, integration middleware, logistics, and engineering.</p>
         </div>
@@ -3971,7 +3913,7 @@
     <section class="section wrap" id="credentials">
       <div class="section-head reveal">
         <div>
-          <span class="section-kicker">04 // credentials</span>
+          <span class="section-kicker">04 // Credentials</span>
           <h2 class="section-title">Certifications & Education</h2>
           <p class="section-sub">Industry credentials, vendor certifications, and academic engineering honors.</p>
         </div>
@@ -4040,7 +3982,7 @@
     <use href="#star-path"/>
   </svg>
         </div>
-        <span class="section-kicker">05 // transmission</span>
+        <span class="section-kicker">05 // Contact</span>
         <h2 class="contact-title">Bring me the system that needs clarity.</h2>
         <p class="contact-desc">
           Whether you are evaluating a NetSuite implementation, resolving high-volume 3PL bottlenecks, or architecting multi-subsidiary integrations - let's talk.
