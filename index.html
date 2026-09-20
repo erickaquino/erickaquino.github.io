@@ -275,6 +275,14 @@
       text-decoration: none;
       color: var(--text-bright);
     }
+    .brand-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-bright);
+    }
+    .brand-sub {
+      display: none;
+    }
     .brand-status {
       display: inline-flex;
       align-items: center;
@@ -319,6 +327,12 @@
     .nav-links a:hover {
       color: var(--text-bright);
       background: var(--titanium-surface);
+    }
+    .nav-num {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--text-dim);
+      margin-right: .4rem;
     }
     .nav-toggle {
       display: none;
@@ -1605,11 +1619,170 @@
     }
     .js .reveal, .js .reveal.is-visible { opacity: 1; transform: none; }
 
+    /* Autonomous Pipeline Showcase Card & Collapsible Drawer */
+    .autonomous-showcase-card {
+      position: relative;
+      background: var(--titanium-surface);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-panel);
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      box-shadow: 0 16px 40px rgb(0 0 0 / .35), inset 0 1px 0 rgb(255 255 255 / .05);
+      margin-top: 2rem;
+    }
+    .autonomous-showcase-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .pipeline-console-drawer {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .pipeline-console-drawer[hidden] {
+      display: none;
+    }
+
+    @media (min-width: 960px) {
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 250px;
+        margin: 0;
+        padding: 2.5rem 1.5rem;
+        background: rgb(14 18 27 / .96);
+        border-right: 1px solid var(--border-subtle);
+        box-shadow: 4px 0 24px rgb(0 0 0 / .35);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: 100;
+      }
+      .site-header.wrap {
+        width: 250px;
+        max-width: 250px;
+        margin-inline: 0;
+      }
+      .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+        min-height: auto;
+        padding: 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+      .brand {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .35rem;
+        margin-bottom: 2.25rem;
+      }
+      .brand-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -.03em;
+        color: var(--text-bright);
+      }
+      .brand-sub {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: .68rem;
+        color: var(--text-dim);
+        line-height: 1.35;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+      }
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: .35rem;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-links li {
+        width: 100%;
+      }
+      .nav-links a {
+        width: 100%;
+        padding: .5rem .75rem;
+        border-radius: 8px;
+        font-size: .84rem;
+        color: var(--text-muted);
+        justify-content: flex-start;
+      }
+      .nav-links a:hover {
+        color: var(--text-bright);
+        background: var(--titanium-surface);
+      }
+      .sidebar-footer {
+        display: flex;
+        flex-direction: column;
+        gap: .65rem;
+        margin-top: auto;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-subtle);
+        width: 100%;
+      }
+      .sidebar-meta {
+        font-family: var(--font-mono);
+        font-size: .68rem;
+        color: var(--text-dim);
+        line-height: 1.4;
+      }
+      .sidebar-link {
+        font-family: var(--font-mono);
+        font-size: .74rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: .4rem;
+        transition: color 140ms ease;
+      }
+      .sidebar-link:hover {
+        color: var(--signal-copper);
+      }
+      #main-content {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+        box-sizing: border-box;
+      }
+      #main-content .wrap {
+        width: 100%;
+        max-width: 940px;
+        margin-inline: auto;
+        padding-inline: 3rem;
+      }
+      .footer {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+        box-sizing: border-box;
+      }
+      .footer .wrap {
+        width: 100%;
+        max-width: 940px;
+        margin-inline: auto;
+        padding-inline: 3rem;
+      }
+    }
+
     @media (max-width: 1100px) {
       .client-logos-grid { grid-template-columns: repeat(4, 1fr); }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 959px) {
+      .sidebar-footer { display: none; }
+      .brand-sub { display: none; }
       .nav-toggle { display: inline-flex; }
       .nav-links {
         position: absolute;
@@ -1753,17 +1926,24 @@
   <header class="site-header wrap">
     <nav class="nav" aria-label="Primary navigation">
       <a class="brand" href="#hero">
-        <span>Erick Aquino</span>
+        <span class="brand-title">Erick Aquino</span>
+        <span class="brand-sub">Senior NetSuite Architect</span>
         <span class="brand-status"><span class="pulse-dot"></span> Available</span>
       </a>
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">Menu</button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#systems">Systems</a></li>
-        <li><a href="#stack">Stack</a></li>
-        <li><a href="#credentials">Credentials</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#experience"><span class="nav-num">01</span> Experience</a></li>
+        <li><a href="#systems"><span class="nav-num">02</span> Systems</a></li>
+        <li><a href="#stack"><span class="nav-num">03</span> Stack</a></li>
+        <li><a href="#credentials"><span class="nav-num">04</span> Credentials</a></li>
+        <li><a href="#contact"><span class="nav-num">05</span> Contact</a></li>
       </ul>
+      <div class="sidebar-footer">
+        <div class="sidebar-meta">Metro Manila &middot; Remote (UTC+8)</div>
+        <a href="mailto:ejaquino26@gmail.com" class="sidebar-link">ejaquino26@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ejaquino/" target="_blank" rel="noopener" class="sidebar-link">LinkedIn &nearr;</a>
+        <a href="https://wa.me/639055147337" target="_blank" rel="noopener" class="sidebar-link">WhatsApp &nearr;</a>
+      </div>
     </nav>
   </header>
 
@@ -2341,12 +2521,34 @@
         </div>
       </div>
 
-      <!-- Interactive Autonomous Pipeline Console -->
-      <div class="pipeline-console viewfinder reveal" id="pipelineConsole">
+      <div class="autonomous-showcase-card viewfinder reveal">
         <span class="pc pc-tl" aria-hidden="true"></span>
   <span class="pc pc-tr" aria-hidden="true"></span>
   <span class="pc pc-bl" aria-hidden="true"></span>
   <span class="pc pc-br" aria-hidden="true"></span>
+        <div class="autonomous-showcase-head">
+          <div style="flex: 1; min-width: min(100%, 22rem);">
+            <div class="vessel-classification">Decoupled Multi-Agent Loop</div>
+            <h3 class="vessel-title" style="margin-top: .35rem;">Autonomous Engineering Pipeline &amp; Dual Release Gate</h3>
+            <p class="vessel-summary" style="margin-top: .5rem;">
+              Decoupled multi-agent architecture combining automated SuiteCloud sandbox gatekeeping, real-time incident deflection &amp; iPaaS error telemetry, and cross-platform task DAGs &amp; parallel worktree concurrency.
+            </p>
+            <div class="vessel-tags" style="margin-top: .85rem;">
+              <span class="vessel-tag">Adversarial Triad Engine</span>
+              <span class="vessel-tag">Automated Sandbox &amp; Release Gate</span>
+              <span class="vessel-tag">Real-Time Incident Deflection</span>
+              <span class="vessel-tag">Parallel Multi-Repo DAGs</span>
+              <span class="vessel-tag">The Autonomous Advantage</span>
+            </div>
+          </div>
+          <button type="button" class="button button--quiet" id="consoleToggleBtn" onclick="toggleConsoleModal()" aria-expanded="false" aria-controls="pipelineConsoleModal" style="margin-top: .5rem;">
+            Explore Interactive Pipeline Console &darr;
+          </button>
+        </div>
+
+        <!-- Collapsible Pipeline Console -->
+        <div id="pipelineConsoleModal" class="pipeline-console-drawer" hidden>
+          <div class="pipeline-console" id="pipelineConsole">
         <div class="console-topbar">
           <div class="console-controls">
             <span class="ctrl-dot ctrl-red" aria-hidden="true"></span>
@@ -2582,6 +2784,8 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
         </div>
       </div>
 
@@ -3887,6 +4091,16 @@
       }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
       items.forEach(function (item) { observer.observe(item); });
     })();
+
+    window.toggleConsoleModal = function () {
+      var drawer = document.getElementById('pipelineConsoleModal');
+      var btn = document.getElementById('consoleToggleBtn');
+      if (!drawer || !btn) return;
+      var opening = drawer.hidden;
+      drawer.hidden = !opening;
+      btn.setAttribute('aria-expanded', String(opening));
+      btn.innerHTML = opening ? 'Collapse Interactive Console &uarr;' : 'Explore Interactive Pipeline Console &darr;';
+    };
 
     (function () {
       var consoleEl = document.getElementById('pipelineConsole');
