@@ -403,7 +403,36 @@
       display: block;
     }
     .hero-portrait-badge {
-      display: none !important;
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      padding: .55rem 1rem;
+      background: rgba(10, 13, 20, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      z-index: 2;
+    }
+    .hero-portrait-badge span:first-child {
+      font-size: .82rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -.01em;
+    }
+    .hero-portrait-badge span:last-child {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      font-weight: 500;
+      color: var(--signal-copper);
+      letter-spacing: .04em;
+      white-space: nowrap;
     }
 
     .hero-kicker {
@@ -1819,7 +1848,7 @@
         right: .75rem;
         padding: .5rem .75rem;
         font-size: .72rem;
-        border-radius: 9px;
+        border-radius: 999px;
       }
       .client-logos-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
       .stats-ribbon { grid-template-columns: 1fr 1fr; gap: 1.5rem 1rem; }
@@ -1853,6 +1882,7 @@
         right: .65rem;
         padding: .45rem .65rem;
         font-size: .72rem;
+        border-radius: 999px;
       }
       .hero-title {
         font-size: clamp(1.85rem, 8vw, 2.4rem);
@@ -1962,7 +1992,7 @@
             <img class="hero-portrait-img" src="portrait.png" alt="Erick Aquino - Senior NetSuite Solutions Architect" width="843" height="1264" loading="eager" decoding="async">
           </picture>
           <div class="hero-portrait-badge">
-            <span><strong>Erick Aquino</strong> // Architect</span>
+            <span><strong>Erick Aquino</strong> · Architect</span>
             <span>10+ Yrs NetSuite</span>
           </div>
         </div>
@@ -1971,7 +2001,7 @@
         <div class="reveal">
           <div class="hero-kicker"><span class="kicker-star" aria-hidden="true"><svg class="" viewBox="-106 -111 212 222" width="13" height="13" aria-hidden="true">
     <use href="#star-path"/>
-  </svg></span>Senior NetSuite Solutions Architect · Integrations &amp; AI</div>
+  </svg></span>Erick Aquino // Senior NetSuite Solutions Architect · Integrations &amp; AI</div>
           <h1 class="hero-title">Bringing order to enterprise chaos.</h1>
           <p class="hero-lede">Architecting mission-critical NetSuite platforms, resilient integration fabrics, and autonomous AI delivery that turn operational friction into engineered precision.</p>
 
