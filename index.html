@@ -1411,6 +1411,54 @@
       font-weight: 600;
     }
     .case-row span { color: var(--text-muted); }
+    .case-narrative-details {
+      margin-top: .65rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-control);
+      background: var(--titanium-surface);
+      overflow: hidden;
+    }
+    .case-narrative-details[open] {
+      border-color: var(--border-bright);
+    }
+    .case-narrative-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .45rem .75rem;
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      font-weight: 500;
+      color: var(--text-bright);
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+      transition: background-color 140ms ease, color 140ms ease;
+    }
+    .case-narrative-summary::-webkit-details-marker,
+    .case-narrative-summary::marker {
+      display: none;
+    }
+    .case-narrative-summary:hover {
+      background: oklch(0.26 0.03 255);
+      color: var(--signal-copper);
+    }
+    .case-narrative-summary .case-toggle-icon {
+      font-size: .75rem;
+      color: var(--signal-copper);
+      transition: transform 180ms ease;
+    }
+    .case-narrative-details[open] .case-toggle-icon {
+      transform: rotate(180deg);
+    }
+    .case-narrative-body {
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+      padding: .75rem;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--titanium-raised);
+    }
     .case-metrics-bar {
       display: flex;
       gap: 1.25rem;
@@ -2799,11 +2847,19 @@
 
           <div class="case-points">
             
-              <div class="case-row"><b>Problem</b><span>A global snowboard and sports equipment manufacturer operating across North America, Europe, and Asia-Pacific needed a unified ERP platform to orchestrate multi-vendor integrations, complex pricing engines, and multi-channel fulfillment  -  with no existing architecture in place.</span></div>
               
-              <div class="case-row"><b>Architecture</b><span>Served as sole technical architect from requirements through production. Designed and delivered the complete platform: multi-vendor integrations, dynamic pricing engines, automated fulfillment workflows, payment processing, and multi-subsidiary financial consolidation. Built the entire 1,248-file codebase end-to-end.</span></div>
+              <div class="case-row"><b>Summary</b><span>A global snowboard and sports equipment manufacturer operating across North America, Europe, and Asia-Pacific needed a unified ERP platform to orchestrate multi-vendor integrations, complex pricing engines, and multi-channel fulfillment  -  with no existing architecture in place.</span></div>
               
-              <div class="case-row"><b>Outcome</b><span>Replaced manual multi-system operations with a fully automated ERP ecosystem. Enabled the company to scale global e-commerce and B2B operations without adding headcount to back-office teams.</span></div>
+              <details class="case-narrative-details">
+                <summary class="case-narrative-summary"><span>Technical Specification &amp; Controls</span> <span class="case-toggle-icon">&darr;</span></summary>
+                <div class="case-narrative-body">
+                  <div class="case-row"><b>Problem</b><span>A global snowboard and sports equipment manufacturer operating across North America, Europe, and Asia-Pacific needed a unified ERP platform to orchestrate multi-vendor integrations, complex pricing engines, and multi-channel fulfillment  -  with no existing architecture in place.</span></div>
+                  
+                  <div class="case-row"><b>Architecture</b><span>Served as sole technical architect from requirements through production. Designed and delivered the complete platform: multi-vendor integrations, dynamic pricing engines, automated fulfillment workflows, payment processing, and multi-subsidiary financial consolidation. Built the entire 1,248-file codebase end-to-end.</span></div>
+                  
+                  <div class="case-row"><b>Outcome</b><span>Replaced manual multi-system operations with a fully automated ERP ecosystem. Enabled the company to scale global e-commerce and B2B operations without adding headcount to back-office teams.</span></div>
+                </div>
+              </details>
             
           </div>
 
@@ -2845,11 +2901,19 @@
 
           <div class="case-points">
             
-              <div class="case-row"><b>Problem</b><span>A major consumer electronics brand with globally recognized kitchen appliance products needed deep NetSuite customization: 95+ custom UIs, heavy batch data processing, and complex inventory workflows across retail and DTC channels.</span></div>
               
-              <div class="case-row"><b>Architecture</b><span>Built a long-term, high-touch platform with 697+ active scripts, 95+ Suitelets for custom operational UIs, 35+ MapReduce scripts for batch processing, and 27+ UserEvent scripts for business logic automation.</span></div>
+              <div class="case-row"><b>Summary</b><span>A major consumer electronics brand with globally recognized kitchen appliance products needed deep NetSuite customization: 95+ custom UIs, heavy batch data processing, and complex inventory workflows across retail and DTC channels.</span></div>
               
-              <div class="case-row"><b>Outcome</b><span>Delivered a deeply customized ERP that became the operational backbone for global product distribution, eliminating manual data entry across retail and DTC fulfillment channels.</span></div>
+              <details class="case-narrative-details">
+                <summary class="case-narrative-summary"><span>Technical Specification &amp; Controls</span> <span class="case-toggle-icon">&darr;</span></summary>
+                <div class="case-narrative-body">
+                  <div class="case-row"><b>Problem</b><span>A major consumer electronics brand with globally recognized kitchen appliance products needed deep NetSuite customization: 95+ custom UIs, heavy batch data processing, and complex inventory workflows across retail and DTC channels.</span></div>
+                  
+                  <div class="case-row"><b>Architecture</b><span>Built a long-term, high-touch platform with 697+ active scripts, 95+ Suitelets for custom operational UIs, 35+ MapReduce scripts for batch processing, and 27+ UserEvent scripts for business logic automation.</span></div>
+                  
+                  <div class="case-row"><b>Outcome</b><span>Delivered a deeply customized ERP that became the operational backbone for global product distribution, eliminating manual data entry across retail and DTC fulfillment channels.</span></div>
+                </div>
+              </details>
             
           </div>
 
@@ -2886,11 +2950,19 @@
 
           <div class="case-points">
             
-              <div class="case-row"><b>Problem</b><span>Needed a centralized operations platform for demand planning, inventory reconciliation, and financial reporting across a 20+ client portfolio  -  existing tools were fragmented and lacked security controls.</span></div>
               
-              <div class="case-row"><b>Architecture</b><span>Built a production SaaS platform from scratch: 10 internal tools spanning demand forecasting, inventory reconciliation, client health dashboards, and automated reporting. Enterprise security with RBAC, 2FA, field-level encryption, and audit logging. Performance-tuned to sustain 3,600+ requests/second.</span></div>
+              <div class="case-row"><b>Summary</b><span>Needed a centralized operations platform for demand planning, inventory reconciliation, and financial reporting across a 20+ client portfolio  -  existing tools were fragmented and lacked security controls.</span></div>
               
-              <div class="case-row"><b>Outcome</b><span>Consolidated 10 separate operational workflows into a single platform. Reduced manual reporting from hours to real-time dashboards. Serves as the operational backbone for the entire consulting practice.</span></div>
+              <details class="case-narrative-details">
+                <summary class="case-narrative-summary"><span>Technical Specification &amp; Controls</span> <span class="case-toggle-icon">&darr;</span></summary>
+                <div class="case-narrative-body">
+                  <div class="case-row"><b>Problem</b><span>Needed a centralized operations platform for demand planning, inventory reconciliation, and financial reporting across a 20+ client portfolio  -  existing tools were fragmented and lacked security controls.</span></div>
+                  
+                  <div class="case-row"><b>Architecture</b><span>Built a production SaaS platform from scratch: 10 internal tools spanning demand forecasting, inventory reconciliation, client health dashboards, and automated reporting. Enterprise security with RBAC, 2FA, field-level encryption, and audit logging. Performance-tuned to sustain 3,600+ requests/second.</span></div>
+                  
+                  <div class="case-row"><b>Outcome</b><span>Consolidated 10 separate operational workflows into a single platform. Reduced manual reporting from hours to real-time dashboards. Serves as the operational backbone for the entire consulting practice.</span></div>
+                </div>
+              </details>
             
           </div>
 
@@ -2935,7 +3007,7 @@
       <div class="archive-wrap reveal">
         <button class="archive-btn" id="portfolioToggle" type="button" aria-expanded="false" aria-controls="extendedPortfolio">View all 152 projects</button>
 
-        <div class="archive-list" id="extendedPortfolio">
+        <div class="archive-list" id="extendedPortfolio" hidden>
           
           <article class="archive-row" aria-labelledby="archive-title-1">
             <strong id="archive-title-1">COMEX Commodity Trading Platform</strong>
