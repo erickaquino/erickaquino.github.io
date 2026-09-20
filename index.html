@@ -636,35 +636,53 @@
       max-width: 56ch;
     }
 
-    /* 6-Pillar Architectural Attribute Grid */
+    /* 6-Pillar Architectural Attribute Bento Grid */
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem 2rem;
+      gap: 1.25rem;
       margin-bottom: 3.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding-top: 2rem;
+    }
+    @media (max-width: 860px) {
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+    @media (max-width: 560px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
     }
     .pillar-card {
-      padding: 0;
-      border-radius: 0;
-      background: transparent;
-      border: none;
-      box-shadow: none;
+      padding: 1.6rem 1.6rem 1.75rem;
+      border-radius: var(--radius-panel);
+      background: #111622;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
       display: flex;
       flex-direction: column;
-      gap: .5rem;
-      transition: none;
+      justify-content: space-between;
+      gap: 1.15rem;
+      transition: transform 180ms var(--ease-out), border-color 180ms ease, box-shadow 180ms ease;
     }
-    .pillar-card:hover {
-      border-color: transparent;
-      background: transparent;
+    @media (hover: hover) and (pointer: fine) {
+      .pillar-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.16);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
     }
     .pillar-head {
       display: flex;
       align-items: center;
-      gap: .5rem;
-      margin-bottom: .15rem;
+      justify-content: space-between;
+      gap: .75rem;
+    }
+    .pillar-meta {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
     }
     .pillar-index {
       font-family: var(--font-mono);
@@ -675,10 +693,26 @@
     }
     .pillar-badge {
       font-family: var(--font-mono);
-      font-size: .72rem;
+      font-size: .7rem;
       text-transform: uppercase;
       letter-spacing: .06em;
       color: #86868b;
+    }
+    .pillar-metric {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .2rem .55rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #f1f5f9;
+      white-space: nowrap;
+    }
+    .pillar-body {
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
     }
     .pillar-title {
       font-size: 1.25rem;
@@ -686,6 +720,7 @@
       color: #f5f5f7;
       margin: 0;
       letter-spacing: -.02em;
+      line-height: 1.2;
     }
     .pillar-desc {
       font-size: .88rem;
@@ -2230,56 +2265,86 @@
       <div class="pillars-grid reveal">
         <div class="pillar-card">
           <div class="pillar-head">
-            <span class="pillar-index">01</span>
-            <span class="pillar-badge">Integrity</span>
+            <div class="pillar-meta">
+              <span class="pillar-index">01</span>
+              <span class="pillar-badge">Integrity</span>
+            </div>
+            <span class="pillar-metric">100% Parity</span>
           </div>
-          <h3 class="pillar-title">Zero-Drift</h3>
-          <p class="pillar-desc">Penny-accurate ledger parity balancing ERP, banking, and payment gateways with zero drift.</p>
+          <div class="pillar-body">
+            <h3 class="pillar-title">Zero-Drift</h3>
+            <p class="pillar-desc">Penny-accurate ledger parity balancing ERP, banking, and payment gateways with zero drift.</p>
+          </div>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-head">
-            <span class="pillar-index">02</span>
-            <span class="pillar-badge">Concurrency</span>
+            <div class="pillar-meta">
+              <span class="pillar-index">02</span>
+              <span class="pillar-badge">Concurrency</span>
+            </div>
+            <span class="pillar-metric">15k+ Orders/Hr</span>
           </div>
-          <h3 class="pillar-title">High-Throughput</h3>
-          <p class="pillar-desc">Zero record-lock architecture engineered for flash-sale drops over 15,000 orders/hour.</p>
+          <div class="pillar-body">
+            <h3 class="pillar-title">High-Throughput</h3>
+            <p class="pillar-desc">Zero record-lock architecture engineered for flash-sale drops over 15,000 orders/hour.</p>
+          </div>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-head">
-            <span class="pillar-index">03</span>
-            <span class="pillar-badge">Fulfillment</span>
+            <div class="pillar-meta">
+              <span class="pillar-index">03</span>
+              <span class="pillar-badge">Fulfillment</span>
+            </div>
+            <span class="pillar-metric">Global Routing</span>
           </div>
-          <h3 class="pillar-title">Multi-3PL</h3>
-          <p class="pillar-desc">Distributed warehouse routing across North America, EMEA, and APAC with automated carrier failover.</p>
+          <div class="pillar-body">
+            <h3 class="pillar-title">Multi-3PL</h3>
+            <p class="pillar-desc">Distributed warehouse routing across North America, EMEA, and APAC with automated carrier failover.</p>
+          </div>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-head">
-            <span class="pillar-index">04</span>
-            <span class="pillar-badge">Resilience</span>
+            <div class="pillar-meta">
+              <span class="pillar-index">04</span>
+              <span class="pillar-badge">Resilience</span>
+            </div>
+            <span class="pillar-metric">Zero Drop</span>
           </div>
-          <h3 class="pillar-title">Fault-Tolerant</h3>
-          <p class="pillar-desc">Self-healing idempotent iPaaS pipelines eliminating transaction drops during upstream outages.</p>
+          <div class="pillar-body">
+            <h3 class="pillar-title">Fault-Tolerant</h3>
+            <p class="pillar-desc">Self-healing idempotent iPaaS pipelines eliminating transaction drops during upstream outages.</p>
+          </div>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-head">
-            <span class="pillar-index">05</span>
-            <span class="pillar-badge">Governance</span>
+            <div class="pillar-meta">
+              <span class="pillar-index">05</span>
+              <span class="pillar-badge">Governance</span>
+            </div>
+            <span class="pillar-metric">SOX &amp; SDF</span>
           </div>
-          <h3 class="pillar-title">Audit-Ready</h3>
-          <p class="pillar-desc">Native SOX compliance, complete trace audit logging, and SDF version control.</p>
+          <div class="pillar-body">
+            <h3 class="pillar-title">Audit-Ready</h3>
+            <p class="pillar-desc">Native SOX compliance, complete trace audit logging, and SDF version control.</p>
+          </div>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-head">
-            <span class="pillar-index">06</span>
-            <span class="pillar-badge">Execution</span>
+            <div class="pillar-meta">
+              <span class="pillar-index">06</span>
+              <span class="pillar-badge">Execution</span>
+            </div>
+            <span class="pillar-metric">End-to-End</span>
           </div>
-          <h3 class="pillar-title">Full-Lifecycle</h3>
-          <p class="pillar-desc">Single-architect ownership from stakeholder discovery through production cutover and hypercare.</p>
+          <div class="pillar-body">
+            <h3 class="pillar-title">Full-Lifecycle</h3>
+            <p class="pillar-desc">Single-architect ownership from stakeholder discovery through production cutover and hypercare.</p>
+          </div>
         </div>
       </div>
 
