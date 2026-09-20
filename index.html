@@ -802,6 +802,18 @@
     .roster-grid .client-logo-card:hover .client-logo-sub {
       color: #d1d5db;
     }
+    .client-roster-footer {
+      display: flex;
+      justify-content: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .client-roster-btn--compact {
+      font-size: .72rem;
+      padding: .5rem 1.15rem;
+      min-height: 36px;
+    }
 
     /* Section structure */
     .section {
@@ -2027,6 +2039,20 @@
         border-radius: 999px;
       }
       .client-logos-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+      .client-roster-toggle-wrap { margin-top: 1.75rem; }
+      .client-roster-btn {
+        width: 100%;
+        max-width: 400px;
+        padding: .65rem .85rem;
+        gap: .5rem;
+        font-size: .72rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+      }
+      .client-roster-btn-label {
+        line-height: 1.25;
+      }
       .roster-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem .75rem; }
       .client-roster-drawer { padding: 1.5rem 1rem; }
       .roster-category-head { flex-direction: column; align-items: flex-start; gap: .35rem; }
@@ -2367,7 +2393,7 @@
         <div class="client-roster-toggle-wrap">
           <button class="client-roster-btn" id="clientRosterToggle" type="button" aria-expanded="false" aria-controls="extendedClientRoster">
             <span class="client-roster-btn-label">View all 50+ enterprise clients &amp; deployments</span>
-            <span class="client-roster-badge">56 Brands</span>
+            <span class="client-roster-badge">57 Brands</span>
             <svg class="client-roster-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
@@ -2375,10 +2401,10 @@
         </div>
 
         <!-- Extended Enterprise Client Roster Drawer -->
-        <div class="client-roster-drawer" id="extendedClientRoster">
+        <div class="client-roster-drawer" id="extendedClientRoster" hidden>
           <div class="client-roster-intro">
             <span class="client-roster-intro-kicker">Extended Enterprise Deployments</span>
-            <span class="client-roster-intro-meta">44 additional client ecosystems engineered across NetSuite, Celigo iPaaS &amp; high-volume logistics</span>
+            <span class="client-roster-intro-meta">45 additional client ecosystems engineered across NetSuite, Celigo iPaaS &amp; high-volume logistics</span>
           </div>
 
           <!-- Sector 01: Global Beauty, Cosmetics & Skincare -->
@@ -2388,7 +2414,7 @@
                 <span class="roster-category-kicker">Sector 01</span>
                 <h3 class="roster-category-title">Global Beauty, Cosmetics &amp; Skincare</h3>
               </div>
-              <span class="roster-category-badge">14 Brands</span>
+              <span class="roster-category-badge">15 Brands</span>
             </div>
             <div class="roster-grid">
               <!-- rhode -->
@@ -2419,7 +2445,7 @@
                 <div class="client-logo-mark">
                   <svg class="client-logo-svg" viewBox="0 0 110 26" fill="currentColor" role="img" aria-label="Ilia Beauty">
                     <title>Ilia Beauty</title>
-                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="18" font-weight="500" letter-spacing="0.28em">ILIA</text>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', system-ui, sans-serif" font-size="17" font-weight="500" letter-spacing="0.26em">ILIA</text>
                   </svg>
                 </div>
                 <span class="client-logo-sub">Clean Makeup · NetSuite &amp; WMS</span>
@@ -2463,7 +2489,7 @@
                 <div class="client-logo-mark">
                   <svg class="client-logo-svg" viewBox="0 0 150 26" fill="currentColor" role="img" aria-label="Homecourt">
                     <title>Homecourt</title>
-                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', Georgia, serif" font-size="15" font-weight="600" letter-spacing="0.2em">HOMECOURT</text>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', system-ui, sans-serif" font-size="15" font-weight="600" letter-spacing="0.18em">HOMECOURT</text>
                   </svg>
                 </div>
                 <span class="client-logo-sub">Courteney Cox · NetSuite &amp; Celigo</span>
@@ -2474,7 +2500,7 @@
                 <div class="client-logo-mark">
                   <svg class="client-logo-svg" viewBox="0 0 165 26" fill="currentColor" role="img" aria-label="Kate Somerville">
                     <title>Kate Somerville</title>
-                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="13.5" font-weight="600" letter-spacing="0.14em">KATE SOMERVILLE</text>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', system-ui, sans-serif" font-size="13.5" font-weight="600" letter-spacing="0.14em">KATE SOMERVILLE</text>
                   </svg>
                 </div>
                 <span class="client-logo-sub">Clinical Skincare · NetSuite &amp; EDI</span>
@@ -2507,7 +2533,7 @@
                 <div class="client-logo-mark">
                   <svg class="client-logo-svg" viewBox="0 0 125 26" fill="currentColor" role="img" aria-label="Versed">
                     <title>Versed</title>
-                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="16" font-weight="700" letter-spacing="0.14em">VERSED</text>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'JetBrains Mono', 'Geologica', monospace" font-size="16" font-weight="600" letter-spacing="0.18em">VERSED</text>
                   </svg>
                 </div>
                 <span class="client-logo-sub">Clean Skincare · Target EDI</span>
@@ -2550,6 +2576,17 @@
                 </div>
                 <span class="client-logo-sub">Haute Parfumerie · NetSuite Retail</span>
               </div>
+
+              <!-- Lancer Skincare -->
+              <div class="client-logo-card" title="Lancer Skincare">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 135 26" fill="currentColor" role="img" aria-label="Lancer Skincare">
+                    <title>Lancer Skincare</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', system-ui, sans-serif" font-size="17" font-weight="700" letter-spacing="0.18em">LANCER</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Dermatology · NetSuite &amp; EDI</span>
+              </div>
             </div>
           </div>
 
@@ -2569,7 +2606,7 @@
                   <svg class="client-logo-svg" viewBox="0 0 145 26" fill="currentColor" role="img" aria-label="Moon Juice">
                     <title>Moon Juice</title>
                     <path d="M16 6 A7 7 0 1 0 16 20 A5.5 5.5 0 1 1 16 6 Z" fill="var(--signal-copper)"/>
-                    <text x="82" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="14.5" font-weight="600" letter-spacing="0.16em">MOON JUICE</text>
+                    <text x="82" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14.5" font-weight="700" letter-spacing="0.14em">MOON JUICE</text>
                   </svg>
                 </div>
                 <span class="client-logo-sub">Adaptogens · NetSuite &amp; Celigo</span>
@@ -2695,7 +2732,7 @@
                 <div class="client-logo-mark">
                   <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="Clare V.">
                     <title>Clare V.</title>
-                    <text x="58" y="19" text-anchor="middle" font-family="'Times New Roman', Georgia, serif" font-size="17" font-weight="600" letter-spacing="0.12em">CLARE V</text>
+                    <text x="58" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="16.5" font-weight="700" letter-spacing="0.12em">CLARE V</text>
                     <circle cx="106" cy="18" r="2.5" fill="var(--signal-copper)"/>
                   </svg>
                 </div>
@@ -2732,7 +2769,7 @@
                 <div class="client-logo-mark">
                   <svg class="client-logo-svg" viewBox="0 0 135 26" fill="currentColor" role="img" aria-label="Envy Wigs">
                     <title>Envy Wigs</title>
-                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="18" font-weight="500" letter-spacing="0.22em">ENVY</text>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="18" font-weight="600" letter-spacing="0.22em">ENVY</text>
                   </svg>
                 </div>
                 <span class="client-logo-sub">Designer Hairwear · Wholesale</span>
@@ -2743,7 +2780,7 @@
                 <div class="client-logo-mark">
                   <svg class="client-logo-svg" viewBox="0 0 135 26" fill="currentColor" role="img" aria-label="Bolero Home Decor">
                     <title>Bolero Home Decor</title>
-                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="16.5" font-weight="600" letter-spacing="0.18em">BOLERO</text>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="16" font-weight="700" letter-spacing="0.16em">BOLERO</text>
                   </svg>
                 </div>
                 <span class="client-logo-sub">Home Decor · NetSuite ERP &amp; EDI</span>
@@ -2850,15 +2887,17 @@
                 <span class="client-logo-sub">Pet Nutrition · NetSuite B2B</span>
               </div>
 
-              <!-- Lancer Skincare -->
-              <div class="client-logo-card" title="Lancer Skincare">
+              <!-- Arctic Industries -->
+              <div class="client-logo-card" title="Arctic Industries">
                 <div class="client-logo-mark">
-                  <svg class="client-logo-svg" viewBox="0 0 135 26" fill="currentColor" role="img" aria-label="Lancer Skincare">
-                    <title>Lancer Skincare</title>
-                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="17" font-weight="600" letter-spacing="0.22em">LANCER</text>
+                  <svg class="client-logo-svg" viewBox="0 0 155 26" fill="currentColor" role="img" aria-label="Arctic Industries">
+                    <title>Arctic Industries</title>
+                    <path d="M12 6 L12 20 M5 13 L19 13 M7 8 L17 18 M7 18 L17 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <circle cx="12" cy="13" r="2" fill="var(--signal-copper)"/>
+                    <text x="86" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14.5" font-weight="800" letter-spacing="0.1em">ARCTIC</text>
                   </svg>
                 </div>
-                <span class="client-logo-sub">Dermatology Luxury · Global DTC</span>
+                <span class="client-logo-sub">Commercial Coolers · NetSuite</span>
               </div>
             </div>
           </div>
@@ -2976,6 +3015,16 @@
                 <span class="client-logo-sub">Dental Tech · Field Service</span>
               </div>
             </div>
+          </div>
+
+          <!-- Drawer Collapse Footer -->
+          <div class="client-roster-footer">
+            <button class="client-roster-btn client-roster-btn--compact" id="clientRosterCloseBtn" type="button" aria-controls="extendedClientRoster">
+              <span>Show fewer clients</span>
+              <svg class="client-roster-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(180deg);">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -4937,19 +4986,32 @@
     (function () {
       var btn = document.getElementById('clientRosterToggle');
       var roster = document.getElementById('extendedClientRoster');
+      var closeBtn = document.getElementById('clientRosterCloseBtn');
       if (!btn || !roster) return;
       roster.hidden = true;
       var label = btn.querySelector('.client-roster-btn-label');
       var closedLabel = label ? label.textContent.trim() : btn.textContent.trim();
+
+      function toggleRoster(open) {
+        roster.hidden = !open;
+        btn.setAttribute('aria-expanded', String(open));
+        if (label) {
+          label.textContent = open ? 'Show fewer clients' : closedLabel;
+        }
+        btn.classList.toggle('is-expanded', open);
+      }
+
       btn.addEventListener('click', function () {
         var opening = roster.hidden;
-        roster.hidden = !opening;
-        btn.setAttribute('aria-expanded', String(opening));
-        if (label) {
-          label.textContent = opening ? 'Show fewer clients' : closedLabel;
-        }
-        btn.classList.toggle('is-expanded', opening);
+        toggleRoster(opening);
       });
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          toggleRoster(false);
+          btn.focus();
+        });
+      }
     })();
 
     (function () {
