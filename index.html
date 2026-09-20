@@ -363,23 +363,37 @@
       transform: scale(0.97);
     }
     .button--primary {
-      background: var(--signal-sapphire);
+      background: linear-gradient(180deg, oklch(0.58 0.22 260), oklch(0.50 0.21 260));
       color: #fff;
-      border-color: rgb(255 255 255 / .15);
-      box-shadow: 0 4px 14px rgb(37 99 235 / .35);
+      border: 1px solid oklch(0.68 0.18 260 / .6);
+      box-shadow: 0 1px 2px rgb(0 0 0 / .3), 0 4px 16px oklch(0.55 0.21 260 / .35), inset 0 1px 0 rgb(255 255 255 / .25);
     }
     .button--primary:hover {
-      background: oklch(0.58 0.22 260);
-      box-shadow: 0 6px 20px rgb(37 99 235 / .48);
+      background: linear-gradient(180deg, oklch(0.62 0.22 260), oklch(0.54 0.21 260));
+      border-color: oklch(0.75 0.18 260 / .8);
+      box-shadow: 0 1px 2px rgb(0 0 0 / .3), 0 6px 22px oklch(0.55 0.21 260 / .5), inset 0 1px 0 rgb(255 255 255 / .35);
     }
     .button--quiet {
       background: var(--titanium-surface);
       color: var(--text-bright);
       border-color: var(--border-subtle);
+      box-shadow: 0 1px 2px rgb(0 0 0 / .2), inset 0 1px 0 rgb(255 255 255 / .04);
     }
     .button--quiet:hover {
       background: oklch(0.26 0.032 255);
       border-color: var(--border-bright);
+    }
+    .button--dim {
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      border-style: dashed;
+      background: transparent;
+    }
+    .button--dim:hover {
+      color: var(--text-bright);
+      border-style: solid;
+      background: var(--titanium-surface);
     }
 
     /* Hero Section */
@@ -505,8 +519,14 @@
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: .75rem;
-      margin-bottom: 1.75rem;
+      align-items: center;
+      gap: .65rem;
+      margin-bottom: 2rem;
+    }
+    .hero-actions .button {
+      min-height: 44px;
+      padding: .55rem 1.15rem;
+      font-size: .82rem;
     }
     .hero-quicklinks {
       display: flex;
@@ -2021,7 +2041,7 @@
           <h1 class="hero-title">Bringing order to enterprise chaos.</h1>
           <p class="hero-lede">Architecting mission-critical NetSuite platforms, resilient integration fabrics, and autonomous AI delivery that turn operational friction into engineered precision.</p>
           <p class="hero-bio">
-            Former Oracle NetSuite SWAT engineer architecting multi-subsidiary ERP, Celigo iPaaS pipelines, and Tier-1 3PL logistics networks for world-class DTC and enterprise brands.
+            Former Oracle NetSuite SWAT engineer leading multi-subsidiary ERP, Celigo iPaaS pipelines, and Tier-1 3PL logistics networks for world-class DTC and enterprise brands.
           </p>
 
           <div class="hero-capabilities-strip" role="list" aria-label="Core Architectural Capabilities">
@@ -2032,15 +2052,8 @@
 
           <div class="hero-actions">
             <a class="button button--primary" href="mailto:ejaquino26@gmail.com?subject=Consulting%20Inquiry">Discuss a system</a>
-            <a class="button button--quiet" href="Aquino_Erick_CV_ATS.pdf" target="_blank" rel="noopener">ATS CV (PDF) ↗</a>
-            <a class="button button--quiet" href="Aquino_Erick_CV_Designed.pdf" target="_blank" rel="noopener">Designed CV (PDF) ↗</a>
-          </div>
-
-          <div class="hero-quicklinks">
-            <a href="https://www.linkedin.com/in/ejaquino/" target="_blank" rel="noopener">linkedin ↗</a>
-            <a href="https://wa.me/639055147337" target="_blank" rel="noopener">whatsapp ↗</a>
-            <a href="mailto:ejaquino26@gmail.com">email ↗</a>
-            <a href="mailto:ejaquino26@gmail.com?subject=Career%20Opportunity">hiring inquiry ↗</a>
+            <a class="button button--quiet" href="Aquino_Erick_CV_Designed.pdf" target="_blank" rel="noopener">Architect Dossier (PDF) ↗</a>
+            <a class="button button--quiet button--dim" href="Aquino_Erick_CV_ATS.pdf" target="_blank" rel="noopener">ATS Plain ↗</a>
           </div>
         </div>
       </div>
@@ -2049,19 +2062,19 @@
       <div class="stats-ribbon reveal" aria-label="Portfolio proof">
         <div class="stat-item proof">
           <div class="stat-val"><strong>10</strong></div>
-          <div class="stat-lbl"><span>Years in enterprise systems</span></div>
+          <div class="stat-lbl"><span>Years Enterprise Systems</span></div>
         </div>
         <div class="stat-item proof">
           <div class="stat-val"><strong>155</strong></div>
-          <div class="stat-lbl"><span>Project workspaces indexed</span></div>
+          <div class="stat-lbl"><span>Production Repositories</span></div>
         </div>
         <div class="stat-item proof">
           <div class="stat-val"><strong>7,272,564</strong></div>
-          <div class="stat-lbl"><span>Lines of code indexed</span></div>
+          <div class="stat-lbl"><span>Audited Codebase Lines</span></div>
         </div>
         <div class="stat-item proof">
           <div class="stat-val"><strong>50+</strong></div>
-          <div class="stat-lbl"><span>Global Brands & Clients</span></div>
+          <div class="stat-lbl"><span>Global Brands &amp; Clients</span></div>
         </div>
       </div>
 
