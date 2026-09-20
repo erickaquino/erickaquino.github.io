@@ -920,34 +920,40 @@
       margin: 0 0 1.25rem;
       max-width: 68ch;
     }
-    .vessel-bullets {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 1.5rem;
+    .vessel-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .65rem 1.25rem;
+      margin: 1rem 0 1.25rem;
+      padding: .85rem 1.1rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-panel);
+      background: rgb(0 0 0 / .18);
+    }
+    @media (max-width: 580px) {
+      .vessel-specs-grid {
+        grid-template-columns: 1fr;
+        gap: .55rem;
+      }
+    }
+    .vessel-spec-item {
       display: flex;
       flex-direction: column;
-      gap: .65rem;
+      gap: .15rem;
     }
-    .vessel-bullets li {
-      position: relative;
-      padding-left: 1.25rem;
-      font-size: .92rem;
-      line-height: 1.55;
-      color: var(--text-muted);
+    .vessel-spec-lbl {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--signal-copper);
     }
-    .vessel-bullets li::before {
-      content: "";
-      position: absolute;
-      left: .25rem;
-      top: .55em;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--signal-copper);
-    }
-    .vessel-bullets li strong {
-      color: var(--text-bright);
+    .vessel-spec-val {
+      font-family: var(--font-mono);
+      font-size: .82rem;
       font-weight: 600;
+      color: var(--text-bright);
     }
     .vessel-tags {
       display: flex;
@@ -997,101 +1003,7 @@
       font-size: .82rem;
       color: var(--text-muted);
     }
-    /* AI & Autonomous Agent Orchestration Cards */
-    .agent-matrix-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      margin-bottom: 3.5rem;
-    }
-    .agent-card {
-      padding: 1.85rem;
-      border-radius: var(--radius-panel);
-      background: var(--titanium-raised);
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 16px 36px rgb(0 0 0 / .35), inset 0 1px 0 rgb(255 255 255 / .05);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: border-color 160ms ease, transform 160ms ease;
-    }
-    .agent-card:hover {
-      border-color: var(--border-bright);
-      transform: translateY(-2px);
-    }
-    .agent-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--signal-copper), transparent);
-      opacity: 0;
-      transition: opacity 160ms ease;
-    }
-    .agent-card:hover::before {
-      opacity: 1;
-    }
-    .agent-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-    .agent-badge {
-      font-family: var(--font-mono);
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: .25rem .55rem;
-      border-radius: 6px;
-      background: rgb(217 119 6 / .12);
-      color: var(--signal-copper);
-      border: 1px solid rgb(217 119 6 / .25);
-    }
-    .agent-title {
-      font-size: 1.18rem;
-      font-weight: 600;
-      color: var(--text-bright);
-      margin: 0 0 .4rem;
-      letter-spacing: -.02em;
-    }
-    .agent-sub {
-      font-family: var(--font-mono);
-      font-size: .78rem;
-      color: var(--signal-copper);
-      margin-bottom: 1rem;
-    }
-    .agent-desc {
-      font-size: .88rem;
-      line-height: 1.6;
-      color: var(--text-muted);
-      margin: 0 0 1.25rem;
-    }
-    .agent-highlights {
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgb(255 255 255 / .06);
-    }
-    .agent-highlight-item {
-      font-size: .8rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: flex-start;
-      gap: .5rem;
-    }
-    .agent-highlight-item span {
-      color: var(--signal-copper);
-      font-weight: bold;
-      flex-shrink: 0;
-    }
+
 
     /* Hero Pipeline Tag */
     .hero-pipeline-tag {
@@ -1527,105 +1439,7 @@
       color: var(--text-bright);
     }
 
-    /* Comparative Technical Spec Sheet Table */
-    .table-scroll-hint {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      padding: .35rem .75rem;
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-pill);
-      background: var(--titanium-surface);
-      color: var(--text-dim);
-      font-family: var(--font-mono);
-      font-size: .7rem;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-    @media (min-width: 900px) {
-      .table-scroll-hint {
-        display: none;
-      }
-    }
-    .spec-matrix-wrap {
-      margin-top: 2rem;
-      margin-bottom: 3rem;
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-panel);
-      background: var(--titanium-raised);
-      box-shadow: 0 20px 50px rgb(0 0 0 / .4), inset 0 1px 0 rgb(255 255 255 / .05);
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    .spec-matrix-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .84rem;
-      text-align: left;
-    }
-    .spec-matrix-table th,
-    .spec-matrix-table td {
-      padding: 1.1rem 1.25rem;
-      border-bottom: 1px solid var(--border-subtle);
-      border-right: 1px solid var(--border-subtle);
-      vertical-align: top;
-    }
-    .spec-matrix-table th:last-child,
-    .spec-matrix-table td:last-child {
-      border-right: 0;
-    }
-    .spec-matrix-table thead th {
-      background: var(--titanium-surface);
-      font-family: var(--font-mono);
-      font-size: .78rem;
-      font-weight: 600;
-      color: var(--text-bright);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      border-bottom: 2px solid var(--border-bright);
-    }
-    .spec-matrix-table tbody th {
-      font-family: var(--font-mono);
-      font-size: .76rem;
-      font-weight: 600;
-      color: var(--signal-copper);
-      background: rgb(255 255 255 / .01);
-      width: 13rem;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-    }
-    .spec-matrix-table tbody tr {
-      transition: background 150ms var(--ease-out);
-    }
-    .spec-matrix-table tbody tr:hover th {
-      background: rgb(217 119 54 / .06);
-    }
-    .spec-matrix-table tbody tr:hover td {
-      background: rgb(255 255 255 / .02);
-    }
-    .spec-matrix-table tbody tr:last-child th,
-    .spec-matrix-table tbody tr:last-child td {
-      border-bottom: 0;
-    }
-    .spec-matrix-table td {
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-    .spec-matrix-table td strong {
-      color: var(--text-bright);
-      display: block;
-      font-family: var(--font-mono);
-      font-size: .82rem;
-      font-weight: 600;
-      letter-spacing: -.01em;
-      margin-bottom: .25rem;
-    }
-    .spec-matrix-table td .spec-sub {
-      display: block;
-      font-size: .78rem;
-      color: var(--text-dim);
-      line-height: 1.45;
-    }
+
 
     /* Archive */
     .archive-wrap { margin-top: 2rem; }
@@ -2212,11 +2026,7 @@
             </div>
             <div class="timeline-date">2021 - Present</div>
           </div>
-          <ul class="timeline-bullets" aria-label="Key responsibilities and achievements">
-            <li>Lead technical architect for multi-system enterprise integrations connecting NetSuite ERP with logistics networks (Masonhub, ShipBob, Capacity 3PL, Radial, ILG).</li>
-            <li>Engineered automated carrier pipelines for DHL and FedEx with bidirectional Shopify synchronization.</li>
-            <li>Advanced Celigo iPaaS orchestration (Legendary Level 4) governing high-throughput transaction streams with zero data drift.</li>
-          </ul>
+          <p class="timeline-desc">Lead technical architect directing multi-subsidiary NetSuite ERP, high-throughput Celigo iPaaS pipelines, and global 3PL fulfillment networks with autonomous multi-agent delivery.</p>
         </article>
 
         <!-- Kodella LLC -->
@@ -2236,11 +2046,7 @@
             </div>
             <div class="timeline-date">2019 - 2021</div>
           </div>
-          <ul class="timeline-bullets" aria-label="Key responsibilities and achievements">
-            <li>Delivered custom SuiteScript 2.x, SuiteFlow, and MapReduce batch data architectures across finance, inventory, and supply chain.</li>
-            <li>Managed full NetSuite Release Preview upgrade lifecycles with zero-disruption cutovers, platform governance, and SDF version control.</li>
-            <li>Engineered executive KPI dashboards and automated financial reporting across complex client customizations.</li>
-          </ul>
+          <p class="timeline-desc">Delivered custom SuiteScript 2.x, SDF migrations, SuiteCommerce billing engines, and Celigo integrations across supply chain with zero-disruption upgrade cutovers.</p>
         </article>
 
         <!-- Oracle NetSuite Corporation -->
@@ -2260,11 +2066,7 @@
             </div>
             <div class="timeline-date">2016 - 2019</div>
           </div>
-          <ul class="timeline-bullets" aria-label="Key responsibilities and achievements">
-            <li>Earned 4 successive promotions within NetSuite Global Support & Engineering Services; elite SWAT desk.</li>
-            <li>Handled the platform's Top 200 enterprise customer escalations, resolving core platform defects across SuiteScript, SuiteFlow, and SDF.</li>
-            <li>Conducted architectural quality audits and defect deflection under Oracle's Engineering Solutions Management (ESM) methodology.</li>
-          </ul>
+          <p class="timeline-desc">Elite SWAT desk consultant resolving Top 200 global enterprise customer escalations across SuiteScript, SuiteFlow, and SDF defect deflection.</p>
         </article>
 
         <!-- Accenture, Inc. -->
@@ -2285,9 +2087,7 @@
             </div>
             <div class="timeline-date">2016</div>
           </div>
-          <ul class="timeline-bullets" aria-label="Key responsibilities and achievements">
-            <li>Built automated CI/CD pipelines and quality assurance tooling using Jenkins, SonarQube, Selenium, and Java test frameworks.</li>
-          </ul>
+          <p class="timeline-desc">Built automated CI/CD deployment pipelines and quality assurance test suites using Jenkins, SonarQube, and Java frameworks.</p>
         </article>
       </div>
     </section>
@@ -2382,23 +2182,34 @@
   <span class="pc pc-bl" aria-hidden="true"></span>
   <span class="pc pc-br" aria-hidden="true"></span>
           <div class="vessel-meta">
-            <span class="vessel-classification">Global ERP & Matrix Pricing</span>
+            <span class="vessel-classification">Global ERP &amp; Matrix Pricing</span>
             <span class="vessel-badge">Sole Lead Architect</span>
           </div>
           <h3 class="vessel-title">Nidecker Group Global Enterprise ERP</h3>
           <p class="vessel-summary">
-            Sole architect for global production rollout across 14 international subsidiaries, replacing legacy spreadsheets with automated pricing and EDI orchestration.
+            Global multi-subsidiary ERP core powering 14 international entities with dynamic matrix pricing and automated B2B EDI orchestration.
           </p>
-          <ul class="vessel-bullets" aria-label="Key architectural deliverables">
-            <li><strong>Dynamic Matrix Pricing:</strong> High-performance pricing engine calculating real-time landed costs, currency conversions, and customer tier discounts in sub-second execution across 14 international subsidiaries.</li>
-            <li><strong>B2B EDI Automation:</strong> Automated EDI 850, 855, and 856 order ingestion and shipping orchestration for major global sporting goods retailers.</li>
-            <li><strong>Multi-Subsidiary Core:</strong> Automated intercompany eliminations, currency revaluations, and real-time tax nexus compliance across EMEA and the Americas.</li>
-          </ul>
+          <div class="vessel-specs-grid">
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Architecture Pattern</span>
+              <strong class="vessel-spec-val">SuiteScript 2.1 SDF Core</strong>
+            </div>
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Codebase Scale</span>
+              <strong class="vessel-spec-val">1,248 script files</strong>
+            </div>
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Integration Protocols</span>
+              <strong class="vessel-spec-val">Celigo, Shopify, 3PL EDI</strong>
+            </div>
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Peak Throughput</span>
+              <strong class="vessel-spec-val">Sub-second Pricing</strong>
+            </div>
+          </div>
           <div class="vessel-tags" aria-label="Technical specifications">
-            <span class="vessel-tag">1,248 Script Files</span>
             <span class="vessel-tag">14 Global Subsidiaries</span>
             <span class="vessel-tag">EDI 850/855/856</span>
-            <span class="vessel-tag">Sub-second Pricing</span>
             <span class="vessel-tag">SuiteScript 2.1 SDF</span>
           </div>
         </article>
@@ -2410,22 +2221,33 @@
   <span class="pc pc-bl" aria-hidden="true"></span>
   <span class="pc pc-br" aria-hidden="true"></span>
           <div class="vessel-meta">
-            <span class="vessel-classification">High-Velocity Omnichannel & Logistics Pipeline</span>
+            <span class="vessel-classification">High-Velocity Omnichannel &amp; Logistics Pipeline</span>
             <span class="vessel-badge">Lead NetSuite Architect</span>
           </div>
           <h3 class="vessel-title">Rare Beauty Omnichannel Fulfillment Platform</h3>
           <p class="vessel-summary">
-            Architected the mission-critical fulfillment backbone powering high-velocity product drops for one of the world's fastest-growing beauty brands.
+            High-velocity fulfillment architecture absorbing 50,000+ daily orders with zero record locking and atomic zero-oversell 3PL routing.
           </p>
-          <ul class="vessel-bullets" aria-label="Key architectural deliverables">
-            <li><strong>Flash Drop Scale:</strong> Absorbs 50,000+ daily orders with parallel MapReduce ingestion and zero NetSuite record locking during viral launches.</li>
-            <li><strong>Zero-Oversell Allocation:</strong> Atomic real-time inventory reservation preventing split-shipment inventory drift across 4 global 3PL distribution centers.</li>
-            <li><strong>Automated Returns:</strong> Return merchandise authorization (RMA) inspection gates, bidirectional tracking sync, and automated restock ledger routing.</li>
-          </ul>
+          <div class="vessel-specs-grid">
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Architecture Pattern</span>
+              <strong class="vessel-spec-val">Event-Driven iPaaS</strong>
+            </div>
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Codebase Scale</span>
+              <strong class="vessel-spec-val">896 script files</strong>
+            </div>
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Integration Protocols</span>
+              <strong class="vessel-spec-val">Celigo, Shopify Plus, 4x 3PLs</strong>
+            </div>
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Peak Throughput</span>
+              <strong class="vessel-spec-val">50,000+ Daily Orders</strong>
+            </div>
+          </div>
           <div class="vessel-tags" aria-label="Technical specifications">
-            <span class="vessel-tag">896 Custom Files</span>
             <span class="vessel-tag">4 Global 3PL Warehouses</span>
-            <span class="vessel-tag">50,000+ Daily Orders</span>
             <span class="vessel-tag">Zero-Oversell Guard</span>
             <span class="vessel-tag">Shopify Plus / Celigo</span>
           </div>
@@ -2438,24 +2260,35 @@
   <span class="pc pc-bl" aria-hidden="true"></span>
   <span class="pc pc-br" aria-hidden="true"></span>
           <div class="vessel-meta">
-            <span class="vessel-classification">Enterprise Automation & Asynchronous Grid</span>
+            <span class="vessel-classification">Enterprise Automation &amp; Asynchronous Grid</span>
             <span class="vessel-badge">Enterprise NetSuite Architect</span>
           </div>
           <h3 class="vessel-title">Capital Brands (Nutribullet) Manufacturing Grid</h3>
           <p class="vessel-summary">
-            Designed enterprise-scale asynchronous automation for high-volume kitchen appliance manufacturing, wholesale EDI, and warehouse operations.
+            Enterprise asynchronous automation network spanning 95+ interactive Suitelets, 35 MapReduce engines, and nationwide retail EDI.
           </p>
-          <ul class="vessel-bullets" aria-label="Key architectural deliverables">
-            <li><strong>Warehouse Operations:</strong> 95+ custom interactive Suitelet consoles for warehouse operators, picking lines, and order verification.</li>
-            <li><strong>High-Volume Batch Settlement:</strong> 35+ asynchronous MapReduce engines reconciling high-volume shipments, vendor chargebacks, and financial batches.</li>
-            <li><strong>Retail EDI Pipelines:</strong> Automated high-throughput SPS Commerce EDI streams powering national Tier-1 retail distribution.</li>
-          </ul>
+          <div class="vessel-specs-grid">
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Architecture Pattern</span>
+              <strong class="vessel-spec-val">Hybrid Batch/UI Grid</strong>
+            </div>
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Codebase Scale</span>
+              <strong class="vessel-spec-val">697+ custom files</strong>
+            </div>
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Integration Protocols</span>
+              <strong class="vessel-spec-val">Celigo, SPS Commerce, EDI</strong>
+            </div>
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Peak Throughput</span>
+              <strong class="vessel-spec-val">35 Concurrent Queues</strong>
+            </div>
+          </div>
           <div class="vessel-tags" aria-label="Technical specifications">
-            <span class="vessel-tag">697+ Custom JS Files</span>
             <span class="vessel-tag">95+ Suitelets</span>
             <span class="vessel-tag">35+ MapReduce Engines</span>
             <span class="vessel-tag">SPS Commerce EDI</span>
-            <span class="vessel-tag">Nutribullet Manufacturing</span>
           </div>
         </article>
 
@@ -2466,23 +2299,35 @@
   <span class="pc pc-bl" aria-hidden="true"></span>
   <span class="pc pc-br" aria-hidden="true"></span>
           <div class="vessel-meta">
-            <span class="vessel-classification">Distributed Financial Reconciliation & Sync SaaS</span>
+            <span class="vessel-classification">Distributed Financial Reconciliation &amp; Sync SaaS</span>
             <span class="vessel-badge">Lead Systems Architect</span>
           </div>
           <h3 class="vessel-title">EKW-SPHERE Multi-Tenant Financial Gateway</h3>
           <p class="vessel-summary">
-            Engineered a full-stack enterprise reconciliation platform connecting NetSuite ERP with external WMS and transactional databases.
+            Distributed financial reconciliation gateway handling 3,600+ RPS with continuous audit vault verification and sub-second parity checks.
           </p>
-          <ul class="vessel-bullets" aria-label="Key architectural deliverables">
-            <li><strong>High-Throughput Stream Ingestion:</strong> Distributed event consumer processing 3,600+ requests per second with sub-50ms response latency.</li>
-            <li><strong>Real-Time Ledger Parity:</strong> Continuous bi-directional balance checking between external WMS and ERP to catch discrepancies before period close.</li>
-            <li><strong>Audit Ledger Vault:</strong> Immutable transaction audit logging with automated rule-based resolution pipelines.</li>
-          </ul>
+          <div class="vessel-specs-grid">
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Architecture Pattern</span>
+              <strong class="vessel-spec-val">Distributed Event Loop</strong>
+            </div>
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Codebase Scale</span>
+              <strong class="vessel-spec-val">50,000+ LoC</strong>
+            </div>
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Integration Protocols</span>
+              <strong class="vessel-spec-val">Celigo, REST Webhooks, WMS API</strong>
+            </div>
+            <div class="vessel-spec-item">
+              <span class="vessel-spec-lbl">Peak Throughput</span>
+              <strong class="vessel-spec-val">3,600+ RPS</strong>
+            </div>
+          </div>
           <div class="vessel-tags" aria-label="Technical specifications">
             <span class="vessel-tag">50,000+ LoC Python / React</span>
-            <span class="vessel-tag">3,600+ RPS Throughput</span>
             <span class="vessel-tag">Sub-50ms Latency</span>
-            <span class="vessel-tag">Continuous Anomaly Alerts</span>
+            <span class="vessel-tag">Continuous Audit Vault</span>
           </div>
         </article>
       </div>
@@ -2708,114 +2553,36 @@
 
               <div class="cmp-row">
                 <div class="cmp-col cmp-dim">Delivery Velocity</div>
-                <div class="cmp-col cmp-legacy">4 to 12 weeks of discovery meetings, manual coding, and coordination lag.</div>
-                <div class="cmp-col cmp-erick"><strong>Hours to days</strong> via parallel isolated git worktree agents running automated dev loops.</div>
+                <div class="cmp-col cmp-legacy">Weeks of discovery meetings and coordination lag</div>
+                <div class="cmp-col cmp-erick"><strong>Hours to days</strong> via parallel isolated git worktree agents</div>
               </div>
 
               <div class="cmp-row">
-                <div class="cmp-col cmp-dim">Code Quality &amp; Defect Prevention</div>
-                <div class="cmp-col cmp-legacy">Manual spot checks; single developer bias; unexpected production breakage.</div>
-                <div class="cmp-col cmp-erick"><strong>Adversarial Triad:</strong> Independent auditor agent verifies code against strict blueprints before merge.</div>
+                <div class="cmp-col cmp-dim">Code Quality</div>
+                <div class="cmp-col cmp-legacy">Manual spot checks; single-developer bias</div>
+                <div class="cmp-col cmp-erick"><strong>Adversarial Triad:</strong> Independent auditor gate before merge</div>
               </div>
 
               <div class="cmp-row">
-                <div class="cmp-col cmp-dim">Tracker &amp; Ticket Integration</div>
-                <div class="cmp-col cmp-legacy">Stale weekly status syncs; manual copy-pasting of error messages and ticket statuses.</div>
-                <div class="cmp-col cmp-erick"><strong>Autonomous Agent Pipelines</strong> directly parsing, diagnosing, and preparing verified pull requests for Jira, ClickUp &amp; Freshservice tickets.</div>
+                <div class="cmp-col cmp-dim">Tracker Integration</div>
+                <div class="cmp-col cmp-legacy">Stale weekly status syncs; manual copy-pasting</div>
+                <div class="cmp-col cmp-erick"><strong>Autonomous Pipelines:</strong> Direct triage &amp; verified PRs for Jira / ClickUp</div>
               </div>
 
               <div class="cmp-row">
-                <div class="cmp-col cmp-dim">Release Safety &amp; Governance</div>
-                <div class="cmp-col cmp-legacy">Manual bundle pushes, unversioned sandbox tweaks, risky ad-hoc script deploys.</div>
-                <div class="cmp-col cmp-erick"><strong>Zero-Drift Deployments:</strong> Automated SDF XML audits, dry-run ledger reconciliation, and rollback snapshots.</div>
+                <div class="cmp-col cmp-dim">Release Safety</div>
+                <div class="cmp-col cmp-legacy">Manual bundle pushes; unversioned sandbox tweaks</div>
+                <div class="cmp-col cmp-erick"><strong>Zero-Drift:</strong> Automated SDF XML audits &amp; balance reconciliations</div>
               </div>
 
               <div class="cmp-row">
-                <div class="cmp-col cmp-dim">Team Overhead &amp; Economics</div>
-                <div class="cmp-col cmp-legacy">Bloated teams of 4-6 billable juniors with massive communication overhead.</div>
-                <div class="cmp-col cmp-erick"><strong>Principal Architect</strong> operating a dedicated swarm of verified autonomous agents at fraction of the cost.</div>
+                <div class="cmp-col cmp-dim">Team Economics</div>
+                <div class="cmp-col cmp-legacy">4-6 billable juniors with communication overhead</div>
+                <div class="cmp-col cmp-erick"><strong>Principal Architect</strong> operating verified agent swarms at fraction of cost</div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="agent-matrix-grid reveal">
-        <!-- Card 1: Role-Decomposed Loops -->
-        <article class="agent-card">
-          <div>
-            <div class="agent-head">
-              <span class="agent-badge">Architecture &amp; QA Loops</span>
-            </div>
-            <h4 class="agent-title">Role-Decomposed Autonomous Cycles</h4>
-            <div class="agent-sub">Role-Decomposed // Architect · Builder · Auditor</div>
-            <p class="agent-desc">
-              Decouples delivery into three adversarial agent roles: an Architect for contract modeling, an isolated Builder, and an independent QA Auditor.
-            </p>
-          </div>
-          <div class="agent-highlights">
-            <div class="agent-highlight-item"><span>//</span> Eliminates single-agent bias via adversarial cross-verification</div>
-            <div class="agent-highlight-item"><span>//</span> Formal blueprint contracts enforced before code generation</div>
-            <div class="agent-highlight-item"><span>//</span> Automated test execution with evidence-based sign-off</div>
-          </div>
-        </article>
-
-        <!-- Card 2: Domain-Specific Tracker Pipelines -->
-        <article class="agent-card">
-          <div>
-            <div class="agent-head">
-              <span class="agent-badge">Tracker Integration</span>
-            </div>
-            <h4 class="agent-title">Domain-Specific Tracker Pipelines</h4>
-            <div class="agent-sub">Automated Tracker-Integrated Engineering</div>
-            <p class="agent-desc">
-              Pipelines integrated directly into Jira, ClickUp, and Freshservice to diagnose root causes and reproduce issues across thousands of script files.
-            </p>
-          </div>
-          <div class="agent-highlights">
-            <div class="agent-highlight-item"><span>//</span> Autonomous root-cause analysis across complex SuiteScript suites</div>
-            <div class="agent-highlight-item"><span>//</span> Automated sandbox verification against live account states</div>
-            <div class="agent-highlight-item"><span>//</span> Compresses defect turnaround from days to under 2 hours</div>
-          </div>
-        </article>
-
-        <!-- Card 3: Parallel Worktree Concurrency -->
-        <article class="agent-card">
-          <div>
-            <div class="agent-head">
-              <span class="agent-badge">Concurrency</span>
-            </div>
-            <h4 class="agent-title">Parallel Worktree Dispatch & Task DAGs</h4>
-            <div class="agent-sub">Multi-Agent Concurrency // Zero Context-Switching</div>
-            <p class="agent-desc">
-              Dispatches concurrent agents into isolated Git worktrees governed by structured task DAGs, eliminating merge collisions and lock contention.
-            </p>
-          </div>
-          <div class="agent-highlights">
-            <div class="agent-highlight-item"><span>//</span> Simultaneous development across subsidiaries and 3PL endpoints</div>
-            <div class="agent-highlight-item"><span>//</span> Synchronous decision gates with automated worker handoffs</div>
-            <div class="agent-highlight-item"><span>//</span> Zero human context-switching penalties across project tracks</div>
-          </div>
-        </article>
-
-        <!-- Card 4: Zero-Regression Sandbox Gatekeeping -->
-        <article class="agent-card">
-          <div>
-            <div class="agent-head">
-              <span class="agent-badge">Reliability Gate</span>
-            </div>
-            <h4 class="agent-title">Zero-Regression Sandbox Gatekeeping</h4>
-            <div class="agent-sub">Continuous Verification // Release Governance</div>
-            <p class="agent-desc">
-              Autonomous release pipelines enforce mandatory multi-tier verification before promotion, running automated unit tests and SDF dependency audits.
-            </p>
-          </div>
-          <div class="agent-highlights">
-            <div class="agent-highlight-item"><span>//</span> Double-entry ledger parity checks across ERP and 3PL boundaries</div>
-            <div class="agent-highlight-item"><span>//</span> Automated SDF XML object structure and permission audits</div>
-            <div class="agent-highlight-item"><span>//</span> Zero-defect cutovers with verified rollback snapshots</div>
-          </div>
-        </article>
       </div>
 
       <!-- Dynamic Project Cases -->
@@ -2963,78 +2730,7 @@
         
       </div>
 
-      <!-- 02.5: Comparative Technical Spec Sheet Table (Seasats Lightfish format) -->
-      <div class="section-head reveal" style="margin-top: 3.5rem;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; width: 100%;">
-          <div>
-            <span class="section-kicker">02.5 // engineering specifications</span>
-            <h3 class="section-title" style="font-size: clamp(1.4rem, 2.5vw, 1.85rem);">Comparative Technical Spec Sheet</h3>
-            <p class="section-sub">Direct architectural parameters, governance ceilings, and protocols across flagship platforms.</p>
-          </div>
-          <span class="table-scroll-hint" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16l-4-4m0 0l4-4m-4 4h18m-4 4l4-4m0 0l-4-4"/></svg>
-            Scroll to compare
-          </span>
-        </div>
-      </div>
 
-      <div class="spec-matrix-wrap reveal">
-        <table class="spec-matrix-table" aria-label="Comparative Technical Spec Sheet">
-          <thead>
-            <tr>
-              <th scope="col">Specification Parameter</th>
-              <th scope="col">Nidecker Group</th>
-              <th scope="col">Rare Beauty</th>
-              <th scope="col">Capital Brands</th>
-              <th scope="col">EKW-SPHERE</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Architecture Pattern</th>
-              <td><strong>SuiteScript 2.1 SDF Core</strong><span class="spec-sub">Multi-subsidiary global ERP with dynamic pricing engine</span></td>
-              <td><strong>Event-Driven iPaaS</strong><span class="spec-sub">Decoupled Shopify Plus to NetSuite order orchestration</span></td>
-              <td><strong>Hybrid Batch/UI Grid</strong><span class="spec-sub">High-volume MapReduce jobs paired with 95+ Suitelets</span></td>
-              <td><strong>Distributed Event Loop</strong><span class="spec-sub">High-performance Python/React transaction gateway</span></td>
-            </tr>
-            <tr>
-              <th scope="row">Codebase Scale</th>
-              <td><strong>1,248 script files</strong><span class="spec-sub">14 international subsidiaries, custom financial engines</span></td>
-              <td><strong>896 script files</strong><span class="spec-sub">4 3PL warehouse integrations, order routing pipelines</span></td>
-              <td><strong>697+ custom files</strong><span class="spec-sub">95 interactive Suitelets, 35 MapReduce engines</span></td>
-              <td><strong>50,000+ LoC</strong><span class="spec-sub">Full-stack multi-tenant reconciliation SaaS</span></td>
-            </tr>
-            <tr>
-              <th scope="row">Integration Protocols</th>
-              <td><strong>Celigo, Shopify, 3PL EDI</strong><span class="spec-sub">REST Web Services, SOAP, EDI 850/855/856</span></td>
-              <td><strong>Celigo, Shopify Plus, 4x 3PLs</strong><span class="spec-sub">RESTlets, Webhooks, Carrier APIs (DHL, FedEx)</span></td>
-              <td><strong>Celigo, SPS Commerce, EDI</strong><span class="spec-sub">REST, ODBC, AS2, SFTP batch sync</span></td>
-              <td><strong>Celigo, REST Webhooks, WMS API</strong><span class="spec-sub">Bi-directional REST, OAuth 2.0, Webhook mesh</span></td>
-            </tr>
-            <tr>
-              <th scope="row">Peak Throughput</th>
-              <td><strong>Sub-second Pricing</strong><span class="spec-sub">Real-time landed cost calculation on multi-currency catalogs</span></td>
-              <td><strong>50,000+ Daily Orders</strong><span class="spec-sub">Zero record locking during high-velocity flash drops</span></td>
-              <td><strong>35 Concurrent Queues</strong><span class="spec-sub">Massive asynchronous batch financial reconciliation</span></td>
-              <td><strong>3,600+ RPS</strong><span class="spec-sub">Sub-50ms latency on transaction matching pipeline</span></td>
-            </tr>
-            <tr>
-              <th scope="row">Ledger & Inventory Parity</th>
-              <td><strong>Landed Cost Parity</strong><span class="spec-sub">Real-time multi-currency tax & margin reconciliation</span></td>
-              <td><strong>Zero-Oversell Allocation</strong><span class="spec-sub">Atomic pre-order reservations across 4 3PL nodes</span></td>
-              <td><strong>SOX Close Compliance</strong><span class="spec-sub">Automated RMA credit and vendor chargeback audits</span></td>
-              <td><strong>Continuous Audit Vault</strong><span class="spec-sub">Automated discrepancy detection before accounting close</span></td>
-            </tr>
-            <tr>
-              <th scope="row">Engineering Role</th>
-              <td><strong>Sole / Lead Architect</strong><span class="spec-sub">Requirements discovery to global production cutover</span></td>
-              <td><strong>Lead NetSuite Architect</strong><span class="spec-sub">Omnichannel fulfillment & 3PL logistics architecture</span></td>
-              <td><strong>Enterprise NetSuite Architect</strong><span class="spec-sub">Warehouse operations & asynchronous batch engineering</span></td>
-              <td><strong>Lead Systems Architect</strong><span class="spec-sub">Full-stack SaaS architecture and high-scale ingestion</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
       <!-- Project Archive -->
       
