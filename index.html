@@ -690,11 +690,13 @@
       transform: rotate(180deg);
     }
     .client-roster-drawer {
-      margin-top: 2rem;
-      padding: 2.25rem 2rem;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: var(--radius-panel);
+      margin-top: 3rem;
+      padding: 2.75rem 0 1rem;
+      background: transparent;
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      width: 100%;
+      box-sizing: border-box;
     }
     .client-roster-drawer[hidden] {
       display: none;
@@ -705,9 +707,9 @@
       align-items: center;
       justify-content: space-between;
       gap: .75rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      margin-bottom: 2rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      margin-bottom: 2.75rem;
     }
     .client-roster-intro-kicker {
       font-family: var(--font-mono);
@@ -723,19 +725,19 @@
       color: #86868b;
     }
     .roster-category {
-      margin-bottom: 2.5rem;
+      margin-bottom: 3.5rem;
     }
     .roster-category:last-child {
-      margin-bottom: 0;
+      margin-bottom: 1.5rem;
     }
     .roster-category-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      margin-bottom: 1.25rem;
-      padding-bottom: .65rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 2.25rem;
+      padding-bottom: .85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     }
     .roster-category-left {
       display: flex;
@@ -744,7 +746,7 @@
     }
     .roster-category-kicker {
       font-family: var(--font-mono);
-      font-size: .65rem;
+      font-size: .68rem;
       font-weight: 600;
       letter-spacing: .08em;
       color: var(--signal-copper);
@@ -753,7 +755,7 @@
     .roster-category-title {
       font-family: var(--font-display);
       font-size: .95rem;
-      font-weight: 600;
+      font-weight: 500;
       color: #f5f5f7;
       margin: 0;
       letter-spacing: -0.01em;
@@ -762,57 +764,73 @@
       font-family: var(--font-mono);
       font-size: .65rem;
       color: #86868b;
-      padding: .2rem .55rem;
+      padding: .18rem .6rem;
       border-radius: var(--radius-control);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.07);
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      letter-spacing: .02em;
     }
     .roster-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1.25rem 1rem;
-      align-items: stretch;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 2.5rem 1.75rem;
+      align-items: center;
+      justify-items: center;
+      width: 100%;
     }
     .roster-grid .client-logo-card {
-      padding: .85rem .6rem;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      opacity: 0.75;
-      transition: opacity 160ms ease, background-color 160ms ease, border-color 160ms ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-width: 0;
+      padding: .5rem 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      opacity: 0.65;
+      text-align: center;
+      transition: opacity 160ms ease;
     }
     .roster-grid .client-logo-card:hover {
       opacity: 1;
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(255, 255, 255, 0.14);
+      background: transparent;
+      border-color: transparent;
+    }
+    .roster-grid .client-logo-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      width: 100%;
+    }
+    .roster-grid .client-logo-svg {
+      height: 24px;
+      width: 100%;
+      max-width: 140px;
+      fill: #a1a1a6;
+      color: #a1a1a6;
+      transition: fill 140ms ease, color 140ms ease;
+    }
+    .roster-grid .client-logo-card:hover .client-logo-svg {
+      fill: #ffffff;
+      color: #ffffff;
     }
     .roster-grid .client-logo-sub {
-      display: block;
-      margin-top: .5rem;
-      font-family: var(--font-mono);
-      font-size: .62rem;
-      color: #86868b;
-      letter-spacing: .02em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 100%;
-      transition: color 140ms ease;
-    }
-    .roster-grid .client-logo-card:hover .client-logo-sub {
-      color: #d1d5db;
+      display: none;
     }
     .client-roster-footer {
       display: flex;
       justify-content: center;
-      padding-top: 2rem;
-      margin-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 2.5rem;
+      margin-top: 2.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
     }
     .client-roster-btn--compact {
       font-size: .72rem;
-      padding: .5rem 1.15rem;
-      min-height: 36px;
+      padding: .5rem 1.25rem;
+      min-height: 38px;
     }
 
     /* Section structure */
@@ -1986,8 +2004,8 @@
     }
 
     @media (max-width: 1100px) {
-      .client-logos-grid { grid-template-columns: repeat(4, 1fr); }
-      .roster-grid { grid-template-columns: repeat(4, 1fr); }
+      .client-logos-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .roster-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
 
     @media (max-width: 959px) {
@@ -2038,7 +2056,7 @@
         font-size: .72rem;
         border-radius: 999px;
       }
-      .client-logos-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+      .client-logos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1rem; }
       .client-roster-toggle-wrap { margin-top: 1.75rem; }
       .client-roster-btn {
         width: 100%;
@@ -2053,9 +2071,10 @@
       .client-roster-btn-label {
         line-height: 1.25;
       }
-      .roster-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem .75rem; }
-      .client-roster-drawer { padding: 1.5rem 1rem; }
-      .roster-category-head { flex-direction: column; align-items: flex-start; gap: .35rem; }
+      .roster-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1rem; }
+      .client-roster-drawer { margin-top: 2rem; padding: 1.75rem 0 1rem; }
+      .roster-category { margin-bottom: 2.5rem; }
+      .roster-category-head { flex-direction: column; align-items: flex-start; gap: .35rem; margin-bottom: 1.5rem; }
       .stats-ribbon { grid-template-columns: 1fr 1fr; gap: 1.5rem 1rem; }
       .stat-item:nth-child(2) { border-right: 0; }
       .timeline-item { padding-block: 1.75rem; }
@@ -2754,11 +2773,11 @@
               <!-- European Wax Center -->
               <div class="client-logo-card" title="European Wax Center (EWC)">
                 <div class="client-logo-mark">
-                  <svg class="client-logo-svg" viewBox="0 0 160 26" fill="currentColor" role="img" aria-label="European Wax Center">
+                  <svg class="client-logo-svg" viewBox="0 0 185 26" fill="currentColor" role="img" aria-label="European Wax Center">
                     <title>European Wax Center</title>
-                    <text x="28" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="800" letter-spacing="0.08em">EWC</text>
-                    <circle cx="48" cy="14" r="2" fill="var(--signal-copper)"/>
-                    <text x="104" y="18" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="8.8" font-weight="600" letter-spacing="0.08em">EUROPEAN WAX CENTER</text>
+                    <text x="24" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="800" letter-spacing="0.08em">EWC</text>
+                    <circle cx="50" cy="14" r="2" fill="var(--signal-copper)"/>
+                    <text x="116" y="18" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="8.8" font-weight="600" letter-spacing="0.08em">EUROPEAN WAX CENTER</text>
                   </svg>
                 </div>
                 <span class="client-logo-sub">Body Care Franchise · Multi-Entity</span>
