@@ -902,22 +902,23 @@
       }
     }
     .pillar-card {
-      padding: 1.6rem 1.6rem 1.75rem;
+      padding: 1.5rem 1.5rem 1.65rem;
       border-radius: var(--radius-panel);
-      background: #111622;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: none;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 1.15rem;
-      transition: transform 180ms var(--ease-out), border-color 180ms ease, box-shadow 180ms ease;
+      justify-content: flex-start;
+      gap: 1.25rem;
+      transition: transform 180ms var(--ease-out), border-color 180ms ease, background-color 180ms ease;
     }
     @media (hover: hover) and (pointer: fine) {
       .pillar-card:hover {
         transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.16);
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.035);
+        border-color: rgba(255, 255, 255, 0.14);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
       }
     }
     .pillar-head {
@@ -925,6 +926,8 @@
       align-items: center;
       justify-content: space-between;
       gap: .75rem;
+      padding-bottom: .85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     .pillar-meta {
       display: flex;
@@ -947,14 +950,15 @@
     }
     .pillar-metric {
       font-family: var(--font-mono);
-      font-size: .72rem;
-      font-weight: 600;
+      font-size: .7rem;
+      font-weight: 500;
       padding: .2rem .55rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #f1f5f9;
+      color: #a1a1a6;
       white-space: nowrap;
+      letter-spacing: .02em;
     }
     .pillar-body {
       display: flex;
@@ -4972,7 +4976,7 @@ l-4 37 -1 -42z"/>
           </div>
           <div class="pillar-body">
             <h3 class="pillar-title">Audit-Ready</h3>
-            <p class="pillar-desc">Native SOX compliance, complete trace audit logging, and SDF version control.</p>
+            <p class="pillar-desc">Native SOX compliance, immutable trace audit logging, and automated SDF version control.</p>
           </div>
         </div>
 
