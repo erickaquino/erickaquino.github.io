@@ -883,42 +883,43 @@
       max-width: 56ch;
     }
 
-    /* 6-Pillar Architectural Attribute Bento Grid */
+    /* 6-Pillar Architectural Matrix */
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
       margin-bottom: 3.5rem;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
     }
     @media (max-width: 860px) {
       .pillars-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
       }
     }
-    @media (max-width: 560px) {
+    @media (max-width: 580px) {
       .pillars-grid {
         grid-template-columns: 1fr;
       }
     }
     .pillar-card {
-      padding: 1.5rem 1.5rem 1.65rem;
-      border-radius: var(--radius-panel);
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 1.85rem 1.65rem 1.75rem;
+      background: #0d111a;
+      border: none;
+      border-radius: 0;
       box-shadow: none;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: space-between;
       gap: 1.25rem;
-      transition: transform 180ms var(--ease-out), border-color 180ms ease, background-color 180ms ease;
+      transition: background-color 180ms ease;
     }
     @media (hover: hover) and (pointer: fine) {
       .pillar-card:hover {
-        transform: translateY(-2px);
-        background: rgba(255, 255, 255, 0.035);
-        border-color: rgba(255, 255, 255, 0.14);
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+        background: #131926;
       }
     }
     .pillar-head {
@@ -932,52 +933,74 @@
     .pillar-meta {
       display: flex;
       align-items: center;
-      gap: .55rem;
+      gap: .5rem;
     }
     .pillar-index {
       font-family: var(--font-mono);
       font-size: .75rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--signal-copper);
       letter-spacing: .08em;
     }
     .pillar-badge {
       font-family: var(--font-mono);
-      font-size: .7rem;
+      font-size: .68rem;
       text-transform: uppercase;
-      letter-spacing: .06em;
+      letter-spacing: .08em;
       color: #86868b;
     }
-    .pillar-metric {
+    .pillar-tech-badge {
       font-family: var(--font-mono);
-      font-size: .7rem;
-      font-weight: 500;
+      font-size: .68rem;
+      font-weight: 600;
       padding: .2rem .55rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #a1a1a6;
+      border-radius: 6px;
+      background: rgba(217, 119, 54, 0.08);
+      border: 1px solid rgba(217, 119, 54, 0.22);
+      color: #f1f5f9;
       white-space: nowrap;
       letter-spacing: .02em;
     }
     .pillar-body {
       display: flex;
       flex-direction: column;
-      gap: .45rem;
+      gap: .55rem;
+      flex: 1;
     }
     .pillar-title {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      color: #f5f5f7;
+      color: #ffffff;
       margin: 0;
       letter-spacing: -.02em;
-      line-height: 1.2;
+      line-height: 1.25;
     }
     .pillar-desc {
       font-size: .88rem;
       line-height: 1.55;
       color: #94a3b8;
       margin: 0;
+    }
+    .pillar-proof {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding-top: .85rem;
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: #a1a1a6;
+      letter-spacing: .02em;
+    }
+    .pillar-proof-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--signal-copper);
+      display: inline-block;
+      flex-shrink: 0;
+      box-shadow: 0 0 8px rgba(217, 119, 54, 0.6);
     }
 
     /* Open Chronological Timeline */
@@ -4910,87 +4933,117 @@ l-4 37 -1 -42z"/>
       </div>
 
       <div class="pillars-grid reveal">
+        <!-- 01: Zero-Drift -->
         <div class="pillar-card">
           <div class="pillar-head">
             <div class="pillar-meta">
               <span class="pillar-index">01</span>
-              <span class="pillar-badge">Integrity</span>
+              <span class="pillar-badge">Ledger Parity</span>
             </div>
-            <span class="pillar-metric">100% Parity</span>
+            <span class="pillar-tech-badge">Zero-Drift</span>
           </div>
           <div class="pillar-body">
-            <h3 class="pillar-title">Zero-Drift</h3>
-            <p class="pillar-desc">Penny-accurate ledger parity balancing ERP, banking, and payment gateways with zero drift.</p>
+            <h3 class="pillar-title">Penny-Accurate Books</h3>
+            <p class="pillar-desc">ERP, bank accounts, and payment gateways balance to the cent 24/7 with automated reconciliation and zero data drift.</p>
+          </div>
+          <div class="pillar-proof">
+            <span class="pillar-proof-dot"></span>
+            <span>100% Ledger Parity Verified</span>
           </div>
         </div>
 
+        <!-- 02: High-Throughput -->
         <div class="pillar-card">
           <div class="pillar-head">
             <div class="pillar-meta">
               <span class="pillar-index">02</span>
               <span class="pillar-badge">Concurrency</span>
             </div>
-            <span class="pillar-metric">15k+ Orders/Hr</span>
+            <span class="pillar-tech-badge">High-Throughput</span>
           </div>
           <div class="pillar-body">
-            <h3 class="pillar-title">High-Throughput</h3>
-            <p class="pillar-desc">Zero record-lock architecture engineered for flash-sale drops over 15,000 orders/hour.</p>
+            <h3 class="pillar-title">Crash-Proof Flash Sales</h3>
+            <p class="pillar-desc">Zero record-lock architecture engineered to absorb 15,000+ orders/hour during major product drops without cart timeouts.</p>
+          </div>
+          <div class="pillar-proof">
+            <span class="pillar-proof-dot"></span>
+            <span>15k+ Orders/Hr Peak Load</span>
           </div>
         </div>
 
+        <!-- 03: Multi-3PL -->
         <div class="pillar-card">
           <div class="pillar-head">
             <div class="pillar-meta">
               <span class="pillar-index">03</span>
               <span class="pillar-badge">Fulfillment</span>
             </div>
-            <span class="pillar-metric">Global Routing</span>
+            <span class="pillar-tech-badge">Multi-3PL</span>
           </div>
           <div class="pillar-body">
-            <h3 class="pillar-title">Multi-3PL</h3>
-            <p class="pillar-desc">Distributed warehouse routing across North America, EMEA, and APAC with automated carrier failover.</p>
+            <h3 class="pillar-title">Smart Global Fulfillment</h3>
+            <p class="pillar-desc">Orders automatically route to the optimal warehouse across North America, EMEA, and APAC with real-time carrier failover.</p>
+          </div>
+          <div class="pillar-proof">
+            <span class="pillar-proof-dot"></span>
+            <span>Multi-Region Routing Active</span>
           </div>
         </div>
 
+        <!-- 04: Fault-Tolerant -->
         <div class="pillar-card">
           <div class="pillar-head">
             <div class="pillar-meta">
               <span class="pillar-index">04</span>
               <span class="pillar-badge">Resilience</span>
             </div>
-            <span class="pillar-metric">Zero Drop</span>
+            <span class="pillar-tech-badge">Fault-Tolerant</span>
           </div>
           <div class="pillar-body">
-            <h3 class="pillar-title">Fault-Tolerant</h3>
-            <p class="pillar-desc">Self-healing idempotent iPaaS pipelines eliminating transaction drops during upstream outages.</p>
+            <h3 class="pillar-title">Zero-Loss Data Pipelines</h3>
+            <p class="pillar-desc">Self-healing idempotent iPaaS pipelines that buffer and replay transactions during upstream outages so zero orders drop.</p>
+          </div>
+          <div class="pillar-proof">
+            <span class="pillar-proof-dot"></span>
+            <span>100% Idempotent Buffer &amp; Retry</span>
           </div>
         </div>
 
+        <!-- 05: Audit-Ready -->
         <div class="pillar-card">
           <div class="pillar-head">
             <div class="pillar-meta">
               <span class="pillar-index">05</span>
               <span class="pillar-badge">Governance</span>
             </div>
-            <span class="pillar-metric">SOX &amp; SDF</span>
+            <span class="pillar-tech-badge">Audit-Ready</span>
           </div>
           <div class="pillar-body">
-            <h3 class="pillar-title">Audit-Ready</h3>
-            <p class="pillar-desc">Native SOX compliance, immutable trace audit logging, and automated SDF version control.</p>
+            <h3 class="pillar-title">Built-In SOX Compliance</h3>
+            <p class="pillar-desc">Every financial transaction and code release is backed by native SOX compliance, immutable audit logging, and SDF version control.</p>
+          </div>
+          <div class="pillar-proof">
+            <span class="pillar-proof-dot"></span>
+            <span>Native SOX &amp; SDF Audit Trails</span>
           </div>
         </div>
 
+        <!-- 06: Full-Lifecycle -->
         <div class="pillar-card">
           <div class="pillar-head">
             <div class="pillar-meta">
               <span class="pillar-index">06</span>
-              <span class="pillar-badge">Execution</span>
+              <span class="pillar-badge">Ownership</span>
             </div>
-            <span class="pillar-metric">End-to-End</span>
+            <span class="pillar-tech-badge">Full-Lifecycle</span>
           </div>
           <div class="pillar-body">
-            <h3 class="pillar-title">Full-Lifecycle</h3>
-            <p class="pillar-desc">Single-architect ownership from stakeholder discovery through production cutover and hypercare.</p>
+            <h3 class="pillar-title">Direct Architect Delivery</h3>
+            <p class="pillar-desc">Single-architect accountability from initial stakeholder discovery and schema design straight through production cutover and launch.</p>
+          </div>
+          <div class="pillar-proof">
+            <span class="pillar-proof-dot"></span>
+            <span>Single-Point Cutover &amp; Launch</span>
           </div>
         </div>
       </div>
