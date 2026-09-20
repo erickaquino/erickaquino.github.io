@@ -770,55 +770,68 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       letter-spacing: .02em;
     }
-    .roster-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 2.5rem 1.75rem;
+    .roster-filters {
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      justify-items: center;
+      justify-content: center;
+      gap: .5rem;
+      margin-bottom: 2.75rem;
+    }
+    .roster-filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .35rem .85rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 500;
+      color: #86868b;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease, transform 140ms var(--ease-out);
+    }
+    .roster-filter-btn:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.16);
+      color: #f5f5f7;
+    }
+    .roster-filter-btn:active {
+      transform: scale(0.97);
+    }
+    .roster-filter-btn:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+    .roster-filter-btn.is-active {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.28);
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .roster-filter-count {
+      font-size: .62rem;
+      opacity: 0.6;
+      font-weight: 400;
+    }
+    .roster-filter-btn.is-active .roster-filter-count {
+      opacity: 0.9;
+      color: var(--signal-copper);
+      font-weight: 600;
+    }
+    .roster-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem 2rem;
       width: 100%;
     }
     .roster-grid .client-logo-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      min-width: 0;
-      padding: .5rem 0;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      opacity: 0.65;
-      text-align: center;
-      transition: opacity 160ms ease;
-    }
-    .roster-grid .client-logo-card:hover {
-      opacity: 1;
-      background: transparent;
-      border-color: transparent;
-    }
-    .roster-grid .client-logo-mark {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 32px;
-      width: 100%;
-    }
-    .roster-grid .client-logo-svg {
-      height: 24px;
-      width: 100%;
-      max-width: 140px;
-      fill: #a1a1a6;
-      color: #a1a1a6;
-      transition: fill 140ms ease, color 140ms ease;
-    }
-    .roster-grid .client-logo-card:hover .client-logo-svg {
-      fill: #ffffff;
-      color: #ffffff;
-    }
-    .roster-grid .client-logo-sub {
-      display: none;
+      flex: 0 1 180px;
+      min-width: 160px;
+      max-width: 200px;
     }
     .client-roster-footer {
       display: flex;
@@ -2005,7 +2018,7 @@
 
     @media (max-width: 1100px) {
       .client-logos-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .roster-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .roster-grid .client-logo-card { flex: 0 1 170px; min-width: 150px; }
     }
 
     @media (max-width: 959px) {
@@ -2071,7 +2084,10 @@
       .client-roster-btn-label {
         line-height: 1.25;
       }
-      .roster-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1rem; }
+      .roster-grid { gap: 1.75rem 1rem; }
+      .roster-grid .client-logo-card { flex: 0 1 calc(50% - 0.5rem); min-width: 130px; }
+      .roster-filters { gap: .4rem; margin-bottom: 2rem; }
+      .roster-filter-btn { font-size: .65rem; padding: .3rem .7rem; }
       .client-roster-drawer { margin-top: 2rem; padding: 1.75rem 0 1rem; }
       .roster-category { margin-bottom: 2.5rem; }
       .roster-category-head { flex-direction: column; align-items: flex-start; gap: .35rem; margin-bottom: 1.5rem; }
@@ -2426,8 +2442,18 @@
             <span class="client-roster-intro-meta">45 additional client ecosystems engineered across NetSuite, Celigo iPaaS &amp; high-volume logistics</span>
           </div>
 
+          <!-- Sleek Sector Pill Filters -->
+          <div class="roster-filters" role="tablist" aria-label="Filter roster by sector">
+            <button class="roster-filter-btn is-active" type="button" role="tab" aria-selected="true" data-sector="all">All Sectors <span class="roster-filter-count">45</span></button>
+            <button class="roster-filter-btn" type="button" role="tab" aria-selected="false" data-sector="01">Beauty &amp; Skincare <span class="roster-filter-count">15</span></button>
+            <button class="roster-filter-btn" type="button" role="tab" aria-selected="false" data-sector="02">Wellness &amp; Health <span class="roster-filter-count">9</span></button>
+            <button class="roster-filter-btn" type="button" role="tab" aria-selected="false" data-sector="03">Fashion &amp; Apparel <span class="roster-filter-count">6</span></button>
+            <button class="roster-filter-btn" type="button" role="tab" aria-selected="false" data-sector="04">Consumer Products <span class="roster-filter-count">7</span></button>
+            <button class="roster-filter-btn" type="button" role="tab" aria-selected="false" data-sector="05">Enterprise &amp; FinTech <span class="roster-filter-count">8</span></button>
+          </div>
+
           <!-- Sector 01: Global Beauty, Cosmetics & Skincare -->
-          <div class="roster-category">
+          <div class="roster-category" data-sector="01">
             <div class="roster-category-head">
               <div class="roster-category-left">
                 <span class="roster-category-kicker">Sector 01</span>
@@ -2610,7 +2636,7 @@
           </div>
 
           <!-- Sector 02: Wellness, Health & Bio-Pharma -->
-          <div class="roster-category">
+          <div class="roster-category" data-sector="02">
             <div class="roster-category-head">
               <div class="roster-category-left">
                 <span class="roster-category-kicker">Sector 02</span>
@@ -2737,7 +2763,7 @@
           </div>
 
           <!-- Sector 03: Fashion, Apparel & Accessories -->
-          <div class="roster-category">
+          <div class="roster-category" data-sector="03">
             <div class="roster-category-head">
               <div class="roster-category-left">
                 <span class="roster-category-kicker">Sector 03</span>
@@ -2751,11 +2777,11 @@
                 <div class="client-logo-mark">
                   <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="Clare V.">
                     <title>Clare V.</title>
-                    <text x="58" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="16.5" font-weight="700" letter-spacing="0.12em">CLARE V</text>
-                    <circle cx="106" cy="18" r="2.5" fill="var(--signal-copper)"/>
+                    <text x="60" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="16" font-weight="700" letter-spacing="0.14em">CLARE V</text>
+                    <circle cx="108" cy="18" r="2.2" fill="var(--signal-copper)"/>
                   </svg>
                 </div>
-                <span class="client-logo-sub">Leather Goods · NetSuite &amp; POS</span>
+                <span class="client-logo-sub">Luxury Leather &amp; Apparel · EDI</span>
               </div>
 
               <!-- Fair Harbor -->
@@ -2763,8 +2789,8 @@
                 <div class="client-logo-mark">
                   <svg class="client-logo-svg" viewBox="0 0 150 26" fill="currentColor" role="img" aria-label="Fair Harbor">
                     <title>Fair Harbor</title>
-                    <path d="M8 12 Q 13 8 18 12 Q 23 16 28 12" fill="none" stroke="var(--signal-copper)" stroke-width="1.8" stroke-linecap="round"/>
-                    <text x="88" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14" font-weight="700" letter-spacing="0.1em">FAIR HARBOR</text>
+                    <path d="M8 15 Q 16 9 24 15 Q 32 21 40 15" fill="none" stroke="var(--signal-copper)" stroke-width="1.8" stroke-linecap="round"/>
+                    <text x="94" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14" font-weight="700" letter-spacing="0.1em">FAIR HARBOR</text>
                   </svg>
                 </div>
                 <span class="client-logo-sub">Sustainable Apparel · EDI</span>
@@ -2773,11 +2799,10 @@
               <!-- European Wax Center -->
               <div class="client-logo-card" title="European Wax Center (EWC)">
                 <div class="client-logo-mark">
-                  <svg class="client-logo-svg" viewBox="0 0 185 26" fill="currentColor" role="img" aria-label="European Wax Center">
+                  <svg class="client-logo-svg" viewBox="0 0 180 26" fill="currentColor" role="img" aria-label="European Wax Center">
                     <title>European Wax Center</title>
-                    <text x="24" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="800" letter-spacing="0.08em">EWC</text>
-                    <circle cx="50" cy="14" r="2" fill="var(--signal-copper)"/>
-                    <text x="116" y="18" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="8.8" font-weight="600" letter-spacing="0.08em">EUROPEAN WAX CENTER</text>
+                    <circle cx="12" cy="13" r="2.5" fill="var(--signal-copper)"/>
+                    <text x="96" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="11" font-weight="700" letter-spacing="0.08em">EUROPEAN WAX CENTER</text>
                   </svg>
                 </div>
                 <span class="client-logo-sub">Body Care Franchise · Multi-Entity</span>
@@ -2821,7 +2846,7 @@
           </div>
 
           <!-- Sector 04: Sports, Hardware & Consumer Products -->
-          <div class="roster-category">
+          <div class="roster-category" data-sector="04">
             <div class="roster-category-head">
               <div class="roster-category-left">
                 <span class="roster-category-kicker">Sector 04</span>
@@ -2922,7 +2947,7 @@
           </div>
 
           <!-- Sector 05: Enterprise Platforms, FinTech & Supply Chain -->
-          <div class="roster-category">
+          <div class="roster-category" data-sector="05">
             <div class="roster-category-head">
               <div class="roster-category-left">
                 <span class="roster-category-kicker">Sector 05</span>
@@ -5011,6 +5036,20 @@
       var label = btn.querySelector('.client-roster-btn-label');
       var closedLabel = label ? label.textContent.trim() : btn.textContent.trim();
 
+      var filterBtns = roster.querySelectorAll('.roster-filter-btn');
+      var categories = roster.querySelectorAll('.roster-category');
+
+      function resetFilters() {
+        filterBtns.forEach(function (b) {
+          var isAll = b.getAttribute('data-sector') === 'all';
+          b.classList.toggle('is-active', isAll);
+          b.setAttribute('aria-selected', String(isAll));
+        });
+        categories.forEach(function (cat) {
+          cat.hidden = false;
+        });
+      }
+
       function toggleRoster(open) {
         roster.hidden = !open;
         btn.setAttribute('aria-expanded', String(open));
@@ -5018,6 +5057,9 @@
           label.textContent = open ? 'Show fewer clients' : closedLabel;
         }
         btn.classList.toggle('is-expanded', open);
+        if (!open) {
+          resetFilters();
+        }
       }
 
       btn.addEventListener('click', function () {
@@ -5031,6 +5073,25 @@
           btn.focus();
         });
       }
+
+      filterBtns.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          var target = pill.getAttribute('data-sector');
+          filterBtns.forEach(function (b) {
+            b.classList.remove('is-active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          pill.classList.add('is-active');
+          pill.setAttribute('aria-selected', 'true');
+          categories.forEach(function (cat) {
+            if (target === 'all' || cat.getAttribute('data-sector') === target) {
+              cat.hidden = false;
+            } else {
+              cat.hidden = true;
+            }
+          });
+        });
+      });
     })();
 
     (function () {
