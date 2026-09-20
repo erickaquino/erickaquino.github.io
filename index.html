@@ -642,7 +642,7 @@
 
     /* Section structure */
     .section {
-      padding-block: 4.5rem;
+      padding-block: 3.5rem;
       border-top: 1px solid var(--border-subtle);
     }
     .section-head {
@@ -650,7 +650,7 @@
       align-items: flex-end;
       justify-content: space-between;
       gap: 1.5rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .section-kicker {
       display: block;
@@ -660,7 +660,7 @@
       letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--signal-copper);
-      margin-bottom: .5rem;
+      margin-bottom: .4rem;
     }
     .section-title {
       font-size: clamp(1.75rem, 3.5vw, 2.5rem);
@@ -673,7 +673,7 @@
     .section-sub {
       font-size: .95rem;
       color: var(--text-muted);
-      margin: .5rem 0 0;
+      margin: .4rem 0 0;
       max-width: 56ch;
     }
 
@@ -681,18 +681,18 @@
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-bottom: 3.5rem;
+      gap: .85rem;
+      margin-bottom: 2.75rem;
     }
     .pillar-card {
-      padding: 1.15rem 1.25rem;
+      padding: 1rem 1.15rem;
       border-radius: var(--radius-panel);
       background: var(--titanium-raised);
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 8px 24px rgb(0 0 0 / .25), inset 0 1px 0 rgb(255 255 255 / .04);
+      box-shadow: 0 4px 16px rgb(0 0 0 / .2), inset 0 1px 0 rgb(255 255 255 / .04);
       display: flex;
       flex-direction: column;
-      gap: .35rem;
+      gap: .3rem;
       transition: border-color 160ms ease, background-color 160ms ease;
     }
     .pillar-card:hover {
@@ -874,15 +874,15 @@
     .vessels-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-bottom: 3.5rem;
+      gap: 1.5rem;
+      margin-bottom: 2.75rem;
     }
     .vessel-card {
-      padding: 2rem 2.25rem;
+      padding: 1.6rem 1.85rem;
       border-radius: var(--radius-panel);
       background: var(--titanium-raised);
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 20px 50px rgb(0 0 0 / .4), inset 0 1px 0 rgb(255 255 255 / .06);
+      box-shadow: 0 16px 40px rgb(0 0 0 / .35), inset 0 1px 0 rgb(255 255 255 / .05);
       transition: border-color 160ms ease;
     }
     .vessel-card:hover {
@@ -894,7 +894,7 @@
       align-items: center;
       justify-content: space-between;
       gap: .75rem;
-      margin-bottom: .85rem;
+      margin-bottom: .75rem;
     }
     .vessel-classification {
       font-family: var(--font-mono);
@@ -918,21 +918,21 @@
       font-weight: 600;
       letter-spacing: -.03em;
       color: var(--text-bright);
-      margin: 0 0 .85rem;
+      margin: 0 0 .75rem;
     }
     .vessel-summary {
       font-size: .95rem;
       line-height: 1.55;
       color: var(--text-bright);
-      margin: 0 0 1.25rem;
+      margin: 0 0 1rem;
       max-width: 68ch;
     }
     .vessel-specs-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: .65rem 1.25rem;
-      margin: 1rem 0 1.25rem;
-      padding: .85rem 1.1rem;
+      margin: .85rem 0 1rem;
+      padding: .75rem 1rem;
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-panel);
       background: rgb(0 0 0 / .18);
@@ -1358,16 +1358,16 @@
     /* Dynamic Project Case Cards */
     .case-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
     }
     .case-card {
-      padding: 1.75rem;
+      padding: 1.4rem 1.5rem;
       border-radius: var(--radius-panel);
       background: var(--titanium-raised);
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 12px 30px rgb(0 0 0 / .3), inset 0 1px 0 rgb(255 255 255 / .04);
+      box-shadow: 0 8px 24px rgb(0 0 0 / .25), inset 0 1px 0 rgb(255 255 255 / .04);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -1381,26 +1381,26 @@
       text-transform: uppercase;
       letter-spacing: .08em;
       color: var(--signal-copper);
-      margin-bottom: .5rem;
+      margin-bottom: .45rem;
     }
     .case-name {
       font-size: 1.15rem;
       font-weight: 600;
       color: var(--text-bright);
-      margin: 0 0 1rem;
+      margin: 0 0 .85rem;
       letter-spacing: -.02em;
     }
     .case-points {
       display: flex;
       flex-direction: column;
-      gap: .6rem;
+      gap: .5rem;
       font-size: .85rem;
-      line-height: 1.5;
+      line-height: 1.45;
     }
     .case-row {
       display: grid;
       grid-template-columns: 5.5rem 1fr;
-      gap: .75rem;
+      gap: .65rem;
     }
     .case-row b {
       font-family: var(--font-mono);
@@ -1414,8 +1414,8 @@
     .case-metrics-bar {
       display: flex;
       gap: 1.25rem;
-      margin-top: 1.25rem;
-      padding-top: 1rem;
+      margin-top: 1rem;
+      padding-top: .85rem;
       border-top: 1px solid var(--border-subtle);
     }
     .case-metric-chip { font-family: var(--font-mono); }
@@ -1486,7 +1486,7 @@
     .archive-row span { color: var(--text-muted); }
 
     /* Stack & Capabilities (Categorized Pills) */
-    .stack-group { margin-bottom: 2rem; }
+    .stack-group { margin-bottom: 1.6rem; }
     .stack-group:last-child { margin-bottom: 0; }
     .stack-label {
       font-family: var(--font-mono);
@@ -1495,13 +1495,13 @@
       letter-spacing: .08em;
       text-transform: uppercase;
       color: var(--signal-copper);
-      margin-bottom: .75rem;
+      margin-bottom: .6rem;
     }
-    .pill-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .pill-grid { display: flex; flex-wrap: wrap; gap: .45rem; }
     .stack-pill {
       display: inline-flex;
       align-items: center;
-      padding: .4rem .85rem;
+      padding: .35rem .75rem;
       border-radius: 8px;
       border: 1px solid var(--border-subtle);
       background: var(--titanium-raised);
@@ -1520,15 +1520,15 @@
     /* Credentials & Certifications Cards */
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+      gap: 1rem;
     }
     .cert-card {
-      padding: 1.5rem 1.6rem;
+      padding: 1.25rem 1.4rem;
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-panel);
       background: var(--titanium-raised);
-      box-shadow: 0 12px 30px rgb(0 0 0 / .3), inset 0 1px 0 rgb(255 255 255 / .04);
+      box-shadow: 0 8px 24px rgb(0 0 0 / .25), inset 0 1px 0 rgb(255 255 255 / .04);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -2284,7 +2284,7 @@
           </div>
           <h3 class="pillar-title">Zero-Drift</h3>
           <div class="pillar-sub">Ledger Parity & Boundary Proof</div>
-          <p class="pillar-desc">Penny-accurate reconciliations balancing across ERP, banking, and payment gateways with automated anomaly alerts.</p>
+          <p class="pillar-desc">Penny-accurate reconciliations balancing ERP, banking, and payment gateways with automated anomaly alerts.</p>
         </div>
 
         <div class="pillar-card">
@@ -2294,7 +2294,7 @@
           </div>
           <h3 class="pillar-title">High-Throughput</h3>
           <div class="pillar-sub">Zero Record-Lock Architecture</div>
-          <p class="pillar-desc">Zero record-lock architecture engineered for peak flash sale drops exceeding 15,000 orders/hour.</p>
+          <p class="pillar-desc">Engineered for flash-sale order drops exceeding 15,000 orders/hour with zero database record locks.</p>
         </div>
 
         <div class="pillar-card">
@@ -2304,7 +2304,7 @@
           </div>
           <h3 class="pillar-title">Multi-3PL</h3>
           <div class="pillar-sub">Distributed Warehouse Routing</div>
-          <p class="pillar-desc">Global warehouse routing across North America, EMEA, and APAC with automated carrier failover.</p>
+          <p class="pillar-desc">Distributed warehouse routing across North America, EMEA, and APAC with automated carrier failover.</p>
         </div>
 
         <div class="pillar-card">
@@ -2324,7 +2324,7 @@
           </div>
           <h3 class="pillar-title">Audit-Ready</h3>
           <div class="pillar-sub">SOX & SDF Version Control</div>
-          <p class="pillar-desc">Complete trace logging, native SOX compliance, and SDF version-controlled migrations.</p>
+          <p class="pillar-desc">Native SOX compliance, complete trace logging, and SDF version-controlled migrations.</p>
         </div>
 
         <div class="pillar-card">
@@ -2334,12 +2334,12 @@
           </div>
           <h3 class="pillar-title">Full-Lifecycle</h3>
           <div class="pillar-sub">Requirements to Hypercare</div>
-          <p class="pillar-desc">Sole-architect ownership from stakeholder discovery to production cutover and hypercare.</p>
+          <p class="pillar-desc">Sole-architect ownership from stakeholder discovery through production cutover and hypercare.</p>
         </div>
       </div>
 
       <!-- 02.2: Product-Style Engineered Platforms -->
-      <div class="section-head reveal" style="margin-top: 4rem;">
+      <div class="section-head reveal" style="margin-top: 2.75rem;">
         <div>
           <span class="section-kicker">02.2 // engineered platforms</span>
           <h2 class="section-title">Flagship Enterprise Deployments</h2>
@@ -2506,7 +2506,7 @@
       </div>
 
       <!-- 02.3: Autonomous Engineering & Multi-Agent Orchestration -->
-      <div class="section-head reveal" style="margin-top: 4.5rem;">
+      <div class="section-head reveal" style="margin-top: 2.75rem;">
         <div>
           <span class="section-kicker">02.3 // autonomous engineering methodology</span>
           <h2 class="section-title">Parallel AI Agent Orchestration & Autonomous Delivery</h2>
@@ -2783,10 +2783,11 @@
       </div>
 
       <!-- Dynamic Project Cases -->
-      <div class="section-head reveal">
+      <div class="section-head reveal" style="margin-top: 2.75rem;">
         <div>
           <span class="section-kicker">02.4 // indexed case records</span>
           <h3 class="section-title" style="font-size: clamp(1.4rem, 2.5vw, 1.85rem);">Automated Workspace Validations</h3>
+          <p class="section-sub">Verified codebase records and delivery artifacts indexed across 155+ production repositories.</p>
         </div>
       </div>
 
