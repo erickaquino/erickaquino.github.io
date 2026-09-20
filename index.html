@@ -628,6 +628,181 @@
       display: none;
     }
 
+    /* Expandable Enterprise Client Roster */
+    .client-roster-toggle-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 2.5rem;
+    }
+    .client-roster-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      min-height: 42px;
+      padding: .65rem 1.4rem;
+      border-radius: var(--radius-control);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .02em;
+      color: #f5f5f7;
+      cursor: pointer;
+      transition: background-color 140ms ease, border-color 140ms ease, transform 140ms var(--ease-out), color 140ms ease;
+    }
+    .client-roster-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+    }
+    .client-roster-btn:active {
+      transform: scale(0.97);
+    }
+    .client-roster-btn:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+    .client-roster-btn-label {
+      line-height: 1;
+    }
+    .client-roster-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: .15rem .55rem;
+      border-radius: var(--radius-control);
+      background: rgba(217, 119, 54, 0.14);
+      border: 1px solid rgba(217, 119, 54, 0.32);
+      color: var(--signal-copper);
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+    .client-roster-chevron {
+      color: #a1a1a6;
+      transition: transform 200ms var(--ease-out), color 140ms ease;
+    }
+    .client-roster-btn:hover .client-roster-chevron {
+      color: #ffffff;
+    }
+    .client-roster-btn.is-expanded .client-roster-chevron {
+      transform: rotate(180deg);
+    }
+    .client-roster-drawer {
+      margin-top: 2rem;
+      padding: 2.25rem 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius-panel);
+    }
+    .client-roster-drawer[hidden] {
+      display: none;
+    }
+    .client-roster-intro {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 2rem;
+    }
+    .client-roster-intro-kicker {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--signal-copper);
+    }
+    .client-roster-intro-meta {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: #86868b;
+    }
+    .roster-category {
+      margin-bottom: 2.5rem;
+    }
+    .roster-category:last-child {
+      margin-bottom: 0;
+    }
+    .roster-category-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: .65rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .roster-category-left {
+      display: flex;
+      align-items: baseline;
+      gap: .75rem;
+    }
+    .roster-category-kicker {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      color: var(--signal-copper);
+      text-transform: uppercase;
+    }
+    .roster-category-title {
+      font-family: var(--font-display);
+      font-size: .95rem;
+      font-weight: 600;
+      color: #f5f5f7;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .roster-category-badge {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      color: #86868b;
+      padding: .2rem .55rem;
+      border-radius: var(--radius-control);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .roster-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.25rem 1rem;
+      align-items: stretch;
+    }
+    .roster-grid .client-logo-card {
+      padding: .85rem .6rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      opacity: 0.75;
+      transition: opacity 160ms ease, background-color 160ms ease, border-color 160ms ease;
+    }
+    .roster-grid .client-logo-card:hover {
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+    .roster-grid .client-logo-sub {
+      display: block;
+      margin-top: .5rem;
+      font-family: var(--font-mono);
+      font-size: .62rem;
+      color: #86868b;
+      letter-spacing: .02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      transition: color 140ms ease;
+    }
+    .roster-grid .client-logo-card:hover .client-logo-sub {
+      color: #d1d5db;
+    }
+
     /* Section structure */
     .section {
       padding-block: clamp(3.75rem, 6vw, 5.5rem);
@@ -1800,6 +1975,7 @@
 
     @media (max-width: 1100px) {
       .client-logos-grid { grid-template-columns: repeat(4, 1fr); }
+      .roster-grid { grid-template-columns: repeat(4, 1fr); }
     }
 
     @media (max-width: 959px) {
@@ -1851,6 +2027,9 @@
         border-radius: 999px;
       }
       .client-logos-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+      .roster-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem .75rem; }
+      .client-roster-drawer { padding: 1.5rem 1rem; }
+      .roster-category-head { flex-direction: column; align-items: flex-start; gap: .35rem; }
       .stats-ribbon { grid-template-columns: 1fr 1fr; gap: 1.5rem 1rem; }
       .stat-item:nth-child(2) { border-right: 0; }
       .timeline-item { padding-block: 1.75rem; }
@@ -2181,6 +2360,622 @@
               </svg>
             </div>
             <span class="client-logo-sub">Wholesale · 1,165 Scripts</span>
+          </div>
+        </div>
+
+        <!-- Expandable Full Roster Toggle -->
+        <div class="client-roster-toggle-wrap">
+          <button class="client-roster-btn" id="clientRosterToggle" type="button" aria-expanded="false" aria-controls="extendedClientRoster">
+            <span class="client-roster-btn-label">View all 50+ enterprise clients &amp; deployments</span>
+            <span class="client-roster-badge">56 Brands</span>
+            <svg class="client-roster-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Extended Enterprise Client Roster Drawer -->
+        <div class="client-roster-drawer" id="extendedClientRoster">
+          <div class="client-roster-intro">
+            <span class="client-roster-intro-kicker">Extended Enterprise Deployments</span>
+            <span class="client-roster-intro-meta">44 additional client ecosystems engineered across NetSuite, Celigo iPaaS &amp; high-volume logistics</span>
+          </div>
+
+          <!-- Sector 01: Global Beauty, Cosmetics & Skincare -->
+          <div class="roster-category">
+            <div class="roster-category-head">
+              <div class="roster-category-left">
+                <span class="roster-category-kicker">Sector 01</span>
+                <h3 class="roster-category-title">Global Beauty, Cosmetics &amp; Skincare</h3>
+              </div>
+              <span class="roster-category-badge">14 Brands</span>
+            </div>
+            <div class="roster-grid">
+              <!-- rhode -->
+              <div class="client-logo-card" title="rhode (Hailey Bieber)">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 120 26" fill="currentColor" role="img" aria-label="rhode">
+                    <title>rhode</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', system-ui, sans-serif" font-size="19" font-weight="500" letter-spacing="-0.03em">rhode</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Global DTC · NetSuite</span>
+              </div>
+
+              <!-- Glow Recipe -->
+              <div class="client-logo-card" title="Glow Recipe">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 150 26" fill="currentColor" role="img" aria-label="Glow Recipe">
+                    <title>Glow Recipe</title>
+                    <circle cx="12" cy="13" r="2.5" fill="var(--signal-copper)"/>
+                    <text x="82" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.12em">GLOW RECIPE</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">K-Beauty DTC · NetSuite</span>
+              </div>
+
+              <!-- Ilia Beauty -->
+              <div class="client-logo-card" title="Ilia Beauty">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 110 26" fill="currentColor" role="img" aria-label="Ilia Beauty">
+                    <title>Ilia Beauty</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="18" font-weight="500" letter-spacing="0.28em">ILIA</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Clean Makeup · NetSuite &amp; WMS</span>
+              </div>
+
+              <!-- r.e.m. beauty -->
+              <div class="client-logo-card" title="r.e.m. beauty (Ariana Grande)">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 140 26" fill="currentColor" role="img" aria-label="r.e.m. beauty">
+                    <title>r.e.m. beauty</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="600" letter-spacing="0.04em">r.e.m. beauty</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Ariana Grande · NetSuite DTC</span>
+              </div>
+
+              <!-- Nécessaire -->
+              <div class="client-logo-card" title="Nécessaire">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 150 26" fill="currentColor" role="img" aria-label="Nécessaire">
+                    <title>Nécessaire</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="13.5" font-weight="500" letter-spacing="0.22em">NÉCESSAIRE</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Body Care · NetSuite &amp; Shopify</span>
+              </div>
+
+              <!-- OSEA Malibu -->
+              <div class="client-logo-card" title="OSEA Malibu">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="OSEA Malibu">
+                    <title>OSEA Malibu</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="18" font-weight="600" letter-spacing="0.28em">OSEA</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Coastal Skincare · NetSuite &amp; WMS</span>
+              </div>
+
+              <!-- Homecourt -->
+              <div class="client-logo-card" title="Homecourt (Courteney Cox)">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 150 26" fill="currentColor" role="img" aria-label="Homecourt">
+                    <title>Homecourt</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', Georgia, serif" font-size="15" font-weight="600" letter-spacing="0.2em">HOMECOURT</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Courteney Cox · NetSuite &amp; Celigo</span>
+              </div>
+
+              <!-- Kate Somerville -->
+              <div class="client-logo-card" title="Kate Somerville">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 165 26" fill="currentColor" role="img" aria-label="Kate Somerville">
+                    <title>Kate Somerville</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="13.5" font-weight="600" letter-spacing="0.14em">KATE SOMERVILLE</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Clinical Skincare · NetSuite &amp; EDI</span>
+              </div>
+
+              <!-- Phlur -->
+              <div class="client-logo-card" title="Phlur">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 120 26" fill="currentColor" role="img" aria-label="Phlur">
+                    <title>Phlur</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="17" font-weight="700" letter-spacing="0.16em">PHLUR</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Fine Fragrance · NetSuite &amp; Celigo</span>
+              </div>
+
+              <!-- Lashify -->
+              <div class="client-logo-card" title="Lashify">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="Lashify">
+                    <title>Lashify</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="16" font-weight="700" letter-spacing="0.15em">LASHIFY</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Luxury Lashes · NetSuite &amp; 3PL</span>
+              </div>
+
+              <!-- Versed -->
+              <div class="client-logo-card" title="Versed Skincare">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 125 26" fill="currentColor" role="img" aria-label="Versed">
+                    <title>Versed</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="16" font-weight="700" letter-spacing="0.14em">VERSED</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Clean Skincare · Target EDI</span>
+              </div>
+
+              <!-- LYS Beauty -->
+              <div class="client-logo-card" title="LYS Beauty">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 140 26" fill="currentColor" role="img" aria-label="LYS Beauty">
+                    <title>LYS Beauty</title>
+                    <polygon points="12,20 19,7 26,20" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="19" cy="15" r="1.5" fill="var(--signal-copper)"/>
+                    <text x="80" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14" font-weight="600" letter-spacing="0.14em">LYS BEAUTY</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Clean Cosmetics · Sephora EDI</span>
+              </div>
+
+              <!-- REN Clean Skincare -->
+              <div class="client-logo-card" title="REN Clean Skincare">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 155 26" fill="currentColor" role="img" aria-label="REN Clean Skincare">
+                    <title>REN Clean Skincare</title>
+                    <text x="32" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="17" font-weight="800" letter-spacing="0.06em">REN</text>
+                    <circle cx="58" cy="14" r="2" fill="var(--signal-copper)"/>
+                    <text x="106" y="18" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="9.5" font-weight="500" letter-spacing="0.14em">CLEAN SKINCARE</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Bioactive Skincare · NetSuite ERP</span>
+              </div>
+
+              <!-- HFC Paris -->
+              <div class="client-logo-card" title="Haute Fragrance Company (HFC Paris)">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 140 26" fill="currentColor" role="img" aria-label="HFC Paris">
+                    <title>HFC Paris</title>
+                    <text x="46" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="17" font-weight="700" letter-spacing="0.16em">HFC</text>
+                    <text x="100" y="18" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="10" font-weight="500" letter-spacing="0.26em">PARIS</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Haute Parfumerie · NetSuite Retail</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sector 02: Wellness, Health & Bio-Pharma -->
+          <div class="roster-category">
+            <div class="roster-category-head">
+              <div class="roster-category-left">
+                <span class="roster-category-kicker">Sector 02</span>
+                <h3 class="roster-category-title">Wellness, Health &amp; Bio-Pharma</h3>
+              </div>
+              <span class="roster-category-badge">9 Brands</span>
+            </div>
+            <div class="roster-grid">
+              <!-- Moon Juice -->
+              <div class="client-logo-card" title="Moon Juice">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 145 26" fill="currentColor" role="img" aria-label="Moon Juice">
+                    <title>Moon Juice</title>
+                    <path d="M16 6 A7 7 0 1 0 16 20 A5.5 5.5 0 1 1 16 6 Z" fill="var(--signal-copper)"/>
+                    <text x="82" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="14.5" font-weight="600" letter-spacing="0.16em">MOON JUICE</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Adaptogens · NetSuite &amp; Celigo</span>
+              </div>
+
+              <!-- Truepill -->
+              <div class="client-logo-card" title="Truepill">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="Truepill">
+                    <title>Truepill</title>
+                    <g transform="translate(8, 7)">
+                      <rect x="0" y="0" width="14" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+                      <line x1="7" y1="0" x2="7" y2="12" stroke="var(--signal-copper)" stroke-width="1.8"/>
+                    </g>
+                    <text x="74" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="16" font-weight="600" letter-spacing="-0.02em">truepill</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Digital Pharmacy · NetSuite APIs</span>
+              </div>
+
+              <!-- Bioray -->
+              <div class="client-logo-card" title="Bioray">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 125 26" fill="currentColor" role="img" aria-label="Bioray">
+                    <title>Bioray</title>
+                    <circle cx="14" cy="13" r="3" fill="var(--signal-copper)"/>
+                    <path d="M14 6 L14 8 M14 18 L14 20 M7 13 L9 13 M19 13 L21 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <text x="72" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="700" letter-spacing="0.1em">BIORAY</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Herbal Detox · NetSuite Wholesale</span>
+              </div>
+
+              <!-- Piping Rock -->
+              <div class="client-logo-card" title="Piping Rock Health Products">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 155 26" fill="currentColor" role="img" aria-label="Piping Rock">
+                    <title>Piping Rock</title>
+                    <polygon points="12,21 15,8 19,8 22,21" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <circle cx="17" cy="6" r="2" fill="var(--signal-copper)"/>
+                    <text x="88" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">PIPING ROCK</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Supplements · High-Volume NetSuite</span>
+              </div>
+
+              <!-- Theragent -->
+              <div class="client-logo-card" title="Theragent">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 145 26" fill="currentColor" role="img" aria-label="Theragent">
+                    <title>Theragent</title>
+                    <circle cx="12" cy="13" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <circle cx="12" cy="13" r="2" fill="var(--signal-copper)"/>
+                    <text x="80" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14" font-weight="700" letter-spacing="0.12em">THERAGENT</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Cell Therapy · Life Sciences</span>
+              </div>
+
+              <!-- Cocofloss -->
+              <div class="client-logo-card" title="Cocofloss">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 135 26" fill="currentColor" role="img" aria-label="Cocofloss">
+                    <title>Cocofloss</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="17" font-weight="600" letter-spacing="-0.02em">cocofloss</text>
+                    <path d="M32 22 Q 67 26 102 22" fill="none" stroke="var(--signal-copper)" stroke-width="1.4" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Oral Care · NetSuite &amp; 3PL</span>
+              </div>
+
+              <!-- CleanBoss -->
+              <div class="client-logo-card" title="CleanBoss">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 140 26" fill="currentColor" role="img" aria-label="CleanBoss">
+                    <title>CleanBoss</title>
+                    <path d="M9 7 L17 7 L17 14 C17 18 13 21 13 21 C13 21 9 18 9 14 Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                    <circle cx="13" cy="12" r="1.5" fill="var(--signal-copper)"/>
+                    <text x="78" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14.5" font-weight="800" letter-spacing="0.08em">CLEANBOSS</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Botanical Care · NetSuite &amp; Celigo</span>
+              </div>
+
+              <!-- Bounce Curl -->
+              <div class="client-logo-card" title="Bounce Curl">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 145 26" fill="currentColor" role="img" aria-label="Bounce Curl">
+                    <title>Bounce Curl</title>
+                    <path d="M10 18 Q 14 8 18 13 Q 22 18 25 10" fill="none" stroke="var(--signal-copper)" stroke-width="2" stroke-linecap="round"/>
+                    <text x="84" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14" font-weight="700" letter-spacing="0.04em">Bounce Curl</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Clean Hair Care · NetSuite DTC</span>
+              </div>
+
+              <!-- HBNO -->
+              <div class="client-logo-card" title="HBNO (Health &amp; Beauty Natural Oils)">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 120 26" fill="currentColor" role="img" aria-label="HBNO">
+                    <title>HBNO</title>
+                    <path d="M10 17 Q 15 8 22 11 Q 19 19 10 17 Z" fill="none" stroke="var(--signal-copper)" stroke-width="1.6"/>
+                    <text x="70" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="16" font-weight="800" letter-spacing="0.1em">HBNO</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Botanical Oils · Manufacturing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sector 03: Fashion, Apparel & Accessories -->
+          <div class="roster-category">
+            <div class="roster-category-head">
+              <div class="roster-category-left">
+                <span class="roster-category-kicker">Sector 03</span>
+                <h3 class="roster-category-title">Fashion, Apparel &amp; Accessories</h3>
+              </div>
+              <span class="roster-category-badge">6 Brands</span>
+            </div>
+            <div class="roster-grid">
+              <!-- Clare V. -->
+              <div class="client-logo-card" title="Clare V.">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="Clare V.">
+                    <title>Clare V.</title>
+                    <text x="58" y="19" text-anchor="middle" font-family="'Times New Roman', Georgia, serif" font-size="17" font-weight="600" letter-spacing="0.12em">CLARE V</text>
+                    <circle cx="106" cy="18" r="2.5" fill="var(--signal-copper)"/>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Leather Goods · NetSuite &amp; POS</span>
+              </div>
+
+              <!-- Fair Harbor -->
+              <div class="client-logo-card" title="Fair Harbor">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 150 26" fill="currentColor" role="img" aria-label="Fair Harbor">
+                    <title>Fair Harbor</title>
+                    <path d="M8 12 Q 13 8 18 12 Q 23 16 28 12" fill="none" stroke="var(--signal-copper)" stroke-width="1.8" stroke-linecap="round"/>
+                    <text x="88" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14" font-weight="700" letter-spacing="0.1em">FAIR HARBOR</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Sustainable Apparel · EDI</span>
+              </div>
+
+              <!-- European Wax Center -->
+              <div class="client-logo-card" title="European Wax Center (EWC)">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 160 26" fill="currentColor" role="img" aria-label="European Wax Center">
+                    <title>European Wax Center</title>
+                    <text x="28" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="800" letter-spacing="0.08em">EWC</text>
+                    <circle cx="48" cy="14" r="2" fill="var(--signal-copper)"/>
+                    <text x="104" y="18" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="8.8" font-weight="600" letter-spacing="0.08em">EUROPEAN WAX CENTER</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Body Care Franchise · Multi-Entity</span>
+              </div>
+
+              <!-- Envy Wigs -->
+              <div class="client-logo-card" title="Envy Wigs">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 135 26" fill="currentColor" role="img" aria-label="Envy Wigs">
+                    <title>Envy Wigs</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="18" font-weight="500" letter-spacing="0.22em">ENVY</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Designer Hairwear · Wholesale</span>
+              </div>
+
+              <!-- Bolero Home Decor -->
+              <div class="client-logo-card" title="Bolero Home Decor">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 135 26" fill="currentColor" role="img" aria-label="Bolero Home Decor">
+                    <title>Bolero Home Decor</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="16.5" font-weight="600" letter-spacing="0.18em">BOLERO</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Home Decor · NetSuite ERP &amp; EDI</span>
+              </div>
+
+              <!-- Beauty Basics -->
+              <div class="client-logo-card" title="Beauty Basics">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 150 26" fill="currentColor" role="img" aria-label="Beauty Basics">
+                    <title>Beauty Basics</title>
+                    <rect x="8" y="7" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                    <circle cx="14" cy="13" r="2" fill="var(--signal-copper)"/>
+                    <text x="82" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.1em">BEAUTY BASICS</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Salon Supplies · NetSuite B2B</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sector 04: Sports, Hardware & Consumer Products -->
+          <div class="roster-category">
+            <div class="roster-category-head">
+              <div class="roster-category-left">
+                <span class="roster-category-kicker">Sector 04</span>
+                <h3 class="roster-category-title">Sports, Hardware &amp; Consumer Products</h3>
+              </div>
+              <span class="roster-category-badge">7 Brands</span>
+            </div>
+            <div class="roster-grid">
+              <!-- Table Place Chairs -->
+              <div class="client-logo-card" title="Table Place Chairs (UHS Group)">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 170 26" fill="currentColor" role="img" aria-label="Table Place Chairs">
+                    <title>Table Place Chairs</title>
+                    <line x1="8" y1="18" x2="22" y2="18" stroke="currentColor" stroke-width="2"/>
+                    <line x1="12" y1="18" x2="12" y2="8" stroke="currentColor" stroke-width="1.8"/>
+                    <line x1="18" y1="18" x2="18" y2="8" stroke="var(--signal-copper)" stroke-width="1.8"/>
+                    <text x="96" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="12" font-weight="700" letter-spacing="0.08em">TABLE PLACE CHAIRS</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Hospitality · NetSuite UK/US</span>
+              </div>
+
+              <!-- ThermaSol -->
+              <div class="client-logo-card" title="ThermaSol">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 145 26" fill="currentColor" role="img" aria-label="ThermaSol">
+                    <title>ThermaSol</title>
+                    <path d="M10 18 Q 13 13 10 9 M15 18 Q 18 13 15 9 M20 18 Q 23 13 20 9" fill="none" stroke="var(--signal-copper)" stroke-width="1.6" stroke-linecap="round"/>
+                    <text x="82" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14.5" font-weight="800" letter-spacing="0.06em">THERMASOL</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Smart Showers · Manufacturing</span>
+              </div>
+
+              <!-- Slate Milk -->
+              <div class="client-logo-card" title="Slate Milk">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 120 26" fill="currentColor" role="img" aria-label="Slate Milk">
+                    <title>Slate Milk</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="18" font-weight="900" letter-spacing="0.14em">SLATE</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">High-Protein DTC · Distribution</span>
+              </div>
+
+              <!-- Toybox Labs -->
+              <div class="client-logo-card" title="Toybox Labs">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 135 26" fill="currentColor" role="img" aria-label="Toybox Labs">
+                    <title>Toybox Labs</title>
+                    <polygon points="15,6 23,10 15,14 7,10" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                    <polygon points="7,10 15,14 15,22 7,18" fill="var(--signal-copper)"/>
+                    <polygon points="23,10 15,14 15,22 23,18" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                    <text x="76" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="800" letter-spacing="0.1em">TOYBOX</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">3D Printing · NetSuite &amp; Shopify</span>
+              </div>
+
+              <!-- GreenChem -->
+              <div class="client-logo-card" title="GreenChem">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 145 26" fill="currentColor" role="img" aria-label="GreenChem">
+                    <title>GreenChem</title>
+                    <polygon points="14,6 21,10 21,18 14,22 7,18 7,10" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                    <circle cx="14" cy="14" r="2.5" fill="var(--signal-copper)"/>
+                    <text x="82" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14" font-weight="700" letter-spacing="0.08em">GREENCHEM</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Industrial Chemicals · Fleet</span>
+              </div>
+
+              <!-- Nature's Logic -->
+              <div class="client-logo-card" title="Nature's Logic (MAPF)">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 160 26" fill="currentColor" role="img" aria-label="Nature's Logic">
+                    <title>Nature's Logic</title>
+                    <path d="M12 18 C10 12 16 7 21 8 C21 13 17 18 12 18 Z" fill="var(--signal-copper)"/>
+                    <text x="90" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="13" font-weight="700" letter-spacing="0.08em">NATURE'S LOGIC</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Pet Nutrition · NetSuite B2B</span>
+              </div>
+
+              <!-- Lancer Skincare -->
+              <div class="client-logo-card" title="Lancer Skincare">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 135 26" fill="currentColor" role="img" aria-label="Lancer Skincare">
+                    <title>Lancer Skincare</title>
+                    <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="17" font-weight="600" letter-spacing="0.22em">LANCER</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Dermatology Luxury · Global DTC</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sector 05: Enterprise Platforms, FinTech & Supply Chain -->
+          <div class="roster-category">
+            <div class="roster-category-head">
+              <div class="roster-category-left">
+                <span class="roster-category-kicker">Sector 05</span>
+                <h3 class="roster-category-title">Enterprise Platforms, FinTech &amp; Supply Chain</h3>
+              </div>
+              <span class="roster-category-badge">8 Brands</span>
+            </div>
+            <div class="roster-grid">
+              <!-- The Hut Group -->
+              <div class="client-logo-card" title="The Hut Group (THG)">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 120 26" fill="currentColor" role="img" aria-label="The Hut Group">
+                    <title>The Hut Group</title>
+                    <rect x="8" y="8" width="6" height="6" fill="currentColor"/>
+                    <rect x="16" y="8" width="6" height="6" fill="var(--signal-copper)"/>
+                    <rect x="12" y="16" width="6" height="6" fill="currentColor"/>
+                    <text x="68" y="20" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="18" font-weight="900" letter-spacing="0.1em">THG</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Global E-Commerce · iPaaS</span>
+              </div>
+
+              <!-- PayJoy -->
+              <div class="client-logo-card" title="PayJoy">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 125 26" fill="currentColor" role="img" aria-label="PayJoy">
+                    <title>PayJoy</title>
+                    <path d="M12 15 Q 18 20 24 15" fill="none" stroke="var(--signal-copper)" stroke-width="2.2" stroke-linecap="round"/>
+                    <text x="72" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="17" font-weight="700" letter-spacing="-0.02em">PayJoy</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Global FinTech · Financials</span>
+              </div>
+
+              <!-- American Commodity Group -->
+              <div class="client-logo-card" title="American Commodity Group (ACG)">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 125 26" fill="currentColor" role="img" aria-label="American Commodity Group">
+                    <title>American Commodity Group</title>
+                    <polygon points="14,6 22,14 14,22 6,14" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <polygon points="14,10 18,14 14,18 10,14" fill="var(--signal-copper)"/>
+                    <text x="68" y="20" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="18" font-weight="800" letter-spacing="0.12em">ACG</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Commodity Logistics · Financials</span>
+              </div>
+
+              <!-- Laboratoires Expanscience -->
+              <div class="client-logo-card" title="Laboratoires Expanscience">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 165 26" fill="currentColor" role="img" aria-label="Expanscience">
+                    <title>Expanscience</title>
+                    <circle cx="12" cy="14" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                    <circle cx="16" cy="11" r="3" fill="var(--signal-copper)"/>
+                    <text x="92" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="13" font-weight="700" letter-spacing="0.1em">EXPANSCIENCE</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Dermocosmetics · Multi-Sub</span>
+              </div>
+
+              <!-- Edgewood / USAC -->
+              <div class="client-logo-card" title="Edgewood USAC">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 150 26" fill="currentColor" role="img" aria-label="Edgewood USAC">
+                    <title>Edgewood USAC</title>
+                    <path d="M12 8 L16 8 L16 12 L20 12 L20 16 L16 16 L16 20 L12 20 L12 16 L8 16 L8 12 L12 12 Z" fill="var(--signal-copper)"/>
+                    <text x="84" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14" font-weight="700" letter-spacing="0.1em">EDGEWOOD</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Healthcare Logistics · Celigo</span>
+              </div>
+
+              <!-- On Location -->
+              <div class="client-logo-card" title="On Location">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 155 26" fill="currentColor" role="img" aria-label="On Location">
+                    <title>On Location</title>
+                    <circle cx="12" cy="14" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                    <circle cx="12" cy="14" r="1.8" fill="var(--signal-copper)"/>
+                    <text x="86" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="14" font-weight="700" letter-spacing="0.1em">ON LOCATION</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Live Events · Multi-Entity</span>
+              </div>
+
+              <!-- Digital Media Solutions -->
+              <div class="client-logo-card" title="Digital Media Solutions">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="Digital Media Solutions">
+                    <title>Digital Media Solutions</title>
+                    <line x1="6" y1="18" x2="6" y2="12" stroke="currentColor" stroke-width="2"/>
+                    <line x1="11" y1="18" x2="11" y2="8" stroke="var(--signal-copper)" stroke-width="2"/>
+                    <line x1="16" y1="18" x2="16" y2="15" stroke="currentColor" stroke-width="2"/>
+                    <text x="72" y="20" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="18" font-weight="800" letter-spacing="0.14em">DMS</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Performance MarTech · ERP</span>
+              </div>
+
+              <!-- Renew Digital -->
+              <div class="client-logo-card" title="Renew Digital">
+                <div class="client-logo-mark">
+                  <svg class="client-logo-svg" viewBox="0 0 160 26" fill="currentColor" role="img" aria-label="Renew Digital">
+                    <title>Renew Digital</title>
+                    <path d="M9 13 A 6 6 0 1 1 17 17 M17 13 L17 17 L13 17" fill="none" stroke="var(--signal-copper)" stroke-width="1.6" stroke-linecap="round"/>
+                    <text x="90" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="13" font-weight="700" letter-spacing="0.08em">RENEW DIGITAL</text>
+                  </svg>
+                </div>
+                <span class="client-logo-sub">Dental Tech · Field Service</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -4136,6 +4931,24 @@
         archive.hidden = !opening;
         button.setAttribute('aria-expanded', String(opening));
         button.textContent = opening ? 'Show fewer projects' : closedLabel;
+      });
+    })();
+
+    (function () {
+      var btn = document.getElementById('clientRosterToggle');
+      var roster = document.getElementById('extendedClientRoster');
+      if (!btn || !roster) return;
+      roster.hidden = true;
+      var label = btn.querySelector('.client-roster-btn-label');
+      var closedLabel = label ? label.textContent.trim() : btn.textContent.trim();
+      btn.addEventListener('click', function () {
+        var opening = roster.hidden;
+        roster.hidden = !opening;
+        btn.setAttribute('aria-expanded', String(opening));
+        if (label) {
+          label.textContent = opening ? 'Show fewer clients' : closedLabel;
+        }
+        btn.classList.toggle('is-expanded', opening);
       });
     })();
 
