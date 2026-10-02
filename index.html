@@ -1,0 +1,4230 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0d14">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="description" content="Erick Aquino is a Senior NetSuite Solutions Architect & Enterprise Integration Specialist with 10+ years delivering ERP, Celigo iPaaS, and 3PL logistics platforms.">
+  <meta property="og:title" content="Erick Aquino | Senior NetSuite Solutions Architect & Enterprise Integration Specialist">
+  <meta property="og:description" content="10+ years delivering enterprise NetSuite ERP architecture, Celigo iPaaS integrations, 3PL logistics networks, and high-volume e-commerce platforms.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ejaquino.dev">
+  <title>Erick Aquino | Senior NetSuite Solutions Architect & Enterprise Integration Specialist</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=Instrument+Serif:ital@1&amp;family=JetBrains+Mono:wght@400..600&amp;display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..700&amp;family=Instrument+Serif:ital@1&amp;family=JetBrains+Mono:wght@400..600&amp;display=optional" rel="stylesheet"></noscript>
+  <script>document.documentElement.classList.add('js');</script>
+  <style id="industrial-command-deck">
+    :root {
+      --ambient-titanium: oklch(0.12 0.015 255);
+      --titanium-raised: oklch(0.17 0.022 255);
+      --titanium-surface: oklch(0.22 0.028 255);
+      --border-subtle: oklch(0.29 0.032 255);
+      --border-bright: oklch(0.40 0.045 255);
+      --signal-copper: oklch(0.64 0.16 48);
+      --signal-sapphire: oklch(0.55 0.21 260);
+      --text-bright: oklch(0.96 0.006 255);
+      --text-muted: oklch(0.72 0.022 255);
+      --text-dim: oklch(0.52 0.025 255);
+      --focus: oklch(0.72 0.15 220);
+      --radius-panel: 16px;
+      --radius-control: 999px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --content: 72rem;
+      --font-sans: "Geologica", system-ui, sans-serif;
+      --font-serif: "Instrument Serif", Georgia, serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--ambient-titanium); }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--text-bright);
+      background-color: var(--ambient-titanium);
+      background-image:
+        radial-gradient(ellipse 60% 40% at 85% 5%, rgb(37 99 235 / .12), transparent 70%),
+        radial-gradient(ellipse 50% 30% at 15% 35%, rgb(217 119 54 / .07), transparent 75%),
+        linear-gradient(180deg, var(--ambient-titanium) 0%, oklch(0.10 0.012 255) 100%);
+      background-attachment: fixed;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Technical precision grid backdrop */
+    .halftone-field {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(to right, rgb(255 255 255 / .03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(255 255 255 / .03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 90%);
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 90%);
+      opacity: 0.75;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-underline-offset: .22em; text-decoration-thickness: .08em; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { color: inherit; font: inherit; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    ::selection { color: #fff; background: var(--signal-sapphire); }
+    [hidden] { display: none !important; }
+    section[id] { scroll-margin-top: 6.5rem; }
+    .wrap { width: min(calc(100% - 2.5rem), var(--content)); margin-inline: auto; }
+
+    /* Filmic Atmospheric Grain Overlay (Milan Compain style) */
+    #grain {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .032;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Precision Viewfinder Corner Brackets */
+    .viewfinder {
+      position: relative;
+    }
+    .pc {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border: 0 solid var(--signal-copper);
+      pointer-events: none;
+      opacity: .32;
+      transition: opacity 220ms cubic-bezier(.22, 1, .36, 1), border-color 220ms cubic-bezier(.22, 1, .36, 1);
+      z-index: 4;
+    }
+    .viewfinder:hover .pc,
+    .viewfinder:focus-within .pc {
+      opacity: .95;
+      border-color: var(--signal-copper);
+    }
+    .pc-tl { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; border-top-left-radius: 4px; }
+    .pc-tr { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; border-top-right-radius: 4px; }
+    .pc-bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; border-bottom-left-radius: 4px; }
+    .pc-br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: 4px; }
+
+    /* Custom Cursor (Milan Compain style - fine pointer only) */
+    @media (hover: hover) and (pointer: fine) {
+      body.has-custom-cursor,
+      body.has-custom-cursor a,
+      body.has-custom-cursor button,
+      body.has-custom-cursor [role="tab"] {
+        cursor: none;
+      }
+      #cur-dot, #cur-ring {
+        position: fixed;
+        top: 0; left: 0;
+        z-index: 10000;
+        pointer-events: none;
+        will-change: transform;
+      }
+      #cur-dot {
+        width: 6px;
+        height: 6px;
+        margin: -3px 0 0 -3px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: 0 0 6px rgb(255 255 255 / .8);
+        transition: opacity 150ms ease, transform 150ms ease;
+      }
+      #cur-ring {
+        width: 32px;
+        height: 32px;
+        margin: -16px 0 0 -16px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        transition: border-color 220ms cubic-bezier(.22, 1, .36, 1), width 220ms cubic-bezier(.22, 1, .36, 1), height 220ms cubic-bezier(.22, 1, .36, 1), margin 220ms cubic-bezier(.22, 1, .36, 1), background-color 220ms cubic-bezier(.22, 1, .36, 1), opacity 150ms ease;
+      }
+      #cur-ring.is-hovering {
+        width: 48px;
+        height: 48px;
+        margin: -24px 0 0 -24px;
+        border-color: var(--signal-copper);
+        background: rgb(217 119 54 / .14);
+      }
+    }
+    @media (hover: none), (pointer: coarse) {
+      #cur-dot, #cur-ring { display: none !important; }
+    }
+
+    /* Email Copy Toast */
+    .copy-toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      padding: .5rem 1.1rem;
+      border-radius: var(--radius-control);
+      background: var(--titanium-surface);
+      border: 1px solid var(--signal-copper);
+      color: var(--text-bright);
+      font-family: var(--font-mono);
+      font-size: .82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      box-shadow: 0 16px 40px rgb(0 0 0 / .6), 0 0 20px rgb(217 119 54 / .25);
+      transition: opacity 220ms ease, transform 220ms cubic-bezier(.22, 1, .36, 1);
+      z-index: 10001;
+    }
+    .copy-toast.is-active {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .font-serif {
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    /* Milan Compain-inspired Astroid Star Elements */
+    .hero-star-mark {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      z-index: 6;
+      pointer-events: none;
+      filter: drop-shadow(0 0 14px rgb(217 119 54 / .55)) drop-shadow(0 0 32px rgb(217 119 54 / .25));
+      animation: star-spin 32s linear infinite;
+    }
+    .contact-star-mark {
+      display: inline-block;
+      margin-bottom: 1.25rem;
+      filter: drop-shadow(0 0 18px rgb(217 119 54 / .6)) drop-shadow(0 0 38px rgb(217 119 54 / .3));
+      animation: star-spin 36s linear infinite;
+    }
+    .kicker-star {
+      display: inline-block;
+      vertical-align: -2px;
+      margin-right: .4rem;
+      filter: drop-shadow(0 0 6px rgb(217 119 54 / .6));
+    }
+    @keyframes star-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-star-mark, .contact-star-mark { animation: none; }
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      top: .75rem;
+      left: .75rem;
+      padding: .75rem 1.25rem;
+      color: #fff;
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-control);
+      transform: translateY(-160%);
+      transition: transform 180ms var(--ease-out);
+      font-family: var(--font-mono);
+      font-size: .82rem;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    /* Header & Navigation Island */
+    .site-header {
+      position: sticky;
+      top: 1rem;
+      z-index: 100;
+      margin-bottom: 2rem;
+    }
+    .nav {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 54px;
+      padding: .4rem .6rem .4rem 1.25rem;
+      border-radius: var(--radius-control);
+      background: rgb(18 24 36 / .88);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 40px rgb(0 0 0 / .45), inset 0 1px 0 rgb(255 255 255 / .06);
+    }
+    @supports (backdrop-filter: blur(14px)) {
+      .nav { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-weight: 600;
+      font-size: .94rem;
+      letter-spacing: -.02em;
+      text-decoration: none;
+      color: var(--text-bright);
+    }
+    .brand-status {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--signal-copper);
+      padding: .2rem .55rem;
+      border-radius: 999px;
+      background: rgb(217 119 54 / .12);
+      border: 1px solid rgb(217 119 54 / .3);
+    }
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--signal-copper);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding-inline: .95rem;
+      border-radius: var(--radius-control);
+      font-size: .84rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 140ms ease, background-color 140ms ease;
+    }
+    .nav-links a:hover {
+      color: var(--text-bright);
+      background: var(--titanium-surface);
+    }
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding-inline: 1rem;
+      border-radius: var(--radius-control);
+      border: 1px solid var(--border-subtle);
+      background: var(--titanium-surface);
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      color: var(--text-bright);
+      cursor: pointer;
+    }
+
+    /* Buttons */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      min-height: 46px;
+      padding: .65rem 1.4rem;
+      border-radius: var(--radius-control);
+      font-size: .88rem;
+      font-weight: 550;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 120ms var(--ease-out), background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+    }
+    .button:active {
+      transform: scale(0.97);
+    }
+    .button--primary {
+      background: var(--signal-sapphire);
+      color: #fff;
+      border-color: rgb(255 255 255 / .15);
+      box-shadow: 0 4px 14px rgb(37 99 235 / .35);
+    }
+    .button--primary:hover {
+      background: oklch(0.58 0.22 260);
+      box-shadow: 0 6px 20px rgb(37 99 235 / .48);
+    }
+    .button--quiet {
+      background: var(--titanium-surface);
+      color: var(--text-bright);
+      border-color: var(--border-subtle);
+    }
+    .button--quiet:hover {
+      background: oklch(0.26 0.032 255);
+      border-color: var(--border-bright);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding-top: 1.5rem;
+      padding-bottom: 4rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 21rem 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .hero-portrait-card {
+      position: relative;
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-bright);
+      box-shadow: 0 24px 60px rgb(0 0 0 / .6), 0 0 40px rgb(56 189 248 / .05), inset 0 1px 0 rgb(255 255 255 / .1);
+      overflow: hidden;
+      aspect-ratio: 843 / 1150;
+    }
+    .hero-portrait-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 58%, rgb(9 13 20 / .75) 100%);
+      pointer-events: none;
+    }
+    .hero-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 14%;
+      filter: contrast(1.05) brightness(0.98);
+      display: block;
+    }
+    .hero-portrait-badge {
+      position: absolute;
+      bottom: .85rem;
+      left: .85rem;
+      right: .85rem;
+      padding: .65rem .85rem;
+      border-radius: 10px;
+      background: rgb(10 13 20 / .85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .5rem;
+      z-index: 2;
+      box-shadow: 0 4px 16px rgb(0 0 0 / .4);
+    }
+    .hero-portrait-badge strong {
+      color: var(--text-bright);
+    }
+
+    .hero-kicker {
+      font-family: var(--font-mono);
+      font-size: .76rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--signal-copper);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .hero-title {
+      font-size: clamp(2.3rem, 4.8vw, 3.8rem);
+      font-weight: 550;
+      line-height: 1.08;
+      letter-spacing: -.035em;
+      color: var(--text-bright);
+      margin: 0 0 1.25rem;
+    }
+    .hero-lede {
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin: 0 0 1.25rem;
+      max-width: 48ch;
+    }
+    .hero-bio {
+      font-size: .95rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin: 0 0 2rem;
+      max-width: 54ch;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-bottom: 1.75rem;
+    }
+    .hero-quicklinks {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--text-dim);
+    }
+    .hero-quicklinks a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 140ms ease;
+    }
+    .hero-quicklinks a:hover {
+      color: var(--text-bright);
+    }
+
+    /* Stats Proof Ribbon */
+    .stats-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 3.5rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      box-shadow: 0 16px 40px rgb(0 0 0 / .35), inset 0 1px 0 rgb(255 255 255 / .05);
+      overflow: hidden;
+    }
+    .stat-item {
+      padding: 1.75rem 1.5rem;
+      border-right: 1px solid var(--border-subtle);
+    }
+    .stat-item:last-child { border-right: 0; }
+    .stat-val strong {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(2.3rem, 3.8vw, 3rem);
+      font-weight: 400;
+      color: var(--text-bright);
+      line-height: 1;
+      letter-spacing: -.01em;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-lbl span {
+      display: block;
+      margin-top: .4rem;
+      font-family: var(--font-mono);
+      font-size: .74rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    /* Client Trust & Brand Logos */
+    .client-trust {
+      margin-top: 3.5rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .client-trust-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-bottom: 1.5rem;
+    }
+    .client-trust-kicker {
+      font-family: var(--font-mono);
+      font-size: .74rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--signal-copper);
+    }
+    .client-trust-count {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--text-dim);
+    }
+    .client-logos-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: .85rem;
+    }
+    .client-logo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 84px;
+      padding: 1.1rem .85rem;
+      border-radius: 12px;
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 8px 24px rgb(0 0 0 / .25), inset 0 1px 0 rgb(255 255 255 / .03);
+      transition: border-color 160ms ease, background-color 160ms ease;
+      text-align: center;
+    }
+    .client-logo-card:hover {
+      border-color: var(--border-bright);
+      background: var(--titanium-surface);
+    }
+    .client-logo-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+      width: 100%;
+    }
+    .client-logo-svg {
+      height: 24px;
+      width: 100%;
+      max-width: 140px;
+      fill: var(--text-muted);
+      color: var(--text-muted);
+      transition: fill 140ms ease, color 140ms ease;
+    }
+    .client-logo-card:hover .client-logo-svg {
+      fill: #ffffff;
+      color: #ffffff;
+    }
+    .client-logo-sub {
+      margin-top: .45rem;
+      font-family: var(--font-mono);
+      font-size: .62rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    /* Section structure */
+    .section {
+      padding-block: 4.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .section-kicker {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--signal-copper);
+      margin-bottom: .5rem;
+    }
+    .section-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 550;
+      letter-spacing: -.03em;
+      color: var(--text-bright);
+      margin: 0;
+      line-height: 1.15;
+    }
+    .section-sub {
+      font-size: .98rem;
+      color: var(--text-muted);
+      margin: .5rem 0 0;
+      max-width: 56ch;
+    }
+
+    /* 6-Pillar Architectural Attribute Grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+    .pillar-card {
+      padding: 1.6rem 1.5rem;
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 30px rgb(0 0 0 / .3), inset 0 1px 0 rgb(255 255 255 / .05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 160ms ease, background-color 160ms ease;
+    }
+    .pillar-card:hover {
+      border-color: var(--border-bright);
+      background: var(--titanium-surface);
+    }
+    .pillar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: .75rem;
+    }
+    .pillar-index {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--signal-copper);
+      letter-spacing: .08em;
+    }
+    .pillar-badge {
+      font-family: var(--font-mono);
+      font-size: .64rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: .15rem .45rem;
+      border-radius: 4px;
+      background: rgb(255 255 255 / .05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+    }
+    .pillar-title {
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin: 0 0 .35rem;
+      letter-spacing: -.02em;
+    }
+    .pillar-sub {
+      font-family: var(--font-mono);
+      font-size: .74rem;
+      color: var(--signal-sapphire);
+      margin-bottom: .6rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .pillar-desc {
+      font-size: .88rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Open Chronological Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .timeline-item {
+      padding: 2rem 2.25rem;
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 40px rgb(0 0 0 / .35), inset 0 1px 0 rgb(255 255 255 / .04);
+      transition: border-color 160ms ease, background-color 160ms ease;
+    }
+    .timeline-item:hover {
+      border-color: var(--border-bright);
+    }
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .timeline-brand {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .timeline-logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 56px;
+      min-width: 145px;
+      padding: .6rem 1rem;
+      border-radius: 12px;
+      background: var(--titanium-surface);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 14px rgb(0 0 0 / .25), inset 0 1px 0 rgb(255 255 255 / .04);
+      transition: border-color 160ms ease, background-color 160ms ease;
+      flex-shrink: 0;
+    }
+    .timeline-item:hover .timeline-logo-box {
+      border-color: var(--border-bright);
+      background: oklch(0.25 0.03 255);
+    }
+    .timeline-logo-img {
+      max-height: 38px;
+      width: auto;
+      max-width: 130px;
+      object-fit: contain;
+      filter: brightness(0.98) contrast(1.1);
+    }
+    .timeline-logo-svg {
+      height: 30px;
+      width: auto;
+      max-width: 155px;
+    }
+    .timeline-org {
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--signal-copper);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .25rem;
+    }
+    .timeline-role {
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin: 0;
+      letter-spacing: -.02em;
+    }
+    .timeline-date {
+      display: inline-flex;
+      align-items: center;
+      padding: .35rem .85rem;
+      border-radius: 999px;
+      background: var(--titanium-surface);
+      border: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--signal-copper);
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+    .timeline-desc {
+      font-size: .95rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin: 0;
+      max-width: 72ch;
+    }
+
+    /* Product-Style Engineered Platforms */
+    .vessels-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .vessel-card {
+      padding: 2.25rem;
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 20px 50px rgb(0 0 0 / .4), inset 0 1px 0 rgb(255 255 255 / .06);
+      transition: border-color 160ms ease;
+    }
+    .vessel-card:hover {
+      border-color: var(--border-bright);
+    }
+    .vessel-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-bottom: 1rem;
+    }
+    .vessel-classification {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--signal-copper);
+    }
+    .vessel-badge {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      padding: .2rem .6rem;
+      border-radius: 999px;
+      background: rgb(37 99 235 / .15);
+      border: 1px solid rgb(37 99 235 / .35);
+      color: #93c5fd;
+    }
+    .vessel-title {
+      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+      font-weight: 600;
+      letter-spacing: -.03em;
+      color: var(--text-bright);
+      margin: 0 0 1rem;
+    }
+    .vessel-specs-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      padding: .85rem 1.25rem;
+      border-radius: 10px;
+      background: var(--titanium-surface);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--text-bright);
+    }
+    .vessel-spec-item b {
+      color: var(--text-dim);
+      font-weight: 500;
+      margin-right: .35rem;
+    }
+    .vessel-subsystems {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      gap: .75rem;
+      margin-top: 1.25rem;
+    }
+    .vessel-subsystem {
+      padding: .75rem 1rem;
+      border-radius: 8px;
+      background: rgb(255 255 255 / .02);
+      border: 1px solid rgb(255 255 255 / .05);
+      font-size: .82rem;
+      color: var(--text-muted);
+    }
+    /* AI & Autonomous Agent Orchestration Cards */
+    .agent-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .agent-card {
+      padding: 1.85rem;
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 36px rgb(0 0 0 / .35), inset 0 1px 0 rgb(255 255 255 / .05);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 160ms ease, transform 160ms ease;
+    }
+    .agent-card:hover {
+      border-color: var(--border-bright);
+      transform: translateY(-2px);
+    }
+    .agent-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--signal-copper), transparent);
+      opacity: 0;
+      transition: opacity 160ms ease;
+    }
+    .agent-card:hover::before {
+      opacity: 1;
+    }
+    .agent-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .agent-badge {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .55rem;
+      border-radius: 6px;
+      background: rgb(217 119 6 / .12);
+      color: var(--signal-copper);
+      border: 1px solid rgb(217 119 6 / .25);
+    }
+    .agent-title {
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin: 0 0 .4rem;
+      letter-spacing: -.02em;
+    }
+    .agent-sub {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--signal-copper);
+      margin-bottom: 1rem;
+    }
+    .agent-desc {
+      font-size: .88rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin: 0 0 1.25rem;
+    }
+    .agent-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgb(255 255 255 / .06);
+    }
+    .agent-highlight-item {
+      font-size: .8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: .5rem;
+    }
+    .agent-highlight-item span {
+      color: var(--signal-copper);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* Hero Pipeline Tag */
+    .hero-pipeline-tag {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin-top: 1.25rem;
+      padding: .45rem .85rem;
+      border-radius: 8px;
+      background: rgb(217 119 6 / .08);
+      border: 1px solid rgb(217 119 6 / .25);
+      font-family: var(--font-mono);
+      font-size: .76rem;
+      color: var(--text-muted);
+    }
+    .hero-pipeline-tag .terminal-prompt {
+      color: var(--signal-copper);
+      font-weight: 700;
+    }
+    .hero-pipeline-tag .pipeline-label {
+      color: var(--text-bright);
+      font-weight: 600;
+    }
+    .hero-pipeline-tag code {
+      font-family: var(--font-mono);
+      font-size: .74rem;
+      padding: .15rem .35rem;
+      border-radius: 4px;
+      background: var(--titanium-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--signal-copper);
+    }
+
+    /* Interactive Autonomous Pipeline Console */
+    .pipeline-console {
+      margin-top: 2rem;
+      margin-bottom: 2.75rem;
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 20px 50px rgb(0 0 0 / .45), inset 0 1px 0 rgb(255 255 255 / .05);
+      overflow: hidden;
+    }
+    .console-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .75rem;
+      background: var(--titanium-surface);
+      padding: .75rem 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .console-controls {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .ctrl-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .ctrl-red { background: #ef4444; }
+    .ctrl-yellow { background: #f59e0b; }
+    .ctrl-green { background: #10b981; }
+    .console-title {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      color: var(--text-dim);
+      margin-left: .5rem;
+    }
+    .console-status {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--signal-copper);
+      letter-spacing: .05em;
+    }
+    .console-tabs {
+      display: flex;
+      gap: .5rem;
+      overflow-x: auto;
+      padding: .75rem 1.25rem;
+      background: rgb(10 13 20 / .75);
+      border-bottom: 1px solid var(--border-subtle);
+      scrollbar-width: thin;
+    }
+    .console-tab {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      padding: .45rem .85rem;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      transition: color 140ms ease, background-color 140ms ease, border-color 140ms ease, transform 100ms ease;
+    }
+    .console-tab:hover {
+      color: var(--text-bright);
+      border-color: var(--border-bright);
+      background: rgb(255 255 255 / .03);
+    }
+    .console-tab:active {
+      transform: scale(0.98);
+    }
+    .console-tab.is-active {
+      color: var(--signal-copper);
+      background: rgb(217 119 6 / .12);
+      border-color: rgb(217 119 6 / .35);
+      font-weight: 600;
+    }
+    .console-tab--highlight {
+      color: var(--text-bright);
+    }
+    .console-tab--highlight.is-active {
+      color: #38bdf8;
+      background: rgb(56 189 248 / .12);
+      border-color: rgb(56 189 248 / .35);
+    }
+    .console-body {
+      padding: 1.75rem;
+    }
+    .tab-pane {
+      display: none;
+    }
+    .tab-pane.is-active {
+      display: block;
+      animation: consoleFade 160ms ease;
+    }
+    @keyframes consoleFade {
+      from { opacity: 0; transform: translateY(3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .pane-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .pane-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: .2rem .5rem;
+      border-radius: 4px;
+      background: rgb(217 119 6 / .15);
+      color: var(--signal-copper);
+      border: 1px solid rgb(217 119 6 / .3);
+      margin-bottom: .45rem;
+    }
+    .pane-title {
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin: 0 0 .35rem;
+      letter-spacing: -.02em;
+    }
+    .pane-subtitle {
+      font-size: .88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin: 0;
+      max-width: 48rem;
+    }
+    .pane-stat-box {
+      text-align: right;
+      padding: .6rem 1rem;
+      border-radius: 8px;
+      background: var(--titanium-surface);
+      border: 1px solid var(--border-subtle);
+      flex-shrink: 0;
+    }
+    .pane-stat-box .stat-num {
+      font-family: var(--font-mono);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--signal-copper);
+      line-height: 1;
+    }
+    .pane-stat-box .stat-desc {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-top: .3rem;
+    }
+    .terminal-box {
+      border-radius: 8px;
+      background: var(--ambient-titanium);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+    }
+    .terminal-cmd {
+      padding: .85rem 1.25rem;
+      background: rgb(0 0 0 / .4);
+      border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: .82rem;
+      color: var(--text-bright);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      overflow-x: auto;
+    }
+    .terminal-cmd .prompt {
+      color: var(--signal-copper);
+      font-weight: 700;
+    }
+    .terminal-cmd code {
+      color: #38bdf8;
+    }
+    .terminal-stages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      gap: 1px;
+      background: var(--border-subtle);
+    }
+    .stage-item {
+      background: var(--titanium-raised);
+      padding: 1.25rem;
+    }
+    .stage-tag {
+      font-family: var(--font-mono);
+      font-size: .66rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: var(--signal-copper);
+      margin-bottom: .35rem;
+    }
+    .stage-name {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: .45rem;
+    }
+    .stage-detail {
+      font-size: .82rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Comparison Matrix */
+    .comparison-matrix {
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      background: var(--titanium-raised);
+      overflow: hidden;
+    }
+    .cmp-row {
+      display: grid;
+      grid-template-columns: 14rem 1fr 1fr;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .cmp-row:last-child {
+      border-bottom: 0;
+    }
+    .cmp-head {
+      background: var(--titanium-surface);
+      font-family: var(--font-mono);
+      font-size: .74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-muted);
+    }
+    .cmp-col {
+      padding: 1rem 1.25rem;
+      font-size: .84rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+    .cmp-head .cmp-col {
+      color: var(--text-dim);
+    }
+    .cmp-head .cmp-erick {
+      color: var(--signal-copper);
+      font-weight: 700;
+    }
+    .cmp-dim {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--text-bright);
+      border-right: 1px solid var(--border-subtle);
+      background: rgb(255 255 255 / .01);
+    }
+    .cmp-legacy {
+      border-right: 1px solid var(--border-subtle);
+      color: var(--text-dim);
+    }
+    .cmp-erick {
+      background: rgb(217 119 6 / .04);
+      color: var(--text-bright);
+    }
+    .cmp-erick strong {
+      color: var(--signal-copper);
+    }
+    @media (max-width: 820px) {
+      .cmp-row {
+        grid-template-columns: 1fr;
+      }
+      .cmp-dim {
+        border-right: 0;
+        border-bottom: 1px solid var(--border-subtle);
+        background: var(--titanium-surface);
+        padding: .6rem 1rem;
+      }
+      .cmp-legacy {
+        border-right: 0;
+        border-bottom: 1px solid var(--border-subtle);
+        padding: .85rem 1rem;
+      }
+      .cmp-erick {
+        padding: .85rem 1rem;
+      }
+      .cmp-head {
+        display: none;
+      }
+      .pane-stat-box {
+        text-align: left;
+      }
+    }
+
+    /* Dynamic Project Case Cards */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .case-card {
+      padding: 1.75rem;
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 30px rgb(0 0 0 / .3), inset 0 1px 0 rgb(255 255 255 / .04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 160ms ease;
+    }
+    .case-card:hover { border-color: var(--border-bright); }
+    .case-tag {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--signal-copper);
+      margin-bottom: .5rem;
+    }
+    .case-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin: 0 0 1rem;
+      letter-spacing: -.02em;
+    }
+    .case-points {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      font-size: .86rem;
+      line-height: 1.5;
+    }
+    .case-row {
+      display: grid;
+      grid-template-columns: 5.5rem 1fr;
+      gap: .75rem;
+    }
+    .case-row b {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+    .case-row span { color: var(--text-muted); }
+    .case-metrics-bar {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .case-metric-chip { font-family: var(--font-mono); }
+    .case-metric-chip strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1;
+      color: var(--text-bright);
+    }
+    .case-metric-chip span {
+      display: block;
+      font-size: .68rem;
+      color: var(--text-dim);
+      margin-top: .25rem;
+      text-transform: uppercase;
+    }
+    .case-tech-line {
+      margin-top: 1rem;
+      font-size: .8rem;
+      color: var(--text-muted);
+    }
+    .case-tech-line b {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-right: .5rem;
+      color: var(--text-bright);
+    }
+
+    /* Comparative Technical Spec Sheet Table */
+    .spec-matrix-wrap {
+      margin-top: 3.5rem;
+      margin-bottom: 3rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      box-shadow: 0 20px 50px rgb(0 0 0 / .4), inset 0 1px 0 rgb(255 255 255 / .05);
+      overflow-x: auto;
+    }
+    .spec-matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .84rem;
+      text-align: left;
+    }
+    .spec-matrix-table th,
+    .spec-matrix-table td {
+      padding: 1.1rem 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      vertical-align: top;
+    }
+    .spec-matrix-table th:last-child,
+    .spec-matrix-table td:last-child {
+      border-right: 0;
+    }
+    .spec-matrix-table thead th {
+      background: var(--titanium-surface);
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      border-bottom: 2px solid var(--border-bright);
+    }
+    .spec-matrix-table tbody th {
+      font-family: var(--font-mono);
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--signal-copper);
+      background: rgb(255 255 255 / .01);
+      width: 13rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .spec-matrix-table tbody tr:last-child th,
+    .spec-matrix-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+    .spec-matrix-table td {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .spec-matrix-table td strong {
+      color: var(--text-bright);
+      display: block;
+      margin-bottom: .2rem;
+    }
+
+    /* Archive */
+    .archive-wrap { margin-top: 2rem; }
+    .archive-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      min-height: 42px;
+      padding: .6rem 1.25rem;
+      border-radius: var(--radius-control);
+      border: 1px solid var(--border-subtle);
+      background: var(--titanium-surface);
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--text-bright);
+      cursor: pointer;
+      transition: background-color 140ms ease, border-color 140ms ease;
+    }
+    .archive-btn:hover { background: oklch(0.26 0.03 255); border-color: var(--border-bright); }
+    .archive-list {
+      margin-top: 1.25rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      overflow: hidden;
+    }
+    .archive-row {
+      display: grid;
+      grid-template-columns: 1.1fr .6fr 1.3fr;
+      gap: 1rem;
+      padding: .9rem 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: .84rem;
+    }
+    .archive-row:last-child { border-bottom: 0; }
+    .archive-row strong { font-weight: 550; color: var(--text-bright); }
+    .archive-row span { color: var(--text-muted); }
+
+    /* Stack & Capabilities (Categorized Pills) */
+    .stack-group { margin-bottom: 2rem; }
+    .stack-group:last-child { margin-bottom: 0; }
+    .stack-label {
+      font-family: var(--font-mono);
+      font-size: .74rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--signal-copper);
+      margin-bottom: .75rem;
+    }
+    .pill-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .stack-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: .4rem .85rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      background: var(--titanium-raised);
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      font-weight: 500;
+      color: var(--text-bright);
+      box-shadow: 0 1px 3px rgb(0 0 0 / .2);
+      transition: border-color 140ms ease, background-color 140ms ease;
+    }
+    .stack-pill:hover {
+      border-color: var(--border-bright);
+      background: var(--titanium-surface);
+    }
+
+    /* Credentials & Certifications Cards */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+      gap: 1.25rem;
+    }
+    .cert-card {
+      padding: 1.5rem 1.6rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      box-shadow: 0 12px 30px rgb(0 0 0 / .3), inset 0 1px 0 rgb(255 255 255 / .04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 160ms ease;
+    }
+    .cert-card:hover { border-color: var(--border-bright); }
+    .cert-issuer {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--signal-copper);
+      margin-bottom: .4rem;
+    }
+    .cert-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin: 0 0 .5rem;
+      letter-spacing: -.02em;
+    }
+    .cert-sub {
+      font-size: .84rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Contact Vessel */
+    .contact-card {
+      padding: clamp(2rem, 5vw, 3.5rem);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-panel);
+      background: var(--titanium-raised);
+      box-shadow: 0 24px 60px rgb(0 0 0 / .6), inset 0 1px 0 rgb(255 255 255 / .08);
+    }
+    .contact-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 600;
+      letter-spacing: -.03em;
+      color: var(--text-bright);
+      margin: 0 0 .75rem;
+    }
+    .contact-desc {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 52ch;
+      margin: 0 0 2rem;
+    }
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border-subtle);
+      padding-block: 2.5rem;
+      margin-top: 4rem;
+      background: var(--ambient-titanium);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: .74rem;
+      color: var(--text-dim);
+    }
+
+    /* Reveal animations */
+    .reveal { opacity: 1; transform: none; }
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+    }
+    .js .reveal, .js .reveal.is-visible { opacity: 1; transform: none; }
+
+    @media (max-width: 1100px) {
+      .client-logos-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .nav-toggle { display: inline-flex; }
+      .nav-links {
+        position: absolute;
+        top: calc(100% + .5rem);
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: .65rem;
+        border: 1px solid var(--border-bright);
+        border-radius: 18px;
+        background: var(--titanium-raised);
+        box-shadow: 0 16px 40px rgb(0 0 0 / .6);
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { justify-content: center; }
+      .pillars-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 767px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-portrait-card {
+        max-width: min(16.5rem, 80vw);
+        aspect-ratio: 4 / 5;
+        border-radius: 22px;
+        margin-inline: auto;
+        box-shadow: 0 16px 48px rgb(0 0 0 / .6), 0 0 30px rgb(56 189 248 / .08), inset 0 1px 0 rgb(255 255 255 / .12);
+      }
+      .hero-portrait-img {
+        object-position: center 14%;
+      }
+      .hero-portrait-badge {
+        bottom: .75rem;
+        left: .75rem;
+        right: .75rem;
+        padding: .5rem .75rem;
+        font-size: clamp(0.6rem, 2.5vw, 0.66rem);
+        border-radius: 9px;
+      }
+      .client-logos-grid { grid-template-columns: repeat(2, 1fr); gap: .6rem; }
+      .stats-ribbon { grid-template-columns: 1fr 1fr; }
+      .stat-item:nth-child(2) { border-right: 0; }
+      .timeline-item { padding: 1.5rem; }
+      .timeline-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .timeline-brand { display: flex; align-items: center; flex-wrap: wrap; gap: .85rem; }
+      .timeline-logo-box { min-width: 125px; height: 48px; }
+      .case-row { grid-template-columns: 1fr; gap: .25rem; }
+      .archive-row { grid-template-columns: 1fr; gap: .35rem; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .spec-matrix-table { min-width: 580px; }
+      .console-body { padding: 1.25rem 1rem; }
+      .console-tabs { padding: .6rem 1rem; -webkit-overflow-scrolling: touch; }
+      .console-topbar { padding: .65rem 1rem; }
+      .pane-header { margin-bottom: 1.25rem; padding-bottom: 1rem; }
+      .terminal-cmd { padding: .75rem 1rem; font-size: .76rem; }
+      .terminal-stages { grid-template-columns: 1fr; }
+      .stage-item { padding: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .wrap { padding-inline: 1.25rem; }
+      .hero-portrait-card {
+        max-width: min(15rem, 85vw);
+        border-radius: 20px;
+      }
+      .hero-portrait-badge {
+        bottom: .65rem;
+        left: .65rem;
+        right: .65rem;
+        padding: .45rem .65rem;
+        font-size: .6rem;
+      }
+      .hero-title {
+        font-size: clamp(1.85rem, 8vw, 2.4rem);
+      }
+      .hero-kicker {
+        font-size: .7rem;
+      }
+      .client-logo-card {
+        padding: .75rem .4rem;
+        min-height: 52px;
+      }
+      .client-brand-name {
+        font-size: .88rem;
+      }
+      .timeline-item {
+        padding: 1.15rem;
+      }
+      .timeline-logo-box {
+        min-width: 110px;
+        height: 44px;
+        padding: .35rem .65rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .js .reveal, .js .reveal.is-visible { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="grain" aria-hidden="true"></div>
+  <div id="cur-dot" aria-hidden="true"></div>
+  <div id="cur-ring" aria-hidden="true"></div>
+  <div class="copy-toast" id="copyToast" aria-live="polite">✓ Copied ejaquino26@gmail.com</div>
+  <div class="halftone-field" aria-hidden="true"></div>
+
+  <svg style="display:none" aria-hidden="true">
+    <defs>
+      <radialGradient id="star-copper-grad" cx="0" cy="0" r="105" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#5c270e"/>
+        <stop offset="45%" stop-color="#9a3412"/>
+        <stop offset="75%" stop-color="#d97736"/>
+        <stop offset="100%" stop-color="#ffedd5"/>
+      </radialGradient>
+      <g id="star-path">
+        <path d="M100.0 0.0L79.0 -2.1L71.6 -3.8L66.5 -5.2L62.6 -6.6L59.4 -7.8L56.6 -9.0L54.3 -10.1L52.2 -11.1L50.3 -12.1L48.5 -13.0L47.0 -13.9L45.5 -14.8L44.2 -15.6L42.9 -16.5L41.7 -17.3L40.5 -18.1L39.5 -18.8L38.4 -19.6L37.5 -20.3L36.5 -21.1L35.6 -21.8L34.7 -22.6L33.9 -23.3L33.0 -24.0L32.2 -24.7L31.4 -25.5L30.7 -26.2L29.9 -26.9L29.2 -27.7L28.4 -28.4L27.7 -29.2L27.0 -29.9L26.2 -30.7L25.5 -31.5L24.8 -32.3L24.1 -33.2L23.4 -34.0L22.7 -34.9L22.0 -35.8L21.2 -36.8L20.5 -37.8L19.8 -38.8L19.0 -39.9L18.2 -41.0L17.5 -42.2L16.7 -43.4L15.8 -44.7L15.0 -46.2L14.1 -47.7L13.2 -49.4L12.3 -51.2L11.3 -53.2L10.3 -55.4L9.2 -57.9L8.0 -60.8L6.8 -64.3L5.4 -68.5L3.9 -74.0L2.1 -82.0L0.0 -105.0L-2.1 -82.0L-3.9 -74.0L-5.4 -68.5L-6.8 -64.3L-8.0 -60.8L-9.2 -57.9L-10.3 -55.4L-11.3 -53.2L-12.3 -51.2L-13.2 -49.4L-14.1 -47.7L-15.0 -46.2L-15.8 -44.7L-16.7 -43.4L-17.5 -42.2L-18.2 -41.0L-19.0 -39.9L-19.8 -38.8L-20.5 -37.8L-21.2 -36.8L-22.0 -35.8L-22.7 -34.9L-23.4 -34.0L-24.1 -33.2L-24.8 -32.3L-25.5 -31.5L-26.2 -30.7L-27.0 -29.9L-27.7 -29.2L-28.4 -28.4L-29.2 -27.7L-29.9 -26.9L-30.7 -26.2L-31.4 -25.5L-32.2 -24.7L-33.0 -24.0L-33.9 -23.3L-34.7 -22.6L-35.6 -21.8L-36.5 -21.1L-37.5 -20.3L-38.4 -19.6L-39.5 -18.8L-40.5 -18.1L-41.7 -17.3L-42.9 -16.5L-44.2 -15.6L-45.5 -14.8L-47.0 -13.9L-48.5 -13.0L-50.3 -12.1L-52.2 -11.1L-54.3 -10.1L-56.6 -9.0L-59.4 -7.8L-62.6 -6.6L-66.5 -5.2L-71.6 -3.8L-79.0 -2.1L-100.0 -0.0L-79.0 2.1L-71.6 3.8L-66.5 5.2L-62.6 6.6L-59.4 7.8L-56.6 9.0L-54.3 10.1L-52.2 11.1L-50.3 12.1L-48.5 13.0L-47.0 13.9L-45.5 14.8L-44.2 15.6L-42.9 16.5L-41.7 17.3L-40.5 18.1L-39.5 18.8L-38.4 19.6L-37.5 20.3L-36.5 21.1L-35.6 21.8L-34.7 22.6L-33.9 23.3L-33.0 24.0L-32.2 24.7L-31.4 25.5L-30.7 26.2L-29.9 26.9L-29.2 27.7L-28.4 28.4L-27.7 29.2L-27.0 29.9L-26.2 30.7L-25.5 31.5L-24.8 32.3L-24.1 33.2L-23.4 34.0L-22.7 34.9L-22.0 35.8L-21.2 36.8L-20.5 37.8L-19.8 38.8L-19.0 39.9L-18.2 41.0L-17.5 42.2L-16.7 43.4L-15.8 44.7L-15.0 46.2L-14.1 47.7L-13.2 49.4L-12.3 51.2L-11.3 53.2L-10.3 55.4L-9.2 57.9L-8.0 60.8L-6.8 64.3L-5.4 68.5L-3.9 74.0L-2.1 82.0L-0.0 105.0L2.1 82.0L3.9 74.0L5.4 68.5L6.8 64.3L8.0 60.8L9.2 57.9L10.3 55.4L11.3 53.2L12.3 51.2L13.2 49.4L14.1 47.7L15.0 46.2L15.8 44.7L16.7 43.4L17.5 42.2L18.2 41.0L19.0 39.9L19.8 38.8L20.5 37.8L21.2 36.8L22.0 35.8L22.7 34.9L23.4 34.0L24.1 33.2L24.8 32.3L25.5 31.5L26.2 30.7L27.0 29.9L27.7 29.2L28.4 28.4L29.2 27.7L29.9 26.9L30.7 26.2L31.4 25.5L32.2 24.7L33.0 24.0L33.9 23.3L34.7 22.6L35.6 21.8L36.5 21.1L37.5 20.3L38.4 19.6L39.5 18.8L40.5 18.1L41.7 17.3L42.9 16.5L44.2 15.6L45.5 14.8L47.0 13.9L48.5 13.0L50.3 12.1L52.2 11.1L54.3 10.1L56.6 9.0L59.4 7.8L62.6 6.6L66.5 5.2L71.6 3.8L79.0 2.1L100.0 0.0Z" fill="url(#star-copper-grad)"/>
+      </g>
+    </defs>
+  </svg>
+
+  
+  
+  
+  
+  
+  
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header wrap">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#hero">
+        <span>Erick Aquino</span>
+        <span class="brand-status"><span class="pulse-dot"></span> Available</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">Menu</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#systems">Systems</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <!-- ── Hero ── -->
+    <section class="hero wrap" id="hero">
+      <div class="hero-grid">
+        <!-- Steve Jobs-inspired studio portrait -->
+        <div class="hero-portrait-card viewfinder reveal">
+          <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
+          <div class="hero-star-mark" aria-hidden="true">
+            <svg class="" viewBox="-106 -111 212 222" width="44" height="44" aria-hidden="true">
+    <use href="#star-path"/>
+  </svg>
+          </div>
+          <picture>
+            <source srcset="portrait.webp" type="image/webp">
+            <img class="hero-portrait-img" src="portrait.png" alt="Erick Aquino - Senior NetSuite Solutions Architect" width="843" height="1264" loading="eager" decoding="async">
+          </picture>
+          <div class="hero-portrait-badge">
+            <span><strong>Erick Aquino</strong> // Architect</span>
+            <span>10+ Yrs NetSuite</span>
+          </div>
+        </div>
+
+        <!-- Bio and identity -->
+        <div class="reveal">
+          <div class="hero-kicker"><span class="kicker-star" aria-hidden="true"><svg class="" viewBox="-106 -111 212 222" width="13" height="13" aria-hidden="true">
+    <use href="#star-path"/>
+  </svg></span>Senior NetSuite Solutions Architect · Enterprise Integration Specialist · AI Orchestrator</div>
+          <h1 class="hero-title">Bringing order to enterprise chaos.</h1>
+          <p class="hero-lede">Architecting mission-critical NetSuite platforms, resilient integration fabrics, and autonomous AI delivery that turn operational friction into engineered precision.</p>
+          <p class="hero-bio">
+            Began my career inside Oracle NetSuite on the elite SWAT desk supporting Top 200 global enterprise accounts. Over a decade, I've architected multi-subsidiary platforms, Celigo iPaaS pipelines, and high-volume 3PL logistics networks for world-class DTC and enterprise brands. Today, I combine deep ERP domain mastery with autonomous multi-agent orchestration - executing parallel, mathematically verified development cycles that outpace traditional consulting teams by 10x with zero drift.
+          </p>
+
+          <div class="hero-pipeline-tag" style="margin-bottom: 1.5rem;">
+            <span class="terminal-prompt">//</span>
+            <span class="pipeline-label">How I Deliver Differently:</span>
+            <span>Parallel Multi-Agent Swarms</span> ·
+            <span>Adversarial Blueprint Verification</span> ·
+            <span>Zero-Drift Sandbox Gatekeeping</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button button--primary" href="mailto:ejaquino26@gmail.com?subject=Consulting%20Inquiry">Discuss a system</a>
+            <a class="button button--quiet" href="Aquino_Erick_CV_ATS.pdf" target="_blank" rel="noopener">ATS CV (PDF) ↗</a>
+            <a class="button button--quiet" href="Aquino_Erick_CV_Designed.pdf" target="_blank" rel="noopener">Designed CV (PDF) ↗</a>
+          </div>
+
+          <div class="hero-quicklinks">
+            <a href="https://www.linkedin.com/in/ejaquino/" target="_blank" rel="noopener">linkedin ↗</a>
+            <a href="https://wa.me/639055147337" target="_blank" rel="noopener">whatsapp ↗</a>
+            <a href="mailto:ejaquino26@gmail.com">email ↗</a>
+            <a href="mailto:ejaquino26@gmail.com?subject=Career%20Opportunity">hiring inquiry ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats ribbon -->
+      <div class="stats-ribbon reveal" aria-label="Portfolio proof">
+        <div class="stat-item proof">
+          <div class="stat-val"><strong>10</strong></div>
+          <div class="stat-lbl"><span>Years in enterprise systems</span></div>
+        </div>
+        <div class="stat-item proof">
+          <div class="stat-val"><strong>155</strong></div>
+          <div class="stat-lbl"><span>Project workspaces indexed</span></div>
+        </div>
+        <div class="stat-item proof">
+          <div class="stat-val"><strong>7,272,564</strong></div>
+          <div class="stat-lbl"><span>Lines of code indexed</span></div>
+        </div>
+        <div class="stat-item proof">
+          <div class="stat-val"><strong>50+</strong></div>
+          <div class="stat-lbl"><span>Global Brands & Clients</span></div>
+        </div>
+      </div>
+
+      <!-- Client Trust & Brand Logos -->
+      <div class="client-trust reveal" aria-label="Selected client brands">
+        <div class="client-trust-head">
+          <span class="client-trust-kicker">Enterprise Clients & Deployments</span>
+          <span class="client-trust-count">Representative brands from 10+ years of NetSuite architecture & integrations</span>
+        </div>
+        <div class="client-logos-grid">
+          <!-- Rare Beauty -->
+          <div class="client-logo-card" title="Rare Beauty">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 160 26" fill="currentColor" role="img" aria-label="Rare Beauty">
+                <title>Rare Beauty</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', Times, 'Geologica', serif" font-size="16" font-weight="600" letter-spacing="0.22em">RARE BEAUTY</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Global DTC · NetSuite</span>
+          </div>
+
+          <!-- Nutribullet / Capital Brands -->
+          <div class="client-logo-card" title="Nutribullet (Capital Brands)">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 140 26" fill="currentColor" role="img" aria-label="Nutribullet">
+                <title>Nutribullet</title>
+                <text x="46%" y="19" text-anchor="middle" font-family="'Geologica', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.04em">nutribullet</text>
+                <circle cx="116" cy="17" r="3" fill="var(--signal-copper)"/>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Capital Brands · EDI</span>
+          </div>
+
+          <!-- Nidecker Group -->
+          <div class="client-logo-card" title="Nidecker Group">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 140 26" fill="currentColor" role="img" aria-label="Nidecker">
+                <title>Nidecker</title>
+                <polygon points="10,21 18,7 26,21" fill="none" stroke="currentColor" stroke-width="2.4"/>
+                <polygon points="19,21 24,12 29,21" fill="var(--signal-copper)"/>
+                <text x="80" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="800" letter-spacing="0.1em">NIDECKER</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Sports · 14 Subsidiaries</span>
+          </div>
+
+          <!-- Tatcha -->
+          <div class="client-logo-card" title="Tatcha">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="Tatcha">
+                <title>Tatcha</title>
+                <g transform="translate(10, 5)">
+                  <polygon points="7,0 14,7 7,14 0,7" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                  <circle cx="7" cy="7" r="2" fill="var(--signal-copper)"/>
+                </g>
+                <text x="76" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="16" font-weight="500" letter-spacing="0.26em">TATCHA</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Luxury Skincare</span>
+          </div>
+
+          <!-- Hourglass -->
+          <div class="client-logo-card" title="Hourglass Cosmetics">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 150 26" fill="currentColor" role="img" aria-label="Hourglass">
+                <title>Hourglass</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="13.5" font-weight="500" letter-spacing="0.32em">HOURGLASS</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Cosmetics · 3PL</span>
+          </div>
+
+          <!-- Kosas -->
+          <div class="client-logo-card" title="Kosas">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 110 26" fill="currentColor" role="img" aria-label="Kosas">
+                <title>Kosas</title>
+                <text x="50%" y="20" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="20" font-weight="700" letter-spacing="-0.02em">Kosas</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Clean Beauty</span>
+          </div>
+
+          <!-- Vegamour -->
+          <div class="client-logo-card" title="Vegamour">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 140 26" fill="currentColor" role="img" aria-label="Vegamour">
+                <title>Vegamour</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="600" letter-spacing="0.18em">VEGAMOUR</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Hair Wellness</span>
+          </div>
+
+          <!-- Pacifica -->
+          <div class="client-logo-card" title="Pacifica Beauty">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="Pacifica">
+                <title>Pacifica</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="16" font-weight="600" letter-spacing="0.18em">PACIFICA</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Clean Beauty</span>
+          </div>
+
+          <!-- Merit -->
+          <div class="client-logo-card" title="Merit Beauty">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 110 26" fill="currentColor" role="img" aria-label="Merit">
+                <title>Merit</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="17" font-weight="600" letter-spacing="0.28em">MERIT</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Luxury Beauty</span>
+          </div>
+
+          <!-- Jones Road -->
+          <div class="client-logo-card" title="Jones Road Beauty">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 150 26" fill="currentColor" role="img" aria-label="Jones Road">
+                <title>Jones Road</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Times New Roman', serif" font-size="15" font-weight="700" letter-spacing="0.14em">JONES ROAD</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Clean Makeup</span>
+          </div>
+
+          <!-- Beautycounter -->
+          <div class="client-logo-card" title="Beautycounter">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 160 26" fill="currentColor" role="img" aria-label="Beautycounter">
+                <title>Beautycounter</title>
+                <text x="50%" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="13.5" font-weight="600" letter-spacing="0.16em">BEAUTYCOUNTER</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">B-Corp DTC</span>
+          </div>
+
+          <!-- GT Golf -->
+          <div class="client-logo-card" title="GT Golf Supplies">
+            <div class="client-logo-mark">
+              <svg class="client-logo-svg" viewBox="0 0 130 26" fill="currentColor" role="img" aria-label="GT Golf">
+                <title>GT Golf</title>
+                <g transform="translate(6, 5)">
+                  <path d="M0,0 L11,4 L0,8 Z" fill="var(--signal-copper)"/>
+                  <line x1="0" y1="0" x2="0" y2="16" stroke="currentColor" stroke-width="2"/>
+                </g>
+                <text x="72" y="19" text-anchor="middle" font-family="'Geologica', sans-serif" font-size="15" font-weight="800" letter-spacing="0.08em">GT GOLF</text>
+              </svg>
+            </div>
+            <span class="client-logo-sub">Wholesale · 1,165 Scripts</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 01: Experience (Open, uncollapsed, chronological) ── -->
+    <section class="section wrap" id="experience">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-kicker">01 // flight log</span>
+          <h2 class="section-title">Career & Enterprise Track Record</h2>
+          <p class="section-sub">Ten years of high-consequence enterprise engineering, platform defense, and production delivery.</p>
+        </div>
+        <a class="button button--quiet" href="Aquino_Erick_CV_ATS.pdf" target="_blank" rel="noopener">Full CV ↗</a>
+      </div>
+
+      <div class="timeline reveal">
+        <!-- Ekwani Consulting LLC -->
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-brand">
+              <div class="timeline-logo-box" title="Ekwani Consulting LLC">
+                <picture>
+                  <source srcset="ekwani_logo_dark.webp" type="image/webp">
+                  <img src="ekwani_logo_dark.png" alt="Ekwani Consulting" class="timeline-logo-img" width="130" height="56" loading="lazy">
+                </picture>
+              </div>
+              <div>
+                <div class="timeline-org">Ekwani Consulting LLC</div>
+                <h3 class="timeline-role">Senior NetSuite Developer & Integration Architect</h3>
+              </div>
+            </div>
+            <div class="timeline-date">2021 - Present</div>
+          </div>
+          <p class="timeline-desc">
+            Lead technical architect for multi-system enterprise integrations. Design and deliver production-grade connectivity between NetSuite ERP and logistics networks (Masonhub, ShipBob, Capacity 3PL, Radial, ILG). Engineer automated carrier pipelines for DHL and FedEx, bidirectional Shopify synchronization, and advanced Celigo iPaaS orchestration (Legendary Level 4).
+          </p>
+        </article>
+
+        <!-- Kodella LLC -->
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-brand">
+              <div class="timeline-logo-box" title="Kodella LLC">
+                <picture>
+                  <source srcset="kodella_logo_dark.webp" type="image/webp">
+                  <img src="kodella_logo_dark.png" alt="Kodella" aria-label="Kodella" class="timeline-logo-img" width="130" height="33" loading="lazy">
+                </picture>
+              </div>
+              <div>
+                <div class="timeline-org">Kodella LLC</div>
+                <h3 class="timeline-role">NetSuite Developer</h3>
+              </div>
+            </div>
+            <div class="timeline-date">2019 - 2021</div>
+          </div>
+          <p class="timeline-desc">
+            Delivered custom SuiteScript 2.x, SuiteFlow, and MapReduce batch data architectures across finance, inventory, and supply chain. Managed full NetSuite Release Preview upgrade lifecycles with zero-disruption cutovers, executive KPI dashboards, and platform governance across complex client customizations.
+          </p>
+        </article>
+
+        <!-- Oracle NetSuite Corporation -->
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-brand">
+              <div class="timeline-logo-box" title="Oracle NetSuite Corporation">
+                <picture>
+                  <source srcset="netsuite_logo_dark.webp" type="image/webp">
+                  <img src="netsuite_logo_dark.png" alt="Oracle NetSuite" aria-label="Oracle NetSuite" class="timeline-logo-img" width="125" height="45" loading="lazy">
+                </picture>
+              </div>
+              <div>
+                <div class="timeline-org">Oracle NetSuite Corporation</div>
+                <h3 class="timeline-role">Senior Consultant (ESM) · Defect Deflection · SWAT Desk</h3>
+              </div>
+            </div>
+            <div class="timeline-date">2016 - 2019</div>
+          </div>
+          <p class="timeline-desc">
+            Earned 4 successive promotions within NetSuite Global Support & Engineering Services. Handled the platform's Top 200 enterprise customer escalations on the elite SWAT desk. Performed root-cause analysis for core platform defects across SuiteScript, SuiteFlow, and SDF, and conducted architectural quality audits under Oracle's Engineering Solutions Management (ESM) methodology.
+          </p>
+        </article>
+
+        <!-- Accenture, Inc. -->
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-brand">
+              <div class="timeline-logo-box" title="Accenture, Inc.">
+                <svg class="timeline-logo-svg" viewBox="0 0 163.4 43" fill="none" role="img" aria-label="Accenture">
+                  <title>Accenture</title>
+                  <polygon fill="#A100FF" points="95.1,4.9 95.1,0 111.2,6.5 111.2,10.5 95.1,17 95.1,12 104.5,8.5" />
+                  <path fill="#f8fafc" d="M 6.2,43 C 2.8,43 0,41.3 0,37.5 v -0.2 c 0,-4.6 4,-6.2 8.9,-6.2 h 2.3 v -0.9 c 0,-1.9 -0.8,-3 -2.8,-3 -1.8,0 -2.7,1 -2.8,2.4 h -5 c 0.4,-4.2 3.7,-6.2 8.1,-6.2 4.5,0 7.8,1.9 7.8,6.6 V 42.6 H 11.4 V 40.4 C 10.4,41.8 8.7,43 6.2,43 Z m 5,-6.6 V 34.6 H 9.1 c -2.6,0 -3.9,0.7 -3.9,2.4 v 0.2 c 0,1.3 0.8,2.2 2.6,2.2 1.8,-0.1 3.4,-1.1 3.4,-3 z M 28.4,43 c -5.2,0 -9,-3.2 -9,-9.6 v -0.3 c 0,-6.4 4,-9.8 9,-9.8 4.3,0 7.8,2.2 8.2,7.1 h -5 c -0.3,-1.8 -1.3,-3 -3.1,-3 -2.2,0 -3.8,1.8 -3.8,5.5 v 0.6 c 0,3.8 1.4,5.5 3.8,5.5 1.8,0 3.1,-1.3 3.4,-3.4 h 4.8 C 36.4,40 33.5,43 28.4,43 Z M 48,43 c -5.2,0 -9,-3.2 -9,-9.6 v -0.3 c 0,-6.4 4,-9.8 9,-9.8 4.3,0 7.8,2.2 8.2,7.1 h -5 c -0.3,-1.8 -1.3,-3 -3.1,-3 -2.2,0 -3.8,1.8 -3.8,5.5 v 0.6 c 0,3.8 1.4,5.5 3.8,5.5 1.8,0 3.1,-1.3 3.4,-3.4 h 4.8 C 56,40 53.1,43 48,43 Z m 19.7,0 c -5.4,0 -9.1,-3.2 -9.1,-9.5 v -0.4 c 0,-6.3 3.9,-9.8 9,-9.8 4.7,0 8.6,2.6 8.6,8.9 v 2.3 H 63.9 c 0.2,3.4 1.7,4.7 3.9,4.7 2,0 3.1,-1.1 3.5,-2.4 h 4.9 C 75.6,40.3 72.6,43 67.7,43 Z M 64,31 h 7 c -0.1,-2.8 -1.4,-4 -3.5,-4 -1.6,0.1 -3.1,1 -3.5,4 z m 15.4,-7.2 h 5.3 v 2.8 c 0.9,-1.8 2.8,-3.2 5.7,-3.2 3.4,0 5.7,2.1 5.7,6.6 V 42.6 H 90.8 V 30.8 c 0,-2.2 -0.9,-3.2 -2.8,-3.2 -1.8,0 -3.3,1.1 -3.3,3.5 v 11.5 h -5.3 z m 26.4,-5.7 v 5.7 h 3.6 v 3.9 h -3.6 v 8.9 c 0,1.4 0.6,2.1 1.9,2.1 0.8,0 1.3,-0.1 1.8,-0.3 v 4.1 c -0.6,0.2 -1.7,0.4 -3,0.4 -4.1,0 -6,-1.9 -6,-5.7 v -9.5 h -2.2 v -3.9 h 2.2 v -3.5 z m 23.4,24.5 H 124 v -2.8 c -0.9,1.8 -2.7,3.2 -5.5,3.2 -3.4,0 -5.9,-2.1 -5.9,-6.5 V 23.8 h 5.3 v 12 c 0,2.2 0.9,3.2 2.7,3.2 1.8,0 3.3,-1.2 3.3,-3.5 V 23.8 h 5.3 z m 3.9,-18.8 h 5.3 v 3.5 c 1.1,-2.5 2.9,-3.7 5.7,-3.7 v 5.2 c -3.6,0 -5.7,1.1 -5.7,4.2 v 9.7 h -5.3 z M 154.8,43 c -5.4,0 -9.1,-3.2 -9.1,-9.5 v -0.4 c 0,-6.3 3.9,-9.8 9,-9.8 4.7,0 8.6,2.6 8.6,8.9 v 2.3 h -12.2 c 0.2,3.4 1.7,4.7 3.9,4.7 2,0 3.1,-1.1 3.5,-2.4 h 4.9 c -0.8,3.5 -3.7,6.2 -8.6,6.2 z M 151,31 h 7.1 c -0.1,-2.8 -1.4,-4 -3.5,-4 -1.6,0.1 -3.1,1 -3.6,4 z" />
+                </svg>
+              </div>
+              <div>
+                <div class="timeline-org">Accenture, Inc.</div>
+                <h3 class="timeline-role">Development & Operations (DevOps) Intern</h3>
+              </div>
+            </div>
+            <div class="timeline-date">2016</div>
+          </div>
+          <p class="timeline-desc">
+            Built automated CI/CD pipelines and quality assurance tooling using Jenkins, SonarQube, Selenium, and Java test frameworks.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── 02: Systems (Selected Work & Industrial Breakdowns) ── -->
+    <section class="section wrap" id="systems">
+      <!-- 02.1: Six Pillars of Reliability -->
+      <div class="section-head reveal">
+        <div>
+          <span class="section-kicker">02.1 // architectural pillars</span>
+          <h2 class="section-title">Six Tenets of Mission-Critical NetSuite Architecture</h2>
+          <p class="section-sub">Engineered for zero data drift, peak volume endurance, and provable financial integrity.</p>
+        </div>
+      </div>
+
+      <div class="pillars-grid reveal">
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-index">01</span>
+            <span class="pillar-badge">Integrity</span>
+          </div>
+          <h3 class="pillar-title">Zero-Drift</h3>
+          <div class="pillar-sub">Ledger Parity & Boundary Proof</div>
+          <p class="pillar-desc">Financial reconciliations balancing to the penny across multi-subsidiary ERP, banking, and payment gateways with automated anomaly alerts.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-index">02</span>
+            <span class="pillar-badge">Concurrency</span>
+          </div>
+          <h3 class="pillar-title">High-Throughput</h3>
+          <div class="pillar-sub">Zero Record-Lock Architecture</div>
+          <p class="pillar-desc">Architected for peak flash sale drops exceeding 15,000 orders/hour with zero script governance crashes and decoupled batch queues.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-index">03</span>
+            <span class="pillar-badge">Fulfillment</span>
+          </div>
+          <h3 class="pillar-title">Multi-3PL</h3>
+          <div class="pillar-sub">Distributed Warehouse Routing</div>
+          <p class="pillar-desc">Global logistics routing across North America, EMEA, and APAC (Masonhub, ShipBob, Capacity, Radial, ILG) with automated carrier failover.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-index">04</span>
+            <span class="pillar-badge">Resilience</span>
+          </div>
+          <h3 class="pillar-title">Fault-Tolerant</h3>
+          <div class="pillar-sub">Self-Healing iPaaS Pipelines</div>
+          <p class="pillar-desc">Idempotent webhooks, automatic exponential backoff retries, and dead-letter queues preventing silent transaction drops during upstream outages.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-index">05</span>
+            <span class="pillar-badge">Governance</span>
+          </div>
+          <h3 class="pillar-title">Audit-Ready</h3>
+          <div class="pillar-sub">SOX & SDF Version Control</div>
+          <p class="pillar-desc">Complete trace logging, SDF version-controlled migrations, and audit compliance built natively into every SuiteScript execution path.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-head">
+            <span class="pillar-index">06</span>
+            <span class="pillar-badge">Execution</span>
+          </div>
+          <h3 class="pillar-title">Full-Lifecycle</h3>
+          <div class="pillar-sub">Requirements to Hypercare</div>
+          <p class="pillar-desc">Sole-architect ownership from executive stakeholder discovery to production deployment, cutover execution, and post-go-live stabilization.</p>
+        </div>
+      </div>
+
+      <!-- 02.2: Product-Style Engineered Platforms -->
+      <div class="section-head reveal" style="margin-top: 4rem;">
+        <div>
+          <span class="section-kicker">02.2 // engineered platforms</span>
+          <h2 class="section-title">Flagship Enterprise Deployments</h2>
+          <p class="section-sub">Production platforms engineered for category leaders with verified technical specifications.</p>
+        </div>
+      </div>
+
+      <div class="vessels-grid reveal">
+        <!-- Nidecker Group -->
+        <article class="vessel-card viewfinder">
+          <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
+          <div class="vessel-meta">
+            <span class="vessel-classification">Global ERP & Matrix Pricing Vessel</span>
+            <span class="vessel-badge">Sole Lead Architect</span>
+          </div>
+          <h3 class="vessel-title">Nidecker Group Global Enterprise ERP</h3>
+          <div class="vessel-specs-strip">
+            <div class="vessel-spec-item"><b>Codebase:</b> 1,248 JavaScript / SuiteScript files</div>
+            <div class="vessel-spec-item"><b>Scope:</b> 14 Global Subsidiaries</div>
+            <div class="vessel-spec-item"><b>Currencies:</b> Multi-Currency EMEA / Americas</div>
+            <div class="vessel-spec-item"><b>Throughput:</b> Sub-second Matrix Pricing</div>
+          </div>
+          <p style="color: var(--text-muted); font-size: .94rem; line-height: 1.6; margin: 0 0 1.25rem;">
+            Sole architect from initial requirements through global production go-live. Engineered a high-performance dynamic matrix pricing engine calculating real-time landed costs, currency conversions, and customer group discounts across 14 international subsidiaries. Integrated automated EDI 850/855/856 order orchestration for major global sporting goods retailers.
+          </p>
+          <div class="vessel-subsystems">
+            <div class="vessel-subsystem">
+              <strong>Dynamic Pricing Engine</strong>
+              Sub-second multi-currency matrix pricing and landed cost calculator.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Global EDI 850/856</strong>
+              Automated B2B purchase order ingestion and advanced shipping notices.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Multi-Subsidiary Core</strong>
+              Intercompany transactions, automated elimination, and currency revaluation.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Tax Automation</strong>
+              Real-time multi-jurisdiction nexus calculation and compliance filing.
+            </div>
+          </div>
+        </article>
+
+        <!-- Rare Beauty -->
+        <article class="vessel-card viewfinder">
+          <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
+          <div class="vessel-meta">
+            <span class="vessel-classification">High-Velocity Omnichannel & Logistics Pipeline</span>
+            <span class="vessel-badge">Lead NetSuite Architect</span>
+          </div>
+          <h3 class="vessel-title">Rare Beauty Omnichannel Fulfillment Platform</h3>
+          <div class="vessel-specs-strip">
+            <div class="vessel-spec-item"><b>Codebase:</b> 896 JavaScript / SuiteScript files</div>
+            <div class="vessel-spec-item"><b>Nodes:</b> 4 Global 3PL Warehouses</div>
+            <div class="vessel-spec-item"><b>Peak Velocity:</b> 50k+ Daily Orders</div>
+            <div class="vessel-spec-item"><b>Allocation:</b> Real-Time Zero-Oversell</div>
+          </div>
+          <p style="color: var(--text-muted); font-size: .94rem; line-height: 1.6; margin: 0 0 1.25rem;">
+            Architected the mission-critical fulfillment backbone powering high-velocity product drops for one of the world's fastest-growing beauty brands. Synchronized Shopify Plus with NetSuite ERP and 4 geographically distributed 3PL distribution centers, engineering real-time inventory allocation that eliminated overselling during viral traffic surges.
+          </p>
+          <div class="vessel-subsystems">
+            <div class="vessel-subsystem">
+              <strong>Omnichannel Drop Pipeline</strong>
+              Absorbs 50,000+ daily orders with parallel MapReduce ingestion.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Distributed 3PL Sync</strong>
+              Bidirectional real-time inventory and shipping parity across 4 nodes.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Inventory Allocation Guard</strong>
+              Atomic pre-order reservation logic preventing split inventory drift.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Automated RMA Processing</strong>
+              Return merchandise authorization inspection and ledger restock routing.
+            </div>
+          </div>
+        </article>
+
+        <!-- Capital Brands (Nutribullet) -->
+        <article class="vessel-card viewfinder">
+          <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
+          <div class="vessel-meta">
+            <span class="vessel-classification">Enterprise Automation & Asynchronous Grid</span>
+            <span class="vessel-badge">Enterprise NetSuite Architect</span>
+          </div>
+          <h3 class="vessel-title">Capital Brands (Nutribullet) Manufacturing Grid</h3>
+          <div class="vessel-specs-strip">
+            <div class="vessel-spec-item"><b>Codebase:</b> 697+ Custom JS Files</div>
+            <div class="vessel-spec-item"><b>UI Customization:</b> 95+ Interactive Suitelets</div>
+            <div class="vessel-spec-item"><b>Batch Processing:</b> 35+ MapReduce Engines</div>
+            <div class="vessel-spec-item"><b>Event Triggers:</b> 27+ UserEvent Scripts</div>
+          </div>
+          <p style="color: var(--text-muted); font-size: .94rem; line-height: 1.6; margin: 0 0 1.25rem;">
+            Designed enterprise-scale asynchronous automation for high-volume kitchen appliance manufacturing and wholesale distribution. Built 95+ custom operational Suitelet interfaces for warehouse operators and engineered 35+ MapReduce batch jobs reconciling high-volume shipments, vendor chargebacks, and SPS Commerce EDI transaction streams.
+          </p>
+          <div class="vessel-subsystems">
+            <div class="vessel-subsystem">
+              <strong>95+ Operational Suitelets</strong>
+              Custom interactive warehouse management and order verification consoles.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>35+ MapReduce Jobs</strong>
+              High-volume asynchronous financial settlement and batch reconciliation.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>SPS Commerce EDI</strong>
+              Automated high-throughput retail EDI pipelines for Tier-1 box stores.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>RMA Inspection Gate</strong>
+              Serialized warranty evaluation and salvage ledger classification.
+            </div>
+          </div>
+        </article>
+
+        <!-- EKW-SPHERE -->
+        <article class="vessel-card viewfinder">
+          <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
+          <div class="vessel-meta">
+            <span class="vessel-classification">Distributed Financial Reconciliation & Sync SaaS</span>
+            <span class="vessel-badge">Lead Systems Architect</span>
+          </div>
+          <h3 class="vessel-title">EKW-SPHERE Multi-Tenant Financial Gateway</h3>
+          <div class="vessel-specs-strip">
+            <div class="vessel-spec-item"><b>Architecture:</b> 50,000+ LoC Python / React</div>
+            <div class="vessel-spec-item"><b>Throughput:</b> 3,600+ RPS Processing</div>
+            <div class="vessel-spec-item"><b>Latency:</b> Sub-50ms Response Time</div>
+            <div class="vessel-spec-item"><b>Detection:</b> Continuous Anomaly Alerts</div>
+          </div>
+          <p style="color: var(--text-muted); font-size: .94rem; line-height: 1.6; margin: 0 0 1.25rem;">
+            Engineered a full-stack enterprise reconciliation platform connecting NetSuite with external WMS and transactional databases. Designed high-throughput asynchronous event consumers processing 3,600+ requests per second, matching ledger records in real time and isolating data discrepancies before financial period close.
+          </p>
+          <div class="vessel-subsystems">
+            <div class="vessel-subsystem">
+              <strong>3,600+ RPS Event Consumer</strong>
+              High-throughput asynchronous event ingestion and stream validation.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Ledger Parity Engine</strong>
+              Continuous bi-directional balance checking between WMS and ERP.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Discrepancy Resolver</strong>
+              Automated rule-based correction pipelines for trapped transactions.
+            </div>
+            <div class="vessel-subsystem">
+              <strong>Audit Ledger Vault</strong>
+              Immutable cryptographic transaction history for compliance verification.
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- 02.3: Autonomous Engineering & Multi-Agent Orchestration -->
+      <div class="section-head reveal" style="margin-top: 4.5rem;">
+        <div>
+          <span class="section-kicker">02.3 // autonomous engineering methodology</span>
+          <h2 class="section-title">Parallel AI Agent Orchestration & Autonomous Delivery</h2>
+          <p class="section-sub">A cut above legacy consulting: orchestrating specialized multi-agent swarms, isolated Git worktrees, and domain-specific developer loops to deliver enterprise NetSuite architectures at 10x velocity with zero drift.</p>
+        </div>
+      </div>
+
+      <!-- Interactive Autonomous Pipeline Console -->
+      <div class="pipeline-console viewfinder reveal" id="pipelineConsole">
+        <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
+        <div class="console-topbar">
+          <div class="console-controls">
+            <span class="ctrl-dot ctrl-red" aria-hidden="true"></span>
+            <span class="ctrl-dot ctrl-yellow" aria-hidden="true"></span>
+            <span class="ctrl-dot ctrl-green" aria-hidden="true"></span>
+            <span class="console-title">autonomous-orchestration-console // erickaquino/orchestrator</span>
+          </div>
+          <div class="console-status">
+            <span class="pulse-dot"></span> <span>SWARM ENGINE: ACTIVE</span>
+          </div>
+        </div>
+
+        <div class="console-tabs" role="tablist" aria-label="Autonomous Engineering Methodologies">
+          <button class="console-tab is-active" id="tab-triad" role="tab" aria-selected="true" aria-controls="pane-triad" type="button">
+            <span>&gt;</span> Adversarial Triad Engine
+          </button>
+          <button class="console-tab" id="tab-sandbox" role="tab" aria-selected="false" aria-controls="pane-sandbox" type="button" tabindex="-1">
+            <span>&gt;</span> Automated Sandbox &amp; Release Gate
+          </button>
+          <button class="console-tab" id="tab-incident" role="tab" aria-selected="false" aria-controls="pane-incident" type="button" tabindex="-1">
+            <span>&gt;</span> Real-Time Incident Deflection
+          </button>
+          <button class="console-tab" id="tab-multirepo" role="tab" aria-selected="false" aria-controls="pane-multirepo" type="button" tabindex="-1">
+            <span>&gt;</span> Parallel Multi-Repo DAGs
+          </button>
+          <button class="console-tab console-tab--highlight" id="tab-comparison" role="tab" aria-selected="false" aria-controls="pane-comparison" type="button" tabindex="-1">
+            <span>★</span> The Autonomous Advantage
+          </button>
+        </div>
+
+        <div class="console-body">
+          <!-- Pane 1: Adversarial Triad Engine -->
+          <div class="tab-pane is-active" id="pane-triad" role="tabpanel" aria-labelledby="tab-triad">
+            <div class="pane-header">
+              <div>
+                <div class="pane-badge">Orchestration Pillar 01</div>
+                <h3 class="pane-title">Adversarial Triad Engine // Decoupled Multi-Agent Loop</h3>
+                <p class="pane-subtitle">How I orchestrate: Instead of relying on a single developer or single AI that can make subtle errors, I decouple delivery into three adversarial agent roles: an Architect for requirements and contract definition, an isolated Builder, and an independent QA Auditor.</p>
+              </div>
+              <div class="pane-stat-box">
+                <div class="stat-num">0.00%</div>
+                <div class="stat-desc">Single-Agent Bias Rate</div>
+              </div>
+            </div>
+
+            <div class="terminal-box">
+              <div class="terminal-cmd">
+                <span class="prompt">//</span> <code>ORCHESTRATION: FORMAL BLUEPRINT &rarr; ISOLATED WORKTREE &rarr; ADVERSARIAL AUDIT</code>
+              </div>
+              <div class="terminal-stages">
+                <div class="stage-item">
+                  <div class="stage-tag">STAGE 01 // ARCHITECT</div>
+                  <div class="stage-name">Formal Blueprint Specification</div>
+                  <p class="stage-detail">Synthesizes ERP requirements into strict contracts, governance limits, SuiteScript 2.1 entrypoints, and invariant assertions before code generation begins.</p>
+                </div>
+                <div class="stage-item">
+                  <div class="stage-tag">STAGE 02 // BUILDER</div>
+                  <div class="stage-name">Isolated Worktree Execution</div>
+                  <p class="stage-detail">Spawns dedicated Git worktrees to write modular SuiteScript 2.1, Celigo transforms, and MapReduce batch handlers without repository locks.</p>
+                </div>
+                <div class="stage-item">
+                  <div class="stage-tag">STAGE 03 // AUDITOR</div>
+                  <div class="stage-name">Adversarial Verification Gate</div>
+                  <p class="stage-detail">An independent auditor agent validates implementation against the blueprint, runs automated unit tests, and verifies zero-drift invariants.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 2: Automated Sandbox & Release Gate -->
+          <div class="tab-pane" id="pane-sandbox" role="tabpanel" aria-labelledby="tab-sandbox" hidden>
+            <div class="pane-header">
+              <div>
+                <div class="pane-badge">Orchestration Pillar 02</div>
+                <h3 class="pane-title">Automated SuiteCloud Sandbox Gatekeeping &amp; Release Pipeline</h3>
+                <p class="pane-subtitle">How I orchestrate: Directly coupling issue trackers with SDF repositories, validating every SuiteScript candidate in isolated NetSuite sandboxes with automated regression runs before production cutover.</p>
+              </div>
+              <div class="pane-stat-box">
+                <div class="stat-num">&lt; 2h</div>
+                <div class="stat-desc">Ticket Ingestion to PR</div>
+              </div>
+            </div>
+
+            <div class="terminal-box">
+              <div class="terminal-cmd">
+                <span class="prompt">//</span> <code>ORCHESTRATION: TICKET INGESTION &rarr; REPO CONTEXT &rarr; SDF SANDBOX RUN &rarr; ZERO-DRIFT PROD CUTOVER</code>
+              </div>
+              <div class="terminal-stages">
+                <div class="stage-item">
+                  <div class="stage-tag">STAGE 01 // INGESTION</div>
+                  <div class="stage-name">Ticket &amp; Repo Context Synthesis</div>
+                  <p class="stage-detail">Ingests issue acceptance criteria, parses 700+ enterprise SuiteCloud files, and locates exact UserEvent, Suitelet, or MapReduce triggers.</p>
+                </div>
+                <div class="stage-item">
+                  <div class="stage-tag">STAGE 02 // SANDBOX RUN</div>
+                  <div class="stage-name">SuiteCloud SDF Sandbox Verification</div>
+                  <p class="stage-detail">Pushes atomic custom objects into isolated NetSuite Sandboxes, validating permissions, XML definitions, and record-level script events.</p>
+                </div>
+                <div class="stage-item">
+                  <div class="stage-tag">STAGE 03 // PROD GATEWAY</div>
+                  <div class="stage-name">Zero-Drift Production Deployment</div>
+                  <p class="stage-detail">Executes production release with automated pre-flight balance verifications, SDF dependency checks, and integrated Git tag audits.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 3: Real-Time Incident Deflection -->
+          <div class="tab-pane" id="pane-incident" role="tabpanel" aria-labelledby="tab-incident" hidden>
+            <div class="pane-header">
+              <div>
+                <div class="pane-badge">Orchestration Pillar 03</div>
+                <h3 class="pane-title">Real-Time Incident Deflection &amp; iPaaS Error Telemetry</h3>
+                <p class="pane-subtitle">How I orchestrate: Ingesting enterprise helpdesk incidents, interrogating Celigo and NetSuite execution logs, reproducing edge cases in ephemeral workspaces, and generating verified patches in hours.</p>
+              </div>
+              <div class="pane-stat-box">
+                <div class="stat-num">99.99%</div>
+                <div class="stat-desc">Order Sync Parity</div>
+              </div>
+            </div>
+
+            <div class="terminal-box">
+              <div class="terminal-cmd">
+                <span class="prompt">//</span> <code>ORCHESTRATION: LOG TRACING &rarr; GOVERNANCE COLLISION ISOLATION &rarr; IDEMPOTENT PATCH</code>
+              </div>
+              <div class="terminal-stages">
+                <div class="stage-item">
+                  <div class="stage-tag">STAGE 01 // DIAGNOSTIC</div>
+                  <div class="stage-name">Automated Log &amp; Webhook Tracing</div>
+                  <p class="stage-detail">Interrogates integrator.io export/import runs, parses HTTP payload traces, and pinpoints NetSuite governance or field mapping errors.</p>
+                </div>
+                <div class="stage-item">
+                  <div class="stage-tag">STAGE 02 // ISOLATION</div>
+                  <div class="stage-name">Reproduction in Ephemeral Context</div>
+                  <p class="stage-detail">Simulates payload edge cases, handles lock contentions, and crafts idempotent hooks (preSavePage, postSubmit, filter scripts).</p>
+                </div>
+                <div class="stage-item">
+                  <div class="stage-tag">STAGE 03 // RESOLUTION</div>
+                  <div class="stage-name">Verified Fix &amp; Technical Post-Mortem</div>
+                  <p class="stage-detail">Prepares verified SuiteScript/Celigo patch, tests against staging payloads, and generates full technical documentation for stakeholders.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 4: Parallel Multi-Repo DAGs -->
+          <div class="tab-pane" id="pane-multirepo" role="tabpanel" aria-labelledby="tab-multirepo" hidden>
+            <div class="pane-header">
+              <div>
+                <div class="pane-badge">Orchestration Pillar 04</div>
+                <h3 class="pane-title">Cross-Platform Task DAGs &amp; Parallel Worktree Concurrency</h3>
+                <p class="pane-subtitle">How I orchestrate: Coordinating full-stack deliverables spanning Next.js web applications, Celigo data pipelines, and NetSuite ERP ledgers simultaneously without merge collisions or context switching.</p>
+              </div>
+              <div class="pane-stat-box">
+                <div class="stat-num">4+</div>
+                <div class="stat-desc">Concurrent Parallel Tracks</div>
+              </div>
+            </div>
+
+            <div class="terminal-box">
+              <div class="terminal-cmd">
+                <span class="prompt">//</span> <code>ORCHESTRATION: CROSS-SYSTEM TASK DAG &rarr; PARALLEL WORKTREE WORKERS &rarr; LEDGER PARITY VALIDATION</code>
+              </div>
+              <div class="terminal-stages">
+                <div class="stage-item">
+                  <div class="stage-tag">STAGE 01 // ROUTING</div>
+                  <div class="stage-name">Cross-System Task DAG Construction</div>
+                  <p class="stage-detail">Deconstructs operational epics into targeted dependency graphs across UI layers, middleware queues, and NetSuite accounting records.</p>
+                </div>
+                <div class="stage-item">
+                  <div class="stage-tag">STAGE 02 // DISPATCH</div>
+                  <div class="stage-name">Parallel Isolated Worktree Agents</div>
+                  <p class="stage-detail">Dispatches dedicated agents in parallel git worktrees to simultaneously implement frontend forms, Celigo flow steps, and SuiteScripts.</p>
+                </div>
+                <div class="stage-item">
+                  <div class="stage-tag">STAGE 03 // PARITY</div>
+                  <div class="stage-name">End-to-End Transaction Auditing</div>
+                  <p class="stage-detail">Performs full end-to-end verification ensuring customer submissions flow directly into General Ledger balances with 100% data fidelity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 5: The Comparison Matrix (The Autonomous Edge) -->
+          <div class="tab-pane" id="pane-comparison" role="tabpanel" aria-labelledby="tab-comparison" hidden>
+            <div class="pane-header">
+              <div>
+                <div class="pane-badge">The Competitive Advantage</div>
+                <h3 class="pane-title">Traditional ERP Consulting vs. Erick Aquino</h3>
+                <p class="pane-subtitle">How pairing 10+ years of NetSuite SWAT domain mastery with autonomous multi-agent pipelines fundamentally outclasses legacy consultancy models.</p>
+              </div>
+              <div class="pane-stat-box">
+                <div class="stat-num">10x</div>
+                <div class="stat-desc">Delivery Velocity Multiplier</div>
+              </div>
+            </div>
+
+            <div class="comparison-matrix">
+              <div class="cmp-row cmp-head">
+                <div class="cmp-col cmp-dim">Engineering Dimension</div>
+                <div class="cmp-col cmp-legacy">Traditional Consulting Agencies</div>
+                <div class="cmp-col cmp-erick">Erick Aquino (SWAT Rigor × Autonomous AI)</div>
+              </div>
+
+              <div class="cmp-row">
+                <div class="cmp-col cmp-dim">Delivery Velocity</div>
+                <div class="cmp-col cmp-legacy">4 to 12 weeks of discovery meetings, manual coding, and coordination lag.</div>
+                <div class="cmp-col cmp-erick"><strong>Hours to days</strong> via parallel isolated git worktree agents running automated dev loops.</div>
+              </div>
+
+              <div class="cmp-row">
+                <div class="cmp-col cmp-dim">Code Quality &amp; Defect Prevention</div>
+                <div class="cmp-col cmp-legacy">Manual spot checks; single developer bias; unexpected production breakage.</div>
+                <div class="cmp-col cmp-erick"><strong>Adversarial Triad:</strong> Independent auditor agent verifies code against strict blueprints before merge.</div>
+              </div>
+
+              <div class="cmp-row">
+                <div class="cmp-col cmp-dim">Tracker &amp; Ticket Integration</div>
+                <div class="cmp-col cmp-legacy">Stale weekly status syncs; manual copy-pasting of error messages and ticket statuses.</div>
+                <div class="cmp-col cmp-erick"><strong>Autonomous Agent Pipelines</strong> directly parsing, diagnosing, and preparing verified pull requests for Jira, ClickUp &amp; Freshservice tickets.</div>
+              </div>
+
+              <div class="cmp-row">
+                <div class="cmp-col cmp-dim">Release Safety &amp; Governance</div>
+                <div class="cmp-col cmp-legacy">Manual bundle pushes, unversioned sandbox tweaks, risky ad-hoc script deploys.</div>
+                <div class="cmp-col cmp-erick"><strong>Zero-Drift Deployments:</strong> Automated SDF XML audits, dry-run ledger reconciliation, and rollback snapshots.</div>
+              </div>
+
+              <div class="cmp-row">
+                <div class="cmp-col cmp-dim">Team Overhead &amp; Economics</div>
+                <div class="cmp-col cmp-legacy">Bloated teams of 4-6 billable juniors with massive communication overhead.</div>
+                <div class="cmp-col cmp-erick"><strong>Principal Architect</strong> operating a dedicated swarm of verified autonomous agents at fraction of the cost.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="agent-matrix-grid reveal">
+        <!-- Card 1: Role-Decomposed Loops -->
+        <article class="agent-card">
+          <div>
+            <div class="agent-head">
+              <span class="agent-badge">Architecture &amp; QA Loops</span>
+            </div>
+            <h4 class="agent-title">Role-Decomposed Autonomous Cycles</h4>
+            <div class="agent-sub">Role-Decomposed // Architect · Builder · Auditor</div>
+            <p class="agent-desc">
+              Decouples software delivery into specialized concurrent agent roles: an Architect for requirements modeling and blueprint verification, a Builder for SuiteScript 2.1 and API transforms, and an independent QA Auditor for compliance and regression defense.
+            </p>
+          </div>
+          <div class="agent-highlights">
+            <div class="agent-highlight-item"><span>//</span> Eliminates single-agent bias via adversarial cross-verification</div>
+            <div class="agent-highlight-item"><span>//</span> Blueprint validation enforced before any code mutates workspace</div>
+            <div class="agent-highlight-item"><span>//</span> Automated test suite execution with evidence-based acceptance</div>
+          </div>
+        </article>
+
+        <!-- Card 2: Domain-Specific Tracker Pipelines -->
+        <article class="agent-card">
+          <div>
+            <div class="agent-head">
+              <span class="agent-badge">Tracker Integration</span>
+            </div>
+            <h4 class="agent-title">Domain-Specific Tracker Pipelines</h4>
+            <div class="agent-sub">Automated Tracker-Integrated Engineering</div>
+            <p class="agent-desc">
+              Automated agent pipelines directly integrated into enterprise trackers (Jira, ClickUp, Freshservice). Ingests incidents, parses execution logs, reproduces issues across multi-thousand-file codebases, and prepares verified pull requests.
+            </p>
+          </div>
+          <div class="agent-highlights">
+            <div class="agent-highlight-item"><span>//</span> Autonomous root-cause diagnosis across complex SuiteScript suites</div>
+            <div class="agent-highlight-item"><span>//</span> Automated sandbox verification against live account configurations</div>
+            <div class="agent-highlight-item"><span>//</span> Compresses defect deflection cycle from days to under 2 hours</div>
+          </div>
+        </article>
+
+        <!-- Card 3: Parallel Worktree Concurrency -->
+        <article class="agent-card">
+          <div>
+            <div class="agent-head">
+              <span class="agent-badge">Concurrency</span>
+            </div>
+            <h4 class="agent-title">Parallel Worktree Dispatch & Task DAGs</h4>
+            <div class="agent-sub">Multi-Agent Concurrency // Zero Context-Switching</div>
+            <p class="agent-desc">
+              Dispatches concurrent worker agents into isolated Git worktrees governed by structured task DAGs. Multiple complex integrations, data migrations, and script upgrades progress simultaneously without repository lock or merge collision.
+            </p>
+          </div>
+          <div class="agent-highlights">
+            <div class="agent-highlight-item"><span>//</span> Concurrent development across separate subsidiaries and 3PL endpoints</div>
+            <div class="agent-highlight-item"><span>//</span> Synchronous decision gates with automated worker handoffs</div>
+            <div class="agent-highlight-item"><span>//</span> Zero human context-switching penalties across enterprise tracks</div>
+          </div>
+        </article>
+
+        <!-- Card 4: Zero-Regression Sandbox Gatekeeping -->
+        <article class="agent-card">
+          <div>
+            <div class="agent-head">
+              <span class="agent-badge">Reliability Gate</span>
+            </div>
+            <h4 class="agent-title">Zero-Regression Sandbox Gatekeeping</h4>
+            <div class="agent-sub">Continuous Verification // Release Governance</div>
+            <p class="agent-desc">
+              Autonomous release pipelines enforce mandatory multi-tier verification before promotion. Every SuiteScript candidate executes automated unit tests, dry-run balance checks, and SDF dependency validations before production sign-off.
+            </p>
+          </div>
+          <div class="agent-highlights">
+            <div class="agent-highlight-item"><span>//</span> Double-entry ledger parity checks across ERP and 3PL boundaries</div>
+            <div class="agent-highlight-item"><span>//</span> Automated SDF XML object structure and permission audits</div>
+            <div class="agent-highlight-item"><span>//</span> Zero-defect cutovers with verified rollback snapshots</div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Dynamic Project Cases -->
+      <div class="section-head reveal">
+        <div>
+          <span class="section-kicker">02.4 // indexed case records</span>
+          <h3 class="section-title" style="font-size: clamp(1.4rem, 2.5vw, 1.85rem);">Automated Workspace Validations</h3>
+        </div>
+      </div>
+
+      <div class="case-grid">
+        
+        <article class="case-card reveal">
+          <span class="case-tag">Sports Equipment</span>
+          <h3 class="case-name">Global Sports Equipment Manufacturer</h3>
+
+          <div class="case-points">
+            
+              <div class="case-row"><b>Problem</b><span>A global snowboard and sports equipment manufacturer operating across North America, Europe, and Asia-Pacific needed a unified ERP platform to orchestrate multi-vendor integrations, complex pricing engines, and multi-channel fulfillment  -  with no existing architecture in place.</span></div>
+              
+              <div class="case-row"><b>Architecture</b><span>Served as sole technical architect from requirements through production. Designed and delivered the complete platform: multi-vendor integrations, dynamic pricing engines, automated fulfillment workflows, payment processing, and multi-subsidiary financial consolidation. Built the entire 1,248-file codebase end-to-end.</span></div>
+              
+              <div class="case-row"><b>Outcome</b><span>Replaced manual multi-system operations with a fully automated ERP ecosystem. Enabled the company to scale global e-commerce and B2B operations without adding headcount to back-office teams.</span></div>
+            
+          </div>
+
+          
+          <div class="case-metrics-bar">
+            
+            <div class="case-metric-chip">
+              <strong>1,200+</strong>
+              <span>scripts</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>Sole</strong>
+              <span>architect</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>Multi-sub</strong>
+              <span>global</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>Full</strong>
+              <span>lifecycle</span>
+            </div>
+            
+          </div>
+          
+
+          
+          
+    
+    <p class="case-tech-line"><b>System boundary</b>SuiteScript 2.x / SuiteFlow / Celigo iPaaS / REST APIs / Shopify / Multi-subsidiary</p>
+        </article>
+        
+        <article class="case-card reveal">
+          <span class="case-tag">Consumer Electronics</span>
+          <h3 class="case-name">Consumer Electronics Brand Platform</h3>
+
+          <div class="case-points">
+            
+              <div class="case-row"><b>Problem</b><span>A major consumer electronics brand with globally recognized kitchen appliance products needed deep NetSuite customization: 95+ custom UIs, heavy batch data processing, and complex inventory workflows across retail and DTC channels.</span></div>
+              
+              <div class="case-row"><b>Architecture</b><span>Built a long-term, high-touch platform with 697+ active scripts, 95+ Suitelets for custom operational UIs, 35+ MapReduce scripts for batch processing, and 27+ UserEvent scripts for business logic automation.</span></div>
+              
+              <div class="case-row"><b>Outcome</b><span>Delivered a deeply customized ERP that became the operational backbone for global product distribution, eliminating manual data entry across retail and DTC fulfillment channels.</span></div>
+            
+          </div>
+
+          
+          <div class="case-metrics-bar">
+            
+            <div class="case-metric-chip">
+              <strong>697+</strong>
+              <span>scripts</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>95+</strong>
+              <span>Suitelets</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>35+</strong>
+              <span>MapReduce</span>
+            </div>
+            
+          </div>
+          
+
+          
+          
+    
+    <p class="case-tech-line"><b>System boundary</b>SuiteScript 2.x / Suitelets / MapReduce / UserEvent / SuiteFlow</p>
+        </article>
+        
+        <article class="case-card reveal">
+          <span class="case-tag">Full-Stack SaaS</span>
+          <h3 class="case-name">EKW-SPHERE Operations Platform</h3>
+
+          <div class="case-points">
+            
+              <div class="case-row"><b>Problem</b><span>Needed a centralized operations platform for demand planning, inventory reconciliation, and financial reporting across a 20+ client portfolio  -  existing tools were fragmented and lacked security controls.</span></div>
+              
+              <div class="case-row"><b>Architecture</b><span>Built a production SaaS platform from scratch: 10 internal tools spanning demand forecasting, inventory reconciliation, client health dashboards, and automated reporting. Enterprise security with RBAC, 2FA, field-level encryption, and audit logging. Performance-tuned to sustain 3,600+ requests/second.</span></div>
+              
+              <div class="case-row"><b>Outcome</b><span>Consolidated 10 separate operational workflows into a single platform. Reduced manual reporting from hours to real-time dashboards. Serves as the operational backbone for the entire consulting practice.</span></div>
+            
+          </div>
+
+          
+          <div class="case-metrics-bar">
+            
+            <div class="case-metric-chip">
+              <strong>29,500+</strong>
+              <span>lines Python</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>3,600+</strong>
+              <span>RPS</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>10</strong>
+              <span>tools</span>
+            </div>
+            
+            <div class="case-metric-chip">
+              <strong>220+</strong>
+              <span>source files</span>
+            </div>
+            
+          </div>
+          
+
+          
+          
+    
+    <p class="case-tech-line"><b>System boundary</b>Python / Flask / PostgreSQL / Redis / Celery / React / TypeScript</p>
+        </article>
+        
+      </div>
+
+      <!-- 02.5: Comparative Technical Spec Sheet Table (Seasats Lightfish format) -->
+      <div class="section-head reveal" style="margin-top: 3.5rem;">
+        <div>
+          <span class="section-kicker">02.5 // engineering specifications</span>
+          <h3 class="section-title" style="font-size: clamp(1.4rem, 2.5vw, 1.85rem);">Comparative Technical Spec Sheet</h3>
+          <p class="section-sub">Direct architectural parameters, governance ceilings, and protocols across flagship platforms.</p>
+        </div>
+      </div>
+
+      <div class="spec-matrix-wrap reveal">
+        <table class="spec-matrix-table" aria-label="Comparative Technical Spec Sheet">
+          <thead>
+            <tr>
+              <th scope="col">Specification Parameter</th>
+              <th scope="col">Nidecker Group</th>
+              <th scope="col">Rare Beauty</th>
+              <th scope="col">Capital Brands</th>
+              <th scope="col">EKW-SPHERE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Architecture Pattern</th>
+              <td><strong>SuiteScript 2.1 SDF Core</strong>Multi-subsidiary global ERP with dynamic pricing engine</td>
+              <td><strong>Event-Driven iPaaS</strong>Decoupled Shopify Plus to NetSuite order orchestration</td>
+              <td><strong>Hybrid Batch/UI Grid</strong>High-volume MapReduce jobs paired with 95+ Suitelets</td>
+              <td><strong>Distributed Event Loop</strong>High-performance Python/React transaction gateway</td>
+            </tr>
+            <tr>
+              <th scope="row">Codebase Scale</th>
+              <td><strong>1,248 script files</strong>14 international subsidiaries, custom financial engines</td>
+              <td><strong>896 script files</strong>4 3PL warehouse integrations, order routing pipelines</td>
+              <td><strong>697+ custom files</strong>95 interactive Suitelets, 35 MapReduce engines</td>
+              <td><strong>50,000+ LoC</strong>Full-stack multi-tenant reconciliation SaaS</td>
+            </tr>
+            <tr>
+              <th scope="row">Integration Protocols</th>
+              <td><strong>Celigo, Shopify, 3PL EDI</strong>REST Web Services, SOAP, EDI 850/855/856</td>
+              <td><strong>Celigo, Shopify Plus, 4x 3PLs</strong>RESTlets, Webhooks, Carrier APIs (DHL, FedEx)</td>
+              <td><strong>Celigo, SPS Commerce, EDI</strong>REST, ODBC, AS2, SFTP batch sync</td>
+              <td><strong>Celigo, REST Webhooks, WMS API</strong>Bi-directional REST, OAuth 2.0, Webhook mesh</td>
+            </tr>
+            <tr>
+              <th scope="row">Peak Throughput</th>
+              <td><strong>Sub-second Pricing</strong>Real-time landed cost calculation on multi-currency catalogs</td>
+              <td><strong>50,000+ Daily Orders</strong>Zero record locking during high-velocity flash drops</td>
+              <td><strong>35 Concurrent Queues</strong>Massive asynchronous batch financial reconciliation</td>
+              <td><strong>3,600+ RPS</strong>Sub-50ms latency on transaction matching pipeline</td>
+            </tr>
+            <tr>
+              <th scope="row">Ledger & Inventory Parity</th>
+              <td><strong>Landed Cost Parity</strong>Real-time multi-currency tax & margin reconciliation</td>
+              <td><strong>Zero-Oversell Allocation</strong>Atomic pre-order reservations across 4 3PL nodes</td>
+              <td><strong>SOX Close Compliance</strong>Automated RMA credit and vendor chargeback audits</td>
+              <td><strong>Continuous Audit Vault</strong>Automated discrepancy detection before accounting close</td>
+            </tr>
+            <tr>
+              <th scope="row">Engineering Role</th>
+              <td><strong>Sole / Lead Architect</strong>Requirements discovery to global production cutover</td>
+              <td><strong>Lead NetSuite Architect</strong>Omnichannel fulfillment & 3PL logistics architecture</td>
+              <td><strong>Enterprise NetSuite Architect</strong>Warehouse operations & asynchronous batch engineering</td>
+              <td><strong>Lead Systems Architect</strong>Full-stack SaaS architecture and high-scale ingestion</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Project Archive -->
+      
+      <div class="archive-wrap reveal">
+        <button class="archive-btn" id="portfolioToggle" type="button" aria-expanded="false" aria-controls="extendedPortfolio">View all 152 projects</button>
+
+        <div class="archive-list" id="extendedPortfolio">
+          
+          <article class="archive-row" aria-labelledby="archive-title-1">
+            <strong id="archive-title-1">COMEX Commodity Trading Platform</strong>
+            <span>Metals &amp; Commodities</span>
+            <span>59038 lines of code</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-2">
+            <strong id="archive-title-2">Signifyd Fraud-Integrated Platform</strong>
+            <span>Omnichannel E-Commerce</span>
+            <span>7950 lines of code</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-3">
+            <strong id="archive-title-3">Multi-Client B2B Fulfillment Platform</strong>
+            <span>Multi-Client B2B</span>
+            <span>11974 lines of code</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-4">
+            <strong id="archive-title-4">Major DTC Beauty Brand Platform</strong>
+            <span>DTC Beauty</span>
+            <span>3142 lines of code</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-5">
+            <strong id="archive-title-5">Retail EDI Connectivity Platform</strong>
+            <span>Retail EDI &amp; Integration</span>
+            <span>62 lines of code</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-6">
+            <strong id="archive-title-6">Global Golf Equipment Brand</strong>
+            <span>Sports / Retail</span>
+            <span>Large-scale NetSuite implementation for a golf equipment manufacturer with complex inventory management, B2B/B2C portals, and order processing workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-7">
+            <strong id="archive-title-7">Enterprise Wholesale ERP System</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A comprehensive NetSuite implementation featuring extensive SuiteScript 2.x customizations and automated integration pipelines to streamline high-volume business operations.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-8">
+            <strong id="archive-title-8">Enterprise E-commerce Platform Refresh</strong>
+            <span>JavaScript</span>
+            <span>A comprehensive overhaul of a large-scale enterprise e-commerce platform utilizing extensive configuration and JavaScript to enhance user experience and system performance.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-9">
+            <strong id="archive-title-9">Large-Scale Enterprise ERP Platform</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A comprehensive NetSuite ERP customization featuring an extensive frontend architecture and complex business process automation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-10">
+            <strong id="archive-title-10">Enterprise Agent Orchestration System</strong>
+            <span>Python</span>
+            <span>A highly concurrent, large-scale orchestration system designed to coordinate distributed automated agents and processes.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-11">
+            <strong id="archive-title-11">Regional Food Manufacturing System</strong>
+            <span>Python</span>
+            <span>An enterprise-scale data management and logistics platform streamlining food production operations using a robust Python and TypeScript architecture.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-12">
+            <strong id="archive-title-12">Enterprise Business Workflow Automation</strong>
+            <span>JavaScript</span>
+            <span>A vast library of JavaScript automation modules designed to streamline complex business logic and operational workflows across enterprise systems.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-13">
+            <strong id="archive-title-13">Enterprise Customer Portal</strong>
+            <span>Python</span>
+            <span>A comprehensive, full-stack client management platform built with Python and JavaScript to streamline user interactions and complex data processing.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-14">
+            <strong id="archive-title-14">Industrial Supply Company</strong>
+            <span>Industrial / Manufacturing</span>
+            <span>Manufacturing and distribution ERP with custom procurement workflows, vendor management, and production tracking.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-15">
+            <strong id="archive-title-15">Global E-Commerce ERP Platform</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A comprehensive enterprise resource planning implementation leveraging SuiteScript 2.x to automate complex retail business processes.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-16">
+            <strong id="archive-title-16">Enterprise Operations Ecosystem</strong>
+            <span>Python</span>
+            <span>A robust internal management platform built with Python and JavaScript to streamline enterprise workflows and centralize business data.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-17">
+            <strong id="archive-title-17">Enterprise Integration Middleware</strong>
+            <span>JavaScript</span>
+            <span>A centralized JavaScript-based integration framework bridging operational data sources and automated reporting modules.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-18">
+            <strong id="archive-title-18">ERP Operational Script Repository</strong>
+            <span>JavaScript</span>
+            <span>A comprehensive suite of custom JavaScript solutions engineered to automate core ERP processes and data validation requirements.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-19">
+            <strong id="archive-title-19">Apparel Manufacturing ERP Implementation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A production-ready ERP customization automating complex manufacturing workflows, supply chain routing, and financial reconciliation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-20">
+            <strong id="archive-title-20">Media Agency ERP Integration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A robust NetSuite automation initiative utilizing SuiteScript 2.x to customize business processes and manage complex data flows for a digital media enterprise.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-21">
+            <strong id="archive-title-21">DTC Beauty Brand ERP Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Custom NetSuite ERP automation and XML-based integrations streamlining operations for a direct-to-consumer cosmetics brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-22">
+            <strong id="archive-title-22">Internal Operations Command Center</strong>
+            <span>Web Application</span>
+            <span>A comprehensive web dashboard built with Next.js and TypeScript to centralize enterprise workflows and facilitate real-time data management.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-23">
+            <strong id="archive-title-23">HRIS &amp; Payroll API Integration</strong>
+            <span>JavaScript</span>
+            <span>A robust middleware integration synchronizing employee time-tracking and payroll data between enterprise human resources systems.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-24">
+            <strong id="archive-title-24">Supply Chain Network Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A sophisticated architecture designed to optimize vendor management, procurement routing, and global inventory allocation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-25">
+            <strong id="archive-title-25">Enterprise ERP Component Extension</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Developed a comprehensive SuiteScript customization to enhance complex data selection and record management within an enterprise resource planning environment.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-26">
+            <strong id="archive-title-26">Public Sector ERP Integration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>An extensive NetSuite and Python integration designed to automate compliance reporting and complex financial business processes for a public service organization.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-27">
+            <strong id="archive-title-27">iOS Application Suite</strong>
+            <span>Other</span>
+            <span>A collection of native iOS applications and components developed using Swift.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-28">
+            <strong id="archive-title-28">Enterprise IT Services Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A NetSuite ERP implementation utilizing SuiteScript 2.x to automate specialized business workflows and optimize enterprise resource planning.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-29">
+            <strong id="archive-title-29">Global Marketplace ERP Integration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>An automated NetSuite SuiteScript solution synchronizing fulfillment data and inventory metrics with third-party e-commerce marketplace channels.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-30">
+            <strong id="archive-title-30">Cold Chain Logistics ERP System</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A specialized operational platform automating temperature-controlled inventory management and regulatory compliance workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-31">
+            <strong id="archive-title-31">Enterprise ERP Workflow Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>SuiteScript-driven customizations designed to optimize business processes and operational efficiency within a corporate NetSuite environment.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-32">
+            <strong id="archive-title-32">Infrastructure Automation Toolkit</strong>
+            <span>Python</span>
+            <span>A robust suite of Python and shell scripts engineered to automate routine server provisioning, streamline configuration management, and optimize deployment workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-33">
+            <strong id="archive-title-33">Competitor Market Intelligence Engine</strong>
+            <span>Python</span>
+            <span>A robust data extraction pipeline leveraging Python and TypeScript to aggregate and analyze competitive product catalogs at scale.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-34">
+            <strong id="archive-title-34">Warehousing Network Middleware</strong>
+            <span>JavaScript</span>
+            <span>A JavaScript-based integration solution designed to synchronize operational data and streamline processes across distributed fulfillment centers.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-35">
+            <strong id="archive-title-35">DTC Cosmetics Data Migration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A large-scale data transformation and import framework designed to transition legacy retail records into a modernized ERP environment.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-36">
+            <strong id="archive-title-36">Investment Group Web Platform</strong>
+            <span>Web Application</span>
+            <span>A modern, responsive web application built with Next.js and TypeScript serving as the digital hub for a private investment and finance community.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-37">
+            <strong id="archive-title-37">B2B Financial Automation Suite</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A targeted set of enterprise scripts engineered to automate complex financial reporting and multi-subsidiary consolidation processes.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-38">
+            <strong id="archive-title-38">Financial Operations Dashboard</strong>
+            <span>Web Application</span>
+            <span>A responsive Next.js and React web application developed with TypeScript to centralize internal operational tracking and financial analytics.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-39">
+            <strong id="archive-title-39">Productivity Synchronization Middleware</strong>
+            <span>JavaScript</span>
+            <span>A scalable backend integration service utilizing Fastify and TypeScript to seamlessly synchronize data between task management and time tracking platforms.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-40">
+            <strong id="archive-title-40">Enterprise ERP Analytics Platform</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A comprehensive web-based dashboard built with Next.js and React that integrates deeply with enterprise ERP systems to automate complex business processes and streamline data analysis workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-41">
+            <strong id="archive-title-41">Regional Distribution Hub Operations</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A localized enterprise solution facilitating cross-border fulfillment, regional tax compliance, and automated warehouse routing.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-42">
+            <strong id="archive-title-42">Autonomous Agent Management Interface</strong>
+            <span>Web Application</span>
+            <span>A modern, React-based web dashboard built for configuring, monitoring, and orchestrating intelligent automated agents.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-43">
+            <strong id="archive-title-43">Refurbished Equipment Logistics System</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A comprehensive ERP customization managing the intake, refurbishment lifecycle, and resale fulfillment of high-value technical assets.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-44">
+            <strong id="archive-title-44">Luxury Retail E-commerce Middleware</strong>
+            <span>JavaScript</span>
+            <span>A specialized JavaScript integration orchestrating synchronized catalog updates and inventory availability across high-traffic digital storefronts.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-45">
+            <strong id="archive-title-45">Resource Capacity Planning Middleware</strong>
+            <span>JavaScript</span>
+            <span>A JavaScript-driven integration solution built to seamlessly synchronize capacity and resource data with enterprise NetSuite environments.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-46">
+            <strong id="archive-title-46">Personal Finance Mobile App</strong>
+            <span>Other</span>
+            <span>A native iOS application developed in Swift for intuitive personal budget tracking.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-47">
+            <strong id="archive-title-47">Algorithmic Trading System</strong>
+            <span>Algorithmic Trading</span>
+            <span>Financial analysis and automated trading execution platform with Ichimoku cloud analysis, real-time market data processing, and position management.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-48">
+            <strong id="archive-title-48">Boutique Manufacturing Workflow</strong>
+            <span>JavaScript</span>
+            <span>An automated workflow engine designed to track custom manufacturing orders from initial design through final customer delivery.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-49">
+            <strong id="archive-title-49">Hair Wellness DTC Brand</strong>
+            <span>Hair Wellness</span>
+            <span>High-growth hair wellness brand with subscription management, 3PL integration, and DTC fulfillment automation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-50">
+            <strong id="archive-title-50">Sales Analytics Dashboard</strong>
+            <span>Web Application</span>
+            <span>A high-performance Next.js and React web application built with TypeScript to deliver real-time lead analytics and responsive data visualization.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-51">
+            <strong id="archive-title-51">DTC Skincare Fulfillment Automation</strong>
+            <span>JavaScript</span>
+            <span>A targeted JavaScript integration streamlining direct-to-consumer order processing and third-party logistics synchronization.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-52">
+            <strong id="archive-title-52">Media Streaming ERP Portal</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A full-stack video delivery service bridging a React and Express frontend with NetSuite backend operations for seamless user and subscription management.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-53">
+            <strong id="archive-title-53">Third-Party Logistics Integration</strong>
+            <span>JavaScript</span>
+            <span>A custom JavaScript integration facilitating automated data exchange and order synchronization with an external fulfillment provider.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-54">
+            <strong id="archive-title-54">Enterprise API Gateway Integration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A robust ERP integration layer securely exposing internal business logic to external partner applications and third-party vendors.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-55">
+            <strong id="archive-title-55">Service Provider Web Portal</strong>
+            <span>JavaScript</span>
+            <span>A web platform built with PHP and JavaScript for managing customer connectivity and service requests.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-56">
+            <strong id="archive-title-56">Enterprise ERP Integration Suite</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A tailored NetSuite customization suite leveraging SuiteScript 2.x and XML to automate critical business processes and enhance enterprise resource planning.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-57">
+            <strong id="archive-title-57">AI-Driven ERP Diagnostic Tool</strong>
+            <span>Python</span>
+            <span>An intelligent utility built with Python and JavaScript designed to automatically evaluate and analyze enterprise system configurations.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-58">
+            <strong id="archive-title-58">Luxury Cosmetics Brand</strong>
+            <span>Luxury Cosmetics</span>
+            <span>Full ERP customization for a prestige cosmetics brand  -  order management, inventory allocation, and multi-channel fulfillment.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-59">
+            <strong id="archive-title-59">Clinical Skincare Brand</strong>
+            <span>Clinical Skincare</span>
+            <span>NetSuite customization for clinical skincare brand  -  order management, inventory sync, and fulfillment automation (123+ scripts)</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-60">
+            <strong id="archive-title-60">Algorithmic Demand Planning Integration</strong>
+            <span>Other</span>
+            <span>A sophisticated C# service applying statistical modeling to historical sales data to automate predictive inventory replenishment.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-61">
+            <strong id="archive-title-61">Clean Beauty Brand</strong>
+            <span>Clean Beauty</span>
+            <span>Sustainable beauty brand platform with inventory management, Shopify integration, and automated fulfillment workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-62">
+            <strong id="archive-title-62">Pet Care Workflow Integration</strong>
+            <span>JavaScript</span>
+            <span>A JavaScript and XML integration system streamlining product catalog management and automated order processing for a specialized retail brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-63">
+            <strong id="archive-title-63">Travel Data Analytics Engine</strong>
+            <span>Python</span>
+            <span>A data processing and analytics utility utilizing Python to aggregate, analyze, and report on international travel metrics from tabular datasets.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-64">
+            <strong id="archive-title-64">E-Commerce Fulfillment Automation</strong>
+            <span>Python</span>
+            <span>Automated fulfillment and inventory synchronization integration leveraging JavaScript, Python, and Playwright for an international e-commerce network.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-65">
+            <strong id="archive-title-65">Financial Invoicing Engine</strong>
+            <span>Python</span>
+            <span>A robust Python-based application that automates the generation, processing, and formatting of standardized billing documents.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-66">
+            <strong id="archive-title-66">DTC Cosmetics ERP Integration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A specialized NetSuite customization leveraging XML configuration and SuiteScript to streamline retail operations for a direct-to-consumer brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-67">
+            <strong id="archive-title-67">Logistics &amp; Fulfillment Integration</strong>
+            <span>JavaScript</span>
+            <span>A JavaScript-based integration system bridging e-commerce platforms with shipping and fulfillment providers.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-68">
+            <strong id="archive-title-68">B2B E-Commerce Connector</strong>
+            <span>JavaScript</span>
+            <span>A specialized JavaScript-based solution extending traditional retail platforms to support complex wholesale and business-to-business transactions.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-69">
+            <strong id="archive-title-69">Sales Force Automation Sync</strong>
+            <span>Other</span>
+            <span>A robust C# application synchronizing critical pipeline data and product availability between external CRM systems and the central operational platform.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-70">
+            <strong id="archive-title-70">Consumer Food Delivery iOS App</strong>
+            <span>Other</span>
+            <span>A native Swift mobile application providing users with an intuitive, location-based interface for ordering and delivery tracking.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-71">
+            <strong id="archive-title-71">Digital Media Enterprise ERP</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Implemented custom SuiteScript automations and XML integrations to streamline business operations for a digital media enterprise.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-72">
+            <strong id="archive-title-72">Health &amp; Wellness ERP Automation</strong>
+            <span>JavaScript</span>
+            <span>A suite of custom JavaScript integrations and automated business processes designed to streamline order fulfillment and inventory management for a consumer supplements retailer.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-73">
+            <strong id="archive-title-73">Japanese-Inspired Skincare Brand</strong>
+            <span>Japanese Skincare</span>
+            <span>Luxury skincare brand platform with international fulfillment, inventory management, and e-commerce integration.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-74">
+            <strong id="archive-title-74">Automated Invoice Generation Tool</strong>
+            <span>Python</span>
+            <span>Built a Python-based utility to automatically generate and format professional HTML invoices via shell scripting.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-75">
+            <strong id="archive-title-75">Sporting Goods ERP Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A tailored NetSuite implementation utilizing SuiteScript and Python to streamline retail operations, order processing, and inventory management.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-76">
+            <strong id="archive-title-76">Minimalist Beauty Brand</strong>
+            <span>Minimalist Beauty</span>
+            <span>Streamlined ERP automation for a fast-growing minimalist beauty brand with Shopify and 3PL connectivity.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-77">
+            <strong id="archive-title-77">Interactive Frontend Web Application</strong>
+            <span>Web Application</span>
+            <span>Designed and developed a responsive, interactive web application utilizing React and TypeScript for robust state management.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-78">
+            <strong id="archive-title-78">Native iOS Social Networking App</strong>
+            <span>Other</span>
+            <span>Constructed a native iOS social application utilizing Swift to deliver seamless user interactions and robust mobile networking.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-79">
+            <strong id="archive-title-79">Supply Chain Network ERP Deployment</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Orchestrated a comprehensive NetSuite ERP deployment featuring custom SuiteScript 2.x modules for supply chain operations.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-80">
+            <strong id="archive-title-80">Event Management Automation Platform</strong>
+            <span>JavaScript</span>
+            <span>Created dynamic JavaScript-based automation scripts to facilitate on-site event logistics and operational tracking.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-81">
+            <strong id="archive-title-81">Version Control Automation Utility</strong>
+            <span>Python</span>
+            <span>A specialized utility leveraging JavaScript and Python to streamline and automate customized repository management workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-82">
+            <strong id="archive-title-82">Secure Payment Gateway Integration</strong>
+            <span>Python</span>
+            <span>Integrated secure payment processing capabilities utilizing Python to connect backend systems with financial gateway APIs.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-83">
+            <strong id="archive-title-83">Phone Terminal PWA</strong>
+            <span>Developer Utility</span>
+            <span>Access your MacBook terminal from your iPhone. Persistent sessions via tmux, WebSocket-based real-time communication, and mobile-optimized xterm.js interface.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-84">
+            <strong id="archive-title-84">DTC Beauty Brand ERP Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A targeted NetSuite SuiteScript implementation built to streamline e-commerce order processing and inventory fulfillment workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-85">
+            <strong id="archive-title-85">ERP Development Automation Toolkit</strong>
+            <span>Python</span>
+            <span>A standardized Python and JavaScript tooling suite designed to automate and enforce consistent local development environments for NetSuite engineering teams.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-86">
+            <strong id="archive-title-86">Expense Management System Connector</strong>
+            <span>Other</span>
+            <span>Formulated a data mapping and integration layer to synchronize enterprise expense reporting systems via structured JSON payloads.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-87">
+            <strong id="archive-title-87">Luxury Cosmetics E-Commerce Optimization</strong>
+            <span>JavaScript</span>
+            <span>Streamlined e-commerce functionalities and user experience for a direct-to-consumer beauty brand using specialized JavaScript implementations.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-88">
+            <strong id="archive-title-88">Industrial Manufacturing Application</strong>
+            <span>JavaScript</span>
+            <span>A data-intensive custom JavaScript solution designed to manage specialized workflows for the industrial chemical sector.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-89">
+            <strong id="archive-title-89">Skincare Brand Operational Workflow</strong>
+            <span>JavaScript</span>
+            <span>Customized core operational business workflows utilizing JavaScript and XML for a rapidly scaling direct-to-consumer skincare brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-90">
+            <strong id="archive-title-90">Enterprise ERP Data Migration Layer</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Executed a targeted NetSuite ERP data migration utilizing SuiteScript 2.x to ensure seamless business continuity.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-91">
+            <strong id="archive-title-91">Commercial Furniture ERP Customization</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Implemented custom NetSuite SuiteScript modules to automate inventory and fulfillment processes for a commercial furniture provider.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-92">
+            <strong id="archive-title-92">Professional Networking Data Analysis</strong>
+            <span>Other</span>
+            <span>Compiled and structured comprehensive professional networking data sets using standardized HTML and Markdown documentation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-93">
+            <strong id="archive-title-93">Celebrity-Founded Beauty Brand</strong>
+            <span>Celebrity Beauty</span>
+            <span>Emerging celebrity beauty brand with e-commerce integration and initial ERP automation setup.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-94">
+            <strong id="archive-title-94">Warehouse Capacity &amp; Fulfillment Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Developed a NetSuite SDF project utilizing SuiteScript 2.x to automate warehouse scanning and optimize fulfillment capacity.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-95">
+            <strong id="archive-title-95">Clean Color Cosmetics Brand</strong>
+            <span>Clean Color Cosmetics</span>
+            <span>Clean cosmetics brand with multi-channel order routing, inventory sync, and Shopify-NetSuite connectivity.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-96">
+            <strong id="archive-title-96">Consumer Goods Prototyping Platform</strong>
+            <span>JavaScript</span>
+            <span>Engineered specialized JavaScript functionalities to support a consumer-focused product prototyping and delivery platform.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-97">
+            <strong id="archive-title-97">Appliance Manufacturer ERP Framework</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Structured an automated SuiteCloud Development Framework deployment to streamline ERP updates for a consumer appliance manufacturer.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-98">
+            <strong id="archive-title-98">Luxury Fashion Retail Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Customized NetSuite business processes using SuiteScript to enhance retail operations for a luxury fashion accessory brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-99">
+            <strong id="archive-title-99">ERP Demand Planning Connector</strong>
+            <span>JavaScript</span>
+            <span>Built a tailored JavaScript integration to synchronize enterprise resource planning with advanced demand forecasting systems.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-100">
+            <strong id="archive-title-100">EKW Auto Login</strong>
+            <span>Automation</span>
+            <span>Automated authentication system for multi-portal access management, streamlining daily operational workflows across client environments.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-101">
+            <strong id="archive-title-101">Project Management Automation Scripts</strong>
+            <span>Other</span>
+            <span>Created custom shell scripts to automate and streamline agile project management workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-102">
+            <strong id="archive-title-102">Beverage E-Commerce Customization</strong>
+            <span>JavaScript</span>
+            <span>Optimized e-commerce functionalities with targeted JavaScript enhancements for a specialized consumer beverage brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-103">
+            <strong id="archive-title-103">Consulting Services ERP Enhancements</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Deployed concise SuiteScript 2.x customizations to support specialized billing and resource management for a consulting firm.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-104">
+            <strong id="archive-title-104">Bulk Data Processing Utility</strong>
+            <span>JavaScript</span>
+            <span>Developed an efficient JavaScript utility to automate the parsing, transformation, and processing of bulk CSV data feeds.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-105">
+            <strong id="archive-title-105">Personal Care Franchise Integration</strong>
+            <span>JavaScript</span>
+            <span>A focused JavaScript and XML integration developed to streamline operational workflows for a national beauty retail chain.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-106">
+            <strong id="archive-title-106">Clean Beauty Digital Optimization</strong>
+            <span>JavaScript</span>
+            <span>Implemented targeted JavaScript and XML refinements to support dynamic e-commerce operations for a cosmetics brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-107">
+            <strong id="archive-title-107">Procedural Animation Scripts</strong>
+            <span>Python</span>
+            <span>A specialized collection of Python scripts developed for programmatic visualization and automated animation generation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-108">
+            <strong id="archive-title-108">Digital Marketing Portal</strong>
+            <span>Other</span>
+            <span>A streamlined digital marketing platform utilizing markdown and static HTML for optimized content distribution.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-109">
+            <strong id="archive-title-109">Digital Portfolio Platform</strong>
+            <span>Other</span>
+            <span>A streamlined static web platform utilizing HTML and Markdown for high-performance content delivery and professional presentation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-110">
+            <strong id="archive-title-110">Consumer Finance ERP Integration</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Delivered customized NetSuite scripting solutions to support backend financial operations for a consumer credit provider.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-111">
+            <strong id="archive-title-111">ERP Orchestration Engine</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>A SuiteScript-driven NetSuite customization for automating complex enterprise business processes.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-112">
+            <strong id="archive-title-112">Dermatological Skincare Web Enhancements</strong>
+            <span>JavaScript</span>
+            <span>Provided precise JavaScript enhancements to elevate the digital storefront of a premium dermatological brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-113">
+            <strong id="archive-title-113">Logistics Data Management Script</strong>
+            <span>Python</span>
+            <span>Engineered a lightweight Python application to manage and configure specialized logistics data parameters.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-114">
+            <strong id="archive-title-114">Appliance Retailer Data Pipeline</strong>
+            <span>Python</span>
+            <span>A customized Python-based ODBC integration utility designed to securely extract and transform mission-critical enterprise data.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-115">
+            <strong id="archive-title-115">Global Sourcing ERP Automation</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Streamlined procurement workflows and supplier data management through custom SuiteScript modules.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-116">
+            <strong id="archive-title-116">Financial Data Migration Scripts</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Facilitated seamless legacy data transition into the NetSuite ERP ecosystem using targeted automated scripts.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-117">
+            <strong id="archive-title-117">Technical Documentation Hub</strong>
+            <span>Other</span>
+            <span>Comprehensive Markdown-based architecture and process documentation for an enterprise system.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-118">
+            <strong id="archive-title-118">DTC Apparel Enhancements</strong>
+            <span>JavaScript</span>
+            <span>Developed custom frontend modules to enhance user experience for a direct-to-consumer lifestyle brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-119">
+            <strong id="archive-title-119">Tour and Activity Booking Integration</strong>
+            <span>JavaScript</span>
+            <span>Developed dynamic JavaScript components for a high-traffic travel reservation and management platform.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-120">
+            <strong id="archive-title-120">Health Food Retail Platform</strong>
+            <span>JavaScript</span>
+            <span>Built interactive user interface components and integrations for a specialized nutritional retail storefront.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-121">
+            <strong id="archive-title-121">DTC Beauty ERP Workflow</strong>
+            <span>JavaScript</span>
+            <span>A targeted NetSuite User Event script optimizing transaction workflows for a direct-to-consumer brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-122">
+            <strong id="archive-title-122">Professional Services Website</strong>
+            <span>JavaScript</span>
+            <span>A lightweight, responsive web presence developed for a boutique consulting firm.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-123">
+            <strong id="archive-title-123">B2B Fulfillment ERP Customization</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Implemented targeted NetSuite automations to optimize warehouse routing and order fulfillment processes.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-124">
+            <strong id="archive-title-124">Wellness Brand E-commerce Scripts</strong>
+            <span>JavaScript</span>
+            <span>Delivered lightweight frontend interactions and UI enhancements for a boutique wellness platform.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-125">
+            <strong id="archive-title-125">Nutraceutical Storefront Enhancements</strong>
+            <span>JavaScript</span>
+            <span>Developed responsive JavaScript features and XML data integrations for a dietary supplement e-commerce site.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-126">
+            <strong id="archive-title-126">Pharmacy API Integration</strong>
+            <span>JavaScript</span>
+            <span>Created a focused JavaScript integration layer for secure telehealth and prescription fulfillment services.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-127">
+            <strong id="archive-title-127">Retail Product Recommendation Extension</strong>
+            <span>JavaScript</span>
+            <span>A focused JavaScript extension providing automated product recommendation features for an e-commerce storefront.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-128">
+            <strong id="archive-title-128">HRIS Data Integration Pipeline</strong>
+            <span>Other</span>
+            <span>A data integration workflow designed to synchronize records between payroll and time-tracking platforms.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-129">
+            <strong id="archive-title-129">Developer Tooling Landing Page</strong>
+            <span>JavaScript</span>
+            <span>Constructed a responsive, interactive marketing website for a cloud development environment platform.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-130">
+            <strong id="archive-title-130">Pharmaceutical Corporate Portal</strong>
+            <span>JavaScript</span>
+            <span>Built dynamic user interface components for a global pharmaceutical and dermo-cosmetics corporate website.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-131">
+            <strong id="archive-title-131">DTC Makeup Storefront</strong>
+            <span>JavaScript</span>
+            <span>Developed targeted UI modules to improve cart conversion rates for a rapidly growing direct-to-consumer beauty brand.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-132">
+            <strong id="archive-title-132">ERP System Diagnostics</strong>
+            <span>NetSuite/SuiteScript</span>
+            <span>Created minimal NetSuite validation scripts to ensure environment integrity and functionality.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-133">
+            <strong id="archive-title-133">Digital Asset Education Platform</strong>
+            <span>JavaScript</span>
+            <span>Engineered a comprehensive interactive learning module for cryptocurrency and digital asset education.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-134">
+            <strong id="archive-title-134">Financial Advisory Dashboard</strong>
+            <span>JavaScript</span>
+            <span>Implemented customized interactive frontend components for a boutique financial management advisory firm.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-135">
+            <strong id="archive-title-135">AI Workflow Automation Engine</strong>
+            <span>Python</span>
+            <span>Developed a robust Python automation utility to streamline repetitive system data processing tasks.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-136">
+            <strong id="archive-title-136">ITSM Service Desk Utility</strong>
+            <span>Other</span>
+            <span>A lightweight configuration utility built to streamline IT service management ticketing workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-137">
+            <strong id="archive-title-137">Enterprise ERP REST Integration</strong>
+            <span>Other</span>
+            <span>A streamlined REST API service designed to facilitate automated machine-to-machine communication and data synchronization within an enterprise ERP system.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-138">
+            <strong id="archive-title-138">Consumer Goods API Authentication</strong>
+            <span>Other</span>
+            <span>An integration module handling OAuth2 and SOAP communications for enterprise manufacturing systems.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-139">
+            <strong id="archive-title-139">Enterprise Refund Workflow Interfaces</strong>
+            <span>Other</span>
+            <span>Process definitions and layout guidelines for an automated corporate customer refund system.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-140">
+            <strong id="archive-title-140">Professional Networking Page</strong>
+            <span>Other</span>
+            <span>A static HTML landing page designed for targeted professional outreach and portfolio presentation.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-141">
+            <strong id="archive-title-141">Cosmetics Data Schema</strong>
+            <span>Other</span>
+            <span>Defined structured XML data schemas for product catalog management in a retail environment.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-142">
+            <strong id="archive-title-142">Skincare E-commerce UI</strong>
+            <span>JavaScript</span>
+            <span>Built specialized interactive frontend components for a high-traffic skincare brand storefront.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-143">
+            <strong id="archive-title-143">Specialty Retail Storefront</strong>
+            <span>JavaScript</span>
+            <span>Enhanced product filtering and display capabilities using custom JavaScript for a specialty apparel site.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-144">
+            <strong id="archive-title-144">Logistics Inventory Reconciliation</strong>
+            <span>Other</span>
+            <span>Documentation and utility configuration designed to streamline and automate warehouse inventory reconciliation processes.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-145">
+            <strong id="archive-title-145">Financial Services Authentication Module</strong>
+            <span>Other</span>
+            <span>A secure authentication integration module for financial institution access.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-146">
+            <strong id="archive-title-146">Technical Documentation Page</strong>
+            <span>Other</span>
+            <span>A streamlined single-page web asset providing structured technical guidelines.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-147">
+            <strong id="archive-title-147">Automated Document Generation</strong>
+            <span>JavaScript</span>
+            <span>Created a custom utility to programmatically generate dynamic PDF invoices for an e-commerce platform.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-148">
+            <strong id="archive-title-148">Static Promotional Site</strong>
+            <span>Other</span>
+            <span>A streamlined HTML landing page for product marketing.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-149">
+            <strong id="archive-title-149">Clean Beauty Network Platform</strong>
+            <span>Clean Beauty Network</span>
+            <span>Multi-channel clean beauty company with complex commission structures and inventory allocation logic.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-150">
+            <strong id="archive-title-150">Version Control Utility Script</strong>
+            <span>JavaScript</span>
+            <span>Authored a specialized JavaScript utility to automate and manage custom source control workflows.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-151">
+            <strong id="archive-title-151">Minimalist Retail UI Component</strong>
+            <span>JavaScript</span>
+            <span>Implemented targeted frontend animations and interactions for a highly curated direct-to-consumer brand website.</span>
+          </article>
+          
+          <article class="archive-row" aria-labelledby="archive-title-152">
+            <strong id="archive-title-152">Biotech Dashboard Module</strong>
+            <span>JavaScript</span>
+            <span>Developed a concise JavaScript visualization component for a specialized biopharmaceutical data dashboard.</span>
+          </article>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 03: Stack & Capabilities ── -->
+    <section class="section wrap" id="stack">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-kicker">03 // capabilities & stack</span>
+          <h2 class="section-title">Core Technologies & Boundaries</h2>
+          <p class="section-sub">Specialized toolsets across NetSuite ERP, integration middleware, logistics, and engineering.</p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="stack-group">
+          <div class="stack-label">ERP Platform & SuiteCloud</div>
+          <div class="pill-grid">
+            <span class="stack-pill">NetSuite</span>
+            <span class="stack-pill">SuiteScript 2.x</span>
+            <span class="stack-pill">SuiteFlow</span>
+            <span class="stack-pill">SuiteTalk</span>
+            <span class="stack-pill">SuiteQL</span>
+            <span class="stack-pill">SDF</span>
+            <span class="stack-pill">Map/Reduce</span>
+            <span class="stack-pill">Suitelets</span>
+            <span class="stack-pill">RESTlets</span>
+            <span class="stack-pill">Multi-Subsidiary</span>
+            <span class="stack-pill">Revenue Recognition</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">Integration & Middleware</div>
+          <div class="pill-grid">
+            <span class="stack-pill">Celigo iPaaS (Legendary)</span>
+            <span class="stack-pill">REST APIs</span>
+            <span class="stack-pill">SOAP Web Services</span>
+            <span class="stack-pill">EDI</span>
+            <span class="stack-pill">Webhooks</span>
+            <span class="stack-pill">ODBC</span>
+            <span class="stack-pill">JSON / XML Transformation</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">3PL, Logistics & Channels</div>
+          <div class="pill-grid">
+            <span class="stack-pill">Masonhub</span>
+            <span class="stack-pill">ShipBob</span>
+            <span class="stack-pill">Capacity 3PL</span>
+            <span class="stack-pill">Radial</span>
+            <span class="stack-pill">ILG</span>
+            <span class="stack-pill">DHL Express</span>
+            <span class="stack-pill">FedEx</span>
+            <span class="stack-pill">Shopify</span>
+            <span class="stack-pill">Amazon</span>
+            <span class="stack-pill">Walmart</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">Engineering, Languages & Tools</div>
+          <div class="pill-grid">
+            <span class="stack-pill">JavaScript</span>
+            <span class="stack-pill">TypeScript</span>
+            <span class="stack-pill">Python (FastAPI / Flask)</span>
+            <span class="stack-pill">SQL</span>
+            <span class="stack-pill">Node.js</span>
+            <span class="stack-pill">Git</span>
+            <span class="stack-pill">CI/CD</span>
+            <span class="stack-pill">Observability</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">AI Agent Orchestration & Autonomous Systems</div>
+          <div class="pill-grid">
+            <span class="stack-pill">Parallel Agent Swarms</span>
+            <span class="stack-pill">Autonomous Dev Loops</span>
+            <span class="stack-pill">Multi-Agent Task DAGs</span>
+            <span class="stack-pill">Automated Root-Cause Diagnosis</span>
+            <span class="stack-pill">Tracker Pipeline Integration (Jira / ClickUp / Freshservice)</span>
+            <span class="stack-pill">Automated Sandbox QA</span>
+            <span class="stack-pill">Isolated Worktree Dispatch</span>
+            <span class="stack-pill">Zero-Regression Gatekeeping</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 04: Credentials & Education ── -->
+    <section class="section wrap" id="credentials">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-kicker">04 // credentials</span>
+          <h2 class="section-title">Certifications & Education</h2>
+          <p class="section-sub">Industry credentials, vendor certifications, and academic engineering honors.</p>
+        </div>
+      </div>
+
+      <div class="cert-grid reveal">
+        <div class="cert-card">
+          <div>
+            <div class="cert-issuer">Celigo</div>
+            <h3 class="cert-title">Mastery Level 4: LEGENDARY</h3>
+            <p class="cert-sub">Highest tier of technical mastery on the Celigo iPaaS platform.</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <div class="cert-issuer">Celigo</div>
+            <h3 class="cert-title">Builder Core Certification</h3>
+            <p class="cert-sub">Architecting high-volume integration flows, error management, and data transformations.</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <div class="cert-issuer">Oracle NetSuite</div>
+            <h3 class="cert-title">NetSuite Certified Associate</h3>
+            <p class="cert-sub">Certified Financial Associate, BI & Reporting Associate, and AI Foundations Associate.</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <div class="cert-issuer">Oracle Cloud Infrastructure</div>
+            <h3 class="cert-title">OCI Certified AI Foundations Associate</h3>
+            <p class="cert-sub">Cloud architecture, machine learning concepts, and AI workloads on Oracle Cloud.</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <div class="cert-issuer">Oracle NetSuite</div>
+            <h3 class="cert-title">NetSuite SuiteFoundation</h3>
+            <p class="cert-sub">Core NetSuite ERP platform configuration, security, user administration, and financial workflows.</p>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div>
+            <div class="cert-issuer">Mapúa Institute of Technology</div>
+            <h3 class="cert-title">B.S. Computer Engineering</h3>
+            <p class="cert-sub">Top 5 in Class (Excellence Awardee), Best Thesis in Computer Engineering, Debate Champion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 05: Contact ── -->
+    <section class="section wrap" id="contact">
+      <div class="contact-card viewfinder reveal">
+        <span class="pc pc-tl" aria-hidden="true"></span>
+  <span class="pc pc-tr" aria-hidden="true"></span>
+  <span class="pc pc-bl" aria-hidden="true"></span>
+  <span class="pc pc-br" aria-hidden="true"></span>
+        <div class="contact-star-mark" aria-hidden="true">
+          <svg class="" viewBox="-106 -111 212 222" width="44" height="44" aria-hidden="true">
+    <use href="#star-path"/>
+  </svg>
+        </div>
+        <span class="section-kicker">05 // transmission</span>
+        <h2 class="contact-title">Bring me the system that needs clarity.</h2>
+        <p class="contact-desc">
+          Whether you are evaluating a NetSuite implementation, resolving high-volume 3PL bottlenecks, or architecting multi-subsidiary integrations - let's talk.
+        </p>
+
+        <div class="contact-actions">
+          <a class="button button--primary" href="mailto:ejaquino26@gmail.com?subject=Consulting%20Inquiry">Discuss a system</a>
+          <a class="button button--quiet" href="mailto:ejaquino26@gmail.com?subject=Career%20Opportunity">I'm hiring</a>
+          <a class="button button--quiet" href="mailto:ejaquino26@gmail.com">Email</a>
+          <a class="button button--quiet" href="https://wa.me/639055147337" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="button button--quiet" href="https://www.linkedin.com/in/ejaquino/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>&copy; 2026 Erick Joshua A. Aquino</span>
+      <span>Generated 2026-05-26T13:14:20Z / built for evidence</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+      if (!toggle || !links) return;
+      function closeNav(returnFocus) {
+        links.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+        toggle.textContent = 'Menu';
+        if (returnFocus) toggle.focus();
+      }
+      toggle.addEventListener('click', function () {
+        var opening = !links.classList.contains('is-open');
+        links.classList.toggle('is-open', opening);
+        toggle.setAttribute('aria-expanded', String(opening));
+        toggle.setAttribute('aria-label', opening ? 'Close menu' : 'Open menu');
+        toggle.textContent = opening ? 'Close' : 'Menu';
+      });
+      links.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', function () { closeNav(false); }); });
+      document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && links.classList.contains('is-open')) closeNav(true); });
+      window.addEventListener('resize', function () { if (window.innerWidth > 900) closeNav(false); });
+    })();
+
+    (function () {
+      var button = document.getElementById('portfolioToggle');
+      var archive = document.getElementById('extendedPortfolio');
+      if (!button || !archive) return;
+      archive.hidden = true;
+      var closedLabel = button.textContent.trim();
+      button.addEventListener('click', function () {
+        var opening = archive.hidden;
+        archive.hidden = !opening;
+        button.setAttribute('aria-expanded', String(opening));
+        button.textContent = opening ? 'Show fewer projects' : closedLabel;
+      });
+    })();
+
+    (function () {
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var items = document.querySelectorAll('.reveal');
+      if (reduced) { items.forEach(function (item) { item.classList.add('is-visible'); }); return; }
+      if (!('IntersectionObserver' in window)) { items.forEach(function (item) { item.classList.add('is-visible'); }); return; }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
+      }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+      items.forEach(function (item) { observer.observe(item); });
+    })();
+
+    (function () {
+      var consoleEl = document.getElementById('pipelineConsole');
+      if (!consoleEl) return;
+      var tabs = Array.prototype.slice.call(consoleEl.querySelectorAll('[role="tab"]'));
+      var panes = Array.prototype.slice.call(consoleEl.querySelectorAll('[role="tabpanel"]'));
+
+      function activateTab(tab) {
+        tabs.forEach(function (t) {
+          t.classList.remove('is-active');
+          t.setAttribute('aria-selected', 'false');
+          t.setAttribute('tabindex', '-1');
+        });
+        panes.forEach(function (p) {
+          p.classList.remove('is-active');
+          p.hidden = true;
+        });
+
+        tab.classList.add('is-active');
+        tab.setAttribute('aria-selected', 'true');
+        tab.removeAttribute('tabindex');
+
+        var targetId = tab.getAttribute('aria-controls');
+        var targetPane = document.getElementById(targetId);
+        if (targetPane) {
+          targetPane.hidden = false;
+          targetPane.classList.add('is-active');
+        }
+      }
+
+      tabs.forEach(function (tab, idx) {
+        tab.addEventListener('click', function () {
+          activateTab(tab);
+        });
+
+        tab.addEventListener('keydown', function (e) {
+          var targetIndex = -1;
+          if (e.key === 'ArrowRight') {
+            targetIndex = (idx + 1) % tabs.length;
+          } else if (e.key === 'ArrowLeft') {
+            targetIndex = (idx - 1 + tabs.length) % tabs.length;
+          } else if (e.key === 'Home') {
+            targetIndex = 0;
+          } else if (e.key === 'End') {
+            targetIndex = tabs.length - 1;
+          }
+          if (targetIndex !== -1) {
+            e.preventDefault();
+            tabs[targetIndex].focus();
+            activateTab(tabs[targetIndex]);
+          }
+        });
+      });
+    })();
+
+    (function () {
+      var isFinePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (!isFinePointer) return;
+      var dot = document.getElementById('cur-dot');
+      var ring = document.getElementById('cur-ring');
+      if (!dot || !ring) return;
+
+      document.body.classList.add('has-custom-cursor');
+
+      var mouseX = -100;
+      var mouseY = -100;
+      var ringX = -100;
+      var ringY = -100;
+      var isVisible = false;
+
+      window.addEventListener('pointermove', function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (!isVisible) {
+          isVisible = true;
+          dot.style.opacity = '1';
+          ring.style.opacity = '1';
+        }
+        dot.style.transform = 'translate3d(' + mouseX + 'px,' + mouseY + 'px,0)';
+      }, { passive: true });
+
+      document.addEventListener('pointerleave', function () {
+        isVisible = false;
+        dot.style.opacity = '0';
+        ring.style.opacity = '0';
+      });
+
+      document.addEventListener('pointerenter', function () {
+        isVisible = true;
+        dot.style.opacity = '1';
+        ring.style.opacity = '1';
+      });
+
+      function renderRing() {
+        if (isVisible) {
+          ringX += (mouseX - ringX) * 0.22;
+          ringY += (mouseY - ringY) * 0.22;
+          ring.style.transform = 'translate3d(' + ringX + 'px,' + ringY + 'px,0)';
+        }
+        requestAnimationFrame(renderRing);
+      }
+      requestAnimationFrame(renderRing);
+
+      var hoverables = 'a, button, [role="tab"], .viewfinder, input, textarea';
+      document.addEventListener('pointerover', function (e) {
+        if (e.target && e.target.closest && e.target.closest(hoverables)) {
+          ring.classList.add('is-hovering');
+        }
+      });
+      document.addEventListener('pointerout', function (e) {
+        if (e.target && e.target.closest && e.target.closest(hoverables)) {
+          ring.classList.remove('is-hovering');
+        }
+      });
+    })();
+
+    (function () {
+      var toast = document.getElementById('copyToast');
+      var toastTimer = null;
+      var email = 'ejaquino26@gmail.com';
+
+      document.addEventListener('click', function (e) {
+        var anchor = e.target && e.target.closest ? e.target.closest('a[href*="mailto:' + email + '"]') : null;
+        if (!anchor) return;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(function () {
+            if (!toast) return;
+            toast.classList.add('is-active');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(function () {
+              toast.classList.remove('is-active');
+            }, 2200);
+          }).catch(function () {});
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
